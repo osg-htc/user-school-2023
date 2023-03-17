@@ -8,6 +8,8 @@
 
 *Learn how this summer at the lovely [University of Wisconsin–Madison](https://wisc.edu/)*
 
+<p style="color: #FF6600; font-weight: bold;">Applications are now open! <a href="#applications">See below</a> for details.</p>
+
 During the School,
 <span style="font-weight: bold; color: #FF6600;">August 7&ndash;11</span>,
 you will learn to use [high-throughput computing](https://htcondor.org/htc.html) (HTC) systems
@@ -37,9 +39,30 @@ People accepted to this program will receive financial support for
 basic travel and local costs associated with the School.
 
 
+## Applications
+
+Applications are now open.
+**The deadline for applications is Monday, 17 April 2023.**
+Submit your application soon to ensure consideration!
+
+To apply, complete both of the steps below (in parallel, if you like):
+
+* Complete the [online application form](https://uwmadison.co1.qualtrics.com/jfe/form/SV_9shkUL5ZDSghKvk)
+  (the link goes to a Qualtrics survey, which is the application)
+
+* Have someone email a letter of recommendation for you to
+  [user-school@opensciencegrid.org](mailto:user-school@opensciencegrid.org)
+  (ideally PDF or plain text)
+
+For the letter of recommendation, ask someone who knows you professionally&nbsp;&mdash;
+ideally a faculty member or other supervisor.
+They should clearly identify your name and the “OSG User School 2023” in the subject line and letter,
+so that we can associate your application and letter.
+
+
 ## Contact Us
 
-The OSG User School is part of the
+The OSG School is part of the
 [OSG Outreach Area](https://osg-htc.org/outreach/)&nbsp;&mdash;
 please visit that site to learn about other OSG Outreach activities.
 
