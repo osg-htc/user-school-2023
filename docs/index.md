@@ -51,7 +51,7 @@ To apply, complete both of the steps below (in parallel, if you like):
   (the link goes to a Qualtrics survey, which is the application)
 
 * Have someone email a letter of recommendation for you to
-  [user-school@opensciencegrid.org](mailto:user-school@opensciencegrid.org)
+  [user-school@osg-htc.org](mailto:user-school@osg-htc.org)
   (ideally PDF or plain text)
 
 For the letter of recommendation, ask someone who knows you professionally&nbsp;&mdash;
@@ -68,7 +68,7 @@ please visit that site to learn about other OSG Outreach activities.
 
 If you have any questions about the event, feel free to email us:
 
-<user-school@opensciencegrid.org>
+<user-school@osg-htc.org>
 
 <a href="https://www.facebook.com/OSGUserSchool" target="_blank" style="border: 0px none black; text-decoration: none;"><img src="files/FB-f-Logo__blue_512.png" height="28" width="28" alt="Facebook logo"></a> <a href="https://twitter.com/OSGUserSchool" target="_blank" style="border: 0px none black; text-decoration: none;"><img src="files/Twitter_logo_blue.png" style="height: 28px; width: 28px; background-color: white;" alt="Twitter logo"></a> OSGUserSchool
 
