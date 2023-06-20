@@ -1,11 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"><url>
      <loc>https://osg-htc.org/user-school-2023/</loc>
-     <lastmod>2023-06-09</lastmod>
+     <lastmod>2023-06-20</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://osg-htc.org/user-school-2023/schedule/</loc>
-     <lastmod>2023-06-09</lastmod>
+     <lastmod>2023-06-20</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
+     <loc>https://osg-htc.org/user-school-2023/logistics/</loc>
+     <lastmod>2023-06-20</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
+     <loc>https://osg-htc.org/user-school-2023/logistics/travel-form/</loc>
+     <lastmod>2023-06-20</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
+     <loc>https://osg-htc.org/user-school-2023/logistics/visas/</loc>
+     <lastmod>2023-06-20</lastmod>
      <changefreq>daily</changefreq>
     </url>
 </urlset>
