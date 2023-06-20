@@ -6,6 +6,7 @@ There will be other pages with local details soon.
 
 -   [Visa requirements for non-resident aliens](visas.md)
 -   [Travel planning to and from Madison](travel-planning.md)
+-   [Hotel information](hotel.md)
 
 As always: If you have questions, email us at <user-school@osg-htc.org>.
 Use that email address for all emails about the organization of the School.
