@@ -35,6 +35,6 @@ nav:
   - Logistics:
     - General information:          logistics/index.md
     - Travel:
-      - Travel planning:            logistics/travel.md
+      - Travel planning:            logistics/travel-planning.md
       - Travel Inc form tips:       logistics/travel-form.md
     - Visa requirements:            logistics/visas.md
