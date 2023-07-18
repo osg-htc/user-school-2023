@@ -1,10 +1,10 @@
-# OSG User School 2023
+# OSG School 2023
 
 <figure>
     <img src="assets/Madison_Skyline.jpeg" alt="Madison Skyline" />
 </figure>
 
-<p style="font-size: larger; font-weight: bold;">Could you transform your research with vast amounts of computing?</p>
+<p style="font-size: larger; font-weight: bold;">Could you transform your research with scaling out your computing?</p>
 
 *Learn how this summer at the lovely [University of Wisconsin–Madison](https://wisc.edu/)*
 
@@ -36,25 +36,10 @@ The school is ideal for:
 People accepted to this program will receive financial support for
 basic travel and local costs associated with the School.
 
-
 ## Applications
 
 Applications are now closed for 2023.
-The deadline for applications was Monday, 18 April 2023.
-
-If still needed,
-have someone email a letter of recommendation for you to
-[user-school@osg-htc.org](mailto:user-school@osg-htc.org)
-(any reasonable format is fine; we like PDF or plain text best)
-
-For the letter of recommendation, ask someone who knows you professionally&nbsp;&mdash;
-ideally a faculty member or other supervisor.
-They should clearly identify your name and the “OSG User School 2023” in the subject line and letter,
-so that we can associate your application and letter.
-
-**Applicants:**
-We plan to review applications by late April and invite participants by early May or so. 
-We will contact you once decisions have been made. Thank you for your patience!
+Watch for us again in 2024!
 
 ## Contact Us
 
