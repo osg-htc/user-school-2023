@@ -1,6 +1,6 @@
 # OSG School 2023 Logistics
 
-The following pages describe some of the important information about your visit to Madison for the OSG User School.
+The following pages describe some of the important information about your visit to Madison for the OSG School.
 Please read them carefully.
 There will be other pages with local details soon.
 

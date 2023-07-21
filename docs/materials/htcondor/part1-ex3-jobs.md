@@ -239,7 +239,7 @@ Below is a Python script that does something similar to the shell script above. 
 ```python
 #!/usr/bin/env python
 
-"""Extra Challenge for OSG User School
+"""Extra Challenge for OSG School
 Written by Tim Cartwright
 Submitted to CHTC by #YOUR_NAME#
 """
