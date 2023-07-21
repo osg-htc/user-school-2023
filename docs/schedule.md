@@ -30,7 +30,7 @@ Details to be determined and posted here.
     <tr>
         <td>9:00</td>
         <td>9:15</td>
-        <td>Welcome to the OSG User School</td>
+        <td>Welcome to the OSG School</td>
         <td>Tim C.</td>
     </tr>
     <tr>
