@@ -361,6 +361,13 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#exercise-goal" class="md-nav__link">
+    Exercise Goal
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#running-many-jobs-with-one-queue-statement" class="md-nav__link">
     Running Many Jobs With One queue Statement
   </a>
@@ -418,6 +425,7 @@
                 <style type="text/css"> pre em { font-style: normal; background-color: yellow; } pre strong { font-style: normal; font-weight: bold; color: \#008; } </style>
 
 <h1 id="htc-exercise-22-use-queue-n-cluster-and-process">HTC Exercise 2.2: Use queue <em>N</em>, $(Cluster), and $(Process)<a class="headerlink" href="#htc-exercise-22-use-queue-n-cluster-and-process" title="Permanent link">&para;</a></h1>
+<h2 id="exercise-goal">Exercise Goal<a class="headerlink" href="#exercise-goal" title="Permanent link">&para;</a></h2>
 <p>The goal of the next several exercises is
 to learn to submit many jobs from a single <code>queue</code> statement,
 and to control things like filenames and arguments on a per-job basis when doing so.</p>
@@ -426,9 +434,9 @@ and to control things like filenames and arguments on a per-job basis when doing
 <li>Write one submit file; submit one job, change the argument in the submit file, submit another job, change the submit file, …</li>
 <li>Write many submit files that are nearly identical except for the program argument</li>
 </ul>
-<p>Neither of these options seems very satisfying. Fortunately, we can do better with HTCondor.</p>
+<p>Neither of these options seems very satisfying. Fortunately, HTCondor's <code>queue</code> statement is here to help!</p>
 <h2 id="running-many-jobs-with-one-queue-statement">Running Many Jobs With One queue Statement<a class="headerlink" href="#running-many-jobs-with-one-queue-statement" title="Permanent link">&para;</a></h2>
-<p>Here is a C program that uses a stochastic (random) method to estimate the value of π — feel free to try to figure out the method from the code, but it is not critical for this exercise. The single argument to the program is the number of samples to take. More samples should result in better estimates!</p>
+<p>Here is a C program that uses a stochastic (random) method to estimate the value of π. The single argument to the program is the number of samples to take. More samples should result in better estimates!</p>
 <div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp"></span>
 <span class="cp">#include</span> <span class="cpf">&lt;stdlib.h&gt;</span><span class="cp"></span>
 <span class="cp">#include</span> <span class="cpf">&lt;sys/time.h&gt;</span><span class="cp"></span>
@@ -468,13 +476,13 @@ and to control things like filenames and arguments on a per-job basis when doing
 <li>In a new directory for this exercise, save the code to a file named <code>circlepi.c</code></li>
 <li>
 <p>Compile the code (we will cover this in more detail during the Software lecture):</p>
-<div class="codehilite"><pre><span></span><code><span class="gp">username@learn $ </span>gcc -static -o circlepi circlepi.c
+<div class="codehilite"><pre><span></span><code><span class="gp">username@ap1 $ </span>gcc -o circlepi circlepi.c
 </code></pre></div>
 
 </li>
 <li>
 <p>Test the program with just 1000 samples:</p>
-<div class="codehilite"><pre><span></span><code><span class="gp">username@learn $ </span>./circlepi <span class="m">1000</span>
+<div class="codehilite"><pre><span></span><code><span class="gp">username@ap1 $ </span>./circlepi <span class="m">1000</span>
 </code></pre></div>
 
 </li>
@@ -519,7 +527,7 @@ So in the example above, the job ID of the second job is <code>10228.1</code>.</
 <h2 id="using-queue-n-with-output">Using queue <em>N</em> With Output<a class="headerlink" href="#using-queue-n-with-output" title="Permanent link">&para;</a></h2>
 <p>When all three jobs in your single cluster are finished, examine the resulting files.</p>
 <ul>
-<li>What is in the output file?</li>
+<li>What is in the output file? </li>
 <li>What is in the error file (hopefully nothing)?</li>
 <li>What is in the log file? Look carefully at the job IDs in each event.</li>
 <li>Is this what you expected? Is it what you wanted?</li>
@@ -568,7 +576,7 @@ queue 10
 <p>Let’s see how this works for our program that estimates π.</p>
 <ol>
 <li>In your submit file, change the definitions of <code>output</code> and <code>error</code> to use <code>$(Process)</code> in the filename, similar to the example above.</li>
-<li>Delete any output, error, and log files from previous runs.</li>
+<li>Delete any standard output, standard error, and log files from previous runs.</li>
 <li>Submit the updated file.</li>
 </ol>
 <p>When all three jobs are finished, examine the resulting files again.</p>
@@ -619,7 +627,7 @@ queue 5
 </li>
 </ol>
 <p>Check on the submissions using a normal <code>condor_q</code> and <code>condor_q -nobatch</code>. Of course, your special attribute does not appear in the <code>condor_q -nobatch</code> output, but it is present in the <code>condor_q</code> output and in each job’s ClassAd. You can see the effect of the attribute by limiting your <code>condor_q</code> output to one type of job or another. First, run this command:</p>
-<div class="codehilite"><pre><span></span><code><span class="gp">username@learn $ </span>condor_q -constraint <span class="s1">&#39;JobBatchName == &quot;1&quot;&#39;</span>
+<div class="codehilite"><pre><span></span><code><span class="gp">username@ap1 $ </span>condor_q -constraint <span class="s1">&#39;JobBatchName == &quot;1&quot;&#39;</span>
 </code></pre></div>
 
 <p>Do you get the output that you expected? Using the example command above, how would you list your other five jobs?
