@@ -7,6 +7,8 @@ status: testing
 HTC Exercise 2.2: Use queue *N*, $(Cluster), and $(Process)
 ==============================================================
 
+Exercise Goal
+-------------
 The goal of the next several exercises is
 to learn to submit many jobs from a single `queue` statement,
 and to control things like filenames and arguments on a per-job basis when doing so.
@@ -16,12 +18,12 @@ Suppose you have a program that you want to run many times with different argume
 -   Write one submit file; submit one job, change the argument in the submit file, submit another job, change the submit file, …
 -   Write many submit files that are nearly identical except for the program argument
 
-Neither of these options seems very satisfying. Fortunately, we can do better with HTCondor.
+Neither of these options seems very satisfying. Fortunately, HTCondor's `queue` statement is here to help!
 
 Running Many Jobs With One queue Statement
 ------------------------------------------
 
-Here is a C program that uses a stochastic (random) method to estimate the value of π — feel free to try to figure out the method from the code, but it is not critical for this exercise. The single argument to the program is the number of samples to take. More samples should result in better estimates!
+Here is a C program that uses a stochastic (random) method to estimate the value of π. The single argument to the program is the number of samples to take. More samples should result in better estimates!
 
 ``` c
 #include <stdio.h>
@@ -63,12 +65,12 @@ int main(int argc, char *argv[])
 1.  Compile the code (we will cover this in more detail during the Software lecture):
 
         :::console
-        username@learn $ gcc -static -o circlepi circlepi.c
+        username@ap1 $ gcc -o circlepi circlepi.c
 
 1.  Test the program with just 1000 samples:
 
         :::console
-        username@learn $ ./circlepi 1000
+        username@ap1 $ ./circlepi 1000
 
 Now suppose that you want to run the program many times, to produce many estimates.
 To do so, we can tell HTCondor how many jobs to "queue up" via the `queue` statement
@@ -112,7 +114,7 @@ Using queue *N* With Output
 
 When all three jobs in your single cluster are finished, examine the resulting files.
 
--   What is in the output file?
+-   What is in the output file? 
 -   What is in the error file (hopefully nothing)?
 -   What is in the log file? Look carefully at the job IDs in each event.
 -   Is this what you expected? Is it what you wanted?
@@ -144,7 +146,7 @@ Even though the `output` filename is defined only once, HTCondor will create sep
 Let’s see how this works for our program that estimates π.
 
 1.  In your submit file, change the definitions of `output` and `error` to use `$(Process)` in the filename, similar to the example above.
-1.  Delete any output, error, and log files from previous runs.
+1.  Delete any standard output, standard error, and log files from previous runs.
 1.  Submit the updated file.
 
 When all three jobs are finished, examine the resulting files again.
@@ -204,7 +206,7 @@ Once again, we will use `sleep` jobs, so that your jobs remain in the queue long
 Check on the submissions using a normal `condor_q` and `condor_q -nobatch`. Of course, your special attribute does not appear in the `condor_q -nobatch` output, but it is present in the `condor_q` output and in each job’s ClassAd. You can see the effect of the attribute by limiting your `condor_q` output to one type of job or another. First, run this command:
 
 ``` console
-username@learn $ condor_q -constraint 'JobBatchName == "1"'
+username@ap1 $ condor_q -constraint 'JobBatchName == "1"'
 ```
 
 Do you get the output that you expected? Using the example command above, how would you list your other five jobs?
