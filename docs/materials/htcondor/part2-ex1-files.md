@@ -153,7 +153,7 @@ First, let’s confirm that HTCondor does not bring back the output file in the 
 1.  Write a submit file that transfers an input file and runs `output.sh` on it (passing the filename as an argument).
 1.  Submit the job, wait for it to finish, and examine the contents of your submit directory.
 
-Suppose you decide that you want only the timestamp output file and all files in the subdirectory, but not the calendar output file. You can tell HTCondor to transfer these specific files:
+Suppose you decide that you want only the timestamp output file and all files in the subdirectory, but not the calendar output file. You can tell HTCondor to only transfer these specific files back to the submission directory:
 
 ``` file
 transfer_output_files = output-timestamp.txt, subdirectory/
