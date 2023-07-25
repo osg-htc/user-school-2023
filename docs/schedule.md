@@ -234,7 +234,7 @@ Details to be determined and posted here.
         &#9654; <span style="color: rgb(173, 81, 12);">Kendra Wyant</span>; UW–Madison, Psychology<br>
         <div style="margin-left: 2ex;">“Title TBD”</div>
         &#9654; <span style="color: rgb(173, 81, 12);">Eric Pulick</span>; UW–Madison, Industrial and Systems Engineering<br>
-        <div style="margin-left: 2ex;">“Title TBD”</div>
+        <div style="margin-left: 2ex;">“Comparing Reinforcement Learning and Human Learning with the Game of Hidden Rules”</div>
       </td>
     </tr>
     <tr>
