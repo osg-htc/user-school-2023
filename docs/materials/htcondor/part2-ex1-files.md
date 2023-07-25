@@ -7,7 +7,10 @@ status: testing
 HTC Exercise 2.1: Work With Input and Output Files
 =====================================================
 
-The goal of this exercise is make input files available to your job on the execute machine, and return output files back. This small change significantly adds to the kinds of jobs that you can run.
+Exercise Goal
+-------------
+
+The goal of this exercise is make input files available to your job on the execute machine and to return output files back created in your job back to you on the access point. This small change significantly adds to the kinds of jobs that you can run.
 
 Viewing a Job Sandbox
 ---------------------
@@ -41,17 +44,16 @@ Next, look at the output that appears after the `Sandbox:` line; it is the outpu
 | `.machine.ad`     | The machine ClassAd                         |
 | `_condor_stderr`  | Saved standard error from the job           |
 | `_condor_stdout`  | Saved standard output from the job          |
-| `condor_exec.exe` | The executable, renamed from `sandbox.sh`   |
 | `tmp/`, `var/tmp/`| Directories in which to put temporary files |
 
-So, HTCondor wrote copies of the job and machine ads (for use by the job, if desired), transferred your executable (`sandbox.sh`), renamed it (`condor_exec.exe`), ran it, and saved its standard output and standard error into files. Notice that your submit file, which was in the same directory on the submit machine as your executable, was **not** transferred, nor were any other files that happened to be in directory with the submit file.
+So, HTCondor wrote copies of the job and machine ads (for use by the job, if desired), transferred your executable (`sandbox.sh`), ran it, and saved its standard output and standard error into files. Notice that your submit file, which was in the same directory on the access point machine as your executable, was **not** transferred, nor were any other files that happened to be in directory with the submit file.
 
 Now that we know something about the sandbox, we can transfer more files to and from it.
 
 Running a Job With Input Files
 ------------------------------
 
-Next, you will run a job that requires an input file. Remember, the initial job sandbox will contain only the renamed job executable, unless you tell HTCondor explicitly about every other file that needs to be transferred. Fortunately, this is easy.
+Next, you will run a job that requires an input file. Remember, the initial job sandbox will contain only the job executable, unless you tell HTCondor explicitly about every other file that needs to be transferred to the job.
 
 Here is a Python script that takes the name of an input file (containing one word per line) from the command line, counts the number of times each (lowercased) word occurs in the text, and prints out the final list of words and their counts.
 
@@ -85,7 +87,7 @@ for word in sorted(words.keys()):
 1.  Download the input file for the script (263K lines, ~1.4 MB) and save it in your submit directory:
 
         :::console
-        username@learn $ wget http://proxy.chtc.wisc.edu/SQUID/osgschool20/intro-2.1-words.txt
+        username@ap1 $ wget http://proxy.chtc.wisc.edu/SQUID/osgschool20/intro-2.1-words.txt
 
 1.  Create a submit file for the `freq.py` executable.
 1.  Add a line to tell HTCondor to transfer the input file:
@@ -125,7 +127,7 @@ We will use a very simple method for creating a new file: we will copy an input 
     -   As always, use `output`, `error`, and `log` filenames that are different from previous exercises
 1.  Submit the job and wait for it to finish.
 
-What happened? Can you tell what HTCondor did with the output file that was created (did it end up back on the submit server?), after it was created in the job sandbox? Look carefully at the list of files in your submit directory now.
+What happened? Can you tell what HTCondor did with the output file that was created (did it end up back on the access point?), after it was created in the job sandbox? Look carefully at the list of files in your submit directory now.
 
 Transferring Specific Output Files
 ----------------------------------
@@ -159,7 +161,7 @@ transfer_output_files = output-timestamp.txt, subdirectory/
 
 !!! note
     See the trailing slash (`/`) on the subdirectory?
-    That tells HTCondor to transfer back **the files** contained in the subdirectory, but not the directory itself;
+    That tells HTCondor to transfer back **the files contained in the subdirectory, but not the directory itself**;
     the files will be written directly into the submit directory.
     If you want HTCondor to transfer back an entire directory, leave off the trailing slash.
 
@@ -173,8 +175,6 @@ Thinking About Progress So Far
 ------------------------------
 
 At this point, you can do just about everything that you need in order to run jobs on a local HTC pool. You can identify the executable, arguments, and input files, and you can get output back from the job. This is a big achievement!
-
-In some ways, everything after this exercise shows you how to submit multiple jobs at once and makes it easier to run certain kinds of jobs and deal with certain kinds of situations.
 
 References
 ----------
