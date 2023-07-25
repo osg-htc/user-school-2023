@@ -361,6 +361,20 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#background" class="md-nav__link">
+    Background
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exercise-goal" class="md-nav__link">
+    Exercise Goal
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#logging-in" class="md-nav__link">
     Logging In
   </a>
@@ -385,19 +399,6 @@
   <a href="#showing-the-version-of-htcondor" class="md-nav__link">
     Showing the Version of HTCondor
   </a>
-  
-    <nav class="md-nav" aria-label="Showing the Version of HTCondor">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#fyi-background-information-about-htcondor-version-numbers" class="md-nav__link">
-    FYI: Background information about HTCondor version numbers
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -424,15 +425,24 @@
                 <style type="text/css"> pre em { font-style: normal; background-color: yellow; } pre strong { font-style: normal; font-weight: bold; color: \#008; } </style>
 
 <h1 id="htc-exercise-11-log-in-and-look-around">HTC Exercise 1.1: Log In and Look Around<a class="headerlink" href="#htc-exercise-11-log-in-and-look-around" title="Permanent link">&para;</a></h1>
-<p>The goal of this first exercise is simply to log in to the local submit server and look around a little bit, which will take only a few minutes. </p>
+<h2 id="background">Background<a class="headerlink" href="#background" title="Permanent link">&para;</a></h2>
+<p>There are different High Throughput Computing (HTC) systems at universities, government facilities, and other institutions around the world, and they may have different user experiences. For example, some systems have dedicated resources (which means your job will be guaranteed a certain amount of resources/time to complete), while other systems have opportunistic, backfill resources (which means your job can take advantage of some resources, but those resources could be removed at any time). Other systems have a mix of dedicated and opportunistic resources. </p>
+<p>Durring the OSG School, you will practice on two different HTC systems: the "<a href="https://path-cc.io/facility/">PATh Facility</a>" and "<a href="https://osg-htc.org/services/open_science_pool.html">OSG's Open Science Pool (OSPool)</a>". This will help prepare you for working on a variety of different HTC systems. </p>
+<ul>
+<li>PATh Facility: The PATh Facility provides researchers with <strong>dedicated HTC resources and the ability to run larger and longer jobs</strong>. The HTC execute pool is composed of approximately 30,000 cores and 36 A100 GPUs. </li>
+<li>OSG's Open Science Pool: The OSPool provides researchers with <strong>opportunitistic resources and the ability to run many smaller and shorter jobs silmnulatinously</strong>. The OSPool is composed of approximately 60,000+ cores and dozens of different GPUs. </li>
+</ul>
+<h2 id="exercise-goal">Exercise Goal<a class="headerlink" href="#exercise-goal" title="Permanent link">&para;</a></h2>
+<p>The goal of this first exercise is to log in to the PATh Facility access point and look around a little bit, which will take only a few minutes. </p>
 <p><strong>If you have trouble getting SSH access to the submit server, ask the instructors right away! Gaining access is critical for all remaining exercises.</strong></p>
 <h2 id="logging-in">Logging In<a class="headerlink" href="#logging-in" title="Permanent link">&para;</a></h2>
-<p>Today, you will use CHTC's local HTC Pool via an access point named <code>learn.chtc.wisc.edu</code> using the UW NetID account you set up. (This account is separate from the account you set up for the OSG Connect service, which you'll use starting tomorrow to run on OSG's Open Science Pool.)</p>
+<p>Today, you will use a High Throughput Computing system known as the "<a href="https://path-cc.io/facility/">PATh Facility</a>". The PATh Facility provides users with dedicated resources and longer runtimes than OSG's Open Science Pool. </p>
+<p>You will login to the access point of the PATh Facility, which is called <code>ap1.facility.path-cc.io</code> using the username you previously created. </p>
 <p>To log in, use a <a href="http://en.wikipedia.org/wiki/Secure_Shell">Secure Shell</a> (SSH) client.</p>
 <ul>
-<li>From a Mac or Linux computer, start the Terminal app and run the below <code>ssh</code> command, replacing &lt;USERNAME> with your NetID username:</li>
+<li>From a Mac or Linux computer, start the Terminal app and run the below <code>ssh</code> command, replacing &lt;USERNAME> with your username:</li>
 </ul>
-<div class="codehilite"><pre><span></span><code><span class="hll">$ ssh &lt;USERNAME&gt;@learn.chtc.wisc.edu
+<div class="codehilite"><pre><span></span><code><span class="hll">$ ssh &lt;USERNAME&gt;@ap1.facility.path-cc.io
 </span></code></pre></div>
 
 <ul>
@@ -442,50 +452,45 @@
 <p><strong>If you need help finding or using an SSH client, ask the instructors for help right away</strong>!</p>
 <h2 id="running-commands">Running Commands<a class="headerlink" href="#running-commands" title="Permanent link">&para;</a></h2>
 <p>In the exercises, we will show commands that you are supposed to type or copy into the command line, like this:</p>
-<div class="codehilite"><pre><span></span><code><span class="gp">username@learn $ </span>hostname
-<span class="go">learn.chtc.wisc.edu</span>
+<div class="codehilite"><pre><span></span><code><span class="gp">username@ap1 $ </span>hostname
+<span class="go">ap1.facility.path-cc.io</span>
 </code></pre></div>
 
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>In the first line of the example above, the <code>username@learn $</code> part is meant to show the Linux command-line prompt.
+<p>In the first line of the example above, the <code>username@ap1 $</code> part is meant to show the Linux command-line prompt.
 You do not type this part! Further, your actual prompt probably is a bit different, and that is expected.
 So in the example above, the command that you type at your own prompt is just the eight characters <code>hostname</code>.
 The second line of the example, without the prompt, shows the output of the command; you do not type this part,
 either.</p>
 </div>
 <p>Here are a few other commands that you can try (the examples below do not show the output from each command):</p>
-<div class="codehilite"><pre><span></span><code><span class="gp">username@learn $ </span>whoami
-<span class="gp">username@learn $ </span>date
-<span class="gp">username@learn $ </span>uname -a
+<div class="codehilite"><pre><span></span><code><span class="gp">username@ap1 $ </span>whoami
+<span class="gp">username@ap1 $ </span>date
+<span class="gp">username@ap1 $ </span>uname -a
 </code></pre></div>
 
 <p>A suggestion for the day: try typing into the command line as many of the commands as you can.
 Copy-and-paste is fine, of course, but <strong>you WILL learn more if you take the time to type each command yourself.</strong></p>
 <h2 id="organizing-your-workspace">Organizing Your Workspace<a class="headerlink" href="#organizing-your-workspace" title="Permanent link">&para;</a></h2>
-<p>You will be doing many different exercises over the next few days, many of them on this submit server. Each exercise may use many files, once finished. To avoid confusion, it may be useful to create a separate directory for each exercise.</p>
+<p>You will be doing many different exercises over the next few days, many of them on this access point. Each exercise may use many files, once finished. To avoid confusion, it may be useful to create a separate directory for each exercise.</p>
 <p>For instance, for the rest of this exercise, you may wish to create and use a directory named <code>intro-1.1-login</code>, or something like that.</p>
-<div class="codehilite"><pre><span></span><code><span class="gp">username@learn $ </span>mkdir intro-1.1-login
-<span class="gp">username@learn $ </span><span class="nb">cd</span> intro-1.1-login
+<div class="codehilite"><pre><span></span><code><span class="gp">username@ap1 $ </span>mkdir intro-1.1-login
+<span class="gp">username@ap1 $ </span><span class="nb">cd</span> intro-1.1-login
 </code></pre></div>
 
 <h2 id="showing-the-version-of-htcondor">Showing the Version of HTCondor<a class="headerlink" href="#showing-the-version-of-htcondor" title="Permanent link">&para;</a></h2>
 <p>HTCondor is installed on this server. But what version? You can ask HTCondor itself:</p>
-<div class="codehilite"><pre><span></span><code><span class="gp">username@learn $ </span>condor_version
-<span class="gp">$</span>CondorVersion: <span class="m">9</span>.11.0 <span class="m">2022</span>-07-19 BuildID: <span class="m">597572</span> PackageID: <span class="m">9</span>.11.0-0.597572 RC $
+<div class="codehilite"><pre><span></span><code><span class="gp">username@ap1 $ </span>condor_version
+<span class="gp">$</span>CondorVersion: <span class="m">10</span>.6.0 <span class="m">2023</span>-06-24 BuildID: <span class="m">656423</span> PackageID: <span class="m">10</span>.6.0-0.656423 RC $
 <span class="gp">$</span>CondorPlatform: x86_64_CentOS7 $
 </code></pre></div>
 
-<p>As you can see from the output, we are using HTCondor 9.11.0.</p>
-<h3 id="fyi-background-information-about-htcondor-version-numbers">FYI: Background information about HTCondor version numbers<a class="headerlink" href="#fyi-background-information-about-htcondor-version-numbers" title="Permanent link">&para;</a></h3>
-<p>HTCondor always has two types of releases at one time: long-term-support (LTS) releases and feature releases. HTCondor 9.0.x is considered an LTS release, indicated by a 0 in the second digit. Within one LTS series, all versions have the same features (for example 9.0.5 and 9.0.10 have the same set of features) and differ only in bug and security fixes.</p>
-<p>HTCondor 9.11.0 is the latest <em>feature</em> release series of HTCondor. You know that this is a feature release because the second digit (i.e. 11) is greater than 0. CHTC is usually running the latest feature release as the local CHTC Pool is somewhat of a final testing ground for new features. Other HTCondor pools and submit servers that you use outside of CHTC (including the OSG submit server you'll use later) may run different versions. In general, the user-facing HTCondor features in 9.0 forward are mostly the same, but you may see some differences in the format of output from <code>condor_</code> commands or in more advanced or non-user features.</p>
+<p>As you can see from the output, we are using HTCondor 10.6.0.</p>
 <h2 id="reference-materials">Reference Materials<a class="headerlink" href="#reference-materials" title="Permanent link">&para;</a></h2>
 <p>Here are a few links to reference materials that might be interesting after the school (or perhaps during).</p>
 <ul>
-<li><a href="https://htcondor.org">HTCondor home page</a></li>
 <li><a href="https://htcondor.readthedocs.io/en/latest/">HTCondor manuals</a>; it is probably best to read the manual corresponding to the version of HTCondor that you use. That link points to the latest version of the manual, but you can switch versions using the toggle in the lower left corner of that page.</li>
-<li><a href="http://chtc.cs.wisc.edu/">Center for High Throughput Computing</a>, our campus research computing center, and home to HTCondor and other development of distributed computing tools.</li>
 </ul>
                 
                   
