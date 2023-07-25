@@ -361,6 +361,13 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#exercise-goal" class="md-nav__link">
+    Exercise Goal
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#removing-a-job-or-cluster-from-the-queue" class="md-nav__link">
     Removing a Job or Cluster From the Queue
   </a>
@@ -390,11 +397,12 @@
                 <style type="text/css"> pre em { font-style: normal; background-color: yellow; } pre strong { font-style: normal; font-weight: bold; color: \#008; } </style>
 
 <h1 id="htc-exercise-16-remove-jobs-from-the-queue">HTC Exercise 1.6: Remove Jobs From the Queue<a class="headerlink" href="#htc-exercise-16-remove-jobs-from-the-queue" title="Permanent link">&para;</a></h1>
+<h2 id="exercise-goal">Exercise Goal<a class="headerlink" href="#exercise-goal" title="Permanent link">&para;</a></h2>
 <p>The goal of this exercise is to show you how to remove jobs from the queue. This is helpful if you make a mistake, do not want to wait for a job to complete, or otherwise need to fix things. For example, if some test jobs go on hold for using too much memory or disk, you may want to just remove them, edit the submit files, and then submit again.</p>
 <p><strong>Skip this exercise and come back to it if you are short on time, or until you need to remove jobs for other exercises</strong></p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Please remember to remove any jobs from the queue that you have given up on. Otherwise, the queue will start to get very long with jobs that will waste resources (and decrease your priority), or that may never run (if they're on hold, or have other issues keeping them from matching).</p>
+<p>Please remember to remove any jobs from the queue that you are no longer interested in. Otherwise, the queue will start to get very long with jobs that will waste resources (and decrease your priority), or that may never run (if they're on hold, or have other issues keeping them from matching).</p>
 </div>
 <p>This exercise is very short, but if you are out of time, you can come back to it later.</p>
 <h2 id="removing-a-job-or-cluster-from-the-queue">Removing a Job or Cluster From the Queue<a class="headerlink" href="#removing-a-job-or-cluster-from-the-queue" title="Permanent link">&para;</a></h2>
@@ -404,7 +412,7 @@
 <li>Determine the job ID (<code>cluster.process</code>) from the <code>condor_submit</code> output or from <code>condor_q</code></li>
 <li>
 <p>Remove the job:</p>
-<div class="codehilite"><pre><span></span><code><span class="gp">username@learn $ </span>condor_rm &lt;JOB.ID&gt;
+<div class="codehilite"><pre><span></span><code><span class="gp">username@ap1 $ </span>condor_rm &lt;JOB.ID&gt;
 </code></pre></div>
 
 <p>Use the full job ID this time, e.g. <code>5759.0</code>.</p>
@@ -414,16 +422,16 @@
 </li>
 </ol>
 <p>So far, we have created job clusters that contain only one job process (the <code>.0</code> part of the job ID). That will change soon, so it is good to know how to remove a specific job ID. However, it is possible to remove all jobs that are part of a cluster at once. Simply omit the job process (the <code>.0</code> part of the job ID) in the <code>condor_rm</code> command:</p>
-<div class="codehilite"><pre><span></span><code><span class="gp">username@learn $ </span>condor_rm &lt;CLUSTER&gt;
+<div class="codehilite"><pre><span></span><code><span class="gp">username@ap1 $ </span>condor_rm &lt;CLUSTER&gt;
 </code></pre></div>
 
 <p>Finally, you can include many job clusters and full job IDs in a single <code>condor_rm</code> command. For example:</p>
-<div class="codehilite"><pre><span></span><code><span class="gp">username@learn $ </span>condor_rm <span class="m">5768</span> <span class="m">5769</span> <span class="m">5770</span>.0 <span class="m">5771</span>.2
+<div class="codehilite"><pre><span></span><code><span class="gp">username@ap1 $ </span>condor_rm <span class="m">5768</span> <span class="m">5769</span> <span class="m">5770</span>.0 <span class="m">5771</span>.2
 </code></pre></div>
 
 <h2 id="removing-all-of-your-jobs">Removing All of Your Jobs<a class="headerlink" href="#removing-all-of-your-jobs" title="Permanent link">&para;</a></h2>
 <p>If you really want to remove all of your jobs at once, you can do that with:</p>
-<div class="codehilite"><pre><span></span><code><span class="gp">username@learn $ </span>condor_rm &lt;USERNAME&gt;
+<div class="codehilite"><pre><span></span><code><span class="gp">username@ap1 $ </span>condor_rm &lt;USERNAME&gt;
 </code></pre></div>
 
 <p>If you want to test it: (optional, though you'll likely need this in the future)</p>
