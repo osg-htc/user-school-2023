@@ -361,6 +361,13 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#exercise-goal" class="md-nav__link">
+    Exercise Goal
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#running-your-first-job" class="md-nav__link">
     Running Your First Job
   </a>
@@ -417,11 +424,12 @@
                 <style type="text/css"> pre em { font-style: normal; background-color: yellow; } pre strong { font-style: normal; font-weight: bold; color: \#008; } </style>
 
 <h1 id="htc-exercise-13-run-jobs">HTC Exercise 1.3: Run Jobs!<a class="headerlink" href="#htc-exercise-13-run-jobs" title="Permanent link">&para;</a></h1>
-<p>The goal of this exercise is to submit jobs to HTCondor and have them run on the local pool (CHTC). This is a huge step in learning to use an HTC system!</p>
-<p><strong>This exercise will take longer than the first two, short ones. It is the essential part of this exercise time. If you are having any problems getting the jobs to run, please ask the instructors! It is very important that you know how to run jobs.</strong></p>
+<h2 id="exercise-goal">Exercise Goal<a class="headerlink" href="#exercise-goal" title="Permanent link">&para;</a></h2>
+<p>The goal of this exercise is to submit jobs to HTCondor and have them run on the PATh Facility. This is a huge step in learning to use an HTC system!</p>
+<p><strong>This exercise will take longer than the first two, short ones. If you are having any problems getting the jobs to run, please ask the instructors! It is very important that you know how to run jobs.</strong></p>
 <h2 id="running-your-first-job">Running Your First Job<a class="headerlink" href="#running-your-first-job" title="Permanent link">&para;</a></h2>
-<p>Nearly all of the time, when you want to run an HTCondor job, you first write an HTCondor submit file for it. In this section, you will run the same <code>hostname</code> command as in Exercise 1.1, but where this command will run within a job on one of the 'execute' servers in CHTC's local HTCondor pool.</p>
-<p>Here is a straightforward submit file for the <code>hostname</code> command:</p>
+<p>Nearly all of the time, when you want to run an HTCondor job, you first write an HTCondor submit file for it. In this section, you will run the same <code>hostname</code> command as in Exercise 1.1, but where this command will run within a job on one of the 'execute' servers on the PATh Facility's HTCondor pool.</p>
+<p>First, create an example example submit file for the <code>hostname</code> command using your favorite text editor (e.g., <code>nano</code>, <code>vim</code>) and then transfer the following information to that file:</p>
 <div class="codehilite"><pre><span></span><code>executable = /bin/hostname
 
 output = hostname.out
@@ -435,13 +443,12 @@ request_disk = 1MB
 queue
 </code></pre></div>
 
-<p>Write those lines of text in a file named <code>hostname.sub</code>.</p>
+<p>Save your submit file using the name <code>hostname.sub</code>.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>There is nothing magic about the name of an HTCondor submit file.
-It can be any filename you want.
-It's a good practice to always include the <code>.sub</code> extension, but it is not required.
-Ultimately, a submit file is a text file</p>
+<p>You can name the HTCondor submit file using any filename. 
+It's a good practice to always include the <code>.sub</code> extension, but it is not required. 
+This is because the submit file is a simple text file that we are using to pass information to HTCondor.</p>
 </div>
 <p>The lines of the submit file have the following meanings:</p>
 <table>
@@ -478,9 +485,9 @@ Ultimately, a submit file is a text file</p>
 </tr>
 </tbody>
 </table>
-<p>Note that we are not using the <code>arguments</code> or <code>transfer_input_files</code> lines that were mentioned during lecture because the <code>hostname</code> program is all that needs to be transferred from the submit server, and we want to run it without any additional options.</p>
+<p>Note that we are not using the <code>arguments</code> or <code>transfer_input_files</code> lines that were mentioned during lecture because the <code>hostname</code> program is all that needs to be transferred from the access point server, and we want to run it without any additional options.</p>
 <p>Double-check your submit file, so that it matches the text above. Then, tell HTCondor to run your job:</p>
-<div class="codehilite"><pre><span></span><code><span class="gp">username@learn $ </span>condor_submit hostname.sub
+<div class="codehilite"><pre><span></span><code><span class="gp">username@ap1 $ </span>condor_submit hostname.sub
 <span class="go">Submitting job(s).</span>
 <span class="go">1 job(s) submitted to cluster NNNN.</span>
 </code></pre></div>
@@ -491,20 +498,20 @@ Ultimately, a submit file is a text file</p>
 <p>Now, use <code>condor_q</code> and <code>condor_q -nobatch</code> to watch for your job in the queue! </p>
 <p>You may not even catch the job in the <code>R</code> running state, because the <code>hostname</code> command runs very quickly. When the job itself is finished, it will 'leave' the queue and no longer be listed in the <code>condor_q</code> output.</p>
 <p>After the job finishes, check for the <code>hostname</code> output in <code>hostname.out</code>, which is where job information printed to the terminal screen will be printed for the job.</p>
-<div class="codehilite"><pre><span></span><code><span class="gp">username@learn $ </span>cat hostname.out
+<div class="codehilite"><pre><span></span><code><span class="gp">username@ap1 $ </span>cat hostname.out
 <span class="go">e171.chtc.wisc.edu</span>
 </code></pre></div>
 
 <p>The <code>hostname.err</code> file should be empty, unless there were issues running the <code>hostname</code> executable after it was transferred to the slot. The <code>hostname.log</code> is more complex and will be the focus of a later exercise.</p>
 <h2 id="running-a-job-with-arguments">Running a Job With Arguments<a class="headerlink" href="#running-a-job-with-arguments" title="Permanent link">&para;</a></h2>
 <p>Very often, when you run a command on the command line, it includes arguments (i.e. options) after the program name, as in the below examples:</p>
-<div class="codehilite"><pre><span></span><code><span class="gp">username@learn $ </span>cat hostname.out
-<span class="gp">username@learn $ </span>sleep <span class="m">60</span>
-<span class="gp">username@learn $ </span>dc -e <span class="s1">&#39;6 7 * p&#39;</span>
+<div class="codehilite"><pre><span></span><code><span class="gp">username@ap1 $ </span>cat hostname.out
+<span class="gp">username@ap1 $ </span>sleep <span class="m">60</span>
+<span class="gp">username@ap1 $ </span>dc -e <span class="s1">&#39;6 7 * p&#39;</span>
 </code></pre></div>
 
 <p>In an HTCondor submit file, the program (or 'executable') name goes in the <code>executable</code> statement and <strong>all remaining arguments</strong> go into an <code>arguments</code> statement. For example, if the full command is:</p>
-<div class="codehilite"><pre><span></span><code><span class="gp">username@learn $ </span>sleep <span class="m">60</span>
+<div class="codehilite"><pre><span></span><code><span class="gp">username@ap1 $ </span>sleep <span class="m">60</span>
 </code></pre></div>
 
 <p>Then in the submit file, we would put the location of the "sleep" program (you can find it with <code>which sleep</code>) as the job <code>executable</code>, and <code>60</code> as the job <code>arguments</code>:</p>
@@ -513,7 +520,7 @@ arguments = 60
 </code></pre></div>
 
 <p>For the command-line command:</p>
-<div class="codehilite"><pre><span></span><code><span class="gp">username@learn $ </span>dc -e <span class="s1">&#39;6 7 * p&#39;</span>
+<div class="codehilite"><pre><span></span><code><span class="gp">username@ap1 $ </span>dc -e <span class="s1">&#39;6 7 * p&#39;</span>
 </code></pre></div>
 
 <p>We would put the following into the submit file, putting the <code>arguments</code> statement in quotes, since it contains single quotes:</p>
@@ -521,8 +528,8 @@ arguments = 60
 arguments = &quot;-e &#39;6 7 * p&#39;&quot;
 </code></pre></div>
 
-<p>Let’s try a job submission with arguments. We will use the <code>sleep</code> command shown above, which simply does nothing for the specified number of seconds, then exits normally. It is convenient for simulating a job that takes a while to run.</p>
-<p>Create a new submit file (you name it this time) and save the following text in it.</p>
+<p>Let’s try a job submission with arguments. We will use the <code>sleep</code> command shown above, which does nothing (i.e., puts the job to sleep) for the specified number of seconds, then exits normally. It is convenient for simulating a job that takes a while to run.</p>
+<p>Create a new submit file and save the following text in it.</p>
 <div class="codehilite"><pre><span></span><code>executable = /bin/sleep
 arguments = 60
 
@@ -537,10 +544,11 @@ request_disk = 1MB
 queue
 </code></pre></div>
 
-<p>Except for changing a few filenames, this submit file is nearly identical to the last one. But, see the extra <code>arguments</code> line?</p>
-<p>Submit this new job. Again, watch for it to run using <code>condor_q</code> and <code>condor_q -nobatch</code>; 
+<p>You can save the file using any name, but as a reminder, we recommend it uses the <code>.sub</code> file extension. </p>
+<p>Except for changing a few filenames, this submit file is nearly identical to the last one, except for the addition of the <code>arguments</code> line.</p>
+<p>Submit this new job to HTCondor. Again, watch for it to run using <code>condor_q</code> and <code>condor_q -nobatch</code>; 
 check once every 15 seconds or so. 
-Once the job starts running, it will take about 1 minute to run (because of the <code>sleep</code> command, right?), 
+Once the job starts running, it will take about 1 minute to run (reminder: the <code>sleep</code> command is telling the job to do nothing for 60 seconds), 
 so you should be able to see it running for a bit. 
 When the job finishes, it will disappear from the queue, but there will be no output in the output or error files, because <code>sleep</code> does not produce any output.</p>
 <h2 id="running-a-script-job-from-the-submit-directory">Running a Script Job From the Submit Directory<a class="headerlink" href="#running-a-script-job-from-the-submit-directory" title="Permanent link">&para;</a></h2>
@@ -563,13 +571,13 @@ or perhaps a shell script of commands that you'd like to run within a job. In th
 </li>
 <li>
 <p>Add executable permissions to the file (so that it can be run as a program):</p>
-<div class="codehilite"><pre><span></span><code><span class="gp">username@learn $ </span>chmod +x test-script.sh
+<div class="codehilite"><pre><span></span><code><span class="gp">username@ap1 $ </span>chmod +x test-script.sh
 </code></pre></div>
 
 </li>
 <li>
 <p>Test your script from the command line:</p>
-<div class="codehilite"><pre><span></span><code><span class="gp">username@learn $ </span>./test-script.sh hello <span class="m">42</span> 
+<div class="codehilite"><pre><span></span><code><span class="gp">username@ap1 $ </span>./test-script.sh hello <span class="m">42</span> 
 <span class="go">Date: Mon Jul 17 10:02:20 CDT 2017 </span>
 <span class="go">Host: learn.chtc.wisc.edu </span>
 <span class="go">System: Linux x86_64 GNU/Linux </span>
@@ -618,14 +626,13 @@ request_disk=1MB
 queue
 </code></pre></div>
 
-<p>Use whitespace to make things clear to <strong>you</strong>. 
-What format do you prefer to read?</p>
+<p>Use whitespace to make things clear to <strong>you</strong>, the user. </p>
 </div>
 </li>
 <li>
-<p>Submit the job, wait for it to finish, and check the output (and error, which should be empty).</p>
+<p>Submit the job, wait for it to finish, and check the standard output file (and standard error file, which should be empty).</p>
 <p>What do you notice about the lines returned for "Program" and "ls"? Remember that only files pertaining
-to <strong>this</strong> job will be in the job working directory on the execute server. You're also seeing the effects
+to <strong>this</strong> job will be in the job working directory on the execute point server. You're also seeing the effects
 of HTCondor's need to standardize some filenames when running your job, though they are named as you expect 
 in the submission directory (per the submit file contents).</p>
 </li>
