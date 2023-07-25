@@ -361,6 +361,13 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#exercise-goal" class="md-nav__link">
+    Exercise Goal
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#reading-a-log-file" class="md-nav__link">
     Reading a Log File
   </a>
@@ -397,22 +404,22 @@
                 <style type="text/css"> pre em { font-style: normal; background-color: yellow; } pre strong { font-style: normal; font-weight: bold; color: \#008; } </style>
 
 <h1 id="htc-exercise-14-read-and-interpret-log-files">HTC Exercise 1.4: Read and Interpret Log Files<a class="headerlink" href="#htc-exercise-14-read-and-interpret-log-files" title="Permanent link">&para;</a></h1>
-<p>The goal of this exercise is to learn how to understand the contents of a job log file, which is where HTCondor describes the steps 
-taken to run your job.
-When things go wrong with your job, the log is the best place to look for first pointers (in addition to the .err file).</p>
-<p>This exercise is short, but you'll want to at least read over it before moving on (and come back later, if you can't run through it now).</p>
+<h2 id="exercise-goal">Exercise Goal<a class="headerlink" href="#exercise-goal" title="Permanent link">&para;</a></h2>
+<p>The goal of this exercise is to learn how to understand the contents of a job's log file, which is essentially a "history" of the steps HTCondor took to run your job.
+If you suspect something has gone wrong with your job, the log is the a great place to start looking for indications of whether things might have gone wrong (in addition to the .err file).</p>
+<p>This exercise is short, but you'll want to at least read over it before moving on.</p>
 <h2 id="reading-a-log-file">Reading a Log File<a class="headerlink" href="#reading-a-log-file" title="Permanent link">&para;</a></h2>
 <p>For this exercise, we can examine a log file for any previous job that you have run. The example output below is based on the <code>sleep 60</code> job.</p>
 <p>A job log file is updated throughout the life of a job, usually at key events. Each event starts with a heading that indicates what happened and when. Here are <strong>all</strong> of the event headings from the <code>sleep</code> job log (detailed output in between headings has been omitted here):</p>
-<div class="codehilite"><pre><span></span><code>000 (5739.000.000) 2020-07-10 10:44:20 Job submitted from host: &lt;128.104.100.43:9618?addrs=...&gt;
-040 (5739.000.000) 2020-07-10 10:45:10 Started transferring input files
-040 (5739.000.000) 2020-07-10 10:45:10 Finished transferring input files
-001 (5739.000.000) 2020-07-10 10:45:11 Job executing on host: &lt;128.104.55.42:9618?addrs=...&gt;
-006 (5739.000.000) 2020-07-10 10:45:20 Image size of job updated: 72
-040 (5739.000.000) 2020-07-10 10:45:20 Started transferring output files
-040 (5739.000.000) 2020-07-10 10:45:20 Finished transferring output files
-006 (5739.000.000) 2020-07-10 10:46:11 Image size of job updated: 4072
-005 (5739.000.000) 2020-07-10 10:46:11 Job terminated.
+<div class="codehilite"><pre><span></span><code>000 (5739.000.000) 2023-07-10 10:44:20 Job submitted from host: &lt;128.104.100.43:9618?addrs=...&gt;
+040 (5739.000.000) 2023-07-10 10:45:10 Started transferring input files
+040 (5739.000.000) 2023-07-10 10:45:10 Finished transferring input files
+001 (5739.000.000) 2023-07-10 10:45:11 Job executing on host: &lt;128.104.55.42:9618?addrs=...&gt;
+006 (5739.000.000) 2023-07-10 10:45:20 Image size of job updated: 72
+040 (5739.000.000) 2023-07-10 10:45:20 Started transferring output files
+040 (5739.000.000) 2023-07-10 10:45:20 Finished transferring output files
+006 (5739.000.000) 2023-07-10 10:46:11 Image size of job updated: 4072
+005 (5739.000.000) 2023-07-10 10:46:11 Job terminated.
 </code></pre></div>
 
 <p>There is a lot of extra information in those lines, but you can see:</p>
@@ -426,16 +433,29 @@ When things go wrong with your job, the log is the best place to look for first 
 ...
 </code></pre></div>
 
-<p>and</p>
-<div class="codehilite"><pre><span></span><code>001 (5739.000.000) 2020-07-10 10:45:11 Job executing on host: &lt;128.104.55.42:9618?addrs=...&gt;
-...
-</code></pre></div>
-
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>Each event ends with a line that contains only 3 dots: <code>...</code></p>
 </div>
 <p>But the periodic information update event contains some additional information:</p>
+<p>However, some lines have additional information to help you quickly understand where and how your job is running. For example:  </p>
+<div class="codehilite"><pre><span></span><code>001 (5739.000.000) 2020-07-10 10:45:11 Job executing on host: &lt;128.104.55.42:9618?addrs=...&gt;
+    SlotName: slot1@WISC-PATH-IDPL-EP.osgvo-docker-pilot-idpl-7c6575d494-2sj5w
+    CondorScratchDir = &quot;/pilot/osgvo-pilot-2q71K9/execute/dir_9316&quot;
+    Cpus = 1
+    Disk = 174321444
+    GLIDEIN_ResourceName = &quot;WISC-PATH-IDPL-EP&quot;
+    GPUs = 0
+    Memory = 8192
+...
+</code></pre></div>
+
+<ul>
+<li>The <code>SlotName</code> is the name of the execution point slot your job was assigned to by HTCondor, and the name of the execution point resource is provided in <code>GLIDEIN_ResourceName</code></li>
+<li>The <code>CondorScratchDir</code> is the name of the scratch directory that was created by HTCondor for your job to run inside</li>
+<li>The <code>Cpu</code>, <code>GPUs</code>, <code>Disk</code>, and <code>Memory</code> values provide the maximum amount of each resource your job has used while running</li>
+</ul>
+<p>Another example of a periodic update includes:</p>
 <div class="codehilite"><pre><span></span><code>006 (5739.000.000) 2020-07-10 10:45:20 Image size of job updated: 72
     1  -  MemoryUsage of job (MB)
     72  -  ResidentSetSize of job (KB)
@@ -443,8 +463,8 @@ When things go wrong with your job, the log is the best place to look for first 
 </code></pre></div>
 
 <p>These updates record the amount of memory that the job is using on the execute machine. This can be helpful information, so that in future runs of the job, you can tell HTCondor how much memory you will need.</p>
-<p>The job termination event includes a great deal of additional information:</p>
-<div class="codehilite"><pre><span></span><code>005 (5739.000.000) 2020-07-10 10:46:11 Job terminated.
+<p>The job termination event includes a lot of very useful information:</p>
+<div class="codehilite"><pre><span></span><code>005 (5739.000.000) 2023-07-10 10:46:11 Job terminated.
     (1) Normal termination (return value 0)
         Usr 0 00:00:00, Sys 0 00:00:00  -  Run Remote Usage
         Usr 0 00:00:00, Sys 0 00:00:00  -  Run Local Usage
@@ -458,12 +478,13 @@ When things go wrong with your job, the log is the best place to look for first 
        Cpus                 :                 1         1
        Disk (KB)            :       40       30   4203309
        Memory (MB)          :        1        1         1
+Job terminated of its own accord at 2023-07-10 10:46:11 with exit-code 0.
 ...
 </code></pre></div>
 
 <p>Probably the most interesting information is:</p>
 <ul>
-<li>The <code>return value</code> (<code>0</code> here, means the executable completed and didn't indicate any internal errors; non-zero usually means failure)</li>
+<li>The <code>return value</code> or <code>exit code</code> (<code>0</code> here, means the executable completed and didn't indicate any internal errors; non-zero usually means failure)</li>
 <li>The total number of bytes transferred each way, which could be useful if your network is slow</li>
 <li>The <code>Partitionable Resources</code> table, especially disk and memory usage, which will inform larger submissions.</li>
 </ul>
@@ -476,7 +497,7 @@ When things go wrong with your job, the log is the best place to look for first 
 <li>As soon as the <code>condor_submit</code> command finishes, hit the return key a few times, to create some blank lines</li>
 <li>
 <p>Right away, run a command to show the log file and <strong>keep showing</strong> updates as they occur:</p>
-<div class="codehilite"><pre><span></span><code><span class="gp">username@learn $ </span>tail -f sleep.log
+<div class="codehilite"><pre><span></span><code><span class="gp">username@ap1 $ </span>tail -f sleep.log
 </code></pre></div>
 
 </li>
@@ -496,7 +517,7 @@ Alternatively, delete any existing output, error, and log files from previous ru
 <li>Examine the output file: How many hostnames are there? Did HTCondor erase the previous contents for each job, or add new lines?</li>
 <li>Examine the log file… carefully: What happened there? Pay close attention to the times and job IDs of the events.</li>
 </ol>
-<p>For further clarification about how HTCondor handles these files, reach out to your mentor or one of the other school staff via Slack or email.</p>
+<p>For further clarification about how HTCondor handles these files, reach out to your mentor or one of the other school staff.</p>
                 
                   
                 
