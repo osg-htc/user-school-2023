@@ -361,6 +361,13 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#exercise-goal" class="md-nav__link">
+    Exercise Goal
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#viewing-a-job-sandbox" class="md-nav__link">
     Viewing a Job Sandbox
   </a>
@@ -418,7 +425,8 @@
                 <style type="text/css"> pre em { font-style: normal; background-color: yellow; } pre strong { font-style: normal; font-weight: bold; color: \#008; } </style>
 
 <h1 id="htc-exercise-21-work-with-input-and-output-files">HTC Exercise 2.1: Work With Input and Output Files<a class="headerlink" href="#htc-exercise-21-work-with-input-and-output-files" title="Permanent link">&para;</a></h1>
-<p>The goal of this exercise is make input files available to your job on the execute machine, and return output files back. This small change significantly adds to the kinds of jobs that you can run.</p>
+<h2 id="exercise-goal">Exercise Goal<a class="headerlink" href="#exercise-goal" title="Permanent link">&para;</a></h2>
+<p>The goal of this exercise is make input files available to your job on the execute machine and to return output files back created in your job back to you on the access point. This small change significantly adds to the kinds of jobs that you can run.</p>
 <h2 id="viewing-a-job-sandbox">Viewing a Job Sandbox<a class="headerlink" href="#viewing-a-job-sandbox" title="Permanent link">&para;</a></h2>
 <p>Before you learn to transfer files to and from your job, it is good to understand a bit more about the environment in which your job runs.
 When the HTCondor <code>starter</code> process prepares to run your job, it creates a new directory for your job and all of its files.
@@ -472,19 +480,15 @@ ls -alF
 <td>Saved standard output from the job</td>
 </tr>
 <tr>
-<td><code>condor_exec.exe</code></td>
-<td>The executable, renamed from <code>sandbox.sh</code></td>
-</tr>
-<tr>
 <td><code>tmp/</code>, <code>var/tmp/</code></td>
 <td>Directories in which to put temporary files</td>
 </tr>
 </tbody>
 </table>
-<p>So, HTCondor wrote copies of the job and machine ads (for use by the job, if desired), transferred your executable (<code>sandbox.sh</code>), renamed it (<code>condor_exec.exe</code>), ran it, and saved its standard output and standard error into files. Notice that your submit file, which was in the same directory on the submit machine as your executable, was <strong>not</strong> transferred, nor were any other files that happened to be in directory with the submit file.</p>
+<p>So, HTCondor wrote copies of the job and machine ads (for use by the job, if desired), transferred your executable (<code>sandbox.sh</code>), ran it, and saved its standard output and standard error into files. Notice that your submit file, which was in the same directory on the access point machine as your executable, was <strong>not</strong> transferred, nor were any other files that happened to be in directory with the submit file.</p>
 <p>Now that we know something about the sandbox, we can transfer more files to and from it.</p>
 <h2 id="running-a-job-with-input-files">Running a Job With Input Files<a class="headerlink" href="#running-a-job-with-input-files" title="Permanent link">&para;</a></h2>
-<p>Next, you will run a job that requires an input file. Remember, the initial job sandbox will contain only the renamed job executable, unless you tell HTCondor explicitly about every other file that needs to be transferred. Fortunately, this is easy.</p>
+<p>Next, you will run a job that requires an input file. Remember, the initial job sandbox will contain only the job executable, unless you tell HTCondor explicitly about every other file that needs to be transferred to the job.</p>
 <p>Here is a Python script that takes the name of an input file (containing one word per line) from the command line, counts the number of times each (lowercased) word occurs in the text, and prints out the final list of words and their counts.</p>
 <div class="codehilite"><pre><span></span><code><span class="ch">#!/usr/bin/env python</span>
 
@@ -515,7 +519,7 @@ ls -alF
 <li>Save the Python script in a file named <code>freq.py</code>.</li>
 <li>
 <p>Download the input file for the script (263K lines, ~1.4 MB) and save it in your submit directory:</p>
-<div class="codehilite"><pre><span></span><code><span class="gp">username@learn $ </span>wget http://proxy.chtc.wisc.edu/SQUID/osgschool20/intro-2.1-words.txt
+<div class="codehilite"><pre><span></span><code><span class="gp">username@ap1 $ </span>wget http://proxy.chtc.wisc.edu/SQUID/osgschool20/intro-2.1-words.txt
 </code></pre></div>
 
 </li>
@@ -560,7 +564,7 @@ We will use a very simple method for creating a new file: we will copy an input 
 </li>
 <li>Submit the job and wait for it to finish.</li>
 </ol>
-<p>What happened? Can you tell what HTCondor did with the output file that was created (did it end up back on the submit server?), after it was created in the job sandbox? Look carefully at the list of files in your submit directory now.</p>
+<p>What happened? Can you tell what HTCondor did with the output file that was created (did it end up back on the access point?), after it was created in the job sandbox? Look carefully at the list of files in your submit directory now.</p>
 <h2 id="transferring-specific-output-files">Transferring Specific Output Files<a class="headerlink" href="#transferring-specific-output-files" title="Permanent link">&para;</a></h2>
 <p>As you saw in the last exercise, by default HTCondor transfers files that are created in the job sandbox back to the submit directory when the job finishes. In fact, HTCondor will also transfer back <strong>changed</strong> input files, too. But, this only works for files that are in the top-level sandbox directory, and <strong>not</strong> for ones contained in subdirectories.</p>
 <p>What if you want to bring back only <strong>some</strong> output files, or output files contained in subdirectories?</p>
@@ -586,7 +590,7 @@ cp <span class="nv">$1</span> subdirectory/backup-<span class="nv">$1</span>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>See the trailing slash (<code>/</code>) on the subdirectory?
-That tells HTCondor to transfer back <strong>the files</strong> contained in the subdirectory, but not the directory itself;
+That tells HTCondor to transfer back <strong>the files contained in the subdirectory, but not the directory itself</strong>;
 the files will be written directly into the submit directory.
 If you want HTCondor to transfer back an entire directory, leave off the trailing slash.</p>
 </div>
@@ -598,7 +602,6 @@ If you want HTCondor to transfer back an entire directory, leave off the trailin
 <p>Did it work as you expected?</p>
 <h2 id="thinking-about-progress-so-far">Thinking About Progress So Far<a class="headerlink" href="#thinking-about-progress-so-far" title="Permanent link">&para;</a></h2>
 <p>At this point, you can do just about everything that you need in order to run jobs on a local HTC pool. You can identify the executable, arguments, and input files, and you can get output back from the job. This is a big achievement!</p>
-<p>In some ways, everything after this exercise shows you how to submit multiple jobs at once and makes it easier to run certain kinds of jobs and deal with certain kinds of situations.</p>
 <h2 id="references">References<a class="headerlink" href="#references" title="Permanent link">&para;</a></h2>
 <p>There are many more details about HTCondor’s file transfer mechanism not covered here.
 For more information, read <a href="https://htcondor.readthedocs.io/en/latest/users-manual/file-transfer.html">"Submitting Jobs Without a Shared Filesystem"</a> in the HTCondor Manual.</p>
