@@ -7,21 +7,37 @@ status: testing
 HTC Exercise 1.1: Log In and Look Around
 ===========================================
 
-The goal of this first exercise is simply to log in to the local submit server and look around a little bit, which will take only a few minutes. 
+Background
+----------
+
+There are different High Throughput Computing (HTC) systems at universities, government facilities, and other institutions around the world, and they may have different user experiences. For example, some systems have dedicated resources (which means your job will be guaranteed a certain amount of resources/time to complete), while other systems have opportunistic, backfill resources (which means your job can take advantage of some resources, but those resources could be removed at any time). Other systems have a mix of dedicated and opportunistic resources. 
+
+Durring the OSG School, you will practice on two different HTC systems: the "[PATh Facility](https://path-cc.io/facility/)" and "[OSG's Open Science Pool (OSPool)](https://osg-htc.org/services/open_science_pool.html)". This will help prepare you for working on a variety of different HTC systems. 
+
+* PATh Facility: The PATh Facility provides researchers with **dedicated HTC resources and the ability to run larger and longer jobs**. The HTC execute pool is composed of approximately 30,000 cores and 36 A100 GPUs. 
+* OSG's Open Science Pool: The OSPool provides researchers with **opportunitistic resources and the ability to run many smaller and shorter jobs silmnulatinously**. The OSPool is composed of approximately 60,000+ cores and dozens of different GPUs. 
+
+Exercise Goal 
+---
+
+The goal of this first exercise is to log in to the PATh Facility access point and look around a little bit, which will take only a few minutes. 
 
 **If you have trouble getting SSH access to the submit server, ask the instructors right away! Gaining access is critical for all remaining exercises.**
 
 Logging In
 ----------
 
-Today, you will use CHTC's local HTC Pool via an access point named `learn.chtc.wisc.edu` using the UW NetID account you set up. (This account is separate from the account you set up for the OSG Connect service, which you'll use starting tomorrow to run on OSG's Open Science Pool.)
+Today, you will use a High Throughput Computing system known as the "[PATh Facility](https://path-cc.io/facility/)". The PATh Facility provides users with dedicated resources and longer runtimes than OSG's Open Science Pool. 
+
+
+You will login to the access point of the PATh Facility, which is called `ap1.facility.path-cc.io` using the username you previously created. 
 
 To log in, use a [Secure Shell](http://en.wikipedia.org/wiki/Secure_Shell) (SSH) client.
 
--   From a Mac or Linux computer, start the Terminal app and run the below `ssh` command, replacing <USERNAME\> with your NetID username:
+-   From a Mac or Linux computer, start the Terminal app and run the below `ssh` command, replacing <USERNAME\> with your username:
 
 ``` hl_lines="1"
-$ ssh <USERNAME>@learn.chtc.wisc.edu
+$ ssh <USERNAME>@ap1.facility.path-cc.io
 ```
     
 -   On Windows, we recommend a free client called [PuTTY](http://www.chiark.greenend.org.uk/~sgtatham/putty/),
@@ -35,12 +51,12 @@ Running Commands
 In the exercises, we will show commands that you are supposed to type or copy into the command line, like this:
 
 ``` console
-username@learn $ hostname
-learn.chtc.wisc.edu
+username@ap1 $ hostname
+ap1.facility.path-cc.io
 ```
 
 !!! note
-    In the first line of the example above, the `username@learn $` part is meant to show the Linux command-line prompt.
+    In the first line of the example above, the `username@ap1 $` part is meant to show the Linux command-line prompt.
     You do not type this part! Further, your actual prompt probably is a bit different, and that is expected.
     So in the example above, the command that you type at your own prompt is just the eight characters `hostname`.
     The second line of the example, without the prompt, shows the output of the command; you do not type this part,
@@ -49,9 +65,9 @@ learn.chtc.wisc.edu
 Here are a few other commands that you can try (the examples below do not show the output from each command):
 
 ``` console
-username@learn $ whoami
-username@learn $ date
-username@learn $ uname -a
+username@ap1 $ whoami
+username@ap1 $ date
+username@ap1 $ uname -a
 ```
 
 A suggestion for the day: try typing into the command line as many of the commands as you can.
@@ -60,13 +76,13 @@ Copy-and-paste is fine, of course, but **you WILL learn more if you take the tim
 Organizing Your Workspace
 -------------------------
 
-You will be doing many different exercises over the next few days, many of them on this submit server. Each exercise may use many files, once finished. To avoid confusion, it may be useful to create a separate directory for each exercise.
+You will be doing many different exercises over the next few days, many of them on this access point. Each exercise may use many files, once finished. To avoid confusion, it may be useful to create a separate directory for each exercise.
 
 For instance, for the rest of this exercise, you may wish to create and use a directory named `intro-1.1-login`, or something like that.
 
 ``` console
-username@learn $ mkdir intro-1.1-login
-username@learn $ cd intro-1.1-login
+username@ap1 $ mkdir intro-1.1-login
+username@ap1 $ cd intro-1.1-login
 ```
 
 Showing the Version of HTCondor
@@ -75,24 +91,17 @@ Showing the Version of HTCondor
 HTCondor is installed on this server. But what version? You can ask HTCondor itself:
 
 ``` console
-username@learn $ condor_version
-$CondorVersion: 9.11.0 2022-07-19 BuildID: 597572 PackageID: 9.11.0-0.597572 RC $
+username@ap1 $ condor_version
+$CondorVersion: 10.6.0 2023-06-24 BuildID: 656423 PackageID: 10.6.0-0.656423 RC $
 $CondorPlatform: x86_64_CentOS7 $
 ```
 
-As you can see from the output, we are using HTCondor 9.11.0.
+As you can see from the output, we are using HTCondor 10.6.0.
 
-### FYI: Background information about HTCondor version numbers
-
-HTCondor always has two types of releases at one time: long-term-support (LTS) releases and feature releases. HTCondor 9.0.x is considered an LTS release, indicated by a 0 in the second digit. Within one LTS series, all versions have the same features (for example 9.0.5 and 9.0.10 have the same set of features) and differ only in bug and security fixes.
-
-HTCondor 9.11.0 is the latest _feature_ release series of HTCondor. You know that this is a feature release because the second digit (i.e. 11) is greater than 0. CHTC is usually running the latest feature release as the local CHTC Pool is somewhat of a final testing ground for new features. Other HTCondor pools and submit servers that you use outside of CHTC (including the OSG submit server you'll use later) may run different versions. In general, the user-facing HTCondor features in 9.0 forward are mostly the same, but you may see some differences in the format of output from `condor_` commands or in more advanced or non-user features.
 
 Reference Materials
 -------------------
 
 Here are a few links to reference materials that might be interesting after the school (or perhaps during).
 
--   [HTCondor home page](https://htcondor.org)
 -   [HTCondor manuals](https://htcondor.readthedocs.io/en/latest/); it is probably best to read the manual corresponding to the version of HTCondor that you use. That link points to the latest version of the manual, but you can switch versions using the toggle in the lower left corner of that page.
--   [Center for High Throughput Computing](http://chtc.cs.wisc.edu/), our campus research computing center, and home to HTCondor and other development of distributed computing tools.
