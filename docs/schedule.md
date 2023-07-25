@@ -232,7 +232,7 @@ Details to be determined and posted here.
         HTC Showcase, Part 1
         <br>
         &#9654; <span style="color: rgb(173, 81, 12);">Kendra Wyant</span>; UW–Madison, Psychology<br>
-        <div style="margin-left: 2ex;">“Title TBD”</div>
+        <div style="margin-left: 2ex;">“Using High Throughput Computing to predict future lapses back to alcohol use”</div>
         &#9654; <span style="color: rgb(173, 81, 12);">Eric Pulick</span>; UW–Madison, Industrial and Systems Engineering<br>
         <div style="margin-left: 2ex;">“Comparing Reinforcement Learning and Human Learning with the Game of Hidden Rules”</div>
       </td>
