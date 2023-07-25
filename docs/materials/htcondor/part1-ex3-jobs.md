@@ -7,16 +7,19 @@ status: testing
 HTC Exercise 1.3: Run Jobs!
 ==============================
 
-The goal of this exercise is to submit jobs to HTCondor and have them run on the local pool (CHTC). This is a huge step in learning to use an HTC system!
+Exercise Goal
+-------------
 
-**This exercise will take longer than the first two, short ones. It is the essential part of this exercise time. If you are having any problems getting the jobs to run, please ask the instructors! It is very important that you know how to run jobs.**
+The goal of this exercise is to submit jobs to HTCondor and have them run on the PATh Facility. This is a huge step in learning to use an HTC system!
+
+**This exercise will take longer than the first two, short ones. If you are having any problems getting the jobs to run, please ask the instructors! It is very important that you know how to run jobs.**
 
 Running Your First Job
 ----------------------
 
-Nearly all of the time, when you want to run an HTCondor job, you first write an HTCondor submit file for it. In this section, you will run the same `hostname` command as in Exercise 1.1, but where this command will run within a job on one of the 'execute' servers in CHTC's local HTCondor pool.
+Nearly all of the time, when you want to run an HTCondor job, you first write an HTCondor submit file for it. In this section, you will run the same `hostname` command as in Exercise 1.1, but where this command will run within a job on one of the 'execute' servers on the PATh Facility's HTCondor pool.
 
-Here is a straightforward submit file for the `hostname` command:
+First, create an example example submit file for the `hostname` command using your favorite text editor (e.g., `nano`, `vim`) and then transfer the following information to that file:
 
 ``` file
 executable = /bin/hostname
@@ -32,13 +35,12 @@ request_disk = 1MB
 queue
 ```
 
-Write those lines of text in a file named `hostname.sub`.
+Save your submit file using the name `hostname.sub`.
 
 !!! note
-    There is nothing magic about the name of an HTCondor submit file.
-    It can be any filename you want.
-    It's a good practice to always include the `.sub` extension, but it is not required.
-    Ultimately, a submit file is a text file
+    You can name the HTCondor submit file using any filename. 
+    It's a good practice to always include the `.sub` extension, but it is not required. 
+    This is because the submit file is a simple text file that we are using to pass information to HTCondor.
 
 The lines of the submit file have the following meanings:
 
@@ -51,12 +53,12 @@ The lines of the submit file have the following meanings:
 | `request_*`  | Tells HTCondor how many `cpus` and how much `memory` and `disk` we want, which is not much, because the 'hostname' executable is very small.                               |
 | `queue`      | Tells HTCondor to run your job with the settings above.                                                                                                                    |
 
-Note that we are not using the `arguments` or `transfer_input_files` lines that were mentioned during lecture because the `hostname` program is all that needs to be transferred from the submit server, and we want to run it without any additional options.
+Note that we are not using the `arguments` or `transfer_input_files` lines that were mentioned during lecture because the `hostname` program is all that needs to be transferred from the access point server, and we want to run it without any additional options.
 
 Double-check your submit file, so that it matches the text above. Then, tell HTCondor to run your job:
 
 ``` console
-username@learn $ condor_submit hostname.sub
+username@ap1 $ condor_submit hostname.sub
 Submitting job(s).
 1 job(s) submitted to cluster NNNN.
 ```
@@ -74,7 +76,7 @@ You may not even catch the job in the `R` running state, because the `hostname` 
 After the job finishes, check for the `hostname` output in `hostname.out`, which is where job information printed to the terminal screen will be printed for the job.
 
 ``` console
-username@learn $ cat hostname.out
+username@ap1 $ cat hostname.out
 e171.chtc.wisc.edu
 ```
 
@@ -85,15 +87,15 @@ The `hostname.err` file should be empty, unless there were issues running the `h
 Very often, when you run a command on the command line, it includes arguments (i.e. options) after the program name, as in the below examples:
 
 ``` console
-username@learn $ cat hostname.out
-username@learn $ sleep 60
-username@learn $ dc -e '6 7 * p'
+username@ap1 $ cat hostname.out
+username@ap1 $ sleep 60
+username@ap1 $ dc -e '6 7 * p'
 ```
 
 In an HTCondor submit file, the program (or 'executable') name goes in the `executable` statement and **all remaining arguments** go into an `arguments` statement. For example, if the full command is:
 
 ``` console
-username@learn $ sleep 60
+username@ap1 $ sleep 60
 ```
 
 Then in the submit file, we would put the location of the "sleep" program (you can find it with `which sleep`) as the job `executable`, and `60` as the job `arguments`:
@@ -106,7 +108,7 @@ arguments = 60
 For the command-line command:
 
 ``` console
-username@learn $ dc -e '6 7 * p'
+username@ap1 $ dc -e '6 7 * p'
 ```
 
 We would put the following into the submit file, putting the `arguments` statement in quotes, since it contains single quotes:
@@ -116,9 +118,9 @@ executable = /usr/bin/dc
 arguments = "-e '6 7 * p'"
 ```
 
-Let’s try a job submission with arguments. We will use the `sleep` command shown above, which simply does nothing for the specified number of seconds, then exits normally. It is convenient for simulating a job that takes a while to run.
+Let’s try a job submission with arguments. We will use the `sleep` command shown above, which does nothing (i.e., puts the job to sleep) for the specified number of seconds, then exits normally. It is convenient for simulating a job that takes a while to run.
 
-Create a new submit file (you name it this time) and save the following text in it.
+Create a new submit file and save the following text in it.
 
 ``` file
 executable = /bin/sleep
@@ -134,12 +136,13 @@ request_disk = 1MB
 
 queue
 ```
+You can save the file using any name, but as a reminder, we recommend it uses the `.sub` file extension. 
 
-Except for changing a few filenames, this submit file is nearly identical to the last one. But, see the extra `arguments` line?
+Except for changing a few filenames, this submit file is nearly identical to the last one, except for the addition of the `arguments` line.
 
-Submit this new job. Again, watch for it to run using `condor_q` and `condor_q -nobatch`; 
+Submit this new job to HTCondor. Again, watch for it to run using `condor_q` and `condor_q -nobatch`; 
 check once every 15 seconds or so. 
-Once the job starts running, it will take about 1 minute to run (because of the `sleep` command, right?), 
+Once the job starts running, it will take about 1 minute to run (reminder: the `sleep` command is telling the job to do nothing for 60 seconds), 
 so you should be able to see it running for a bit. 
 When the job finishes, it will disappear from the queue, but there will be no output in the output or error files, because `sleep` does not produce any output.
 
@@ -165,12 +168,12 @@ or perhaps a shell script of commands that you'd like to run within a job. In th
 1. Add executable permissions to the file (so that it can be run as a program):
 
         :::console
-        username@learn $ chmod +x test-script.sh
+        username@ap1 $ chmod +x test-script.sh
 
 1. Test your script from the command line:
 
         :::console
-        username@learn $ ./test-script.sh hello 42 
+        username@ap1 $ ./test-script.sh hello 42 
         Date: Mon Jul 17 10:02:20 CDT 2017 
         Host: learn.chtc.wisc.edu 
         System: Linux x86_64 GNU/Linux 
@@ -219,13 +222,12 @@ or perhaps a shell script of commands that you'd like to run within a job. In th
     
             queue
         
-        Use whitespace to make things clear to **you**. 
-        What format do you prefer to read?
+        Use whitespace to make things clear to **you**, the user. 
 
-1.  Submit the job, wait for it to finish, and check the output (and error, which should be empty).
+1.  Submit the job, wait for it to finish, and check the standard output file (and standard error file, which should be empty).
 
     What do you notice about the lines returned for "Program" and "ls"? Remember that only files pertaining
-    to **this** job will be in the job working directory on the execute server. You're also seeing the effects
+    to **this** job will be in the job working directory on the execute point server. You're also seeing the effects
     of HTCondor's need to standardize some filenames when running your job, though they are named as you expect 
     in the submission directory (per the submit file contents).
 
