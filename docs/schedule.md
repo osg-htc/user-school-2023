@@ -234,7 +234,7 @@ Details to be determined and posted here.
         &#9654; <span style="color: rgb(173, 81, 12);">Kendra Wyant</span>; UW–Madison, Psychology<br>
         <div style="margin-left: 2ex;">“Using High Throughput Computing to predict future lapses back to alcohol use”</div>
         &#9654; <span style="color: rgb(173, 81, 12);">Eric Pulick</span>; UW–Madison, Industrial and Systems Engineering<br>
-        <div style="margin-left: 2ex;">“Comparing Reinforcement Learning and Human Learning with the Game of Hidden Rules”</div>
+        <div style="margin-left: 2ex;">“Comparing reinforcement learning and human learning with the game of hidden rules”</div>
       </td>
     </tr>
     <tr>
@@ -458,7 +458,7 @@ Details to be determined and posted here.
           HTC Showcase, Part 2
           <br>
           &#9654; <span style="color: rgb(173, 81, 12);">Grant Nickles</span>; UW–Madison, Cellular and Molecular Biology<br>
-          <div style="margin-left: 2ex;">“Unearthing Nature's Hidden Arsenal: Mining Fungal Genomes for a New Class of Medicine and Beyond”</div>
+          <div style="margin-left: 2ex;">“Unearthing nature's hidden arsenal: Mining fungal genomes for a new class of medicine and beyond”</div>
           &#9654; <span style="color: rgb(173, 81, 12);">Jimena Gonzalez</span>; UW–Madison, Physics<br>
           <div style="margin-left: 2ex;">“Title TBD”</div>
         </td>
