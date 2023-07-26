@@ -458,7 +458,7 @@ Details to be determined and posted here.
           HTC Showcase, Part 2
           <br>
           &#9654; <span style="color: rgb(173, 81, 12);">Grant Nickles</span>; UW–Madison, Cellular and Molecular Biology<br>
-          <div style="margin-left: 2ex;">“Title TBD”</div>
+          <div style="margin-left: 2ex;">“Unearthing Nature's Hidden Arsenal: Mining Fungal Genomes for a New Class of Medicine and Beyond”</div>
           &#9654; <span style="color: rgb(173, 81, 12);">Jimena Gonzalez</span>; UW–Madison, Physics<br>
           <div style="margin-left: 2ex;">“Title TBD”</div>
         </td>
