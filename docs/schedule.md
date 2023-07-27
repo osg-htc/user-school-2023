@@ -431,59 +431,49 @@ Details to be determined and posted here.
     </tr>
     <tr>
       <td>11:30</td>
-      <td>12:00</td>
-      <td>
-        <span class="before-dot text-light-orange">Work time: Apply HTC to own research</span>
-        <br>
-        <span class="before-dot text-black">Individual and small-group meetings available</span>
-      </td>
-      <td>staff</td>
-    </tr>
-    <tr>
-      <td>12:00</td>
-      <td>12:20</td>
+      <td>11:50</td>
       <td>Group photo (details TBD)</td>
       <td>—</td>
     </tr>
     <tr>
-      <td>12:20</td>
-      <td>13:30</td>
+      <td>11:50</td>
+      <td>13:00</td>
       <td>Lunch</td>
       <td>—</td>
     </tr>
     <tr>
-        <td>13:30</td>
-        <td>14:30</td>
+        <td>13:00</td>
+        <td>14:00</td>
         <td colspan="2">
           HTC Showcase, Part 2
           <br>
           &#9654; <span style="color: rgb(173, 81, 12);">Grant Nickles</span>; UW–Madison, Cellular and Molecular Biology<br>
           <div style="margin-left: 2ex;">“Unearthing nature's hidden arsenal: Mining fungal genomes for a new class of medicine and beyond”</div>
           &#9654; <span style="color: rgb(173, 81, 12);">Jimena Gonzalez</span>; UW–Madison, Physics<br>
-          <div style="margin-left: 2ex;">“Title TBD”</div>
+          <div style="margin-left: 2ex;">“Searching for gravitational lenses in the dark energy survey”</div>
         </td>
     </tr>
     <tr>
+        <td>14:00</td>
         <td>14:30</td>
-        <td>15:00</td>
         <td>Open Q&amp;A and discussion time, or<br>Break, if you like</td>
         <td>—</td>
     </tr>
     <tr>
-        <td>15:00</td>
-        <td>16:00</td>
+        <td>14:30</td>
+        <td>15:30</td>
         <td>Lightning talks by (volunteer) participants</td>
         <td>—</td>
     </tr>
     <tr>
+      <td>15:30</td>
       <td>16:00</td>
-      <td>16:30</td>
       <td>Open Q&amp;A and discussion time</td>
       <td>—</td>
     </tr>
     <tr>
+      <td>16:00</td>
       <td>16:30</td>
-      <td>17:00</td>
       <td><span class="before-dot text-light-blue">Lecture: The End &hellip; and the Beginning</span></td>
       <td>Tim C.</td>
     </tr>
