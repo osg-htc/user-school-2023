@@ -460,7 +460,7 @@ Details to be determined and posted here.
           &#9654; <span style="color: rgb(173, 81, 12);">Grant Nickles</span>; UW–Madison, Cellular and Molecular Biology<br>
           <div style="margin-left: 2ex;">“Unearthing nature's hidden arsenal: Mining fungal genomes for a new class of medicine and beyond”</div>
           &#9654; <span style="color: rgb(173, 81, 12);">Jimena Gonzalez</span>; UW–Madison, Physics<br>
-          <div style="margin-left: 2ex;">“Title TBD”</div>
+          <div style="margin-left: 2ex;">“Searching for gravitational lenses in the dark energy survey”</div>
         </td>
     </tr>
     <tr>
