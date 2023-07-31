@@ -7,6 +7,9 @@ status: testing
 Bonus HTC Exercise 2.4: Submit With “queue matching”
 =================================================
 
+Exercise Goal
+---------------
+
 The goal of this exercise is to submit many jobs from a single submit file by using the `queue ... matching` syntax to submit jobs with variable values derived from files in the current directory which match a specified pattern.
 
 Counting Words in Files
@@ -56,7 +59,7 @@ for word in sorted_words:
 
 To use the script:
 
-1.  Save it as `wordcount.py`.
+1.  Create and save this script as `wordcount.py`.
 1.  Verify the script by running it on one book manually.
 1.  Create a new submit file to submit one job (pick a book file and model your submit file off of the one above)
 1.  Modify the following submit file statements to work for all books:
