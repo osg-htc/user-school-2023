@@ -83,24 +83,24 @@ for word in sorted(words.keys()):
     print '%8d %s' % (words[word], word)
 ```
 
-1.  Save the Python script in a file named `freq.py`.
+1.  Create and save the Python script in a file named `freq.py`.
 1.  Download the input file for the script (263K lines, ~1.4 MB) and save it in your submit directory:
 
         :::console
         username@ap1 $ wget http://proxy.chtc.wisc.edu/SQUID/osgschool20/intro-2.1-words.txt
 
 1.  Create a submit file for the `freq.py` executable.
-1.  Add a line to tell HTCondor to transfer the input file:
+1.  Add a line called `transfer_input_files = ` to tell HTCondor to transfer the input file to the job:
 
         :::file
         transfer_input_files = intro-2.1-words.txt
 
     As with all submit file commands, it does not matter where this line goes, as long as it comes before the word `queue`.
 
-1.  Do not forget to add a line to name the input file as the argument to the Python script.
-1.  Submit the job, wait for it to finish, and check the output!
+1.  Since we want HTCondor to pass an argument to our Python executable, we need to remember to add an `arguments = ` line in our submit file so that HTCondor knows to pass an argument to the job. Set this `arguments = ` line equal to the argument to the Python script (i.e., the name the input file).
+1.  Submit the job to HTCondor, wait for it to finish, and check the output!
 
-If things do not work the first time, keep trying! At this point in the exercises, we are telling you less and less explicitly how to do steps that you have done before. If you get stuck, ask for help in the #intro-to-htc Slack channel.
+If things do not work the first time, keep trying! At this point in the exercises, we are telling you less and less explicitly how to do steps that you have done before. If you get stuck, ask for help in the Slack channel.
 
 !!! note
     If you want to transfer more than one input file, list all of them on a single `transfer_input_files` command,
@@ -149,15 +149,17 @@ cp $1 subdirectory/backup-$1
 
 First, let’s confirm that HTCondor does not bring back the output file in the subdirectory:
 
-1.  Save the shell script in a file named `output.sh`.
+1.  Create a file called `output.sh` and save the shell script in this file.
 1.  Write a submit file that transfers an input file and runs `output.sh` on it (passing the filename as an argument).
 1.  Submit the job, wait for it to finish, and examine the contents of your submit directory.
 
-Suppose you decide that you want only the timestamp output file and all files in the subdirectory, but not the calendar output file. You can tell HTCondor to only transfer these specific files back to the submission directory:
+Suppose you decide that you want only the timestamp output file and all files in the subdirectory, but not the calendar output file. You can tell HTCondor to only transfer these specific files back to the submission directory using `transfer_output_files =`:
 
 ``` file
 transfer_output_files = output-timestamp.txt, subdirectory/
 ```
+
+When using `transfer_output_files =`, HTCondor will only transfer back the files you name - all other files will be ignored and deleted at the end of a job. 
 
 !!! note
     See the trailing slash (`/`) on the subdirectory?
@@ -174,7 +176,7 @@ Did it work as you expected?
 Thinking About Progress So Far
 ------------------------------
 
-At this point, you can do just about everything that you need in order to run jobs on a local HTC pool. You can identify the executable, arguments, and input files, and you can get output back from the job. This is a big achievement!
+At this point, you can do just about everything that you need in order to run jobs on a HTC pool. You can identify the executable, arguments, and input files, and you can get output back from the job. This is a big achievement!
 
 References
 ----------
