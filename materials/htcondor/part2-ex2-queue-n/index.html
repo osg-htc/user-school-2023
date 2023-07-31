@@ -361,6 +361,13 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#background" class="md-nav__link">
+    Background
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#exercise-goal" class="md-nav__link">
     Exercise Goal
   </a>
@@ -425,18 +432,20 @@
                 <style type="text/css"> pre em { font-style: normal; background-color: yellow; } pre strong { font-style: normal; font-weight: bold; color: \#008; } </style>
 
 <h1 id="htc-exercise-22-use-queue-n-cluster-and-process">HTC Exercise 2.2: Use queue <em>N</em>, $(Cluster), and $(Process)<a class="headerlink" href="#htc-exercise-22-use-queue-n-cluster-and-process" title="Permanent link">&para;</a></h1>
-<h2 id="exercise-goal">Exercise Goal<a class="headerlink" href="#exercise-goal" title="Permanent link">&para;</a></h2>
-<p>The goal of the next several exercises is
-to learn to submit many jobs from a single <code>queue</code> statement,
-and to control things like filenames and arguments on a per-job basis when doing so.</p>
+<h2 id="background">Background<a class="headerlink" href="#background" title="Permanent link">&para;</a></h2>
 <p>Suppose you have a program that you want to run many times with different arguments each time. With what you know so far, you have a couple of choices:</p>
 <ul>
 <li>Write one submit file; submit one job, change the argument in the submit file, submit another job, change the submit file, …</li>
 <li>Write many submit files that are nearly identical except for the program argument</li>
 </ul>
 <p>Neither of these options seems very satisfying. Fortunately, HTCondor's <code>queue</code> statement is here to help!</p>
+<h2 id="exercise-goal">Exercise Goal<a class="headerlink" href="#exercise-goal" title="Permanent link">&para;</a></h2>
+<p>The goal of the next several exercises is
+to learn to submit many jobs from a single HTCondor <code>queue</code> statement,
+and to control things like filenames and arguments on a per-job basis when doing so.</p>
 <h2 id="running-many-jobs-with-one-queue-statement">Running Many Jobs With One queue Statement<a class="headerlink" href="#running-many-jobs-with-one-queue-statement" title="Permanent link">&para;</a></h2>
-<p>Here is a C program that uses a stochastic (random) method to estimate the value of π. The single argument to the program is the number of samples to take. More samples should result in better estimates!</p>
+<p><strong>Example 1:</strong> 
+Here is a C program that uses a stochastic (random) method to estimate the value of π. The single argument to the program is the number of samples to take. More samples should result in better estimates!</p>
 <div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp"></span>
 <span class="cp">#include</span> <span class="cpf">&lt;stdlib.h&gt;</span><span class="cp"></span>
 <span class="cp">#include</span> <span class="cpf">&lt;sys/time.h&gt;</span><span class="cp"></span>
@@ -473,7 +482,7 @@ and to control things like filenames and arguments on a per-job basis when doing
 </code></pre></div>
 
 <ol>
-<li>In a new directory for this exercise, save the code to a file named <code>circlepi.c</code></li>
+<li>In a new directory for this exercise, create and save the code to a file named <code>circlepi.c</code></li>
 <li>
 <p>Compile the code (we will cover this in more detail during the Software lecture):</p>
 <div class="codehilite"><pre><span></span><code><span class="gp">username@ap1 $ </span>gcc -o circlepi circlepi.c
@@ -521,21 +530,21 @@ the second job was assigned process <code>1</code>,
 and the third one was assigned process <code>2</code>.
 (Programmers like to start counting from 0.)</p>
 <p>Now we can understand what the first column in the output, the <strong><em>job ID</em></strong>, represents.
-It is a job’s cluster number, a dot (<code>.</code>), and the job’s process number.
+It is a job’s <em>cluster number</em>, a dot (<code>.</code>), and the job’s <em>process number</em>.
 So in the example above, the job ID of the second job is <code>10228.1</code>.</p>
-<p><strong>Pop Quiz:</strong> Do you remember how to ask HTCondor to list all of the jobs from one cluster? How about one specific job ID?</p>
+<p><strong>Pop Quiz:</strong> Do you remember how to ask HTCondor's queue to list the status of all of the jobs from one cluster? How about one specific job ID?</p>
 <h2 id="using-queue-n-with-output">Using queue <em>N</em> With Output<a class="headerlink" href="#using-queue-n-with-output" title="Permanent link">&para;</a></h2>
 <p>When all three jobs in your single cluster are finished, examine the resulting files.</p>
 <ul>
 <li>What is in the output file? </li>
-<li>What is in the error file (hopefully nothing)?</li>
+<li>What is in the error file? (hopefully it is empty!)</li>
 <li>What is in the log file? Look carefully at the job IDs in each event.</li>
-<li>Is this what you expected? Is it what you wanted?</li>
+<li>Is this what you expected? Is it what you wanted? If the output is not what you expected, what do you think happened?</li>
 </ul>
 <h2 id="using-process-to-distinguish-jobs">Using $(Process) to Distinguish Jobs<a class="headerlink" href="#using-process-to-distinguish-jobs" title="Permanent link">&para;</a></h2>
 <p>As you saw with the experiment above, each job ended up overwriting the same output and error filenames in the submission directory.
-After all, we didn't tell it to behave any differently when it ran three jobs.
-We need a way to separate output (and error) files <em>per job that is queued</em>, not just for the whole cluster of jobs. Fortunately, HTCondor has a way to separate the files easily.</p>
+After all, we didn't tell it to behave any differently when it ran three jobs.</p>
+<p>We need a way to separate output (and error) files <em>per job that is queued</em>, not just for the whole cluster of jobs. Fortunately, HTCondor has a way to separate the files easily.</p>
 <p>When processing a submit file, HTCondor will replace any instance of <code>$(Process)</code> with the process number of the job, for each job that is queued. 
 For example, you can use the <code>$(Process)</code> variable to define a separate output file name for each job:</p>
 <div class="codehilite"><pre><span></span><code>output = my-output-file-$(Process).out
@@ -602,10 +611,10 @@ queue 10
 </ul>
 <p>Unfortunately, HTCondor does not easily let you perform math on the <code>$(Process)</code> number when using it. So, for example, if you use <code>$(Process)</code> as a numeric argument to a command, it will always result in jobs getting the arguments 0, 1, 2, and so on. If you have control over your program and the way in which it uses command-line arguments, then you are fine. Otherwise, you might need a solution like those in the next exercises.</p>
 <h2 id="optional-defining-jobbatchname-for-tracking">(Optional) Defining JobBatchName for Tracking<a class="headerlink" href="#optional-defining-jobbatchname-for-tracking" title="Permanent link">&para;</a></h2>
-<p>During the lecture, it was mentioned that you can define arbitrary attributes in your submit file, and that one purpose of such attributes is to track or report on different jobs separately. In this optional exercise, you will see how this technique can be used.</p>
+<p>It is possible to define arbitrary attributes in your submit file, and that one purpose of such attributes is to track or report on different jobs separately. In this optional exercise, you will see how this technique can be used.</p>
 <p>Once again, we will use <code>sleep</code> jobs, so that your jobs remain in the queue long enough to experiment on.</p>
 <ol>
-<li>Create a submit file that runs <code>sleep 120</code> (or some reasonable duration).</li>
+<li>Create a submit file that runs <code>sleep 120</code>.</li>
 <li>
 <p>Instead of a single <code>queue</code> statement, write this:</p>
 <div class="codehilite"><pre><span></span><code>jobbatchname = 1
@@ -614,7 +623,7 @@ queue 5
 
 </li>
 <li>
-<p>Submit the file.</p>
+<p>Submit the submit file to HTCondor. </p>
 </li>
 <li>
 <p>Now, quickly edit the submit file to instead say:</p>
@@ -631,7 +640,7 @@ queue 5
 </code></pre></div>
 
 <p>Do you get the output that you expected? Using the example command above, how would you list your other five jobs?
-(More on constraints in later exercises.)</p>
+(There will be more on how to use HTCondor constraints in later exercises.)</p>
                 
                   
                 
