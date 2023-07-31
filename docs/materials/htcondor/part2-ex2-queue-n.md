@@ -7,11 +7,8 @@ status: testing
 HTC Exercise 2.2: Use queue *N*, $(Cluster), and $(Process)
 ==============================================================
 
-Exercise Goal
--------------
-The goal of the next several exercises is
-to learn to submit many jobs from a single `queue` statement,
-and to control things like filenames and arguments on a per-job basis when doing so.
+Background
+------------
 
 Suppose you have a program that you want to run many times with different arguments each time. With what you know so far, you have a couple of choices:
 
@@ -20,9 +17,19 @@ Suppose you have a program that you want to run many times with different argume
 
 Neither of these options seems very satisfying. Fortunately, HTCondor's `queue` statement is here to help!
 
+
+Exercise Goal
+-------------
+
+The goal of the next several exercises is
+to learn to submit many jobs from a single HTCondor `queue` statement,
+and to control things like filenames and arguments on a per-job basis when doing so.
+
+
 Running Many Jobs With One queue Statement
 ------------------------------------------
 
+**Example 1:** 
 Here is a C program that uses a stochastic (random) method to estimate the value of π. The single argument to the program is the number of samples to take. More samples should result in better estimates!
 
 ``` c
@@ -61,7 +68,7 @@ int main(int argc, char *argv[])
 }
 ```
 
-1.  In a new directory for this exercise, save the code to a file named `circlepi.c`
+1.  In a new directory for this exercise, create and save the code to a file named `circlepi.c`
 1.  Compile the code (we will cover this in more detail during the Software lecture):
 
         :::console
@@ -104,10 +111,10 @@ and the third one was assigned process `2`.
 (Programmers like to start counting from 0.)
 
 Now we can understand what the first column in the output, the ***job ID***, represents.
-It is a job’s cluster number, a dot (`.`), and the job’s process number.
+It is a job’s *cluster number*, a dot (`.`), and the job’s *process number*.
 So in the example above, the job ID of the second job is `10228.1`.
 
-**Pop Quiz:** Do you remember how to ask HTCondor to list all of the jobs from one cluster? How about one specific job ID?
+**Pop Quiz:** Do you remember how to ask HTCondor's queue to list the status of all of the jobs from one cluster? How about one specific job ID?
 
 Using queue *N* With Output
 ---------------------------
@@ -115,19 +122,21 @@ Using queue *N* With Output
 When all three jobs in your single cluster are finished, examine the resulting files.
 
 -   What is in the output file? 
--   What is in the error file (hopefully nothing)?
+-   What is in the error file? (hopefully it is empty!)
 -   What is in the log file? Look carefully at the job IDs in each event.
--   Is this what you expected? Is it what you wanted?
+-   Is this what you expected? Is it what you wanted? If the output is not what you expected, what do you think happened?
 
 Using $(Process) to Distinguish Jobs
 ------------------------------------
 
 As you saw with the experiment above, each job ended up overwriting the same output and error filenames in the submission directory.
 After all, we didn't tell it to behave any differently when it ran three jobs.
+
 We need a way to separate output (and error) files *per job that is queued*, not just for the whole cluster of jobs. Fortunately, HTCondor has a way to separate the files easily.
 
 When processing a submit file, HTCondor will replace any instance of `$(Process)` with the process number of the job, for each job that is queued. 
 For example, you can use the `$(Process)` variable to define a separate output file name for each job:
+
 ``` file
 output = my-output-file-$(Process).out
 queue 10
@@ -184,18 +193,18 @@ Unfortunately, HTCondor does not easily let you perform math on the `$(Process)`
 (Optional) Defining JobBatchName for Tracking
 ---------------------------------------------
 
-During the lecture, it was mentioned that you can define arbitrary attributes in your submit file, and that one purpose of such attributes is to track or report on different jobs separately. In this optional exercise, you will see how this technique can be used.
+It is possible to define arbitrary attributes in your submit file, and that one purpose of such attributes is to track or report on different jobs separately. In this optional exercise, you will see how this technique can be used.
 
 Once again, we will use `sleep` jobs, so that your jobs remain in the queue long enough to experiment on.
 
-1.  Create a submit file that runs `sleep 120` (or some reasonable duration).
+1.  Create a submit file that runs `sleep 120`.
 1.  Instead of a single `queue` statement, write this:
 
         :::file
         jobbatchname = 1
         queue 5
 
-1.  Submit the file.
+1.  Submit the submit file to HTCondor. 
 1.  Now, quickly edit the submit file to instead say:
 
         :::file
@@ -210,4 +219,4 @@ username@ap1 $ condor_q -constraint 'JobBatchName == "1"'
 ```
 
 Do you get the output that you expected? Using the example command above, how would you list your other five jobs?
-(More on constraints in later exercises.)
+(There will be more on how to use HTCondor constraints in later exercises.)
