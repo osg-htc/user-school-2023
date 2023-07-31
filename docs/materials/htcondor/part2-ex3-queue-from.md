@@ -7,10 +7,17 @@ status: testing
 HTC Exercise 2.3: Submit with “queue from”
 =============================================
 
-In this exercise and the next one, you will explore more ways to use a single
-submit file to submit many jobs. The goal of this exercise is to submit many
+Exercise Goals
+---------------
+
+In this exercise and the next one, you will **explore more ways to use a single
+submit file to submit many jobs**. The goal of this exercise is to submit many
 jobs from a single submit file by using the `queue ... from` syntax to read
 variable values from a file.
+
+
+Background
+----------
 
 In all cases of submitting many jobs from a single submit file, the key questions are:
 
@@ -38,6 +45,7 @@ error                = AAiW.err
 log                  = AAiW.log
 queue
 ```
+
 This would be overly verbose and tedious. Let's do better.
 
 Queue Jobs From a List of Values
@@ -87,8 +95,8 @@ To submit this program with a collection of two variable values for each run, on
 1.  Download and unpack some books from Project Gutenberg:
 
         :::console
-        username@learn $ wget http://proxy.chtc.wisc.edu/SQUID/osgschool20/books.zip
-        username@learn $ unzip books.zip
+        user@ap1 $ wget http://proxy.chtc.wisc.edu/SQUID/osgschool20/books.zip
+        user@ap1 $ unzip books.zip
 
 1.  Create a new submit file (or base it off a previous one!) named `wordcount-top.sub`, including memory and disk requests of 20 MB.
 1.  All of the jobs will use the same `executable` and `log` statements.
@@ -99,7 +107,7 @@ To submit this program with a collection of two variable values for each run, on
         error = $(book)_top_$(n).err 
         transfer_input_files = $(book) 
         arguments = "$(book) $(n)" 
-        queue book,n from books_n.txt
+        queue book, n from books_n.txt
 
     Note especially the changes to the `queue` statement; it now tells HTCondor to read a separate text file of ***pairs*** of values, which will be assigned to `book` and `n` respectively.
 
