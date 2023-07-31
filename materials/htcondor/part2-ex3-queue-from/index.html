@@ -361,6 +361,20 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#exercise-goals" class="md-nav__link">
+    Exercise Goals
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#background" class="md-nav__link">
+    Background
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#counting-words-in-files" class="md-nav__link">
     Counting Words in Files
   </a>
@@ -397,10 +411,12 @@
                 <style type="text/css"> pre em { font-style: normal; background-color: yellow; } pre strong { font-style: normal; font-weight: bold; color: \#008; } </style>
 
 <h1 id="htc-exercise-23-submit-with-queue-from">HTC Exercise 2.3: Submit with “queue from”<a class="headerlink" href="#htc-exercise-23-submit-with-queue-from" title="Permanent link">&para;</a></h1>
-<p>In this exercise and the next one, you will explore more ways to use a single
-submit file to submit many jobs. The goal of this exercise is to submit many
+<h2 id="exercise-goals">Exercise Goals<a class="headerlink" href="#exercise-goals" title="Permanent link">&para;</a></h2>
+<p>In this exercise and the next one, you will <strong>explore more ways to use a single
+submit file to submit many jobs</strong>. The goal of this exercise is to submit many
 jobs from a single submit file by using the <code>queue ... from</code> syntax to read
 variable values from a file.</p>
+<h2 id="background">Background<a class="headerlink" href="#background" title="Permanent link">&para;</a></h2>
 <p>In all cases of submitting many jobs from a single submit file, the key questions are:</p>
 <ul>
 <li>What makes each job unique? In other words, there is one job per _____?</li>
@@ -465,8 +481,8 @@ you understand this code):</p>
 <li>Save the script as <code>wordcount-top-n.py</code>.</li>
 <li>
 <p>Download and unpack some books from Project Gutenberg:</p>
-<div class="codehilite"><pre><span></span><code><span class="gp">username@learn $ </span>wget http://proxy.chtc.wisc.edu/SQUID/osgschool20/books.zip
-<span class="gp">username@learn $ </span>unzip books.zip
+<div class="codehilite"><pre><span></span><code><span class="gp">user@ap1 $ </span>wget http://proxy.chtc.wisc.edu/SQUID/osgschool20/books.zip
+<span class="gp">user@ap1 $ </span>unzip books.zip
 </code></pre></div>
 
 </li>
@@ -480,7 +496,7 @@ you understand this code):</p>
 error = $(book)_top_$(n).err 
 transfer_input_files = $(book) 
 arguments = &quot;$(book) $(n)&quot; 
-queue book,n from books_n.txt
+queue book, n from books_n.txt
 </code></pre></div>
 
 <p>Note especially the changes to the <code>queue</code> statement; it now tells HTCondor to read a separate text file of <strong><em>pairs</em></strong> of values, which will be assigned to <code>book</code> and <code>n</code> respectively.</p>
