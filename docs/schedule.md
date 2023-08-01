@@ -5,7 +5,9 @@ but the overall plan here is accurate.
 
 ## August 6 (Sunday)
 
-**School kick-off for participants and staff**
+### School kick-off for participants and staff
+
+**Location:** Memorial Union, Multicultural Greek Council Room: 4th Floor
 
 We would like to get as many people as possible together on Sunday evening
 from about 7&ndash;8 p.m.
@@ -20,12 +22,6 @@ During that time, we can:
 
 Attendance is optional, but as incentive, we will offer UW&ndash;Madison Babcock Hall ice cream
 to those who can make it.
-
-We will post here the exact room in Memorial Union as soon as we know,
-which may not be until Saturday evening or Sunday morning.
-
-If the weather is nice, we may get our ice cream and then find a nice place outdoors to gather.
-Details and changes will be posted here as available!
 
 ## August 7 (Monday)
 
@@ -42,7 +38,7 @@ Details and changes will be posted here as available!
     <tr>
         <td>8:00</td>
         <td>8:45</td>
-        <td>Breakfast in/near the auditorium</td>
+        <td>Breakfast is getting served in L177</td>
         <td>—</td>
     </tr>
     <tr>
@@ -84,7 +80,7 @@ Details and changes will be posted here as available!
     <tr>
         <td>12:00</td>
         <td>13:00</td>
-        <td>Lunch in/near the auditorium</td>
+        <td>Lunch is getting served in L177</td>
         <td>—</td>
     </tr>
     <tr>
@@ -137,6 +133,12 @@ Details and changes will be posted here as available!
   </thead>
   <tbody>
     <tr>
+        <td>8:00</td>
+        <td>8:45</td>
+        <td>Breakfast is getting served in L177</td>
+        <td>—</td>
+    </tr>
+    <tr>
         <td>9:00</td>
         <td>9:45</td>
         <td><span class="before-dot text-light-blue">Lecture: Introduction to OSG and the OSPool</span></td>
@@ -169,7 +171,7 @@ Details and changes will be posted here as available!
     <tr>
         <td>12:15</td>
         <td>13:30</td>
-        <td>Lunch break</td>
+        <td>Lunch is getting served in L177</td>
         <td>—</td>
     </tr>
     <tr>
@@ -226,6 +228,12 @@ Details and changes will be posted here as available!
   </thead>
   <tbody>
     <tr>
+        <td>8:00</td>
+        <td>8:45</td>
+        <td>Breakfast is getting served in L177</td>
+        <td>—</td>
+    </tr>
+    <tr>
       <td>9:00</td>
       <td>9:45</td>
       <td><span class="before-dot text-light-blue">Lecture: Working with data</span></td>
@@ -264,7 +272,7 @@ Details and changes will be posted here as available!
     <tr>
       <td>12:30</td>
       <td>13:45</td>
-      <td>Lunch</td>
+      <td>Lunch is getting served in L177</td>
       <td>—</td>
     </tr>
     <tr>
@@ -303,6 +311,12 @@ Details and changes will be posted here as available!
   </thead>
   <tbody>
     <tr>
+        <td>—</td>
+        <td>—</td>
+        <td>Breakfast on your own</td>
+        <td>—</td>
+    </tr>
+    <tr>
       <td>9:00</td>
       <td>9:45</td>
       <td><span class="before-dot text-light-blue">Lecture: Scaling up</span></td>
@@ -333,7 +347,7 @@ Details and changes will be posted here as available!
     <tr>
       <td>12:00</td>
       <td>13:15</td>
-      <td>Lunch</td>
+      <td>Lunch on your own</td>
       <td>—</td>
     </tr>
     <tr>
@@ -410,6 +424,12 @@ Details and changes will be posted here as available!
   </thead>
   <tbody>
     <tr>
+        <td>—</td>
+        <td>—</td>
+        <td>Breakfast on your own</td>
+        <td>—</td>
+    </tr>
+    <tr>
       <td>9:00</td>
       <td>9:45</td>
       <td>
@@ -456,7 +476,7 @@ Details and changes will be posted here as available!
     <tr>
       <td>11:50</td>
       <td>13:00</td>
-      <td>Lunch</td>
+      <td>Lunch is getting served in L177</td>
       <td>—</td>
     </tr>
     <tr>
@@ -493,6 +513,12 @@ Details and changes will be posted here as available!
       <td>16:00</td>
       <td>16:30</td>
       <td><span class="before-dot text-light-blue">Lecture: The End &hellip; and the Beginning</span></td>
+      <td>Tim C.</td>
+    </tr>
+    <tr>
+      <td>18:00</td>
+      <td>20:00</td>
+      <td>Dinner<br>Union South: Industry and Outdoor Pavilion (3rd Floor)</td>
       <td>Tim C.</td>
     </tr>
   </tbody>
