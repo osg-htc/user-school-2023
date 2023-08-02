@@ -95,7 +95,7 @@ username@ap1 $ condor_q
 The main part of the output (which will be empty, because you haven't submitted jobs yet) shows one set ("batch") of submitted jobs per line. If you had a single job in the queue, it would look something like the below:
 
 ``` console
--- Schedd: learn.chtc.wisc.edu : <128.104.100.43:9618?... @ 07/12/19 09:59:31
+-- Schedd: ap1.facility.path-cc.io : <128.104.100.43:9618?... @ 07/12/23 09:59:31
 OWNER  BATCH_NAME            SUBMITTED   DONE   RUN    IDLE  TOTAL JOB_IDS
 alice CMD: run_ffmpeg.sh   7/12 09:58      _      _      1      1 18801.0               
 ```
@@ -143,7 +143,7 @@ username@ap1 $ condor_q -all
 The `condor_q` output, by default, groups "batches" of jobs together (if they were submitted with the same submit file or "jobbatchname"). To see more information for EVERY job on a separate line of output, use the `-nobatch` option to `condor_q`:
 
 ``` console
-username@lap1 $ condor_q -all -nobatch
+username@ap1 $ condor_q -all -nobatch
 ```
 
 **How has the column information changed?** (Below is an example of the top of the output.)
@@ -153,7 +153,7 @@ username@lap1 $ condor_q -all -nobatch
  ID       OWNER            SUBMITTED     RUN_TIME ST PRI SIZE   CMD
 18203.0   s16_alirezakho  7/11 09:51   0+00:00:00 I  0      0.7 pascal
 18204.0   s16_alirezakho  7/11 09:51   0+00:00:00 I  0      0.7 pascal
-18801.0   alice          7/12 09:58   0+00:00:00 I  0      0.0 run_ffmpeg.sh
+18801.0   alice           7/12 09:58   0+00:00:00 I  0      0.0 run_ffmpeg.sh
 18997.0   s16_martincum   7/12 10:59   0+00:00:32 I  0    733.0 runR.pl 1_0 run_perm.R 1 0 10
 19027.5   s16_martincum   7/12 11:06   0+00:09:20 I  0   2198.0 runR.pl 1_5 run_perm.R 1 5 1000
 ```
