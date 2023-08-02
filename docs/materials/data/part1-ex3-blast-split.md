@@ -1,5 +1,5 @@
 ---
-status: reviewed
+status: testing
 ---
 
 Data Exercise 1.3: Splitting Large Input for Better Throughput
@@ -13,7 +13,7 @@ Splitting the input will also mean that we don't have to rely on additional larg
 Setup
 -----
 
-1. Log in to `login04.osgconnect.net`
+1. Log in to `ap40.osgconnect.net`
 
 1. Create a directory for this exercise named `blast-split` and change into it.
 1. Copy over the following files from the [previous exercise](../part1-ex2-file-transfer):
@@ -30,7 +30,7 @@ you now need to blast a much larger dataset for your research.
 This dataset can be downloaded with the following command:
 
 ``` console
-user@login04 $ wget http://stash.osgconnect.net/public/osg/user-school-2022/mouse_rna.tar.gz
+user@ap40 $ wget http://proxy.chtc.wisc.edu/SQUID/osg-school-2023/mouse_rna.tar.gz
 ```
 
 After un-tar'ing (`tar xzf mouse_rna.tar.gz`) the file, you should be able to confirm that it's size is roughly 100 MB.
@@ -50,13 +50,13 @@ One of these is called [genome tools](http://genometools.org/), and you can down
 (just like BLAST) using the following command:
 
 ``` console
-user@login04 $ wget http://stash.osgconnect.net/public/osg/user-school-2022/gt-1.5.10-Linux_x86_64-64bit-complete.tar.gz
+user@ap40 $ wget http://proxy.chtc.wisc.edu/SQUID/osg-school-2023/gt-1.5.10-Linux_x86_64-64bit-complete.tar.gz
 ```
 
 Un-tar the gt package (`tar -xzvf ...`), then run its sequence file splitter as follows, with the target file size of 1MB:
 
 ``` console
-user@login04 $ ./gt-1.5.10-Linux_x86_64-64bit-complete/bin/gt splitfasta -targetsize 1 mouse_rna.fa
+user@ap40 $ ./gt-1.5.10-Linux_x86_64-64bit-complete/bin/gt splitfasta -targetsize 1 mouse_rna.fa
 ```
 
 You'll notice that the result is a set of 100 files, all about the size of 1 MB, and numbered 1 through 100.
@@ -123,15 +123,12 @@ In our tests, the jobs ran for ~15 minutes.
     If you want to remove all of the extra files, you can try:
     
         :::console
-        user@login04 $ rm *.err *.log *.out *.result
+        user@ap40 $ rm *.err *.log *.out *.result
 
 Update the resource requests
 ----------------------------
 
 After the job finishes successfully, examine the `log` file for memory and disk usage, and update the requests in the
 submit file.
-In [Exercise 2.1](../part2-ex1-blast-proxy) you'll submit many jobs at once *and*
-use a different method for handling the `pdbaa_files.tar.gz` file, which is a bit too large to use regular file transfer
-when submitting many jobs.
 
 

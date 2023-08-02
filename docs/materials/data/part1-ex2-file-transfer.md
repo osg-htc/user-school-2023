@@ -1,34 +1,43 @@
 ---
-status: reviewed
+status: testing
 ---
 
-Data Exercise 1.2: File Compression and Testing Resource Requirements
+Data Exercise 1.2: transfer\_input\_files, transfer\_output\_files, and remaps
 ==================================================
 
+Exercise Goal 
+-------------
 
-The objective of this exercise is to refresh yourself on HTCondor file transfer, to implement file compression, and to
-begin examining the memory and disk space used by your jobs in order to plan larger batches, which we'll tackle in later
-exercises today.
+The objective of this exercise is to refresh yourself on HTCondor file
+transfer, to implement file compression, and to begin examining the
+memory and disk space used by your jobs in order to plan larger batches.
+We will also explore ways to deal with output data.
 
 Setup
 -----
 
-The executable we'll use in this exercise and later today is the same `blastx` executable from previous exercises.
+The executable we'll use in this exercise and later today is the same
+`blastx` executable from previous exercises. Log in to ap40:
 
-1. Log in to `login04.osgconnect.net`
+``` hl_lines="1"
+$ ssh <USERNAME>@ap40.uw.osg-htc.org
+```
 
-2. Change into the `blast-data` folder that you created in the previous exercise.
+Then change into the `blast-data` folder that you created in the
+previous exercise.
 
 ### Review: HTCondor File Transfer
 
 ![OSG data transfer](../files/osgus18-day4-part2-ex2-data-transfer.jpg)
 
-Recall that OSG does **NOT** have a shared filesystem!
-Instead, HTCondor *transfers* your executable and input files (specified with the `executable` and
-`transfer_input_files` submit file directives, respectively) to a working directory on the execute node, regardless of
-how these files were arranged on the submit node.
-In this exercise we'll use the same `blastx` example job that we used previously, but modify the submit file and test
-how much memory and disk space it uses on the execute node.
+Recall that OSG does **NOT** have a shared filesystem! Instead,
+HTCondor *transfers* your executable and input files (specified with
+the `executable` and `transfer_input_files` submit file directives,
+respectively) to a working directory on the execute node, regardless of
+how these files were arranged on the submit node. In this exercise we'll
+use the same `blastx` example job that we used previously, but modify
+the submit file and test how much memory and disk space it uses on the
+execute node.
 
 Start with a test submit file
 -----------------------------
@@ -44,7 +53,7 @@ log = test.log
 request_memory = 
 request_disk = 
 request_cpus = 1
-requirements = (OSGVO_OS_STRING == "RHEL 7")
+requirements = (OSGVO_OS_STRING == "RHEL 8")
 queue
 ```
 
@@ -63,7 +72,7 @@ For this version of the job, let's compress our blast database files to send the
     Remember, a typical command for creating a tar file is:
 
         :::console
-        user@login04 $ tar -cvzf <COMPRESSED FILENAME> <LIST OF FILES OR DIRECTORIES>
+        user@ap40 $ tar -cvzf <COMPRESSED FILENAME> <LIST OF FILES OR DIRECTORIES>
 
 
     Replacing `<COMPRESSED FILENAME>` with the name of the tarball that you would like to create and
@@ -84,6 +93,8 @@ For this version of the job, let's compress our blast database files to send the
         ./blastx -db pdbaa -query mouse.fa -out mouse.fa.result
         
         rm pdbaa.*
+
+    Also remember to make the script executable: `chmod +x blast_wrapper.sh`
 
     !!! warning "Extra Files!"
         The last line removes the resulting database files that came from `pdbaa_files.tar.gz`, as these files would
@@ -114,8 +125,8 @@ It's good to start with values that are a little higher than you think a test jo
 
 Look at the `log` file for your `blastx` job from Software exercise ([1.1](../../software/part1-ex1-download)), and compare the memory and disk "Usage" to what you predicted
 from the files.
-Make sure to update the submit file with more accurate memory and disk requests (you may still want to request slightly
-more than the job actually used).
+Make sure to update the submit file with more accurate memory and disk requests. You may still want to request slightly
+more than the job actually used. 
 
 Run the test job
 ----------------
@@ -127,6 +138,80 @@ It should take a few minutes to complete, and then you can check to make sure th
 Run a **`du -sh`** on the directory with this job's input.
 How does it compare to the directory from Software exercise ([1.1](../../software/part1-ex1-download)), and why?
 
+transfer\_output\_files
+-----------------------
+
+So far, we have used HTCondor's new file detection to transfer back
+the newly created files. An alternative is to be explicit, using the
+`transfer_output_files` attribute in the submit file. The upside to this
+approach is that you can pick to only transfer back a subset of the
+created files. The downside is that you have to know which files are
+created.
+
+The first exercise is to modify the submit file from the previous
+example, and add a line like (remember, before the `queue`):
+
+    :::file
+    transfer_output_files = mouse.fa.result
+
+You may also remove the last line in the `blast_wrapper.sh`, the
+`rm pdbaa.*` as extra files are no longer an issue - those files
+will be ignored because we used `transfer_output_files`.
+
+Submit the job, and make sure everything works. Did you get
+any `pdbaa.*` files back?
+
+The next thing we should try is to see what happens if the
+file we specify does not exist. Modify your submit file,
+and change the `transfer_output_files` to:
+
+    :::file
+    transfer_output_files = elephant.fa.result
+
+Submit the job and see how it behaves. Did it finish successfully?
+
+transfer\_output\_remaps
+------------------------
+
+Related to `transfer_output_files` is `transfer_output_remaps`,
+which allows us to rename outputs, or map the outputs to 
+a different storage system (will be explored in the next
+module).
+
+The format of the `transfer_output_remaps` attribute is a
+list of remaps, each remap taking the form of `src=dst`. 
+The destination can be a local path, or a URL. For example:
+
+    :::file
+    transfer_output_remaps = "myresults.dat = s3://destination-server.com/myresults.dat"
+
+If you have more than one remap, you can separate them with
+`;`
+
+By now, your `blast-data` directory is probably starting
+to look messy with a mix of submit files, input data,
+log file and output data all intermingled. One improvement
+could be to map our outputs to a separate directory. Create
+a new directory named `science-results`. 
+
+Add a `transfer_output_remaps` line to the submit file.
+It is common to place this line right after the
+`transfer_output_files` line. Change the 
+`transfer_output_files` back to `mouse.fa.result`.
+Example:
+
+    ::file
+    transfer_output_files = mouse.fa.result
+    transfer_output_remaps = 
+
+Fill out the remap line, mapping `mouse.fa.result` to the
+destination `science-results/mouse.fa.result`. Remember
+that the `transfer_output_remaps` value requires double
+quotes around it.
+
+Submit the job, and wait for it to complete. Was there
+any errors? Can you find mouse.fa.result?
+
 Conclusions
 -----------
 
@@ -134,6 +219,9 @@ In this exercise, you:
 
 -   Used your data requirements knowledge from the [previous exercise](../part1-ex1-data-needs) to write a job.
 -   Executed the job on a remote worker node and took note of the data usage.
+-   Used `transfer_input_files` to transfer inputs
+-   Used `transfer_output_files` to transfer outputs
+-   Used `transfer_output_remaps` to map outputs to a different destination
 
 When you've completed the above, continue with the [next exercise](../part1-ex3-blast-split).
 
