@@ -60,33 +60,32 @@ of the most common words. Here is the new code (it's still not important that
 you understand this code):
 
 ``` python
-#!/usr/bin/env python
+#!/usr/bin/env python3
 
 import os
 import sys
 import operator
 
 if len(sys.argv) != 3:
-    print 'Usage: %s DATA NUM_WORDS' % (os.path.basename(sys.argv[0]))
+    print(f'Usage: {os.path.basename(sys.argv[0])} DATA NUM_WORDS')
     sys.exit(1)
 input_filename = sys.argv[1]
 num_words = int(sys.argv[2])
 
 words = {}
 
-my_file = open(input_filename, 'r')
-for line in my_file:
-    line_words = line.split()
-    for word in line_words:
-        if word in words:
-            words[word] += 1
-        else:
-            words[word] = 1
-my_file.close()
+with open(input_filename, 'r') as my_file:
+    for line in my_file:
+        line_words = line.split()
+        for word in line_words:
+            if word in words:
+                words[word] += 1
+            else:
+                words[word] = 1
 
 sorted_words = sorted(words.items(), key=operator.itemgetter(1))
 for word in sorted_words[-num_words:]:
-    print '%s %8d' % (word[0], word[1])
+    print(f'{word[0]} {word[1]:8d}')
 ```
 
 To submit this program with a collection of two variable values for each run, one for the number of top words and one for the filename:
