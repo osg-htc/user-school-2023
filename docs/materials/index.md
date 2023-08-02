@@ -111,19 +111,13 @@ View the slides
 ### Data Exercises 1: HTCondor File Transfer (Strongly Recommended)
 
 - [Exercise 1.1: Understanding a job's data needs](data/part1-ex1-data-needs.md)
-- [Exercise 1.2: Using data compression with HTCondor file transfer](data/part1-ex2-file-transfer.md)
+- [Exercise 1.2: transfer\_input\_files, transfer\_output\_files, and remaps](data/part1-ex2-file-transfer.md)
 - [Exercise 1.3: Splitting input](data/part1-ex3-blast-split.md)
 
-### Data Exercises 2: Using Stash (Strongly Recommended)
+### Data Exercises 2: Using OSDF (Strongly Recommended)
 
-- [Exercise 2.1: Using a web proxy for shared input](data/part2-ex1-blast-proxy.md)
-- [Exercise 2.2: Stash for shared input](data/part2-ex2-stash-shared.md)
-- [Exercise 2.3: Stash for shared output](data/part2-ex3-stash-unique.md)
-
-### Bonus Exercises: Shared File Systems
-
-- [Exercise 3.1: Shared filesystems for large input](data/part3-ex1-input.md)
-- [Exercise 3.2: Shared filesystems for large output](data/part3-ex2-output.md)
+- [Exercise 2.1: OSDF for inputs](data/part2-ex1-osdf-inputs.md)
+- [Exercise 2.2: OSDF for outputs](data/part2-ex2-osdf-outputs.md)
 
 ## Extra Topics
 

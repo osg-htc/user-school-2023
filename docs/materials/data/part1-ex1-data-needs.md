@@ -1,9 +1,12 @@
 ---
-status: reviewed
+status: testing
 ---
 
 Data Exercise 1.1: Understanding Data Requirements
 ===============================
+
+Exercise Goal 
+-------------
 
 This exercise's goal is to learn to think critically about an application's data needs, especially before submitting a
 large batch of jobs or using tools for delivering large data to jobs.
@@ -13,33 +16,38 @@ In this exercise we will attempt to understand the input and output of the bioin
 Setup
 -----
 
-1. Log in to `login04.osgconnect.net`
+For this exercise, we will use the `ap40.uw.osg-htc.org` access point. Log in:
 
-2. Create a directory for this exercise named `blast-data` and change into it
+``` hl_lines="1"
+$ ssh <USERNAME>@ap40.uw.osg-htc.org
+```
+
+Create a directory for this exercise named `blast-data` and change into it
 
 ### Copy the Input Files ###
 
-To run BLAST, we need the executable, input file, and reference database.
-For this example, we'll use the "pdbaa" database, which contains sequences for the protein structure from the Protein
-Data Bank.
-For our input file, we'll use an abbreviated fasta file with mouse genome information.
+To run BLAST, we need the executable, input file, and reference
+database. For this example, we'll use the "pdbaa" database, which
+contains sequences for the protein structure from the Protein Data Bank.
+For our input file, we'll use an abbreviated fasta file with mouse
+genome information.
 
 1. Copy the BLAST executables:
-
+   
         :::console
-        user@login04 $ wget http://stash.osgconnect.net/public/osg/user-school-2022/ncbi-blast-2.12.0+-x64-linux.tar.gz
-        user@login04 $ tar -xzvf ncbi-blast-2.12.0+-x64-linux.tar.gz
+        user@ap40 $ wget http://proxy.chtc.wisc.edu/SQUID/osg-school-2023/ncbi-blast-2.12.0+-x64-linux.tar.gz
+        user@ap40 $ tar -xzvf ncbi-blast-2.12.0+-x64-linux.tar.gz
 
 1.  Download these files to your current directory:
 
         :::console
-        user@login04 $ wget http://stash.osgconnect.net/public/osg/user-school-2022/pdbaa.tar.gz
-        user@login04 $ wget http://stash.osgconnect.net/public/osg/user-school-2022/mouse.fa
+        user@ap40 $ wget http://proxy.chtc.wisc.edu/SQUID/osg-school-2023/pdbaa.tar.gz
+        user@ap40 $ wget http://proxy.chtc.wisc.edu/SQUID/osg-school-2023/mouse.fa
 
 1.  Untar the `pdbaa` database:
 
         :::console
-        user@login04 $ tar -xzvf pdbaa.tar.gz
+        user@ap40 $ tar -xzvf pdbaa.tar.gz
 
 Understanding BLAST
 -------------------
@@ -47,7 +55,7 @@ Understanding BLAST
 Remember that `blastx` is executed in a command like the following:
 
 ``` console
-user@login04 $ ./blastx -db <DATABASE ROOTNAME> -query <INPUT FILE> -out <RESULTS FILE>
+user@ap40 $ ./ncbi-blast-2.12.0+/bin/blastx -db <DATABASE ROOTNAME> -query <INPUT FILE> -out <RESULTS FILE>
 ```
 
 In the above, the `<INPUT FILE>` is the name of a file containing a number of genetic sequences (e.g. `mouse.fa`), and
@@ -70,17 +78,17 @@ Here are some commands that will be useful for calculating your job's storage ne
 - List the size of a specific file:
 
         :::console
-        user@login04 $ ls -lh <FILE NAME>
+        user@ap40 $ ls -lh <FILE NAME>
 
 - List the sizes of all files in the current directory:
 
         :::console
-        user@login04 $ ls -lh
+        user@ap40 $ ls -lh
 
 - Sum the size of all files in a specific directory:
 
         :::console
-        user@login04 $ du -sh <DIRECTORY>
+        user@ap40 $ du -sh <DIRECTORY>
 
 ### Input requirements
 
