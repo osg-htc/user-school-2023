@@ -534,7 +534,6 @@ This is because the submit file is a simple text file that we are using to pass 
 <p>Very often, when you run a command on the command line, it includes arguments (i.e. options) after the program name, as in the below examples:</p>
 <div class="codehilite"><pre><span></span><code><span class="gp">username@ap1 $ </span>cat hostname.out
 <span class="gp">username@ap1 $ </span>sleep <span class="m">60</span>
-<span class="gp">username@ap1 $ </span>dc -e <span class="s1">&#39;6 7 * p&#39;</span>
 </code></pre></div>
 
 <p>In an HTCondor submit file, the program (or 'executable') name goes in the <code>executable</code> statement and <strong>all remaining arguments</strong> go into an <code>arguments</code> statement. For example, if the full command is:</p>
@@ -544,15 +543,6 @@ This is because the submit file is a simple text file that we are using to pass 
 <p>Then in the submit file, we would put the location of the "sleep" program (you can find it with <code>which sleep</code>) as the job <code>executable</code>, and <code>60</code> as the job <code>arguments</code>:</p>
 <div class="codehilite"><pre><span></span><code>executable = /bin/sleep
 arguments = 60
-</code></pre></div>
-
-<p>For the command-line command:</p>
-<div class="codehilite"><pre><span></span><code><span class="gp">username@ap1 $ </span>dc -e <span class="s1">&#39;6 7 * p&#39;</span>
-</code></pre></div>
-
-<p>We would put the following into the submit file, putting the <code>arguments</code> statement in quotes, since it contains single quotes:</p>
-<div class="codehilite"><pre><span></span><code>executable = /usr/bin/dc
-arguments = &quot;-e &#39;6 7 * p&#39;&quot;
 </code></pre></div>
 
 <p>Let’s try a job submission with arguments. We will use the <code>sleep</code> command shown above, which does nothing (i.e., puts the job to sleep) for the specified number of seconds, then exits normally. It is convenient for simulating a job that takes a while to run.</p>
