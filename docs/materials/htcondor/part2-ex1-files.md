@@ -35,11 +35,12 @@ Let’s see what is in the job sandbox for a minimal job with no special input o
 
 In the output file, note the `Sandbox:` line: That is the full path to your job sandbox for the run. It was created just for your job, and it was removed as soon as your job finished.
 
-Next, look at the output that appears after the `Sandbox:` line; it is the output from the `ls` command in the script. It shows all of the files in your job sandbox, as they existed at the end of the execution of `sandbox.sh`. The files are:
+Next, look at the output that appears after the `Sandbox:` line; it is the output from the `ls` command in the script. It shows all of the files in your job sandbox, as they existed at the end of the execution of `sandbox.sh`. The number of files that you see can change depending on the HTC system you are using, but some of the files you should always see are:
 
 |                   |                                             |
 |-------------------|---------------------------------------------|
 | `.chirp.config`   | Configuration for an advanced feature       |
+| `sandbox.sh`      | Your executable                             |
 | `.job.ad`         | The job ClassAd                             |
 | `.machine.ad`     | The machine ClassAd                         |
 | `_condor_stderr`  | Saved standard error from the job           |
