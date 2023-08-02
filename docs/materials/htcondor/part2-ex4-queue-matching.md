@@ -29,32 +29,31 @@ This is an example of a common scenario: We want to run one job per file, where 
 Let’s see this in action. First, here is a new version of the script (note, we removed the 'top n words' restriction):
 
 ``` python
-#!/usr/bin/env python
+#!/usr/bin/env python3
 
 import os
 import sys
 import operator
 
 if len(sys.argv) != 2:
-    print 'Usage: %s DATA' % (os.path.basename(sys.argv[0]))
+    print(f'Usage: {os.path.basename(sys.argv[0])} DATA')
     sys.exit(1)
 input_filename = sys.argv[1]
 
 words = {}
 
-my_file = open(input_filename, 'r')
-for line in my_file:
-    line_words = line.split()
-    for word in line_words:
-        if word in words:
-            words[word] += 1
-        else:
-            words[word] = 1
-my_file.close()
+with open(input_filename, 'r') as my_file:
+    for line in my_file:
+        line_words = line.split()
+        for word in line_words:
+            if word in words:
+                words[word] += 1
+            else:
+                words[word] = 1
 
 sorted_words = sorted(words.items(), key=operator.itemgetter(1))
 for word in sorted_words:
-    print '%s %8d' % (word[0], word[1])
+    print(f'{word[0]} {word[1]:8d}')
 ```
 
 To use the script:
