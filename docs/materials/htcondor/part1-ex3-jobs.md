@@ -89,7 +89,6 @@ Very often, when you run a command on the command line, it includes arguments (i
 ``` console
 username@ap1 $ cat hostname.out
 username@ap1 $ sleep 60
-username@ap1 $ dc -e '6 7 * p'
 ```
 
 In an HTCondor submit file, the program (or 'executable') name goes in the `executable` statement and **all remaining arguments** go into an `arguments` statement. For example, if the full command is:
@@ -103,19 +102,6 @@ Then in the submit file, we would put the location of the "sleep" program (you c
 ``` file
 executable = /bin/sleep
 arguments = 60
-```
-
-For the command-line command:
-
-``` console
-username@ap1 $ dc -e '6 7 * p'
-```
-
-We would put the following into the submit file, putting the `arguments` statement in quotes, since it contains single quotes:
-
-``` file
-executable = /usr/bin/dc
-arguments = "-e '6 7 * p'"
 ```
 
 Let’s try a job submission with arguments. We will use the `sleep` command shown above, which does nothing (i.e., puts the job to sleep) for the specified number of seconds, then exits normally. It is convenient for simulating a job that takes a while to run.
