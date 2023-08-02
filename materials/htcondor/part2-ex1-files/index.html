@@ -477,7 +477,7 @@ ls -alF
 <li>When the job finishes, look at the contents of the output file.</li>
 </ol>
 <p>In the output file, note the <code>Sandbox:</code> line: That is the full path to your job sandbox for the run. It was created just for your job, and it was removed as soon as your job finished.</p>
-<p>Next, look at the output that appears after the <code>Sandbox:</code> line; it is the output from the <code>ls</code> command in the script. It shows all of the files in your job sandbox, as they existed at the end of the execution of <code>sandbox.sh</code>. The files are:</p>
+<p>Next, look at the output that appears after the <code>Sandbox:</code> line; it is the output from the <code>ls</code> command in the script. It shows all of the files in your job sandbox, as they existed at the end of the execution of <code>sandbox.sh</code>. The number of files that you see can change depending on the HTC system you are using, but some of the files you should always see are:</p>
 <table>
 <thead>
 <tr>
@@ -489,6 +489,10 @@ ls -alF
 <tr>
 <td><code>.chirp.config</code></td>
 <td>Configuration for an advanced feature</td>
+</tr>
+<tr>
+<td><code>sandbox.sh</code></td>
+<td>Your executable</td>
 </tr>
 <tr>
 <td><code>.job.ad</code></td>
