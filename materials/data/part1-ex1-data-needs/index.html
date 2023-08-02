@@ -388,6 +388,13 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#exercise-goal" class="md-nav__link">
+    Exercise Goal
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#setup" class="md-nav__link">
     Setup
   </a>
@@ -462,49 +469,48 @@
                 
                 
                 <h1 id="data-exercise-11-understanding-data-requirements">Data Exercise 1.1: Understanding Data Requirements<a class="headerlink" href="#data-exercise-11-understanding-data-requirements" title="Permanent link">&para;</a></h1>
+<h2 id="exercise-goal">Exercise Goal<a class="headerlink" href="#exercise-goal" title="Permanent link">&para;</a></h2>
 <p>This exercise's goal is to learn to think critically about an application's data needs, especially before submitting a
 large batch of jobs or using tools for delivering large data to jobs.
 In this exercise we will attempt to understand the input and output of the bioinformatics application
 <a href="http://blast.ncbi.nlm.nih.gov/">BLAST</a>.</p>
 <h2 id="setup">Setup<a class="headerlink" href="#setup" title="Permanent link">&para;</a></h2>
-<ol>
-<li>
-<p>Log in to <code>login04.osgconnect.net</code></p>
-</li>
-<li>
+<p>For this exercise, we will use the <code>ap40.uw.osg-htc.org</code> access point. Log in:</p>
+<div class="codehilite"><pre><span></span><code><span class="hll">$ ssh &lt;USERNAME&gt;@ap40.uw.osg-htc.org
+</span></code></pre></div>
+
 <p>Create a directory for this exercise named <code>blast-data</code> and change into it</p>
-</li>
-</ol>
 <h3 id="copy-the-input-files">Copy the Input Files<a class="headerlink" href="#copy-the-input-files" title="Permanent link">&para;</a></h3>
-<p>To run BLAST, we need the executable, input file, and reference database.
-For this example, we'll use the "pdbaa" database, which contains sequences for the protein structure from the Protein
-Data Bank.
-For our input file, we'll use an abbreviated fasta file with mouse genome information.</p>
+<p>To run BLAST, we need the executable, input file, and reference
+database. For this example, we'll use the "pdbaa" database, which
+contains sequences for the protein structure from the Protein Data Bank.
+For our input file, we'll use an abbreviated fasta file with mouse
+genome information.</p>
 <ol>
 <li>
 <p>Copy the BLAST executables:</p>
-<div class="codehilite"><pre><span></span><code><span class="gp">user@login04 $ </span>wget http://stash.osgconnect.net/public/osg/user-school-2022/ncbi-blast-2.12.0+-x64-linux.tar.gz
-<span class="gp">user@login04 $ </span>tar -xzvf ncbi-blast-2.12.0+-x64-linux.tar.gz
+<div class="codehilite"><pre><span></span><code><span class="gp">user@ap40 $ </span>wget http://proxy.chtc.wisc.edu/SQUID/osg-school-2023/ncbi-blast-2.12.0+-x64-linux.tar.gz
+<span class="gp">user@ap40 $ </span>tar -xzvf ncbi-blast-2.12.0+-x64-linux.tar.gz
 </code></pre></div>
 
 </li>
 <li>
 <p>Download these files to your current directory:</p>
-<div class="codehilite"><pre><span></span><code><span class="gp">user@login04 $ </span>wget http://stash.osgconnect.net/public/osg/user-school-2022/pdbaa.tar.gz
-<span class="gp">user@login04 $ </span>wget http://stash.osgconnect.net/public/osg/user-school-2022/mouse.fa
+<div class="codehilite"><pre><span></span><code><span class="gp">user@ap40 $ </span>wget http://proxy.chtc.wisc.edu/SQUID/osg-school-2023/pdbaa.tar.gz
+<span class="gp">user@ap40 $ </span>wget http://proxy.chtc.wisc.edu/SQUID/osg-school-2023/mouse.fa
 </code></pre></div>
 
 </li>
 <li>
 <p>Untar the <code>pdbaa</code> database:</p>
-<div class="codehilite"><pre><span></span><code><span class="gp">user@login04 $ </span>tar -xzvf pdbaa.tar.gz
+<div class="codehilite"><pre><span></span><code><span class="gp">user@ap40 $ </span>tar -xzvf pdbaa.tar.gz
 </code></pre></div>
 
 </li>
 </ol>
 <h2 id="understanding-blast">Understanding BLAST<a class="headerlink" href="#understanding-blast" title="Permanent link">&para;</a></h2>
 <p>Remember that <code>blastx</code> is executed in a command like the following:</p>
-<div class="codehilite"><pre><span></span><code><span class="gp">user@login04 $ </span>./blastx -db &lt;DATABASE ROOTNAME&gt; -query &lt;INPUT FILE&gt; -out &lt;RESULTS FILE&gt;
+<div class="codehilite"><pre><span></span><code><span class="gp">user@ap40 $ </span>./ncbi-blast-2.12.0+/bin/blastx -db &lt;DATABASE ROOTNAME&gt; -query &lt;INPUT FILE&gt; -out &lt;RESULTS FILE&gt;
 </code></pre></div>
 
 <p>In the above, the <code>&lt;INPUT FILE&gt;</code> is the name of a file containing a number of genetic sequences (e.g. <code>mouse.fa</code>), and
@@ -523,19 +529,19 @@ run a hypothetical BLAST job with a wrapper script, where the job:</p>
 <ul>
 <li>
 <p>List the size of a specific file:</p>
-<div class="codehilite"><pre><span></span><code><span class="gp">user@login04 $ </span>ls -lh &lt;FILE NAME&gt;
+<div class="codehilite"><pre><span></span><code><span class="gp">user@ap40 $ </span>ls -lh &lt;FILE NAME&gt;
 </code></pre></div>
 
 </li>
 <li>
 <p>List the sizes of all files in the current directory:</p>
-<div class="codehilite"><pre><span></span><code><span class="gp">user@login04 $ </span>ls -lh
+<div class="codehilite"><pre><span></span><code><span class="gp">user@ap40 $ </span>ls -lh
 </code></pre></div>
 
 </li>
 <li>
 <p>Sum the size of all files in a specific directory:</p>
-<div class="codehilite"><pre><span></span><code><span class="gp">user@login04 $ </span>du -sh &lt;DIRECTORY&gt;
+<div class="codehilite"><pre><span></span><code><span class="gp">user@ap40 $ </span>du -sh &lt;DIRECTORY&gt;
 </code></pre></div>
 
 </li>

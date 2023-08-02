@@ -9,14 +9,14 @@
       
       
       
-        <link rel="canonical" href="https://osg-htc.org/user-school-2023/materials/data/part2-ex2-stash-shared/">
+        <link rel="canonical" href="https://osg-htc.org/user-school-2023/materials/data/part2-ex1-osdf-inputs/">
       
       <link rel="icon" href="../../../assets/OSG_Logo.png">
       <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-7.1.0">
     
     
       
-        <title>Part2 ex2 stash shared - OSG School 2023</title>
+        <title>Part2 ex1 osdf inputs - OSG School 2023</title>
       
     
     
@@ -65,7 +65,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#data-exercise-22-using-stash-for-large-shared-data" class="md-skip">
+        <a href="#data-exercise-21-using-osdf-for-large-shared-data" class="md-skip">
           Skip to content
         </a>
       
@@ -94,7 +94,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Part2 ex2 stash shared
+              Part2 ex1 osdf inputs
             
           </span>
         </div>
@@ -395,23 +395,16 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#place-the-database-in-stash" class="md-nav__link">
-    Place the Database in Stash
+  <a href="#place-the-database-in-osdf" class="md-nav__link">
+    Place the Database in OSDF
   </a>
   
-    <nav class="md-nav" aria-label="Place the Database in Stash">
+    <nav class="md-nav" aria-label="Place the Database in OSDF">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#copy-to-your-public-space-on-osg-connect" class="md-nav__link">
-    Copy to your public space on OSG Connect
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#check-the-file-on-osg-connect" class="md-nav__link">
-    Check the file on OSG Connect
+  <a href="#copy-to-your-data-to-the-osdf-space" class="md-nav__link">
+    Copy to your data to the OSDF space
   </a>
   
 </li>
@@ -436,8 +429,15 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#note-keeping-stash-clean" class="md-nav__link">
-    Note: Keeping Stash 'Clean'
+  <a href="#considerations" class="md-nav__link">
+    Considerations
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#note-keeping-osdf-clean" class="md-nav__link">
+    Note: Keeping OSDF 'Clean'
   </a>
   
 </li>
@@ -462,23 +462,22 @@
               
                 
                 
-                <h1 id="data-exercise-22-using-stash-for-large-shared-data">Data Exercise 2.2: Using Stash for Large Shared Data<a class="headerlink" href="#data-exercise-22-using-stash-for-large-shared-data" title="Permanent link">&para;</a></h1>
+                <h1 id="data-exercise-21-using-osdf-for-large-shared-data">Data Exercise 2.1: Using OSDF for Large Shared Data<a class="headerlink" href="#data-exercise-21-using-osdf-for-large-shared-data" title="Permanent link">&para;</a></h1>
 <p>This exercise will use a <a href="http://blast.ncbi.nlm.nih.gov/Blast.cgi?CMD=Web&amp;PAGE_TYPE=BlastHome">BLAST</a> workflow to
-demonstrate the functionality of StashCache for transferring input files to jobs on OSG.</p>
-<p>Because our individual blast jobs from <a href="../part2-ex1-blast-proxy">Exercise 2.1</a> would take a bit longer
+demonstrate the functionality of OSDF for transferring input files to jobs on OSG.</p>
+<p>Because our individual blast jobs from previous exercises would take a bit longer
 with a larger database (too long for an workable exercise), we'll imagine for this exercise that our
-<code>pdbaa_files.tar.gz</code> file is too large for a web proxy (larger than ~1 GB).
-For this exercise, we will use the input from Exercise 2.1, but instead of using the web proxy for the <code>pdbaa</code> database,
-we will place it in Stash via the OSG Connect server.</p>
-<p>Stash is connected to a distributed set of caches spread across the U.S.
+<code>pdbaa_files.tar.gz</code> file is too large for <code>transfer_input_files</code> (larger than ~1 GB).
+For this exercise, we will use the same inputs, but instead of using <code>transfer_input_files</code> for the <code>pdbaa</code> database,
+we will place it in OSDF and have the jobs download from there.</p>
+<p>OSDF is connected to a distributed set of caches spread across the U.S.
 They are connected with high bandwidth connections to each other, and to the data origin servers, where your data is
 originally placed.</p>
-<p><img alt="StashCache Map" src="../files/osgus19-day4-part2-CacheLocations.png" /></p>
-<p>We will be using the command <code>stashcp</code> to copy files from Stash to the execute hosts.  It has a <code>cp</code> like syntax.</p>
+<p><img alt="OSDF Map" src="../files/osgus19-day4-part2-CacheLocations.png" /></p>
 <h2 id="setup">Setup<a class="headerlink" href="#setup" title="Permanent link">&para;</a></h2>
 <ul>
-<li>Make sure you're logged in to <code>login04.osgconnect.net</code></li>
-<li>Copy the following files from the previous <a href="../part2-ex1-blast-proxy">Exercise 2.1</a> to a new directory in <code>/home/&lt;username&gt;</code> called <code>stash-shared</code>:<ul>
+<li>Make sure you're logged in to <code>ap40.uw.osg-htc.org</code></li>
+<li>Copy the following files from the previous Blast exercises to a new directory in <code>/home/&lt;username&gt;</code> called <code>osdf-shared</code>:<ul>
 <li><code>blast_wrapper.sh</code></li>
 <li><code>blastx</code></li>
 <li><code>mouse_rna.fa.1</code></li>
@@ -488,41 +487,21 @@ originally placed.</p>
 </ul>
 </li>
 </ul>
-<h2 id="place-the-database-in-stash">Place the Database in Stash<a class="headerlink" href="#place-the-database-in-stash" title="Permanent link">&para;</a></h2>
-<h3 id="copy-to-your-public-space-on-osg-connect">Copy to your <code>public</code> space on OSG Connect<a class="headerlink" href="#copy-to-your-public-space-on-osg-connect" title="Permanent link">&para;</a></h3>
-<p>StashCache provides a public space for you to store data which can be accessed through the caching servers.
-First, you need to move your BLAST database into this public directory.
-You have already placed files in your <code>/public</code> directory in the previous exercise in order for it to be
-accessible to the HTTP proxies.
-The same directory is accessible to StashCache.</p>
-<p>As the <code>public</code> directory name indicates, your files placed in the <code>public</code> directory will be accessible to anyone's
-jobs if they know how to use <code>stashcp</code>, though no one else will be able to edit the files, since only you can <em>place</em> or
-<em>change</em> files in your <code>public</code> space.
-For your own work in the future, make sure that you never put any sensitive data in such locations.</p>
-<h3 id="check-the-file-on-osg-connect">Check the file on OSG Connect<a class="headerlink" href="#check-the-file-on-osg-connect" title="Permanent link">&para;</a></h3>
-<p>Next, you can check for the file and test the command that we'll use in jobs on the OSG Connect login node:</p>
-<div class="codehilite"><pre><span></span><code><span class="gp">user@login04 $ </span>ls /public/&lt;USERNAME&gt;
-</code></pre></div>
-
-<p>Now, test a copy of the file from StashCache into your <code>/home</code> directory on <code>login04.osgconnect.net</code>:</p>
-<div class="codehilite"><pre><span></span><code><span class="gp">user@login04 $ </span>stashcp /osgconnect/public/&lt;USERNAME&gt;/pdbaa_files.tar.gz ./
-</code></pre></div>
-
-<p>Replacing all instances of <code>&lt;USERNAME&gt;</code> with your username on <code>login04.osgconnect.net</code>.
-You should now see the <code>pdbaa_files.tar.gz</code> file in your current directory.
-Notice that we had to include the <strong><code>/osgconnect/public</code></strong> and your username in the file path for <code>stashcp</code>, which make sure you're
-copying from <strong>your</strong> <code>public</code> space.</p>
+<h2 id="place-the-database-in-osdf">Place the Database in OSDF<a class="headerlink" href="#place-the-database-in-osdf" title="Permanent link">&para;</a></h2>
+<h3 id="copy-to-your-data-to-the-osdf-space">Copy to your data to the OSDF space<a class="headerlink" href="#copy-to-your-data-to-the-osdf-space" title="Permanent link">&para;</a></h3>
+<p>OSDF provides a directory for you to store data which can be accessed through the caching servers.
+First, you need to move your BLAST database (<code>pdbaa_files.tar.gz</code>) into this directory. For <code>ap40.uw.osg-htc.org</code>, the directory
+to use is <code>/ospool/PROTECTED/[USERNAME]/</code></p>
+<p>As the <code>PROTECTED</code> directory name indicates, your files placed in the directory will only be accessible
+by your own jobs.</p>
 <h2 id="modify-the-submit-file-and-wrapper">Modify the Submit File and Wrapper<a class="headerlink" href="#modify-the-submit-file-and-wrapper" title="Permanent link">&para;</a></h2>
-<p>You will have to modify the wrapper and submit file to use Stash:</p>
+<p>You will have to modify the wrapper and submit file to use OSDF:</p>
 <ol>
 <li>
-<p>Delete the <code>wget</code> and <code>export http_proxy</code> lines from the job wrapper script <code>blast_wrapper.sh</code></p>
-</li>
-<li>
-<p>HTCondor knows how to do stash transfers, so you just have to provide the correct URL in 
+<p>HTCondor knows how to do OSDF transfers, so you just have to provide the correct URL in 
    <code>transfer_input_files</code>. Note there is no servername (3 slashes in :///) and we instead
-   have added an <code>osgconnect</code> for the namespace.</p>
-<div class="codehilite"><pre><span></span><code>transfer_input_files = blastx, $(inputfile), stash:///osgconnect/public/&lt;USERNAME&gt;/pdbaa_files.tar.gz
+   is is just based on namespace (<code>/ospool/PROTECTED</code> in this case):</p>
+<div class="codehilite"><pre><span></span><code>transfer_input_files = blastx, $(inputfile), osdf:///ospool/PROTECTED/&lt;USERNAME&gt;/pdbaa_files.tar.gz
 </code></pre></div>
 
 </li>
@@ -539,14 +518,26 @@ directory).</p>
 <p>Now submit and monitor the job! If your 100 jobs from the previous exercise haven't started running yet, this job will
 not yet start.
 However, after it has been running for ~2 minutes, you're safe to continue to the next exercise!</p>
-<h2 id="note-keeping-stash-clean">Note: Keeping Stash 'Clean'<a class="headerlink" href="#note-keeping-stash-clean" title="Permanent link">&para;</a></h2>
-<p>Just as for data on a web proxy, it is VERY important to remove old files from Stash when you no longer need them,
+<h2 id="considerations">Considerations<a class="headerlink" href="#considerations" title="Permanent link">&para;</a></h2>
+<ol>
+<li>
+<p>Why did we not place all files in OSDF (for example, <code>blastx</code> and <code>mouse_rna.fa.*</code>)?</p>
+</li>
+<li>
+<p>What do you think will happen if you make changes to <code>pdbaa_files.tar.gz</code>? Will the caches
+   be updated automatically, or is there a possiblility that the old version of
+   <code>pdbaa_files.tar.gz</code> will be served up to jobs? What is the solution to this problem?
+   (Hint: OSDF only considers the filename when caching data)</p>
+</li>
+</ol>
+<h2 id="note-keeping-osdf-clean">Note: Keeping OSDF 'Clean'<a class="headerlink" href="#note-keeping-osdf-clean" title="Permanent link">&para;</a></h2>
+<p>Just as for any data directory, it is VERY important to remove old files from OSDF when you no longer need them,
 especially so that you'll have plenty of space for such files in the future.
-For example, you would delete (<code>rm</code>) files from <code>public</code> on <code>login04.osgconnect.net</code> when you don't need them there
+For example, you would delete (<code>rm</code>) files from <code>/ospool/PROTECTED/</code> on when you don't need them there
 anymore, but only after all jobs have finished.
-The next time you use Stash after the school, remember to first check for old files that you can delete.</p>
+The next time you use OSDF after the school, remember to first check for old files that you can delete.</p>
 <h2 id="next-exercise">Next exercise<a class="headerlink" href="#next-exercise" title="Permanent link">&para;</a></h2>
-<p>Once completed, move onto the next exercise: <a href="../part2-ex3-stash-unique">Using Stash for unique large input</a></p>
+<p>Once completed, move onto the next exercise: <a href="../part2-ex2-osdf-outputs">Using OSDF for outputs</a></p>
                 
                   
                 

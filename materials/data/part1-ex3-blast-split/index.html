@@ -475,7 +475,7 @@ Splitting the input will also mean that we don't have to rely on additional larg
 <h2 id="setup">Setup<a class="headerlink" href="#setup" title="Permanent link">&para;</a></h2>
 <ol>
 <li>
-<p>Log in to <code>login04.osgconnect.net</code></p>
+<p>Log in to <code>ap40.osgconnect.net</code></p>
 </li>
 <li>
 <p>Create a directory for this exercise named <code>blast-split</code> and change into it.</p>
@@ -493,7 +493,7 @@ Splitting the input will also mean that we don't have to rely on additional larg
 <p>We've previously used <code>blastx</code> to analyze a relatively small input file of test data, <code>mouse.fa</code>, but let's imagine that
 you now need to blast a much larger dataset for your research.
 This dataset can be downloaded with the following command:</p>
-<div class="codehilite"><pre><span></span><code><span class="gp">user@login04 $ </span>wget http://stash.osgconnect.net/public/osg/user-school-2022/mouse_rna.tar.gz
+<div class="codehilite"><pre><span></span><code><span class="gp">user@ap40 $ </span>wget http://proxy.chtc.wisc.edu/SQUID/osg-school-2023/mouse_rna.tar.gz
 </code></pre></div>
 
 <p>After un-tar'ing (<code>tar xzf mouse_rna.tar.gz</code>) the file, you should be able to confirm that it's size is roughly 100 MB.
@@ -508,11 +508,11 @@ sequence that is calculated relative to the entire length of the database.</p>
 into smaller files.
 One of these is called <a href="http://genometools.org/">genome tools</a>, and you can download a package of precompiled binaries
 (just like BLAST) using the following command:</p>
-<div class="codehilite"><pre><span></span><code><span class="gp">user@login04 $ </span>wget http://stash.osgconnect.net/public/osg/user-school-2022/gt-1.5.10-Linux_x86_64-64bit-complete.tar.gz
+<div class="codehilite"><pre><span></span><code><span class="gp">user@ap40 $ </span>wget http://proxy.chtc.wisc.edu/SQUID/osg-school-2023/gt-1.5.10-Linux_x86_64-64bit-complete.tar.gz
 </code></pre></div>
 
 <p>Un-tar the gt package (<code>tar -xzvf ...</code>), then run its sequence file splitter as follows, with the target file size of 1MB:</p>
-<div class="codehilite"><pre><span></span><code><span class="gp">user@login04 $ </span>./gt-1.5.10-Linux_x86_64-64bit-complete/bin/gt splitfasta -targetsize <span class="m">1</span> mouse_rna.fa
+<div class="codehilite"><pre><span></span><code><span class="gp">user@ap40 $ </span>./gt-1.5.10-Linux_x86_64-64bit-complete/bin/gt splitfasta -targetsize <span class="m">1</span> mouse_rna.fa
 </code></pre></div>
 
 <p>You'll notice that the result is a set of 100 files, all about the size of 1 MB, and numbered 1 through 100.</p>
@@ -577,16 +577,13 @@ the current directory.
 There are new files named <code>mouse_rna.fa.X.log</code> and other files.
 Submitting again, the <code>queue</code> statement would see these new files, and try to run blast on them!</p>
 <p>If you want to remove all of the extra files, you can try:</p>
-<div class="codehilite"><pre><span></span><code><span class="gp">user@login04 $ </span>rm *.err *.log *.out *.result
+<div class="codehilite"><pre><span></span><code><span class="gp">user@ap40 $ </span>rm *.err *.log *.out *.result
 </code></pre></div>
 
 </div>
 <h2 id="update-the-resource-requests">Update the resource requests<a class="headerlink" href="#update-the-resource-requests" title="Permanent link">&para;</a></h2>
 <p>After the job finishes successfully, examine the <code>log</code> file for memory and disk usage, and update the requests in the
-submit file.
-In <a href="../part2-ex1-blast-proxy">Exercise 2.1</a> you'll submit many jobs at once <em>and</em>
-use a different method for handling the <code>pdbaa_files.tar.gz</code> file, which is a bit too large to use regular file transfer
-when submitting many jobs.</p>
+submit file.</p>
                 
                   
                 
