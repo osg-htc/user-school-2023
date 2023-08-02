@@ -147,10 +147,10 @@ mkdir subdirectory
 cp $1 subdirectory/backup-$1
 ```
 
-First, let’s confirm that HTCondor does not bring back the output file in the subdirectory:
+First, let’s confirm that HTCondor does not bring back the output file (which starts with the prefix `backup-`) in the subdirectory:
 
-1.  Create a file called `output.sh` and save the shell script in this file.
-1.  Write a submit file that transfers an input file and runs `output.sh` on it (passing the filename as an argument).
+1.  Create a file called `output.sh` and save the above shell script in this file.
+1.  Write a submit file that transfers any input file and runs `output.sh` on it (remember to include an `arguments = ` line and pass the input filename as an argument).
 1.  Submit the job, wait for it to finish, and examine the contents of your submit directory.
 
 Suppose you decide that you want only the timestamp output file and all files in the subdirectory, but not the calendar output file. You can tell HTCondor to only transfer these specific files back to the submission directory using `transfer_output_files =`:
