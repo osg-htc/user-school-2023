@@ -93,15 +93,14 @@ Despite the techniques mentioned above, by far the easiest approach to measuring
 For example, here is a strange Python script that does not do anything useful, but consumes some real resources while running:
 
 ``` python
-#!/usr/bin/env python
+#!/usr/bin/env python3
 import time
 import os
 size = 1000000
 numbers = []
-for i in xrange(size): numbers.append(str(i))
-tempfile = open('numbers.txt', 'w')
-tempfile.write(' '.join(numbers))
-tempfile.close()
+for i in range(size): numbers.append(str(i))
+with open('numbers.txt', 'w') as tempfile:
+    tempfile.write(' '.join(numbers))
 time.sleep(60)
 ```
 
