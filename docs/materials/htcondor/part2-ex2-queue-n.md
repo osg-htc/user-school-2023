@@ -29,7 +29,7 @@ and to control things like filenames and arguments on a per-job basis when doing
 Running Many Jobs With One queue Statement
 ------------------------------------------
 
-**Example 1:** 
+**Example** 
 Here is a C program that uses a stochastic (random) method to estimate the value of π. The single argument to the program is the number of samples to take. More samples should result in better estimates!
 
 ``` c
