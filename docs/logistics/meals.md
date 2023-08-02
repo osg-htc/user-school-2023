@@ -38,6 +38,7 @@ Some tips for successful reimbursements:
 *   Keep receipts for your meals – if anything so that you remember how much meals cost!
 
 *   We can reimburse up to $20 for breakfast, $21 for lunch and $35 for dinner, including tax and tip.
+    For dumb reasons, we can reimburse only $32 for Sunday dinner.
 
 *   If it is not on the receipt, be sure to write the tip amount yourself, so you do not forget.
 
