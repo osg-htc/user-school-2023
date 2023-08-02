@@ -59,29 +59,28 @@ Next, you will run a job that requires an input file. Remember, the initial job 
 Here is a Python script that takes the name of an input file (containing one word per line) from the command line, counts the number of times each (lowercased) word occurs in the text, and prints out the final list of words and their counts.
 
 ``` python
-#!/usr/bin/env python
+#!/usr/bin/env python3
 
 import os
 import sys
 
 if len(sys.argv) != 2:
-    print 'Usage: %s DATA' % (os.path.basename(sys.argv[0]))
+    print(f'Usage: {os.path.basename(sys.argv[0])} DATA')
     sys.exit(1)
 input_filename = sys.argv[1]
 
 words = {}
 
-my_file = open(input_filename, 'r')
-for line in my_file:
-    word = line.strip().lower()
-    if word in words:
-        words[word] += 1
-    else:
-        words[word] = 1
-my_file.close()
+with open(input_filename, 'r', encoding='iso-8859-1') as my_file:
+    for line in my_file:
+        word = line.strip().lower()
+        if word in words:
+            words[word] += 1
+        else:
+            words[word] = 1
 
 for word in sorted(words.keys()):
-    print '%8d %s' % (words[word], word)
+    print(f'{words[word]:8d} {word}')
 ```
 
 1.  Create and save the Python script in a file named `freq.py`.
