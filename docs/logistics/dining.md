@@ -1,8 +1,7 @@
 # Dining
 
-There are many dining options in Madison near the user school, especially on State Street which is only a couple 
-of blocks away. We have curated a staff list of options below but, it is not exhaustive, so we encourage you to look 
-online as well if these don't suite your taste. 
+There are many dining options in Madison near the user school, and your hotel, especially on State Street which is only a couple 
+of blocks away.
 
 ## Local Food Trucks
 
