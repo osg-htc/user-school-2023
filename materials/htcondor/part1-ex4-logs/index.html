@@ -476,7 +476,6 @@ If you suspect something has gone wrong with your job, the log is the a great pl
 <p class="admonition-title">Note</p>
 <p>Each event ends with a line that contains only 3 dots: <code>...</code></p>
 </div>
-<p>But the periodic information update event contains some additional information:</p>
 <p>However, some lines have additional information to help you quickly understand where and how your job is running. For example:  </p>
 <div class="codehilite"><pre><span></span><code>001 (5739.000.000) 2020-07-10 10:45:11 Job executing on host: &lt;128.104.55.42:9618?addrs=...&gt;
     SlotName: slot1@WISC-PATH-IDPL-EP.osgvo-docker-pilot-idpl-7c6575d494-2sj5w
@@ -494,7 +493,7 @@ If you suspect something has gone wrong with your job, the log is the a great pl
 <li>The <code>CondorScratchDir</code> is the name of the scratch directory that was created by HTCondor for your job to run inside</li>
 <li>The <code>Cpu</code>, <code>GPUs</code>, <code>Disk</code>, and <code>Memory</code> values provide the maximum amount of each resource your job has used while running</li>
 </ul>
-<p>Another example of a periodic update includes:</p>
+<p>Another example of is the periodic update:</p>
 <div class="codehilite"><pre><span></span><code>006 (5739.000.000) 2020-07-10 10:45:20 Image size of job updated: 72
     1  -  MemoryUsage of job (MB)
     72  -  ResidentSetSize of job (KB)
