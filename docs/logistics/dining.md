@@ -13,93 +13,12 @@ If you would like to see what trucks/carts are available before going over you c
 
 ## Restaurant Options
 
-### Award Winning
+Embedded below are maps of dining options around the two school points of interest. By clicking "View Larger Map" you can easily view the types of cuisine and reviews. 
 
-- Fairchild [https://www.fairchildrestaurant.com/menus](https://www.fairchildrestaurant.com/menus)
-- Harvey House [https://www.theharveyhouse.com/](https://www.theharveyhouse.com/)
-- Osteria Papavero [https://osteriapapavero.com/](https://osteriapapavero.com/)
-- Sardine [http://sardinemadison.com/](http://sardinemadison.com/)
-- A Pig in a Fur Coat [http://www.apiginafurcoat.com/](http://www.apiginafurcoat.com/)
-- Graze [https://www.grazemadison.com/](https://www.grazemadison.com/)
+### Near the classroom
 
-### Burgers
+<iframe src="https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d3858.9424516182244!2d-89.39796858950768!3d43.07479989623671!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1srestaurants!5e0!3m2!1sen!2sus!4v1691096400078!5m2!1sen!2sus" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
 
-- The Turn Key [https://www.turnkeymadison.com/](https://www.turnkeymadison.com/)
-- Tipsy Cow [https://www.tipsycowmadison.com/](https://www.tipsycowmadison.com/)
-- Settle Down Tavern [https://www.settledownmadison.com/](https://www.settledownmadison.com/)
-- East Johnson Family Restaurant [https://www.eastjohnsonfam.com/](https://www.eastjohnsonfam.com/)
-- Camp Trippalindee [https://www.graduatehotels.com/madison/restaurant/camp-trippalindee/](https://www.graduatehotels.com/madison/restaurant/camp-trippalindee/)
+### Near the hotel
 
-### Chinese/Taiwanese
-
-- Hutong [https://hutongmadison.com/](https://hutongmadison.com/)
-- Double 10 Hot Pot [https://www.double10hotpot.com/](https://www.double10hotpot.com/)
-- Taste of Szechuan [https://www.tasteofsichuanwi.com/](https://www.tasteofsichuanwi.com/)
-- Hong Kong Station [https://www.hongkongstationwi.com/](https://www.hongkongstationwi.com/)
-- Taiwan Little Eats [https://taiwanlittleeats.com/](https://taiwanlittleeats.com/)
-- Dagu Rice Noodle [https://daguricenoodle.com/](https://daguricenoodle.com/)
-- Feast [https://www.feastmadison.com/](https://www.feastmadison.com/)
-- Chen's Dumpling House [https://chensdumplinghouse.com/](https://chensdumplinghouse.com/)
-
-### Ethiopian
-
-- Buraka [https://www.buraka-madison.com/](https://www.buraka-madison.com/)
-
-
-### Japanese
-
-- RED Sushi [https://red-madison.com/](https://red-madison.com/)
-- Morris Ramen [http://morrisramen.com/](http://morrisramen.com/)
-- Sushi Express [http://www.sushiexpressmadison.com/](http://www.sushiexpressmadison.com/)
-
-### Korean
-
-- 5 Star Korean BBQ [https://5starkoreanbbq.com/](https://5starkoreanbbq.com/)
-- Sol's on the Square (no website)
-
-### Mediterranean
-
-- Dubai [https://dubairestaurantandbar.smartonlineorder.com/](https://dubairestaurantandbar.smartonlineorder.com/)
-- Mediterranean Cafe [https://www.medcafemadison.com/](https://www.medcafemadison.com/)
-- Lombardinos [https://www.lombardinos.com/](https://www.lombardinos.com/)
-- Parthenon Gyros [https://www.parthenongyros.com/](https://www.parthenongyros.com/)
-- Amara [https://www.amaramadison.com](https://www.amaramadison.com)
-
-### Pizza
-
-- Lucille [https://www.lucillemadison.com/](https://www.lucillemadison.com/)
-- Salvatore's [https://www.salvatorestomatopies.com/](https://www.salvatorestomatopies.com/)
-- Pizza Brutta [https://pizzabrutta.com/](https://pizzabrutta.com/)
-- Greenbush Bar [http://www.greenbushbar.net/](http://www.greenbushbar.net/)
-- Ian's Pizza Available by the Slice [https://ianspizza.com/](https://ianspizza.com/)
-
-### South American
-
-- Samba [http://www.sambabraziliangrill.com/](http://www.sambabraziliangrill.com/)
-- Estacion Inka [https://www.estacioninka.com/](https://www.estacioninka.com/)
-
-### South Asian
-
-- Himal Chuli [https://www.himalchulirestaurant.com/](https://www.himalchulirestaurant.com/)
-- Maharani [https://www.ordermaharani.com/](https://www.ordermaharani.com/)
-
-### South American
-
-- Samba [http://www.sambabraziliangrill.com/](http://www.sambabraziliangrill.com/)
-- Estacion Inka [https://www.estacioninka.co,](https://www.estacioninka.co,)
-
-### Taverns
-
-- Paul's Pel'mini: [https://paulspelmenimadison.com/39592](https://paulspelmenimadison.com/39592)
-- Young Blood Beer Co - Good Sours, and Decent Poutine - [https://www.youngbloodbeerco.com/king-street](https://www.youngbloodbeerco.com/king-street)
-- The Old Fashioned Tavern and Restaurant  [https://theoldfashioned.com/](https://theoldfashioned.com/)
-- The Coopers Tavern [https://www.thecooperstavern.com/](https://www.thecooperstavern.com/)
-
-### Tibetan
-
-- Little Tibet [https://littletibetonjohnson.square.site/](https://littletibetonjohnson.square.site/)
-
-
-### Vietnamese
-
-- Ha Long Bay [http://www.halongbaymadison.com/](http://www.halongbaymadison.com/)
+<iframe src="https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d5930.736275832687!2d-89.38821408768943!3d43.0745570840174!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1srestaurants!5e0!3m2!1sen!2sus!4v1691096556741!5m2!1sen!2sus" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
