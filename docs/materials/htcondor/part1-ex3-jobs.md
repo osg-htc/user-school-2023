@@ -19,7 +19,7 @@ Running Your First Job
 
 Nearly all of the time, when you want to run an HTCondor job, you first write an HTCondor submit file for it. In this section, you will run the same `hostname` command as in Exercise 1.1, but where this command will run within a job on one of the 'execute' servers on the PATh Facility's HTCondor pool.
 
-First, create an example example submit file for the `hostname` command using your favorite text editor (e.g., `nano`, `vim`) and then transfer the following information to that file:
+First, create an example submit file called `hostname.sub` using your favorite text editor (e.g., `nano`, `vim`) and then transfer the following information to that file:
 
 ``` file
 executable = /bin/hostname
@@ -30,7 +30,7 @@ log = hostname.log
 
 request_cpus = 1
 request_memory = 1GB
-request_disk = 1MB
+request_disk = 1GB
 
 queue
 ```
@@ -44,14 +44,14 @@ Save your submit file using the name `hostname.sub`.
 
 The lines of the submit file have the following meanings:
 
-|              |                                                                                                                                                                            |
-|--------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `executable` | The name of the program to run (relative to the directory from which you submit).                                                                                          |
-| `output`     | The filename where HTCondor will write the standard output from your job.                                                                                                  |
-| `error`      | The filename where HTCondor will write the standard error from your job. This particular job is not likely to have any, but it is best to include this line for every job. |
-| `log`        | The filename where HTCondor will write information about your job run. While not required, it is a **really** good idea to have a log file for every job.                  |
-| `request_*`  | Tells HTCondor how many `cpus` and how much `memory` and `disk` we want, which is not much, because the 'hostname' executable is very small.                               |
-| `queue`      | Tells HTCondor to run your job with the settings above.                                                                                                                    |
+| Submit Command  | Explanation                                                                                                                                                                |
+|:----------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `executable`    | The name of the program to run (relative to the directory from which you submit).                                                                                          |
+| `output`        | The filename where HTCondor will write the standard output from your job.                                                                                                  |
+| `error`         | The filename where HTCondor will write the standard error from your job. This particular job is not likely to have any, but it is best to include this line for every job. |
+| `log`           | The filename where HTCondor will write information about your job run. While not required, it is a **really** good idea to have a log file for every job.                  |
+| `request_*`     | Tells HTCondor how many `cpus` and how much `memory` and `disk` we want, which is not much, because the 'hostname' executable is very small.                               |
+| `queue`         | Tells HTCondor to run your job with the settings above.                                                                                                                    |
 
 Note that we are not using the `arguments` or `transfer_input_files` lines that were mentioned during lecture because the `hostname` program is all that needs to be transferred from the access point server, and we want to run it without any additional options.
 
@@ -87,7 +87,6 @@ The `hostname.err` file should be empty, unless there were issues running the `h
 Very often, when you run a command on the command line, it includes arguments (i.e. options) after the program name, as in the below examples:
 
 ``` console
-username@ap1 $ cat hostname.out
 username@ap1 $ sleep 60
 ```
 
@@ -143,6 +142,7 @@ or perhaps a shell script of commands that you'd like to run within a job. In th
 
         :::bash
         #!/bin/sh
+        # START
         echo 'Date: ' `date` 
         echo 'Host: ' `hostname` 
         echo 'System: ' `uname -spo` 
