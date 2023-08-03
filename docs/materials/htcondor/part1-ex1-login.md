@@ -92,11 +92,11 @@ HTCondor is installed on this server. But what version? You can ask HTCondor its
 
 ``` console
 username@ap1 $ condor_version
-$CondorVersion: 10.6.0 2023-06-24 BuildID: 656423 PackageID: 10.6.0-0.656423 RC $
-$CondorPlatform: x86_64_CentOS7 $
+$CondorVersion: 10.7.0 2023-07-10 BuildID: 659788 PackageID: 10.7.0-0.659788 RC $
+$CondorPlatform: x86_64_AlmaLinux8 $
 ```
 
-As you can see from the output, we are using HTCondor 10.6.0.
+As you can see from the output, we are using HTCondor 10.7.0.
 
 
 Reference Materials
