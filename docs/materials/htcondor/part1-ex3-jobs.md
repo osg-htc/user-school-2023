@@ -117,7 +117,7 @@ log = sleep.log
 
 request_cpus = 1
 request_memory = 1GB
-request_disk = 1MB
+request_disk = 1GB
 
 queue
 ```
@@ -183,7 +183,7 @@ or perhaps a shell script of commands that you'd like to run within a job. In th
 
         request_cpus = 1
         request_memory = 1GB
-        request_disk = 1MB
+        request_disk = 1GB
 
         queue
 
@@ -204,7 +204,7 @@ or perhaps a shell script of commands that you'd like to run within a job. In th
      
             request_cpus=1
             request_memory=1GB
-            request_disk=1MB
+            request_disk=1GB
     
             queue
         
