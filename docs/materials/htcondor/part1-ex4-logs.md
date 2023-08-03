@@ -50,8 +50,6 @@ Some events provide no information in addition to the heading. For example:
 !!! note
     Each event ends with a line that contains only 3 dots: `...`
 
-But the periodic information update event contains some additional information:
-
 However, some lines have additional information to help you quickly understand where and how your job is running. For example:  
 
 ``` file
@@ -69,7 +67,7 @@ However, some lines have additional information to help you quickly understand w
 -   The `CondorScratchDir` is the name of the scratch directory that was created by HTCondor for your job to run inside
 -   The `Cpu`, `GPUs`, `Disk`, and `Memory` values provide the maximum amount of each resource your job has used while running
 
-Another example of a periodic update includes:
+Another example of is the periodic update:
 
 ``` file
 006 (5739.000.000) 2020-07-10 10:45:20 Image size of job updated: 72
