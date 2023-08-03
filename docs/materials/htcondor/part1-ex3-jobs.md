@@ -225,7 +225,7 @@ or perhaps a shell script of commands that you'd like to run within a job. In th
 Below is a Python script that does something similar to the shell script above. Run this Python script using HTCondor.
 
 ```python
-#!/usr/bin/env python
+#!/usr/bin/env python3
 
 """Extra Challenge for OSG School
 Written by Tim Cartwright
@@ -243,13 +243,13 @@ arguments = None
 if len(sys.argv) > 1:
     arguments = '"' + ' '.join(sys.argv[1:]) + '"'
 
-print >> sys.stderr, __doc__
-print 'Time    :', time.strftime('%Y-%m-%d (%a) %H:%M:%S %Z')
-print 'Host    :', getpass.getuser(), '@', socket.gethostname()
+print(__doc__, file=sys.stderr)
+print('Time    :', time.strftime('%Y-%m-%d (%a) %H:%M:%S %Z'))
+print('Host    :', getpass.getuser(), '@', socket.gethostname())
 uname = platform.uname()
-print "System  :", uname[0], uname[2], uname[4]
-print "Version :", platform.python_version()
-print "Program :", sys.executable
-print 'Script  :', os.path.abspath(__file__)
-print 'Args    :', arguments
+print("System  :", uname[0], uname[2], uname[4])
+print("Version :", platform.python_version())
+print("Program :", sys.executable)
+print('Script  :', os.path.abspath(__file__))
+print('Args    :', arguments)
 ```
