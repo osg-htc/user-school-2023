@@ -13,17 +13,24 @@ We have a small program that draws pictures of the Mandelbrot set. You can [read
 
 We have a simple program that can draw the Mandelbrot set. It's called `goatbrot`.
 
-Before beginning, ensure that you are connected to `learn.chtc.wisc.edu`. Create a directory for this exercise and cd into it.
+Before beginning, ensure that you are connected to `ap40.uw.osg-htc.org`. Create a directory for this exercise and cd into it.
 
 Running goatbrot From the Command Line
 --------------------------------------
 
 You can generate the Mandelbrot set as a quick test with two simple commands.
 
+1.  Download the goatbrot executable:
+
+        :::console
+        username@ap40 $ wget http://proxy.chtc.wisc.edu/SQUID/osg-school-2023/goatbrot
+        username@ap40 $ chmod a+x goatbrot
+
+
 1.  Generate a PPM image of the Mandelbrot set:
 
         :::console
-        username@learn $ goatbrot -i 1000 -o tile_000000_000000.ppm -c 0,0 -w 3 -s 1000,1000
+        username@ap40 $ ./goatbrot -i 1000 -o tile_000000_000000.ppm -c 0,0 -w 3 -s 1000,1000
 
     The `goatbroat` program takes several parameters. Let's break them down:
 
@@ -36,7 +43,7 @@ You can generate the Mandelbrot set as a quick test with two simple commands.
 1.  Convert the image to the JPEG format (using a built-in program called `convert`):
 
         :::console
-        username@learn $ convert tile_000000_000000.ppm mandel.jpg
+        username@ap40 $ convert tile_000000_000000.ppm mandel.jpg
 
 Dividing the Work into Smaller Pieces
 -------------------------------------
@@ -46,15 +53,15 @@ The Mandelbrot set can take a while to create, particularly if you make the iter
 1.  Run goatbroat 4 times:
 
         :::console
-        username@learn $ goatbrot -i 1000 -o tile_000000_000000.ppm -c -0.75,0.75 -w 1.5 -s 500,500
-        username@learn $ goatbrot -i 1000 -o tile_000000_000001.ppm -c 0.75,0.75 -w 1.5 -s 500,500 
-        username@learn $ goatbrot -i 1000 -o tile_000001_000000.ppm -c -0.75,-0.75 -w 1.5 -s 500,500 
-        username@learn $ goatbrot -i 1000 -o tile_000001_000001.ppm -c 0.75,-0.75 -w 1.5 -s 500,500
+        username@ap40 $ ./goatbrot -i 1000 -o tile_000000_000000.ppm -c -0.75,0.75 -w 1.5 -s 500,500
+        username@ap40 $ ./goatbrot -i 1000 -o tile_000000_000001.ppm -c 0.75,0.75 -w 1.5 -s 500,500 
+        username@ap40 $ ./goatbrot -i 1000 -o tile_000001_000000.ppm -c -0.75,-0.75 -w 1.5 -s 500,500 
+        username@ap40 $ ./goatbrot -i 1000 -o tile_000001_000001.ppm -c 0.75,-0.75 -w 1.5 -s 500,500
 
 1.  Stitch the small images together into the complete image (in JPEG format):
 
         :::console
-        username@learn $ montage tile_000000_000000.ppm tile_000000_000001.ppm tile_000001_000000.ppm tile_000001_000001.ppm -mode Concatenate -tile 2x2 mandel.jpg
+        username@ap40 $ montage tile_000000_000000.ppm tile_000000_000001.ppm tile_000001_000000.ppm tile_000001_000001.ppm -mode Concatenate -tile 2x2 mandel.jpg
 
 This will produce the same image as above. We divided the image space into a 2×2 grid and ran `goatbrot` on each section of the grid. The built-in `montage` program stitches the files together and writes out the final image in JPEG format.
 
@@ -63,21 +70,7 @@ View the Image!
 
 Run the commands above so that you have the Mandelbrot image. 
 When you create the image, you might wonder how you can view it. 
-If you're comfortable with `scp` or another method, you can copy it back to your computer to view it. Otherwise you can view it in your web browser in three easy steps:
+Use `scp` or `sftp` to copy the `mandel.jpg` back to your computer to view it. 
 
-1.  Make your web directory (you only need to do this once):
-
-        :::console
-        username@learn $ cd ~
-        username@learn $ mkdir public_html 
-        username@learn $ chmod 0711 . 
-        username@learn $ chmod 0755 public_html
-
-1.  Copy the image into your web directory (the below command assumes you're back in the directory where you created mandel.jpg):
-
-        :::console
-        username@learn $ cp mandel.jpg ~/public_html/
-
-1.  Access `http://learn.chtc.wisc.edu/~<USERNAME>/mandel.jpg` in your web browser (change <span style="color:RED">&lt;USERNAME&gt;</span> to your username on `learn.chtc.wisc.edu`, keeping the `~`).
 
 

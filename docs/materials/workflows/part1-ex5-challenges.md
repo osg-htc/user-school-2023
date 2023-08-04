@@ -44,12 +44,8 @@ Links to more information:
 
 -   [Pegasus Website](https://pegasus.isi.edu)
 -   [Pegasus Documentation](https://pegasus.isi.edu/documentation)
--   [Pegasus on OSG Connect](https://support.opensciencegrid.org/support/solutions/articles/5000639789-pegasus)
+-   [Pegasus on OSG](https://portal.osg-htc.org/documentation/htc_workloads/automated_workflows/tutorial-pegasus/)
 
 If you have any questions or problems, please feel free to contact the Pegasus team by emailing <pegasus-support@isi.edu>
 
-Note: Be Nice
--------------
-
-Please be polite. Computers in our HTCondor pool will run multiple jobs at a time, and these computers are shared with your fellow students. If you have jobs that will use significant computational power or memory, limit your jobs to be kind to your neighbors, unless you run your jobs during off-hours.
 

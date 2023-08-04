@@ -105,8 +105,8 @@ still working on
 ## Data
 
 View the slides
-([PDF](data/files/osgus22-data.pdf),
-[PowerPoint](data/files/osgus22-data.pptx))
+([PDF](data/files/osgus23-data.pdf),
+[PowerPoint](data/files/osgus23-data.pptx))
 
 ### Data Exercises 1: HTCondor File Transfer (Strongly Recommended)
 
@@ -119,19 +119,24 @@ View the slides
 - [Exercise 2.1: OSDF for inputs](data/part2-ex1-osdf-inputs.md)
 - [Exercise 2.2: OSDF for outputs](data/part2-ex2-osdf-outputs.md)
 
-## Extra Topics
+## Workflows with DAGMan
 
-<!-- BEGIN EXTRA TOPICS THAT ARE NOT READY YET
+View the slides
+([PDF](data/files/osgus23-dagman.pdf),
+[PowerPoint](data/files/osgus23-dagman.pptx))
 
-### Workflows with DAGMan
-
-Slides will be posted here.
+### DAGMan Exercises 1
 
 - [Exercise 1.1: Coordinating set of jobs: A simple DAG](workflows/part1-ex1-simple-dag.md)
 - [Exercise 1.2: A brief detour through the Mandelbrot set](workflows/part1-ex2-mandelbrot.md)
 - [Exercise 1.3: A more complex DAG](workflows/part1-ex3-complex-dag.md)
 - [Exercise 1.4: Handling jobs that fail with DAGMan](workflows/part1-ex4-failed-dag.md)
 - [Bonus Exercise 4.5: HTCondor challenges](workflows/part1-ex5-challenges.md)
+
+## Extra Topics
+
+<!-- BEGIN EXTRA TOPICS THAT ARE NOT READY YET
+
 
 ### Containers (and GPUs?)
 
