@@ -380,7 +380,7 @@ to those who can make it.
       <td>15:00</td>
       <td>15:45</td>
       <td>
-        <span class="before-dot text-light-blue">Lecture: Using containers</span>
+        <span class="before-dot text-light-blue">Lecture: Special Environments / Requirements</span>
         <br>
         <span class="before-dot text-light-orange">Work time: Apply HTC to own research</span>
       </td>
@@ -390,7 +390,7 @@ to those who can make it.
       <td>15:45</td>
       <td>17:00</td>
       <td>
-        <span class="before-dot text-pink">Hands-on: Containers</span>
+        <span class="before-dot text-pink">Hands-on: Special Environments / Requirements</span>
         <br>
         <span class="before-dot text-light-orange">Work time: Apply HTC to own research</span>
         <br>
