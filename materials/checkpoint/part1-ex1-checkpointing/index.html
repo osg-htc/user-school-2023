@@ -441,13 +441,6 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#viewing-the-running-job-only-on-learn" class="md-nav__link">
-    Viewing the running job (only on learn)
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
   <a href="#forcing-your-job-to-stop-running" class="md-nav__link">
     Forcing your job to stop running
   </a>
@@ -499,8 +492,8 @@ this simulates a more intensive computation.</p>
 <p>To get set up:</p>
 <ol>
 <li>
-<p>Log in to <code>learn.chtc.wisc.edu</code>
-    (<code>login04</code> is fine, too, except the <code>condor_ssh_to_job</code> step below should be skipped)</p>
+<p>Log in to <code>ap40.uw.osg-htc.org</code>
+    (<code>ap1</code> is fine, too)</p>
 </li>
 <li>
 <p>Create and change into a new directory for this exercise</p>
@@ -584,25 +577,6 @@ When it does, you will see three sets of messages in the log file quickly:</p>
 <li><code>Finished transferring output files</code></li>
 </ul>
 <p>That is the first checkpoint happening!</p>
-<h3 id="viewing-the-running-job-only-on-learn">Viewing the running job (only on <code>learn</code>)<a class="headerlink" href="#viewing-the-running-job-only-on-learn" title="Permanent link">&para;</a></h3>
-<p>Once you see those messages, let’s look at the running job on the execute point
-(<strong>note:</strong> these steps will work only on CHTC):</p>
-<ol>
-<li>Press Control-C (<code>Ctrl-c</code> or <code>^C</code>) to exit the <code>tail</code> command</li>
-<li>Run <code>condor_q</code> to get the job ID of the running job</li>
-<li>Run <code>condor_ssh_to_job JOB_ID</code>, where you replace <code>JOB_ID</code> with your job ID from above</li>
-<li>Once you have logged in to the execute point, run some commands (somewhat quickly!):<ol>
-<li>Where am I? <code>hostname</code> and then <code>pwd</code></li>
-<li>What is here? Run <code>ls -lF</code>&nbsp;— is that what you expected?</li>
-<li>Do you see the <code>fibonacci.checkpoint</code> file?  What is in it?  Is that what you expected?</li>
-<li>Wait about 1 more minute and look at the checkpoint file again?  Did it change?</li>
-<li>Run <code>logout</code> to leave the execute point and return to the access point</li>
-</ol>
-</li>
-</ol>
-<p>As you may have guessed, <code>condor_ssh_to_job</code> logged you in to the execute point of your job
-and changed into its execute directory.
-You were looking at the job as it ran!</p>
 <h3 id="forcing-your-job-to-stop-running">Forcing your job to stop running<a class="headerlink" href="#forcing-your-job-to-stop-running" title="Permanent link">&para;</a></h3>
 <p>Now, assuming that your job is still running (check <code>condor_q</code> again),
 you can force HTCondor to remove (<em>evict</em>) your job before it finishes:</p>
@@ -640,7 +614,7 @@ If you would like to learn more, please read
 <a href="https://htcondor.readthedocs.io/en/latest/users-manual/self-checkpointing-applications.html">the Self-Checkpointing Applications section</a>
 of the HTCondor Manual.
 Or talk to School staff about it.
-Or contact support@opensciencegrid.org for further help at any time.</p>
+Or contact support@osg-htc.org for further help at any time.</p>
                 
                   
                 
