@@ -201,7 +201,7 @@ Let’s follow the progress of the whole DAG:
         Completed: 100.0%
 
 1.  Examine your log files (`goatbrot.log` and `montage.log`) and DAGMan output file (`goatbrot.dag.dagman.out`). Do they look as you expect? Can you see the progress of the DAG in the DAGMan output file?
-1.  As you did earlier, copy the resulting `mandel-from-dag.jpg` to your `public_html` directory, then access it from your web browser. Does the image look correct?
+1.  As you did earlier, transfer the resulting `mandel-from-dag.jpg` to your computer so that you can view the image. Does the image look correct?
 1.  Clean up your results by removing all of the `goatbrot.dag.*` files if you like. Be careful to not delete the `goatbrot.dag` file.
 
 Bonus Challenge
