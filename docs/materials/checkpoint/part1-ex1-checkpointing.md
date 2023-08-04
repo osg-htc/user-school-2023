@@ -18,8 +18,8 @@ this simulates a more intensive computation.
 
 To get set up:
 
-1.  Log in to `learn.chtc.wisc.edu`
-    (`login04` is fine, too, except the `condor_ssh_to_job` step below should be skipped)
+1.  Log in to `ap40.uw.osg-htc.org`
+    (`ap1` is fine, too)
 
 1.  Create and change into a new directory for this exercise
 
@@ -105,25 +105,6 @@ Now wait about 1 minute, and you should see two more messages appear:
 
 That is the first checkpoint happening!
 
-### Viewing the running job (only on `learn`)
-
-Once you see those messages, let’s look at the running job on the execute point
-(**note:** these steps will work only on CHTC):
-
-1.  Press Control-C (`Ctrl-c` or `^C`) to exit the `tail` command
-1.  Run `condor_q` to get the job ID of the running job
-1.  Run `condor_ssh_to_job JOB_ID`, where you replace `JOB_ID` with your job ID from above
-1.  Once you have logged in to the execute point, run some commands (somewhat quickly!):
-    1.   Where am I? `hostname` and then `pwd`
-    1.   What is here? Run `ls -lF`&nbsp;— is that what you expected?
-    1.   Do you see the `fibonacci.checkpoint` file?  What is in it?  Is that what you expected?
-    1.   Wait about 1 more minute and look at the checkpoint file again?  Did it change?
-    1.   Run `logout` to leave the execute point and return to the access point
-
-As you may have guessed, `condor_ssh_to_job` logged you in to the execute point of your job
-and changed into its execute directory.
-You were looking at the job as it ran!
-
 ### Forcing your job to stop running
 
 Now, assuming that your job is still running (check `condor_q` again),
@@ -161,4 +142,4 @@ If you would like to learn more, please read
 [the Self-Checkpointing Applications section](https://htcondor.readthedocs.io/en/latest/users-manual/self-checkpointing-applications.html)
 of the HTCondor Manual.
 Or talk to School staff about it.
-Or contact support@opensciencegrid.org for further help at any time.
+Or contact support@osg-htc.org for further help at any time.
