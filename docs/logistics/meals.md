@@ -31,7 +31,7 @@ There is seating nearby both inside and outside.
 Again, if you are **not** part of the UW&ndash;Madison community,
 we can reimburse you for dinners Sunday through Wednesday,
 all meals on Thursday,
-and breakfast on Friday.
+and breakfast on Friday. We have curated a page of some possible [dining options](./dining.md) to use as inspiration.
 
 Some tips for successful reimbursements:
 
