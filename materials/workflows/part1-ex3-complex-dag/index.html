@@ -508,7 +508,7 @@
 <p>We'll run our <code>goatbrot</code> example. If you didn't read about it yet, <a href="../part1-ex2-mandelbrot">please do so now</a>. We are going to make a DAG with four simultaneous jobs (<code>goatbrot</code>) and one final node to stitch them together (<code>montage</code>). This means we have five jobs. We're going to run <code>goatbrot</code> with more iterations (100,000) so each job will take longer to run.</p>
 <p>You can create your five jobs. The goatbrot jobs are very similar to each other, but they have slightly different parameters and output files.</p>
 <h3 id="goatbrot1sub">goatbrot1.sub<a class="headerlink" href="#goatbrot1sub" title="Permanent link">&para;</a></h3>
-<div class="codehilite"><pre><span></span><code>executable              = /usr/local/bin/goatbrot
+<div class="codehilite"><pre><span></span><code>executable              = goatbrot
 arguments               = -i 100000 -c -0.75,0.75 -w 1.5 -s 500,500 -o tile_0_0.ppm
 log                     = goatbrot.log
 output                  = goatbrot.out.0.0
@@ -520,7 +520,7 @@ queue
 </code></pre></div>
 
 <h3 id="goatbrot2sub">goatbrot2.sub<a class="headerlink" href="#goatbrot2sub" title="Permanent link">&para;</a></h3>
-<div class="codehilite"><pre><span></span><code>executable              = /usr/local/bin/goatbrot
+<div class="codehilite"><pre><span></span><code>executable              = goatbrot
 arguments               = -i 100000 -c 0.75,0.75 -w 1.5 -s 500,500 -o tile_0_1.ppm
 log                     = goatbrot.log
 output                  = goatbrot.out.0.1
@@ -532,7 +532,7 @@ queue
 </code></pre></div>
 
 <h3 id="goatbrot3sub">goatbrot3.sub<a class="headerlink" href="#goatbrot3sub" title="Permanent link">&para;</a></h3>
-<div class="codehilite"><pre><span></span><code>executable              = /usr/local/bin/goatbrot
+<div class="codehilite"><pre><span></span><code>executable              = goatbrot
 arguments               = -i 100000 -c -0.75,-0.75 -w 1.5 -s 500,500 -o tile_1_0.ppm
 log                     = goatbrot.log
 output                  = goatbrot.out.1.0
@@ -544,7 +544,7 @@ queue
 </code></pre></div>
 
 <h3 id="goatbrot4sub">goatbrot4.sub<a class="headerlink" href="#goatbrot4sub" title="Permanent link">&para;</a></h3>
-<div class="codehilite"><pre><span></span><code>executable              = /usr/local/bin/goatbrot
+<div class="codehilite"><pre><span></span><code>executable              = goatbrot
 arguments               = -i 100000 -c 0.75,-0.75 -w 1.5 -s 500,500 -o tile_1_1.ppm
 log                     = goatbrot.log
 output                  = goatbrot.out.1.1
@@ -563,6 +563,7 @@ transfer_input_files    = tile_0_0.ppm,tile_0_1.ppm,tile_1_0.ppm,tile_1_1.ppm
 output                  = montage.out
 error                   = montage.err
 log                     = montage.log
+requirements            = OSG_OS_STRING == &quot;RHEL 8&quot;
 request_memory          = 1GB
 request_disk            = 1GB
 request_cpus            = 1

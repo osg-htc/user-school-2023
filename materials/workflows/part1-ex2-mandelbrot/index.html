@@ -451,13 +451,20 @@
 <p>Before we explore using DAGs to implement workflows, let’s get a more interesting job. Let’s make pretty pictures!</p>
 <p>We have a small program that draws pictures of the Mandelbrot set. You can <a href="https://en.wikipedia.org/wiki/Mandelbrot_set">read about the Mandelbrot set on Wikipedia</a>, or you can simply appreciate the pretty pictures. It’s a fractal.</p>
 <p>We have a simple program that can draw the Mandelbrot set. It's called <code>goatbrot</code>.</p>
-<p>Before beginning, ensure that you are connected to <code>learn.chtc.wisc.edu</code>. Create a directory for this exercise and cd into it.</p>
+<p>Before beginning, ensure that you are connected to <code>ap40.uw.osg-htc.org</code>. Create a directory for this exercise and cd into it.</p>
 <h2 id="running-goatbrot-from-the-command-line">Running goatbrot From the Command Line<a class="headerlink" href="#running-goatbrot-from-the-command-line" title="Permanent link">&para;</a></h2>
 <p>You can generate the Mandelbrot set as a quick test with two simple commands.</p>
 <ol>
 <li>
+<p>Download the goatbrot executable:</p>
+<div class="codehilite"><pre><span></span><code><span class="gp">username@ap40 $ </span>wget http://proxy.chtc.wisc.edu/SQUID/osg-school-2023/goatbrot
+<span class="gp">username@ap40 $ </span>chmod a+x goatbrot
+</code></pre></div>
+
+</li>
+<li>
 <p>Generate a PPM image of the Mandelbrot set:</p>
-<div class="codehilite"><pre><span></span><code><span class="gp">username@learn $ </span>goatbrot -i <span class="m">1000</span> -o tile_000000_000000.ppm -c <span class="m">0</span>,0 -w <span class="m">3</span> -s <span class="m">1000</span>,1000
+<div class="codehilite"><pre><span></span><code><span class="gp">username@ap40 $ </span>./goatbrot -i <span class="m">1000</span> -o tile_000000_000000.ppm -c <span class="m">0</span>,0 -w <span class="m">3</span> -s <span class="m">1000</span>,1000
 </code></pre></div>
 
 <p>The <code>goatbroat</code> program takes several parameters. Let's break them down:</p>
@@ -471,7 +478,7 @@
 </li>
 <li>
 <p>Convert the image to the JPEG format (using a built-in program called <code>convert</code>):</p>
-<div class="codehilite"><pre><span></span><code><span class="gp">username@learn $ </span>convert tile_000000_000000.ppm mandel.jpg
+<div class="codehilite"><pre><span></span><code><span class="gp">username@ap40 $ </span>convert tile_000000_000000.ppm mandel.jpg
 </code></pre></div>
 
 </li>
@@ -481,16 +488,16 @@
 <ol>
 <li>
 <p>Run goatbroat 4 times:</p>
-<div class="codehilite"><pre><span></span><code><span class="gp">username@learn $ </span>goatbrot -i <span class="m">1000</span> -o tile_000000_000000.ppm -c -0.75,0.75 -w <span class="m">1</span>.5 -s <span class="m">500</span>,500
-<span class="gp">username@learn $ </span>goatbrot -i <span class="m">1000</span> -o tile_000000_000001.ppm -c <span class="m">0</span>.75,0.75 -w <span class="m">1</span>.5 -s <span class="m">500</span>,500 
-<span class="gp">username@learn $ </span>goatbrot -i <span class="m">1000</span> -o tile_000001_000000.ppm -c -0.75,-0.75 -w <span class="m">1</span>.5 -s <span class="m">500</span>,500 
-<span class="gp">username@learn $ </span>goatbrot -i <span class="m">1000</span> -o tile_000001_000001.ppm -c <span class="m">0</span>.75,-0.75 -w <span class="m">1</span>.5 -s <span class="m">500</span>,500
+<div class="codehilite"><pre><span></span><code><span class="gp">username@ap40 $ </span>./goatbrot -i <span class="m">1000</span> -o tile_000000_000000.ppm -c -0.75,0.75 -w <span class="m">1</span>.5 -s <span class="m">500</span>,500
+<span class="gp">username@ap40 $ </span>./goatbrot -i <span class="m">1000</span> -o tile_000000_000001.ppm -c <span class="m">0</span>.75,0.75 -w <span class="m">1</span>.5 -s <span class="m">500</span>,500 
+<span class="gp">username@ap40 $ </span>./goatbrot -i <span class="m">1000</span> -o tile_000001_000000.ppm -c -0.75,-0.75 -w <span class="m">1</span>.5 -s <span class="m">500</span>,500 
+<span class="gp">username@ap40 $ </span>./goatbrot -i <span class="m">1000</span> -o tile_000001_000001.ppm -c <span class="m">0</span>.75,-0.75 -w <span class="m">1</span>.5 -s <span class="m">500</span>,500
 </code></pre></div>
 
 </li>
 <li>
 <p>Stitch the small images together into the complete image (in JPEG format):</p>
-<div class="codehilite"><pre><span></span><code><span class="gp">username@learn $ </span>montage tile_000000_000000.ppm tile_000000_000001.ppm tile_000001_000000.ppm tile_000001_000001.ppm -mode Concatenate -tile 2x2 mandel.jpg
+<div class="codehilite"><pre><span></span><code><span class="gp">username@ap40 $ </span>montage tile_000000_000000.ppm tile_000000_000001.ppm tile_000001_000000.ppm tile_000001_000001.ppm -mode Concatenate -tile 2x2 mandel.jpg
 </code></pre></div>
 
 </li>
@@ -499,27 +506,7 @@
 <h2 id="view-the-image">View the Image!<a class="headerlink" href="#view-the-image" title="Permanent link">&para;</a></h2>
 <p>Run the commands above so that you have the Mandelbrot image. 
 When you create the image, you might wonder how you can view it. 
-If you're comfortable with <code>scp</code> or another method, you can copy it back to your computer to view it. Otherwise you can view it in your web browser in three easy steps:</p>
-<ol>
-<li>
-<p>Make your web directory (you only need to do this once):</p>
-<div class="codehilite"><pre><span></span><code><span class="gp">username@learn $ </span><span class="nb">cd</span> ~
-<span class="gp">username@learn $ </span>mkdir public_html 
-<span class="gp">username@learn $ </span>chmod <span class="m">0711</span> . 
-<span class="gp">username@learn $ </span>chmod <span class="m">0755</span> public_html
-</code></pre></div>
-
-</li>
-<li>
-<p>Copy the image into your web directory (the below command assumes you're back in the directory where you created mandel.jpg):</p>
-<div class="codehilite"><pre><span></span><code><span class="gp">username@learn $ </span>cp mandel.jpg ~/public_html/
-</code></pre></div>
-
-</li>
-<li>
-<p>Access <code>http://learn.chtc.wisc.edu/~&lt;USERNAME&gt;/mandel.jpg</code> in your web browser (change <span style="color:RED">&lt;USERNAME&gt;</span> to your username on <code>learn.chtc.wisc.edu</code>, keeping the <code>~</code>).</p>
-</li>
-</ol>
+Use <code>scp</code> or <code>sftp</code> to copy the <code>mandel.jpg</code> back to your computer to view it. </p>
                 
                   
                 
