@@ -1,7 +1,6 @@
 # Dining
 
-There are many dining options in Madison near the user school, and your hotel, especially on State Street which is only a couple 
-of blocks away.
+There are many dining options in Madison near the user school, and your hotel, especially on State Street which is only a couple of blocks away from both locations. Restaurants right on and very near to the Capitol Square, onto which the hotel faces, tend to be a little more expensive. As you go toward campus on State Street or neighboring streets, prices tend to go down. But of course, there are exceptions in both directions! It is reasonable to ask to see a menu before ordering or being seated and decide whether to stay.
 
 ## Local Food Trucks
 
