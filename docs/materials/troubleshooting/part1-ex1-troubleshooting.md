@@ -103,7 +103,7 @@ or by submitting the answer to Project Euler (requires an account).
 There is also a working solution on our web server that can be retrieved with
 
 ``` console
-user@server $ wget http://proxy.chtc.wisc.edu/SQUID/osgschool21/troubleshooting-key.tar.gz
+user@server $ wget http://proxy.chtc.wisc.edu/SQUID/osg-school-2023/troubleshooting-key.tar.gz
 ```
 
 It contains comments labeled `SOLUTION` that you can consult in case you get stuck.
