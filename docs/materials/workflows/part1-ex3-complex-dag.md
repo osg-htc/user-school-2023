@@ -19,7 +19,7 @@ You can create your five jobs. The goatbrot jobs are very similar to each other,
 ### goatbrot1.sub
 
 ``` file
-executable              = /usr/local/bin/goatbrot
+executable              = goatbrot
 arguments               = -i 100000 -c -0.75,0.75 -w 1.5 -s 500,500 -o tile_0_0.ppm
 log                     = goatbrot.log
 output                  = goatbrot.out.0.0
@@ -33,7 +33,7 @@ queue
 ### goatbrot2.sub
 
 ``` file
-executable              = /usr/local/bin/goatbrot
+executable              = goatbrot
 arguments               = -i 100000 -c 0.75,0.75 -w 1.5 -s 500,500 -o tile_0_1.ppm
 log                     = goatbrot.log
 output                  = goatbrot.out.0.1
@@ -47,7 +47,7 @@ queue
 ### goatbrot3.sub
 
 ``` file
-executable              = /usr/local/bin/goatbrot
+executable              = goatbrot
 arguments               = -i 100000 -c -0.75,-0.75 -w 1.5 -s 500,500 -o tile_1_0.ppm
 log                     = goatbrot.log
 output                  = goatbrot.out.1.0
@@ -61,7 +61,7 @@ queue
 ### goatbrot4.sub
 
 ``` file
-executable              = /usr/local/bin/goatbrot
+executable              = goatbrot
 arguments               = -i 100000 -c 0.75,-0.75 -w 1.5 -s 500,500 -o tile_1_1.ppm
 log                     = goatbrot.log
 output                  = goatbrot.out.1.1
@@ -83,6 +83,7 @@ transfer_input_files    = tile_0_0.ppm,tile_0_1.ppm,tile_1_0.ppm,tile_1_1.ppm
 output                  = montage.out
 error                   = montage.err
 log                     = montage.log
+requirements            = OSG_OS_STRING == "RHEL 8"
 request_memory          = 1GB
 request_disk            = 1GB
 request_cpus            = 1
