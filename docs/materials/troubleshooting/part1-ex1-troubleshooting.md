@@ -7,7 +7,7 @@ status: in progress
 The goal of this exercise is to practice troubleshooting some common problems
 that you may encounter when submitting jobs using HTCondor.
 
-Although this exercise is in the OSG section, it should work on either CHTC or OSG.
+This exercise should work on either of the access points- OSPool or Path Facility
 
 **Note:** This exercise is a little harder than some others.
 To complete it, you will have to find and fix several issues.
@@ -23,7 +23,7 @@ We have prepared some Python code, data, and submit files for this exercise:
 1.  Download a tarball of the materials:
 
         :::console
-        user@server $ wget http://proxy.chtc.wisc.edu/SQUID/osgschool21/troubleshooting.tar.gz
+        user@server $ wget http://proxy.chtc.wisc.edu/SQUID/osg-school-2023/troubleshooting.tar.gz
 
 3.  Extract the tarball using the commands that you learned earlier
 4.  Change into the newly extracted directory and explore its contents&nbsp;—
@@ -47,7 +47,7 @@ that are designed to solve [Project Euler problem 98](https://projecteuler.net/p
 > **NOTE:** All anagrams formed must be contained in the given text file.
 
 Unfortunately, there are many issues with the submit files that you will have to work through
-before you can you can obtain the solution to the problem!
+before you can obtain the solution to the problem!
 The code in the Python scripts themselves is, in theory, free of bugs.
 
 ## Finding anagrams
@@ -62,7 +62,7 @@ Naturally, we want to run this as an HTCondor job, so:
 Once you have satisfactory output, move onto the next section.
 
 !!! note "Please be polite"
-    Submit hosts are shared resources, so you should clean up after yourself.
+    Access points are shared resources, so you should clean up after yourself.
     If you discover any jobs in the Hold state, and after you are done troubleshooting them,
     remove them with the following command:
 
@@ -103,7 +103,7 @@ or by submitting the answer to Project Euler (requires an account).
 There is also a working solution on our web server that can be retrieved with
 
 ``` console
-user@server $ wget http://proxy.chtc.wisc.edu/SQUID/osgschool21/troubleshooting-key.tar.gz
+user@server $ wget http://proxy.chtc.wisc.edu/SQUID/osg-school-2023/troubleshooting-key.tar.gz
 ```
 
 It contains comments labeled `SOLUTION` that you can consult in case you get stuck.
