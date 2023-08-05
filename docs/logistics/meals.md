@@ -18,6 +18,7 @@ Sorry, UW&ndash;Madison folks: The rules say that we cannot reimburse you for me
 
 For the meals on your own, you are welcome to join other participants and even staff!
 We can help with ideas and groups, if you like.
+There is [another page](dining.md) with suggestions for finding dining options near the School and hotel.
 
 ## Catered Meals
 
