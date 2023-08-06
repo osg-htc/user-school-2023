@@ -23,10 +23,10 @@ Motivating Script
 1. Create a script called `cowsay.py`:
 
 		:::file
-		#!/usr/bin/python3
+		#!/usr/bin/env python3
 
 		import cowsay
-		cowsay.cow('OSG User School')
+		cowsay.cow('Hello OSG User School')
 
 1. Give it executable permissions: 
 
@@ -38,117 +38,98 @@ Motivating Script
 		:::console
 		$ ./cowsay.py
 
-	It will likely fail, because the cowsay library isn't installed. 
+	It will likely fail, because the cowsay library isn't installed. This is a 
+	scenario where we will want to build our own container that includes a base 
+	Python installation and the `cowsay` Python library. 
 
 Preparing a Definition File
 ---------------------------
 
-	:::file
-	Bootstrap: docker
-	From: opensciencegrid/osgvo-ubuntu-20.04:latest
+We can describe our desired Apptainer image in a special format called a 
+**definition file**. This has special keywords that will direct Apptainer 
+when it builds the container image. 
 
-	%post
-		apt-get update -y
-		apt-get install -y \
-				python3-pip \
-				python3-cowsay
-		python3 -m pip install numpy
+1. Create a file called `py-cowsay.def` with these contents: 
 
+		:::file
+		Bootstrap: docker
+		From: opensciencegrid/osgvo-ubuntu-20.04:latest
 
-This definition file installs a few packages from apt (that is,
-Ubuntu prepared packages), and one package via pip. Using
-package from the vendor is great as those packages are
-generally well tested. However, not everything is packaged
-by the OS vendors, and sometimes you need specific versions
-of a package and then using language tools like pip, or 
-building from source, can be good solutions.
+		%post
+			apt-get update -y
+			apt-get install -y \
+					python3-pip \
+					python3-numpy
+			python3 -m pip install cowsay
 
-The definition file above has two problems we have to
-address before building. The first problem is that there
-is no Ubuntu package for `python3-cowsay`. The second
-problem (albeit minor), is that numpy might be better
-installed with apt. The fix here is to swap and the names
-of those two. Replace `python3-cowsay` with 
-`python3-numpy` and replace `numpy` with `cowsay`.
-The final definition file should look like:
+Note that we are starting with the same `ubuntu` base we used in previous 
+exercises. The `%post` statement includes our installation commands, including 
+updating the `pip` and `numpy` packages, and then using `pip` to install `cowsay`.
 
+To learn more about definition files, see [Exercise 3.1](../part3-ex1-apptainer-recipes)
 
-``` file
-Bootstrap: docker
-From: opensciencegrid/osgvo-ubuntu-20.04:latest
+Build the Container
+-------------------
 
-%post
-    apt-get update -y
-    apt-get install -y \
-            python3-pip \
-            python3-numpy
-    python3 -m pip install cowsay
-```
-## Testing the Image Locally
+Once the definition file is complete, we can build the container. 
 
-You can test the image on the access point by using
-`singularity shell`. This will drop you in to the container, and
-automatically mount $HOME so that you can access your files, which
-is really nice when you have to test or build inside the container
-environment, but want to keep the files after exiting the 
-container. Run:
+1. Run the following command to build the container: 
 
-``` console
-$ singularity shell first-image.sif
-```
+		:::console
+		$ apptainer build py-cowsay.sif py-cowsay.def
 
-You should see the prompt change to indicate that you are inside
-the container. Let's test our new container by starting Python,
-import cowsay, and use the cowsay library:
-
-``` console
-Singularity> python3
-Python 3.8.10 (default, Sep 28 2021, 16:10:42) 
-[GCC 9.3.0] on linux
-Type "help", "copyright", "credits" or "license" for more information.
->>> import cowsay
->>> cowsay.cow('Hello OSG User School!')
-  ______________________
-| Hello OSG User School! |
-  ======================
-                      \
-                       \
-                         ^__^
-                         (oo)\_______
-                         (__)\       )\/\
-                             ||----w |
-                             ||     ||
-```
-
-You can exit python and the container by pressing Ctrl-D
-twice.
+As with the Docker image in the [previous exercise](../part1-ex3-docker-jobs), 
+the first argument is the name to give to the newly create image file and the 
+second argument is how to build the container image - in this case, the definition file. 
 
 
+Testing the Image Locally
+-------------------
 
+1. Do you remember how to interactively test an image? Look back 
+at [Exercise 1.1](../part1-ex1-run-apptainer) and guess what command would 
+allow us to test our new container. 
 
-We then need a submit file - the only real differenc in this one
-is the addition of `+SingularityImage` which specifies which image
-to use:
+1. Try running: 
 
-```
-+SingularityImage = "./first-image.sif"
+		:::console
+		$ singularity shell first-image.sif
 
-request_cpus = 1
-request_memory = 1GB
-request_disk = 5GB
+1. Then try running the `cowsay.py` script: 
 
-executable   = cowsay.py
-output       = $(Cluster).$(Process).out
-error        = $(Cluster).$(Process).err
-log          = $(Cluster).log
+		:::console
+		Singularity< ./cowsay.py
 
-queue 1
-```
+1. If it produces an output, our container works! We can now exit (by typing `exit`)
+and submit a job. 
 
-Run the job and verify the output. 
+Submit a Job
+--------------
 
+1. Make a copy of a submit file from a previous exercise in this section. Can you 
+guess what options need to be used or modified? 
 
+1. Make sure you have the following (in addition to `log`, `error`, `output` and 
+CPU and memory requests): 
 
+		:::file
+		universe = container
+		container_image = py-cowsay.sif
+		
+		executable = cowsay.py
 
+1. Submit the job and verify the output when it completes. 
+
+		:::file
+		  ______________________
+		| Hello OSG User School! |
+		  ======================
+							  \
+							   \
+								 ^__^
+								 (oo)\_______
+								 (__)\       )\/\
+									 ||----w |
+									 ||     ||
 
 

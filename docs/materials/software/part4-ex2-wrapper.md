@@ -7,7 +7,11 @@ status: testing
 Software Exercise 4.2: Writing a Wrapper Script
 ============================================================
 
-In this exercise, you will create a wrapper script to run the same program (`blastx`) as the [previous exercise](../part1-ex1-download).
+**Objective**: Run downloaded software files via an intermediate, "wrapper" script. 
+
+**Why learn this?**: This change is a good test of your general HTCondor knowledge and 
+how to translate between executable and submit file. Using wrapper scripts is also a 
+common practice for managing what happens in a job. 
 
 Background
 ----------
@@ -21,7 +25,7 @@ Wrapper Script, part 1
 
 Our wrapper script will be a bash script that runs several commands.
 
-1. In the same directory as the last exercise (still logged into `login04.osgconnect.net`) make a file called `run_blast.sh`. 
+1. In the same directory as the last exercise, make a file called `run_blast.sh`. 
 
 1. The first line we'll place in the script is the basic command for running blast. Based on our previous submit file, what command needs to go into the script? 
 
@@ -32,9 +36,6 @@ Our wrapper script will be a bash script that runs several commands.
         
         ncbi-blast-2.12.0+/bin/blastx -db pdbaa/pdbaa -query mouse.fa -out results.txt 
 
-
-	!!! note 
-		The "header" of `#!/bin/bash` will tell the computer that this is a bash shell script and can be run in the same way that  you would run individual commands on the command line.
 
 Submit File Changes
 -------------------
@@ -56,7 +57,7 @@ We now need to make some changes to our submit file.
 
 1. If you really want to be on top of things, look at the log file for the last exercise, and update your memory and disk requests to be just slightly above the actual "Usage" values in the log. 
 
-Before submitting, make sure to make the below additional changes to the wrapper script!
+1. Before submitting, make sure to make the below additional changes to the wrapper script!
 
 Wrapper Script, part 2
 ----------------------

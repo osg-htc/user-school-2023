@@ -63,9 +63,9 @@ Choose a Strategy
     others who would use it on a laptop or desktop, look at the Docker container 
     example in [Exercise 3.2](../part3-ex2-docker-build). 
 
-Don't do ALL of the software exercises in parts 3 - 5! Instead, choose the section 
+Don't do ALL of the software exercises in parts 3 - 5! Instead, choose the section(s) 
 that makes sense based on how you want to manage your software. Talk to the School 
-instructors to help make this decision. 
+instructors to help make this decision if you are unsure. 
 
 Create an Executable
 ---------------------

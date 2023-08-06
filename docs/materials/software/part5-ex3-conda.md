@@ -1,5 +1,5 @@
 ---
-status: in progress
+status: testing
 ---
 
 <style type="text/css"> pre em { font-style: normal; background-color: yellow; } pre strong { font-style: normal; font-weight: bold; color: #008; } </style>
@@ -7,7 +7,10 @@ status: in progress
 Software Exercise 5.3: Using Conda Environments
 ====================================
 
-This exercise covers how to use Python environments managed by miniconda. 
+**Objective**: Create a portable conda environment and use it in a job. 
+
+**Why learn this?**: If you normally use `conda` to manage your Python environments, 
+this method of software portability offers great similarity to your usual practices. 
 
 Introduction
 ------------
@@ -20,8 +23,7 @@ some help from a tool called `conda pack`.
 Sample Script
 -------------------
 
-1. For this example, create a script called `rand_array.py` on `learn.chtc.wisc.edu` or
-`login04.osgconnect.net`:
+1. For this example, create a script called `rand_array.py` on the Access Point. 
 
 		:::file
 		import numpy as np

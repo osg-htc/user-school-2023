@@ -1,5 +1,5 @@
 ---
-status: in progress
+status: testing
 ---
 
 <style type="text/css"> pre em { font-style: normal; background-color: yellow; } pre strong { font-style: normal; font-weight: bold; color: #008; } </style>
@@ -7,10 +7,26 @@ status: in progress
 Software Exercise 1.3: Use Docker Containers in OSPool Jobs
 ====================================
 
-**Objective**: Submit a job that uses an existing Docker container. 
+**Objective**: Create a local copy of a Docker container, use it to submit a job. 
 
 **Why learn this?**: Same as the previous exercise; this may also be how you end up 
 submitting your jobs if you can find an existing Docker container with your software.  
+
+Create Local Copy of Docker Container
+-------------------
+
+While it is technically possible to use a Docker container directly in a job, 
+there are some good reasons for converting it to a local Apptainer container first. 
+We'll do this with the same `python:3.10` Docker container we used in the 
+[first exercise](../part1-ex1-run-apptainer). 
+
+To convert the Docker container to a local Apptainer container, run: 
+
+	:::console
+	$ apptainer build local-py310.sif docker://python:3.10
+
+The first argument after `build` is the name of the new Apptainer container file, the 
+second argument is what we're building from (in this case, Docker). 
 
 Submit File and Executable
 -------------------
@@ -21,9 +37,7 @@ Submit File and Executable
 
 		:::file
 		universe = container
-		container_image = docker://python:3.10
-
-	Here we are requesting HTCondor's Docker universe and using a pre-built python image that, by default, will be pulled from a public website of Docker images called DockerHub.  
+		container_image = local-py310.sif
 
 1.  Use the same executable as the [previous exercise](../part1-ex2-apptainer-jobs). 
 

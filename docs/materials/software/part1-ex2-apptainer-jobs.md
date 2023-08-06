@@ -1,5 +1,5 @@
 ---
-status: in progress
+status: testing
 ---
 
 <style type="text/css"> pre em { font-style: normal; background-color: yellow; } pre strong { font-style: normal; font-weight: bold; color: \#008; } </style>
@@ -53,7 +53,7 @@ Container Environment
 
 Now, let's try running that same script inside a container. 
 
-1. For this job, we will use the OSG-provided Ubuntu "Focal" image. The `container_image` submit file option will tell HTCondor to use this container: 
+1. For this job, we will use the OSG-provided Ubuntu "Focal" image, as we did in the previous exercise. The `container_image` submit file option will tell HTCondor to use this container for the job: 
 
 		:::file
 		universe = container

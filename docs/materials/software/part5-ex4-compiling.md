@@ -1,5 +1,5 @@
 ---
-status: in progress
+status: testing
 ---
 
 <style type="text/css"> pre em { font-style: normal; background-color: yellow; } pre strong { font-style: normal; font-weight: bold; color: \#008; } </style>
@@ -7,12 +7,12 @@ status: in progress
 Software Exercise 5.4: Compile Statically Linked Code
 ==========================================================
 
-The goal of this exercise is to compile and statically link a piece of code and then submit it as a job. This exercise should take 5-10 minutes.
+**Objective**: Compile code using static linking, explain why this can be useful. 
 
-Background
-----------
-
-There is a large amount of scientific software that is available as source code. Source code is usually a group of text files (code) meant to be downloaded and then compiled into a *binary file* which a computer can understand. Sometimes the source code depends on other pieces of code called libraries. If the source code is linked *statically*, these libraries are bundled into the compilation with the source code, creating a *static binary* which can be run on any computer with the same operating system.
+**Why learn this?**: When code is compiled, it is usually linked to other pieces 
+of code on the computer. This can cause it to not work when moved to other computers. 
+Static linking means that all the needed references are included in the compiled code, 
+meaning that it can run almost anywhere. 
 
 Our Software Example
 --------------------
@@ -21,7 +21,7 @@ For this compiling example, we will use a script written in C. C code depends on
 
 Our C code prints 7 rows of Pascal's triangle.
 
-1.  Log into the OSG submit node `login04.osgconnect.net`. Create a directory for this exercise and `cd` into it.
+1.  Log into the Access Point. Create a directory for this exercise and `cd` into it.
 1.  Copy and paste the following code into a file named `pascal.c`.
 
 		:::c++
@@ -55,17 +55,9 @@ Our C code prints 7 rows of Pascal's triangle.
 Compiling
 ---------
 
-In order to use this code in a job, we will first need to statically compile the code. Recall the slide from the lecture - where *can* we compile and where *should* we compile? In particular:
+In order to use this code in a job, we will first need to statically compile the code. 
 
--   Where is the compiler available?
--   How computationally intensive will this compilation be?    
-
-<!--hiding-->
-
-
-1.  Think about these questions before moving on. Where do you think we should compile?
-
-1. Most linux servers (including our submit node) have the `gcc` (GNU compiler collection) installed, so we already have a compiler on the submit node. Furthermore, this is a simple piece of C code, so the compilation will not be computationally intensive. Thus, we should be able to compile directly on the submit node. 
+1. Most linux servers (including our Access Point) have the `gcc` (GNU compiler collection) installed, so we already have a compiler on the Access Point. Furthermore, this is a simple piece of C code, so the compilation will not be computationally intensive. Thus, we should be able to compile directly on the Access Point
 
 1. Compile the code, using the command: 
 

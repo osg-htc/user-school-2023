@@ -7,29 +7,17 @@ status: testing
 Software Exercise 4.3: Passing Arguments Through the Wrapper Script
 ===================================================
 
-In this exercise, you will change the wrapper script and submit file
-from the [previous exercise](../part1-ex2-wrapper) to use arguments. 
+**Objective**: Add arguments to a wrapper script to make it more flexible and modular
 
-Background
-----------
-
-In Exercise 1.2, the wrapper script had all of the input information - 
-the database and input file - written directly into the script. However, 
-imagine if you wanted to run the same program on different inputs. 
-Instead of writing new wrapper scripts for each job, you can
-modify the script so that some of the values are set by *arguments*.
-Using script arguments will allow you to use the same script for
+**Why learn this?**: Using script arguments will allow you to use the same script for
 multiple jobs, by providing different inputs or parameters. These
-arguments are normally passed on the command line:
-
-But in our world of job submission, the arguments will be listed in the
-submit file, in the arguments line.
+arguments are normally passed on the command line, but in our world of job 
+submission, the arguments will be listed in the submit file, in the arguments line.
 
 Identifying Potential Arguments
 -------------------------------
 
-1. In the same directory as the last exercise (still logged into 
-`login04.osgconnect.net`), make sure you're in the directory with your 
+1. In the same directory as the last exercise, make sure you're in the directory with your 
 BLAST job submission. 
 
 1.  What values might we want to input to the script via arguments?
@@ -56,9 +44,7 @@ values mentioned above.
 
 	(We're using `results3.txt`) to distinguish between the previous two runs.)
 
-1.  Now go back to the wrapper script. Each scripting language (bash,
-perl, python, R, etc.) will have its own particular syntax for capturing
-command line arguments. For bash (the language of our current wrapper
+1.  For bash (the language of our current wrapper
 script), the variables `$1`, `$2` and `$3` represent  the first, second, 
 and third arguments, respectively.  Thus, in  the main command of the script,
 replace the various names with these variables: 
