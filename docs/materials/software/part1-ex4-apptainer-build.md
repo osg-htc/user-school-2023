@@ -8,49 +8,52 @@ status: testing
 </style>
 
 Software Exercise 1.4: Build, Test, and Deploy an Apptainer Container
--------------------------------------
+====================================
 
-The objective of this exercise is to learn the very basics of building your
-first Singularity image.
+**Objective**: to practice building and using a custom
+apptainer container
 
+**Why learn this?**: You may need to go through this process if you 
+want to use a container for your jobs and can't find one that has 
+what you need. 
 
-## Getting a Sylabs Cloud Account
+Motivating Script
+-----------------
 
-In this exercise we will use Singularity's equivalent of DockerHub,
-called Sylabs Cloud, to build and publish our image.  To get started,
-first sign up for a free account at
-[https://cloud.sylabs.io/](https://cloud.sylabs.io/)
+1. Create a script called `cowsay.py`:
 
-## Image Definition File
+		:::file
+		#!/usr/bin/python3
 
-The image definition file contains the instructions on how to build
-the image. Usually there is a base image, and a set of commmands
-which will set up the environment as you want it. Examples
-of commands include:
+		import cowsay
+		cowsay.cow('OSG User School')
 
-  * Package system tools (apt/yum/...) to install/upgrade specific
-    packages
-  * Langauage package tools (pip/...) to install language specific
-    modules
-  * Steps to build software from source
+1. Give it executable permissions: 
 
-You can find a full description of the image defintion format
-in the [Singularity manual](https://docs.sylabs.io/guides/3.8/user-guide/definition_files.html).
+		:::console
+		$ chmod +x cowsay.py
 
-In Sylabs Cloud, click on `Remote Builder` in the top navigation bar.
-Remove the default definition file, and paste the following in:
+1. Try running the script:
 
-``` file
-Bootstrap: docker
-From: opensciencegrid/osgvo-ubuntu-20.04:latest
+		:::console
+		$ ./cowsay.py
 
-%post
-    apt-get update -y
-    apt-get install -y \
-            python3-pip \
-            python3-cowsay
-    python3 -m pip install numpy
-```
+	It will likely fail, because the cowsay library isn't installed. 
+
+Preparing a Definition File
+---------------------------
+
+	:::file
+	Bootstrap: docker
+	From: opensciencegrid/osgvo-ubuntu-20.04:latest
+
+	%post
+		apt-get update -y
+		apt-get install -y \
+				python3-pip \
+				python3-cowsay
+		python3 -m pip install numpy
+
 
 This definition file installs a few packages from apt (that is,
 Ubuntu prepared packages), and one package via pip. Using
@@ -81,21 +84,70 @@ From: opensciencegrid/osgvo-ubuntu-20.04:latest
             python3-numpy
     python3 -m pip install cowsay
 ```
+## Testing the Image Locally
 
-The last step is to name the *Repository*. The naming should
-start with your project, a slash, and then a name of your
-choosing. For example, if your project field says `bob`,
-you could name the repository `bob/first-image`.
+You can test the image on the access point by using
+`singularity shell`. This will drop you in to the container, and
+automatically mount $HOME so that you can access your files, which
+is really nice when you have to test or build inside the container
+environment, but want to keep the files after exiting the 
+container. Run:
 
-Now hit `Build` and watch the image build.
+``` console
+$ singularity shell first-image.sif
+```
 
-Once the build is complete, the repository should be changed
-to "public". This is important as it will allow us to
-download the image directly to login04/login05 in the 
-next exercise. Click on `Dashboard` on the top, find
-your repository in the list, and click it. In the middle
-you will see a `Project Visibility` box. Click 
-`Make Public`.
+You should see the prompt change to indicate that you are inside
+the container. Let's test our new container by starting Python,
+import cowsay, and use the cowsay library:
+
+``` console
+Singularity> python3
+Python 3.8.10 (default, Sep 28 2021, 16:10:42) 
+[GCC 9.3.0] on linux
+Type "help", "copyright", "credits" or "license" for more information.
+>>> import cowsay
+>>> cowsay.cow('Hello OSG User School!')
+  ______________________
+| Hello OSG User School! |
+  ======================
+                      \
+                       \
+                         ^__^
+                         (oo)\_______
+                         (__)\       )\/\
+                             ||----w |
+                             ||     ||
+```
+
+You can exit python and the container by pressing Ctrl-D
+twice.
+
+
+
+
+We then need a submit file - the only real differenc in this one
+is the addition of `+SingularityImage` which specifies which image
+to use:
+
+```
++SingularityImage = "./first-image.sif"
+
+request_cpus = 1
+request_memory = 1GB
+request_disk = 5GB
+
+executable   = cowsay.py
+output       = $(Cluster).$(Process).out
+error        = $(Cluster).$(Process).err
+log          = $(Cluster).log
+
+queue 1
+```
+
+Run the job and verify the output. 
+
+
 
 
 

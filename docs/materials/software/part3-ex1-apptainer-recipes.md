@@ -7,4 +7,4 @@ status: in progress
 Software Exercise 3.1: Create an Apptainer Definition File
 ============================================================
 
-TBD
+TO WRITE

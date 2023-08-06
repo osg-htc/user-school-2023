@@ -7,4 +7,9 @@ status: in progress
 Software Exercise 2.1 Build an HTC-Friendly Executable
 ============================================================
 
-TBD
+**Objective**: Modify an existing script to include arguments. 
+
+**Why learn this?**: 
+
+Executable
+----------

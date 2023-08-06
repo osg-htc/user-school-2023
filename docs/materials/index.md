@@ -78,32 +78,33 @@ Slides will be posted here
 
 ### Software Exercises 1: Exploring Containers
 
-- [Exercise 1.1: Run and Explore Apptainer Containers]()
-- [Exercise 1.2: Use Apptainer Containers in OSPool Jobs]()
-- [Exercise 1.3: Use Docker Containers in OSPool Jobs]()
-- [Exercise 1.4: Build, Test, and Deploy an Apptainer Container]()
-- [Exercise 1.5: Choose Software Options]()
+- [Exercise 1.1: Run and Explore Apptainer Containers](software/part1-ex1-run-apptainer.md)
+- [Exercise 1.2: Use Apptainer Containers in OSPool Jobs](software/part1-ex2-apptainer-jobs.md)
+- [Exercise 1.3: Use Docker Containers in OSPool Jobs](software/part1-ex3-docker-jobs.md)
+- [Exercise 1.4: Build, Test, and Deploy an Apptainer Container](software/part1-ex4-apptainer-build.md)
+- [Exercise 1.5: Choose Software Options](software/part1-ex5-pick-an-option.md)
 
 ### Software Exercises 2: Preparing Scripts
-- [Exercise 1.6: Build an HTC-Friendly Executable](software/part2-ex1-build-executable.md)
+- [Exercise 2.1: Build an HTC-Friendly Executable](software/part2-ex1-build-executable.md)
 
 ### Software Exercises 3: Container Examples
 
-- [Exercise 3.1: Create an Apptainer Definition File (Optional)](software/part1-ex3-arguments.md)
-- [Exercise 3.2: Build Your Own Docker Container (Optional)](software/part1-ex3-arguments.md)
+- [Exercise 3.1: Create an Apptainer Definition File (Optional)](software/part3-ex1-apptainer-recipes.md)
+- [Exercise 3.2: Build Your Own Docker Container (Optional)](software/part3-ex2-docker-build.md)
 
 ### Software Exercises 4: Exploring Compiled Software
 
-- [Exercise 3.1: Download and Use Compiled Software](software/part1-ex1-download.md)
-- [Exercise 3.2: Use a Wrapper Script To Run Software](software/part1-ex2-wrapper.md)
-- [Exercise 1.3: Using Arguments With Wrapper Scripts](software/part1-ex3-arguments.md)
+- [Exercise 3.1: Download and Use Compiled Software](software/part4-ex1-download.md)
+- [Exercise 3.2: Use a Wrapper Script To Run Software](software/part4-ex2-wrapper.md)
+- [Exercise 1.3: Using Arguments With Wrapper Scripts](software/part4-ex3-arguments.md)
 
 ### Software Exercises 5: Compiled Software Examples 
 
-- [Exercise 4.1: Compiling a Research Software](software/part2-ex2-prepackaged.md)
-- [Exercise 4.2: Compiling Python and Running Jobs](software/part2-ex3-python.md)
-- [Exercise 4.3: Using Conda Environments](software/part2-ex5-conda.md)
-- [Exercise 4.4: Compiling and Running a Simple Code](software/part2-ex1-compiling.md)
+- [Exercise 4.1: Compiling a Research Software](software/part5-ex1-prepackaged.md)
+- [Exercise 4.2: Compiling Python and Running Jobs](software/part5-ex2-python.md)
+- [Exercise 4.3: Using Conda Environments](software/part5-ex3-conda.md)
+- [Exercise 4.4: Compiling and Running a Simple Code](software/part5-ex4-compiling.md)
+
 
 ## Data
 

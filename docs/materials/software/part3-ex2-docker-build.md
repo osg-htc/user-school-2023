@@ -7,15 +7,23 @@ status: in progress
 Software Exercise 3.2: Build Your Own Docker Container (Optional)
 ====================================
 
+**Objective**: Build a Docker container and use it in a job
+
+**Why learn this?**: By comparing a non-container and container job, you'll better 
+understand what a container can do on the OSPool. This may also be how you end up 
+submitting your jobs if you can find an existing apptainer container with your software. 
+
+
+
 This exercise will walk you through the steps to build your own Docker container 
 based on Python, with the `numpy` Python library added on. 
 
-Sample Script and Access Point
+Python Script
 -------------------
 
-This example uses the same script, `rand_array.py` as [Exercise 2.5](../part2-ex5-conda)
+This example uses the same script, `rand_array.py` as [Exercise 5.3](../part5-ex3-conda)
 
-This exercise **must** be run on `learn.chtc.wisc.edu`
+
 
 Getting Set Up
 --------------
@@ -32,7 +40,7 @@ created at that step, create a user name for [Docker Hub](https://hub.docker.com
 3. (Optional): Once Docker is up and running on your computer, you are welcome to take 
 some time to explore the basics of downloading and running a container, as shown in 
 the initial sections of this Docker lesson:
-	* [Introduction to Docker](https://christinalk.github.io/docker-introduction/)
+	* [Introduction to Docker](https://carpentries-incubator.github.io/docker-introduction/)
 	However, this isn't strictly necessary for building your own container. 
 
 Building a Container

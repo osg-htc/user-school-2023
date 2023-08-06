@@ -7,17 +7,12 @@ status: in progress
 Software Exercise 1.2: Use Apptainer Containers in OSPool Jobs
 ============================================================
 
-Background
-----------
+**Objective**: Submit a job that uses an existing apptainer container; compare default 
+job environment with a specific container job environment. 
 
-Containers are another way to manage software installations. This guide shows how to use pre-existing containers to run jobs on the OSPool.
-
-One caveat for using containers: not all systems will support them. HTCondor has built-in features for using Docker and many OSG resources have Singularity installed, but they are not always available everywhere. 
-
-Setup
------
-
-Make sure you are logged into `login05.osgconnect.net` (the OSG Connect submit server for this workshop).  For this exercise we will be using Singularity containers that are hosted by OSG Connect. 
+**Why learn this?**: By comparing a non-container and container job, you'll better 
+understand what a container can do on the OSPool. This may also be how you end up 
+submitting your jobs if you can find an existing apptainer container with your software. 
 
 
 Default Environment
@@ -33,16 +28,17 @@ First, let's run a job without a container to see what the typical job environme
 		hostname
 		cat /etc/os-release 
 		gcc --version
+		python3 --version
 	
-	This will print out the version of Linux on the computer and the version 
-	of `gcc`, a common software compiler. 
+	This will print out the version of Linux on the computer, the version 
+	of `gcc`, a common software compiler, and the version of Python 3. 
 
 1. Make the script executable: 
-		:::something
+		:::console
 		$ chmod +x script.sh
 
 1. Run the script on the Access Point. 
-		:::something
+		:::console
 		$ ./script.sh
 	What results did you get? 
 
@@ -50,7 +46,7 @@ First, let's run a job without a container to see what the typical job environme
 script you just wrote is the executable. 
 
 1. Submit the job and read the standard output file when it completes. What version 
-of Linux was used for the job? What is the version of `gcc`? 
+of Linux was used for the job? What is the version of `gcc` or Python? 
 
 Container Environment
 ---------------------
@@ -64,7 +60,7 @@ Now, let's try running that same script inside a container.
 		container_image = /cvmfs/singularity.opensciencegrid.org/opensciencegrid/osgvo-ubuntu-20.04:latest
 
 1. Submit the job and read the standard output file when it completes. 
-What version of Linux was used for the job? What is the version of `gcc`? 
+What version of Linux was used for the job? What is the version of `gcc`? or Python? 
 
 Experimenting With Other Containers
 -------------
