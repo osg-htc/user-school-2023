@@ -4,7 +4,7 @@ status: testing
 
 <style type="text/css"> pre em { font-style: normal; background-color: yellow; } pre strong { font-style: normal; font-weight: bold; color: #008; } </style>
 
-Software Exercise 2.2: Pre-package a Research Code
+Software Exercise 5.1: Pre-package a Research Code
 ==========================================
 
 In this exercise, you will create an installation of a Bayesian inference package (HMMER) and then create a wrapper script to unpack that installation to run jobs. It should take 30-35 minutes.

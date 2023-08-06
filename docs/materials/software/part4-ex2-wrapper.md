@@ -4,7 +4,7 @@ status: testing
 
 <style type="text/css"> pre em { font-style: normal; background-color: yellow; } pre strong { font-style: normal; font-weight: bold; color: #008; } </style>
 
-Software Exercise 1.2: Writing a Wrapper Script
+Software Exercise 4.2: Writing a Wrapper Script
 ============================================================
 
 In this exercise, you will create a wrapper script to run the same program (`blastx`) as the [previous exercise](../part1-ex1-download).

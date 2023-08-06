@@ -4,7 +4,7 @@ status: in progress
 
 <style type="text/css"> pre em { font-style: normal; background-color: yellow; } pre strong { font-style: normal; font-weight: bold; color: #008; } </style>
 
-Software Exercise 2.3: Using Python, Pre-Built
+Software Exercise 5.2: Using Python, Pre-Built
 ===============================================
 
 In this exercise, you will install Python, package your installation, and then use it to run jobs. It should take about 20 minutes.

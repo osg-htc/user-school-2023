@@ -4,7 +4,7 @@ status: testing
 
 <style type="text/css"> pre em { font-style: normal; background-color: yellow; } pre strong { font-style: normal; font-weight: bold; color: \#008; } </style>
 
-Software Exercise 1.1: Using a Pre-compiled Binary
+Software Exercise 4.1: Using a Pre-compiled Binary
 ===================================================
 
 In this exercise, we will run a job using a downloaded, pre-compiled

@@ -4,7 +4,7 @@ status: in progress
 
 <style type="text/css"> pre em { font-style: normal; background-color: yellow; } pre strong { font-style: normal; font-weight: bold; color: \#008; } </style>
 
-Software Exercise 2.1: Compile Statically Linked Code
+Software Exercise 5.4: Compile Statically Linked Code
 ==========================================================
 
 The goal of this exercise is to compile and statically link a piece of code and then submit it as a job. This exercise should take 5-10 minutes.

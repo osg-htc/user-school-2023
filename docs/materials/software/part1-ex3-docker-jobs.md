@@ -4,7 +4,7 @@ status: in progress
 
 <style type="text/css"> pre em { font-style: normal; background-color: yellow; } pre strong { font-style: normal; font-weight: bold; color: #008; } </style>
 
-Software Exercise 4.2: Using Docker
+Software Exercise 1.3: Use Docker Containers in OSPool Jobs
 ====================================
 
 In this exercise, you will run the same Python script as the other Python exercises, but using a Docker container.
