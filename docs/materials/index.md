@@ -1,5 +1,5 @@
 
-# User School Materials
+# OSG School Materials
 
 ## School Overview and Intro
 
