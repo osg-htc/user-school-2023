@@ -4,7 +4,7 @@ status: testing
 
 # OSG Exercise 1.1: Refresher — Submitting Multiple Jobs
 
-The goal of this exercise is to map the physical locations of some worker servers in our local cluster.
+The goal of this exercise is to map the physical locations of some Execution Points in the PATh Facility.
 We will provide the executable and associated data,
 so your job will be to write a submit file that queues multiple jobs.
 Once complete, you will manually collate the results.
@@ -14,7 +14,7 @@ Once complete, you will manually collate the results.
 To find the physical location of the computers your jobs our running on, you will use a method called *geolocation*.
 Geolocation uses a registry to match a computer’s network address to an approximate latitude and longitude.
 
-### Geolocating several servers
+### Geolocating several Execution Points
 
 Now, let’s try to remember some basic HTCondor ideas from the HTC exercises:
 
@@ -62,7 +62,7 @@ $ cat location-*.out | sort | uniq
 
 ## Mapping your results
 
-To visualize the locations of the servers that your jobs ran on,
+To visualize the locations of the Execution Points that your jobs ran on,
 you will be using <http://www.mapcustomizer.com/>.
 Copy and paste the collated results into the text box that pops up
 when clicking on the 'Bulk Entry' button on the right-hand side.
@@ -70,4 +70,4 @@ Where did your jobs run?
 
 ## Next exercise
 
-Once completed, move onto the next exercise: [Logging in to the OSG submit server](part1-ex2-login-scp.md)
+Once completed, move onto the next exercise: [Logging in to the OSPool Access Point](part1-ex2-login-scp.md)
