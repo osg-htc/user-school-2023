@@ -1,21 +1,35 @@
 ---
-status: in progress
+status: testing
 ---
 
 <style type="text/css"> pre em { font-style: normal; background-color: yellow; } pre strong { font-style: normal; font-weight: bold; color: #008; } </style>
 
-Software Exercise 4.3: Building Your Own Docker Container (Beta!)
+Software Exercise 3.2: Build Your Own Docker Container (Optional)
 ====================================
 
-This exercise will walk you through the steps to build your own Docker container 
-based on Python, with the `numpy` Python library added on. 
+**Objective**: Build a custom Docker container with `numpy` and use it in a job
 
-Sample Script and Access Point
+**Why learn this?**: Docker containers can be run on both your laptop and OSPool. DockerHub
+also provides a convenient platform for sharing containers. If you want to use a custom 
+container, run across platforms, and/or share a container amongst a group, building in 
+Docker first is a good approach. 
+
+Python Script
 -------------------
 
-This example uses the same script, `rand_array.py` as [Exercise 2.5](../part2-ex5-conda)
+1. For this example, create a script called `rand_array.py` on the Access Point. 
 
-This exercise **must** be run on `learn.chtc.wisc.edu`
+		:::file
+		import numpy as np
+
+		#numpy array with random values
+		a = np.random.rand(4,2,3)
+
+		print(a)
+
+To run this script, we will need a copy of Python with the `numpy` library. 
+This exercise will walk you through the steps to build your own Docker container 
+based on Python, with the `numpy` Python library added on. 
 
 Getting Set Up
 --------------
@@ -32,7 +46,7 @@ created at that step, create a user name for [Docker Hub](https://hub.docker.com
 3. (Optional): Once Docker is up and running on your computer, you are welcome to take 
 some time to explore the basics of downloading and running a container, as shown in 
 the initial sections of this Docker lesson:
-	* [Introduction to Docker](https://christinalk.github.io/docker-introduction/)
+	* [Introduction to Docker](https://carpentries-incubator.github.io/docker-introduction/)
 	However, this isn't strictly necessary for building your own container. 
 
 Building a Container
@@ -41,10 +55,9 @@ Building a Container
 In order to make our container reproducible, we will be using Docker's capability 
 to build a container image from a specification file.  
 
-1. First, create an empty build directory on **your computer**, not the CHTC or OSG submit 
-servers. 
+1. First, create an empty build directory on **your computer**, not the Access Points. 
 
-2. In the build directory, create a file called `Dockerfile` (no file extension!) with 
+1. In the build directory, create a file called `Dockerfile` (no file extension!) with 
 the following contents: 
 
 		:::file
@@ -69,7 +82,7 @@ the following contents:
 	to build our new container. There are other options besides `FROM` and `RUN`; see 
 	the [Docker documentation](https://docs.docker.com/engine/reference/builder/) for more information. 
 
-3. Note that our container is starting from an existing container 
+1. Note that our container is starting from an existing container 
 `continuumio/miniconda3:4.10.3`. This container is produced by the `continuumio` 
 organization; the number `4.10.3` indicates the container version. When we create our 
 new container, we will want to use a similar naming scheme of: 
@@ -80,7 +93,7 @@ new container, we will want to use a similar naming scheme of:
 	The `CONTAINER` name and `VERSIONTAG` are your choice; in what follows, we will 
 	use `py3-numpy` as the container name and `2021-08` as the version tag. 
 
-4. To build and name the new container, open a command line window on your computer 
+1. To build and name the new container, open a command line window on your computer 
 where you can run Docker commands. Use the `cd` command to change your working directory 
 to the build directory with the `Dockerfile` inside. 
 
@@ -105,8 +118,8 @@ command line:
 	If the push doesn't work, you may need to run `docker login` first, enter your 
 	Docker Hub username and password and then try the push again. 
 
-2. Once your container image is in DockerHub, you can use it in jobs as described 
-in [Exercise 4.2](../part4-ex2-docker). 
+1. Once your container image is in DockerHub, you can use it in jobs as described 
+in [Exercise 1.3](../part1-ex3-docker-jobs). 
 
 > Thanks to [Josh Karpel](https://github.com/JoshKarpel/osg-school-example-dockerfile) for 
 providing the original sample `Dockerfile`!

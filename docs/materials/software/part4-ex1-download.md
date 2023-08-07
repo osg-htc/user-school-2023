@@ -4,18 +4,13 @@ status: testing
 
 <style type="text/css"> pre em { font-style: normal; background-color: yellow; } pre strong { font-style: normal; font-weight: bold; color: \#008; } </style>
 
-Software Exercise 1.1: Using a Pre-compiled Binary
+Software Exercise 4.1: Using a Pre-compiled Binary
 ===================================================
 
-In this exercise, we will run a job using a downloaded, pre-compiled
-binary. This exercise should take 10-15 minutes.
+**Objective**: Identify software that can be downloaded; download it and use it to run a job. 
 
-Background
-----------
-
-This is the simplest scenario for using a particular software program on
-the Open Science Grid - downloading a pre-compiled binary and using it
-to run jobs. 
+**Why learn this?**: Some software doesn't require much "installation" - you can just 
+download it and run. Recognizing when this is possible can save you time. 
 
 Our Software Example
 --------------------
@@ -62,14 +57,14 @@ which is labelled with the `x64-linux` suffix.
 	All the other links are either for source code or other operating
 systems. 
 	
-1. While logged into `login05.osgconnect.net`, create a directory for
+1. On the Access Point, create a directory for
 this exercise. Then download the appropriate `tar.gz` file and un-tar/decompress it
 it. If you want to do this all from the command line, the sequence will 
 look like this (using `wget` as the download command.) 
 
         :::console
-        user@login $ wget ftp://ftp.ncbi.nlm.nih.gov/blast/executables/blast+/LATEST//ncbi-blast-2.13.0+-x64-linux.tar.gz
-        user@login $ tar -xzf ncbi-blast-2.13.0+-x64-linux.tar.gz
+        user@login $ wget https://ftp.ncbi.nlm.nih.gov/blast/executables/blast+/LATEST/ncbi-blast-2.14.0+-x64-linux.tar.gz
+        user@login $ tar -xzf ncbi-blast-2.14.0+-x64-linux.tar.gz
 
 1.  We're going to be using the `blastx` binary in our job. Where is it
 in the directory you just decompressed?
@@ -85,8 +80,8 @@ we'll use an abbreviated fasta file with mouse genome information.
 1.  Download these files to your current directory: 
 
         :::console
-        username@login $ wget http://proxy.chtc.wisc.edu/SQUID/osgschool21/pdbaa.tar.gz
-        username@login $ wget http://proxy.chtc.wisc.edu/SQUID/osgschool21/mouse.fa
+        username@login $ wget http://proxy.chtc.wisc.edu/SQUID/osg-school-2023/pdbaa.tar.gz
+        username@login $ wget http://proxy.chtc.wisc.edu/SQUID/osg-school-2023/mouse.fa
 
 1.  Untar the `pdbaa` database: 
 
@@ -105,8 +100,8 @@ typical `blastx` command looks something like this:
 blastx -db <database_dir/prefix> -query <input_file> -out <output_file>
 ```
 
-1.   Copy a submit file from one of the Day 2 exercises to use for this
-exercise. 
+1.   Copy a submit file from one of the Day 1 exercises or previous 
+software exercises to use for this exercise. 
 
 1. Think about which lines you will need to change or add to your submit
 file in order to submit the job successfully. In particular:    
@@ -145,12 +140,6 @@ will tell us how accurate we are, after the job runs):
             :::file
             request_memory = 1GB
 	    	request_disk = 1GB
-
-    * Because we downloaded a Linux-specific binary, we need to request
-machines that are running Linux. 
-    
-            :::file
-            requirements = (OSGVO_OS_STRING == "RHEL 7")
 
 1. Submit the blast job using `condor_submit`. Once the job starts, it
 should run in just a few minutes and produce a file called

@@ -1,10 +1,10 @@
 ---
-status: in progress
+status: testing
 ---
 
 <style type="text/css"> pre em { font-style: normal; background-color: yellow; } pre strong { font-style: normal; font-weight: bold; color: #008; } </style>
 
-Software Exercise 2.3: Using Python, Pre-Built
+Software Exercise 5.2: Using Python, Pre-Built
 ===============================================
 
 In this exercise, you will install Python, package your installation, and then use it to run jobs. It should take about 20 minutes.
@@ -12,34 +12,24 @@ In this exercise, you will install Python, package your installation, and then u
 Background
 ----------
 
-We chose Python as the language for this example because: a) it is a common language used for scientific computing and b) it has a straightforward installation process and is fairly portable.
+**Objective**: Install software (Python) to a folder and run it in a job using a wrapper script. 
 
-Running any Python script requires an installation of the Python interpreter. The Python interpreter is what we're using when we type `python` at the command line. In order to run Python jobs on a distributed system, you will need to install the Python interpreter (what we often refer to as just "installing Python"), within the job, then run your Python script.
+**Why learn this?**: This is very similar to the [previous exercise](part5-ex1-prepackaged.md). 
 
-There are two installation approaches. The approach we will cover in this exercise is that of "pre-building" the installation. We will install Python to a specific directory, and then create a tarball of that installation directory. We can then use our tarball within jobs to run Python scripts.
 
 Interactive Job for Pre-Building
 --------------------------------
 
 The first step in our job process is building a Python installation that we can package up.
 
-1.  Create a directory for this exercise on `learn.chtc.wisc.edu` and `cd` into it.
+1.  Create a directory for this exercise on the Access Point and `cd` into it.
 1.  Download the Python source code from <https://www.python.org/>. 
 
 		:::console
 		username@learn $ wget https://www.python.org/ftp/python/3.10.5/Python-3.10.5.tgz
 
-1.  Of our options - submit server, interactive job, personal computer - which should we use for this installation/packaging process? Once you have a guess, move to the next step.
-
-1.  Due to the number of people on our submit server, we shouldn't use the submit server. Your own computer probably doesn't have the right operating system. The best place to install will be an interactive job. For this job, we can use the same interactive submit file as Exercise 2.2, with one change. What is it?
-
-1.  Make a copy of the interactive submit file from [Exercise 2.2](../part2-ex2-prepackaged) and change the `transfer_input_files` line to the Python tarball you just downloaded. Then submit it using the `-i` flag. 
-
-		:::console
-		username@learn $ condor_submit -i build.submit
-
-1.   Once the interactive job begins, we can start our installation process. First, we have to determine how to install Python to a specific location in our working directory.
-    1.  Untar the Python source tarball and look at the `README.rst` file in the `Python-3.10.5` directory.  You'll want to look for the "Build Instructions" header.  What will the main installation steps be?  What command is required for the final installation?  Once you've tried to answer these questions, move to the next step.
+1.   First, we have to determine how to install Python to a specific location in our working directory.
+    1.  Untar the Python source tarball (`tar -xzf Python-3.10.5.tgz`) and look at the `README.rst` file in the `Python-3.10.5` directory (`cd Python-3.10.5`).  You'll want to look for the "Build Instructions" header.  What will the main installation steps be?  What command is required for the final installation?  Once you've tried to answer these questions, move to the next step.
     1.  There are some basic installation instructions near the top of the `README`. Based on that short introduction, we can see the main steps of installation will be: 
 
 			./configure
@@ -57,17 +47,17 @@ The first step in our job process is building a Python installation that we can 
 		Sure enough, there's a list of all the different options that can be passed to the `configure` script, which includes `--prefix`.  (To see the `--prefix` option, you may need to scroll towards the top of the output.)  Therefore, we can use the  `$PWD` command in order to set the path correctly to a custom installation directory. 
 
 1.  Now let's actually install Python!
-    1.  **From the job's main working directory**, create a directory to hold the installation. 
+    1.  **From the original working directory**, create a directory to hold the installation. 
 
 			:::console
-			username@host $ cd $_CONDOR_SCRATCH_DIR
-			username@host $ mkdir python
+			username@host $ cd  ../
+			username@host $ mkdir python310
 
 	1.  Move into the `Python-3.10.5` directory and run the installation commands. These may take a few minutes each. 
 
 			:::console
 			username@host $ cd Python-3.10.5
-			username@host $ ./configure --prefix=$PWD/../python
+			username@host $ ./configure --prefix=$PWD/../python310
 			username@host $ make
 			username@host $ make install
 
@@ -79,23 +69,18 @@ The first step in our job process is building a Python installation that we can 
 
 			:::console
 			username@host $ cd ..
-			username@host $ ls python/
+			username@host $ ls python310/
 			bin  include  lib  share
 
 	1.  I have successfully created a self-contained Python installation. Now it just needs to be tarred up! 
 
 			:::console
-			username@host $ tar -czf prebuilt_python.tar.gz python/
+			username@host $ tar -czf prebuilt_python.tar.gz python310/
 
-1.  Before exiting, we might want to know how we installed Python for later reference.  Enter the following commands to save our history to a file: 
+1.  We might want to know how we installed Python for later reference.  Enter the following commands to save our history to a file: 
 
 		:::console
 		username@host $ history > python_install.txt
-
-1.  Exit the interactive job. 
-
-		:::console
-		username@host $ exit
 
 Python Script
 -------------
@@ -133,7 +118,7 @@ We now have our Python installation and our Python script - we just need to writ
 		#!/bin/bash
 
 		tar -xzf prebuilt_python.tar.gz 
-		python/bin/python3 fib.py 90
+		python310/bin/python3 fib.py 90
 
 	or
 
@@ -141,7 +126,7 @@ We now have our Python installation and our Python script - we just need to writ
 		#!/bin/bash
 
 		tar -xzf prebuilt_python.tar.gz 
-		export PATH=$(pwd)/python/bin:$PATH 
+		export PATH=$(pwd)/python310/bin:$PATH 
 		python3 fib.py 90
 
 1.  Make sure your `run_fib.sh` script is executable.
@@ -150,7 +135,7 @@ Submit File
 -----------
 
 1.  Make a copy of a previous submit file in your local directory (the submit file from 
-the [Use a Wrapper Script exercise](../part1-ex2-wrapper) might be a good candidate). What changes need to be made to run this Python job? 
+the [Use a Wrapper Script exercise](../part4-ex2-wrapper) might be a good candidate). What changes need to be made to run this Python job? 
 
 1. Modify your submit file, then make sure you've included the key lines below: 
 
