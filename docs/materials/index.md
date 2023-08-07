@@ -12,8 +12,8 @@
 
 ### Intro to HTC Slides
 
-Intro to HTC: [PDF]()
-Worksheet: [PDF]()
+Intro to HTC: [PDF](htcondor/files/osgus23-intro-to-htc.pdf)
+Worksheet: [PDF](htcondor/files/osgus23-htc-worksheet.pdf)
 
 ### Intro to HTCondor Slides
 
