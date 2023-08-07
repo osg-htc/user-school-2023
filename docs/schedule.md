@@ -117,18 +117,18 @@ to those who can make it.
         </td>
         <td>staff</td>
     </tr>
-<tr>
+    <tr>
       <td>19:00</td>
       <td>20:30</td>
-      <td>  
-        <span class="before-dot text-orange">Evening work session (optional)</span>   
+      <td>
+        <span class="before-dot text-orange">Evening work session (optional)</span>
         <br>
-        <span class="tabbed-in">TBD</span>
-        </td>
-        <td>TBD</td>
+        <span class="tabbed-in">Memorial Union &ndash; Park View room (4th Floor)</span>
+      </td>
+      <td>Mats, Tim C.</td>
     </tr>
 
-    </tbody>
+  </tbody>
 </table>
 
 ## August 8 (Tuesday)
