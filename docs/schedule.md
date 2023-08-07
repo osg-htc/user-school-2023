@@ -51,7 +51,7 @@ to those who can make it.
         <td>9:15</td>
         <td>9:30</td>
         <td><span class="before-dot text-light-blue">Lecture: Introduction to High Throughput Computing</span></td>
-        <td>TBD</td>
+        <td>Christina</td>
     </tr>
     <tr>
         <td>9:30</td>
@@ -63,7 +63,7 @@ to those who can make it.
         <td>9:45</td>
         <td>10:15</td>
         <td><span class="before-dot text-light-blue">Lecture: Introduction to HTCondor</span></td>
-        <td>TBD</td>
+        <td>Rachel</td>
     </tr>
     <tr>
         <td>10:15</td>
@@ -87,7 +87,7 @@ to those who can make it.
         <td>13:00</td>
         <td>13:45</td>
         <td><span class="before-dot text-light-blue">Lecture: More HTCondor</span></td>
-        <td>TBD</td>
+        <td>Rachel</td>
     </tr>
     <tr>
         <td>13:45</td>
@@ -105,7 +105,7 @@ to those who can make it.
         <td>15:00</td>
         <td>15:15</td>
         <td><span class="before-dot text-light-blue">Lecture: Setting goals for the School and beyond</span></td>
-        <td>TBD</td>
+        <td>Christina</td>
     </tr> 
     <tr>
         <td>15:15</td>
@@ -117,6 +117,17 @@ to those who can make it.
         </td>
         <td>staff</td>
     </tr>
+<tr>
+      <td>19:00</td>
+      <td>20:30</td>
+      <td>  
+        <span class="before-dot text-orange">Evening work session (optional)</span>   
+        <br>
+        <span class="tabbed-in">TBD</span>
+        </td>
+        <td>TBD</td>
+    </tr>
+
     </tbody>
 </table>
 
@@ -142,7 +153,7 @@ to those who can make it.
         <td>9:00</td>
         <td>9:45</td>
         <td><span class="before-dot text-light-blue">Lecture: Introduction to OSG and the OSPool</span></td>
-        <td>TBD</td>
+        <td>Tim C.</td>
     </tr>
     <tr>
         <td>9:45</td>
@@ -160,7 +171,7 @@ to those who can make it.
         <td>10:45</td>
         <td>11:30</td>
         <td><span class="before-dot text-light-blue">Lecture: Troubleshooting jobs</span></td>
-        <td>TBD</td>
+        <td>Showmic</td>
     </tr>
     <tr>
         <td>11:30</td>
@@ -190,7 +201,7 @@ to those who can make it.
         <td>15:00</td>
         <td>15:45</td>
         <td><span class="before-dot text-light-blue">Lecture: Software portability</span></td>
-        <td>TBD</td>
+        <td>Christina</td>
     </tr>
     <tr>
         <td>15:45</td>
@@ -237,7 +248,7 @@ to those who can make it.
       <td>9:00</td>
       <td>9:45</td>
       <td><span class="before-dot text-light-blue">Lecture: Working with data</span></td>
-      <td>TBD</td>
+      <td>Mats</td>
     </tr>
     <tr>
       <td>9:45</td>
@@ -320,7 +331,7 @@ to those who can make it.
       <td>9:00</td>
       <td>9:45</td>
       <td><span class="before-dot text-light-blue">Lecture: Scaling up</span></td>
-      <td>TBD</td>
+      <td>Rachel</td>
     </tr>
     <tr>
       <td>9:45</td>
@@ -356,7 +367,7 @@ to those who can make it.
       <td>
         <span class="before-dot text-light-blue">Lecture: Workflows with HTCondor DAGMan</span>
       </td>
-      <td>TBD</td>
+      <td>Mats</td>
     </tr>
     <tr>
       <td>14:00</td>
@@ -380,17 +391,17 @@ to those who can make it.
       <td>15:00</td>
       <td>15:45</td>
       <td>
-        <span class="before-dot text-light-blue">Lecture: Special Environments / Requirements</span>
+        <span class="before-dot text-light-blue">Lecture: Self-checkpointing for long jobs</span>
         <br>
         <span class="before-dot text-light-orange">Work time: Apply HTC to own research</span>
       </td>
-      <td>TBD</td>
+      <td>Showmic</td>
     </tr>
     <tr>
       <td>15:45</td>
       <td>17:00</td>
       <td>
-        <span class="before-dot text-pink">Hands-on: Special Environments / Requirements</span>
+        <span class="before-dot text-pink">Hands-on: Self-Checkpointing</span>
         <br>
         <span class="before-dot text-light-orange">Work time: Apply HTC to own research</span>
         <br>
@@ -433,17 +444,17 @@ to those who can make it.
       <td>9:00</td>
       <td>9:45</td>
       <td>
-        <span class="before-dot text-light-blue">Lecture: Self-checkpointing for long jobs</span>
+        <span class="before-dot text-light-blue">Lecture: Special Environments / Requirements</span>
         <br>
         <span class="before-dot text-light-orange">Work time: Apply HTC to own research</span>
       </td>
-      <td>TBD</td>
+      <td>Mats</td>
     </tr>
     <tr>
       <td>9:45</td>
       <td>10:30</td>
       <td>
-        <span class="before-dot text-pink">Hands-on: Self-checkpointing</span>
+        <span class="before-dot text-pink">Hands-on: Special Requirements</span>
         <br>
         <span class="before-dot text-light-orange">Work time: Apply HTC to own research</span>
         <br>
@@ -465,7 +476,7 @@ to those who can make it.
         <br>
         <span class="before-dot text-light-orange">Work time: Apply HTC to own research</span>
       </td>
-      <td>TBD</td>
+      <td>Christina</td>
     </tr>
     <tr>
       <td>11:30</td>
