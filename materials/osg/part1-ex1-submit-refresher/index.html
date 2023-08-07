@@ -569,12 +569,12 @@ Geolocation uses a registry to match a computer’s network address to an approx
 <h3 id="geolocating-several-servers">Geolocating several servers<a class="headerlink" href="#geolocating-several-servers" title="Permanent link">&para;</a></h3>
 <p>Now, let’s try to remember some basic HTCondor ideas from the HTC exercises:</p>
 <ol>
-<li>Log in to <code>learn.chtc.wisc.edu</code> (yes, still at CHTC!)</li>
+<li>Log in to <code>ap1.facility.path-cc.io</code> (yes, still the same as Monday)</li>
 <li>Create and change into a new folder for this exercise, for example <code>osg-ex11</code></li>
 <li>
 <p>Download the geolocation code:</p>
-<div class="codehilite"><pre><span></span><code><span class="gp">user@learn $ </span>wget http://proxy.chtc.wisc.edu/SQUID/osgschool21/location-wrapper.sh <span class="se">\</span>
-<span class="go">             http://proxy.chtc.wisc.edu/SQUID/osgschool21/wn-geoip.tar.gz</span>
+<div class="codehilite"><pre><span></span><code><span class="gp">$ </span>wget http://proxy.chtc.wisc.edu/SQUID/osgschool21/location-wrapper.sh <span class="se">\</span>
+<span class="go">    http://proxy.chtc.wisc.edu/SQUID/osgschool21/wn-geoip.tar.gz</span>
 </code></pre></div>
 
 <p>You will be using <code>location-wrapper.sh</code> as your executable and <code>wn-geoip.tar.gz</code> as an input file.</p>
@@ -600,13 +600,13 @@ Rather than inspecting each output file individually,
 you can use the <code>cat</code> command to print the results from all of your output files at once.
 If all of your output files have the format <code>location-#.out</code> (e.g., <code>location-10.out</code>),
 your command will look something like this:</p>
-<div class="codehilite"><pre><span></span><code><span class="gp">user@learn $ </span>cat location-*.out
+<div class="codehilite"><pre><span></span><code><span class="gp">$ </span>cat location-*.out
 </code></pre></div>
 
 <p>The <code>*</code> is a wildcard so the above cat command runs on all files that start with <code>location-</code> and end in <code>.out</code>.
 Additionally, you can use <code>cat</code> in combination with the <code>sort</code> and <code>uniq</code> commands using "pipes" (<code>|</code>)
 to print only the unique results:</p>
-<div class="codehilite"><pre><span></span><code><span class="gp">user@learn $ </span>cat location-*.out <span class="p">|</span> sort <span class="p">|</span> uniq
+<div class="codehilite"><pre><span></span><code><span class="gp">$ </span>cat location-*.out <span class="p">|</span> sort <span class="p">|</span> uniq
 </code></pre></div>
 
 <h2 id="mapping-your-results">Mapping your results<a class="headerlink" href="#mapping-your-results" title="Permanent link">&para;</a></h2>
