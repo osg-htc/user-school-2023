@@ -10,9 +10,19 @@
 
 ## Intro to HTC and HTCondor Job Execution
 
+### Intro to HTC Slides
+
+Intro to HTC: [PDF]()
+Worksheet: [PDF]()
+
+### Intro to HTCondor Slides
+
+Slides coming soon
+<!--
 View the slides
 ([PDF](htcondor/files/osgus22-htc-htcondor.pdf),
 [PowerPoint](htcondor/files/osgus22-htc-htcondor.pptx))
+-->
 
 ### Intro Exercises 1: Running and Viewing Simple Jobs (Strongly Recommended)
 
@@ -23,7 +33,6 @@ View the slides
 - [Exercise 1.5: Determining Resource Needs](htcondor/part1-ex5-request.md)
 - [Exercise 1.6: Remove jobs from the queue](htcondor/part1-ex6-remove.md)
 
-
 ### Bonus Exercises: Job Attributes and Handling
 
 - [Bonus Exercise 1.7: Compile and run some C code](htcondor/part1-ex7-compile.md)
@@ -32,7 +41,10 @@ View the slides
 
 ## Intro to HTCondor Multiple Job Execution
 
+Slides coming soon. 
+<!--
 View the Slides ([PDF](htcondor/files/osgus22-htc-htcondor-PART2.pdf))
+-->
 
 ### Intro Exercises 2: Running Many HTC Jobs (Strongly Recommended)
 
@@ -52,6 +64,7 @@ View the slides
 [PowerPoint](osg/files/osgvs21-day3-osg.pptx))
 -->
 
+<!--
 ### OSG Exercises: Comparing CHTC and OSG (Strongly Recommended)
 
 - [Exercise 1.1: Refresher – submitting multiple jobs](osg/part1-ex1-submit-refresher.md)
@@ -60,6 +73,7 @@ View the slides
 - [Exercise 1.4: Hardware differences between CHTC and OSG](osg/part1-ex4-hardware-diffs.md)
 - [Exercise 1.5: Software differences in OSG](osg/part1-ex5-software-diffs.md)
 
+-->
 
 ## Troubleshooting
 
@@ -70,7 +84,6 @@ View the slides
 
 - [Exercise 1.1: Troubleshooting Jobs](troubleshooting/part1-ex1-troubleshooting.md)
 - [Exercise 1.2: Job Retry](troubleshooting/part1-ex2-job-retry.md)
-
 
 ## Software
 
