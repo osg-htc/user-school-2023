@@ -17,11 +17,10 @@ Worksheet: [PDF]()
 
 ### Intro to HTCondor Slides
 
-Slides coming soon
 <!--
 View the slides
-([PDF](htcondor/files/osgus22-htc-htcondor.pdf),
-[PowerPoint](htcondor/files/osgus22-htc-htcondor.pptx))
+([PDF](htcondor/files/osgus23-htc-htcondor.pdf),
+[PowerPoint](htcondor/files/osgus23-htc-htcondor.pptx))
 -->
 
 ### Intro Exercises 1: Running and Viewing Simple Jobs (Strongly Recommended)
