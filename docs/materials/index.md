@@ -40,10 +40,8 @@ View the slides: [PDF](htcondor/files/osgus23-htc-htcondor.pdf)
 
 ## Intro to HTCondor Multiple Job Execution
 
-Slides coming soon. 
-<!--
-View the Slides ([PDF](htcondor/files/osgus22-htc-htcondor-PART2.pdf))
--->
+View the Slides ([PDF](htcondor/files/osgus23-htc-htcondor-multiple-jobs.pdf))
+
 
 ### Intro Exercises 2: Running Many HTC Jobs (Strongly Recommended)
 
