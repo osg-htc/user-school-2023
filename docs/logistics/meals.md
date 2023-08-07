@@ -1,31 +1,128 @@
-# Meal Information
+# Meals and Food During the School
 
-The School includes some group catered meals for all participants:
+## Meals Overview
 
-*   Monday (Aug. 7) &mdash; breakfast and lunch
-*   Tuesday (Aug. 8) &mdash; breakfast and lunch
-*   Wednesday (Aug. 9) &mdash; breakfast and lunch
-*   Thursday (Aug. 10) &mdash; *none*
-*   Friday (Aug. 11) &mdash; lunch and (closing) dinner
+The following meals will be provided by the School as group, catered meals:
 
-Other meals not listed above are on your own.
+- Monday through  Wednesday - August 7 - 9:
 
-If you are **not** a member of the UW&ndash;Madison community,
-we will reimburse you for the on-your-own meals,
-Sunday dinner through Friday breakfast;
-see below for details.
-Sorry, UW&ndash;Madison folks: The rules say that we cannot reimburse you for meals here.
+    Breakfast and Lunch
 
-For the meals on your own, you are welcome to join other participants and even staff!
-We can help with ideas and groups, if you like.
+- Friday, August 11:
+
+    Lunch and Dinner
 There is [another page](dining.md) with suggestions for finding dining options near the School and hotel.
 
-## Catered Meals
 
-The catered breakfasts and lunches during the School (see above)
-will be served in the Education Building,
-Room L177, near upper doors of the lecture hall (L196).
-There is seating nearby both inside and outside.
+During the School week the following meals will be on your own. (See the [School Meals section](#meal-reimbursement-tips) below for the reimbursement details).
+
+- Dinners Sunday through Thursday will be on your own
+- On Thursday, August 10, breakfast, lunch (and dinner) will be on your own
+- On Friday, August 11, breakfast will be on your own
+
+Of  course, we hope you join your classmates for many of these “on your own” meals.
+
+Please check this [informational page](./dining.md) with ideas on eating in Madison near the School or hotel.
+
+## School Meals
+
+The School pays for your meals during the School.
+
+As  we noted, we provide the following meals directly for everyone:
+
+- Breakfasts on Monday through Wednesday
+- Lunches on Monday through Wednesday and Friday
+- Our Closing Dinner on Friday, August 11 held at Union South.
+
+The breakfasts and lunches will be served in the Education Building, Room L117 near the lecture hall for the School. There is nearby seating both inside and out for these meals.
+
+For dinners Sunday through Thursday and the two breakfasts and one lunch on your own, **if you are not a UW–Madison member**, we can reimburse you after the School. In that case:
+
+- Keep receipts for your meals – if anything so that you remember how much meals cost!
+- We can reimburse up to $20 for breakfast, $21 for lunch and $35 for dinner,  including tax and tip.
+- If it is not on the receipt, be sure to write the tip amount yourself, so you do not forget.
+- We cannot pay for any alcohol, but non-alcoholic drinks are OK — please pay for any alcohol on a separate bill.
+- We will explain the reimbursement process after the School.
+
+Again, if you are a member of the UW–Madison community, by University rules we cannot pay for your meals other than the group, catered ones.
+
+## Menus
+
+All catered, group meals that the School provides will include vegan and vegetarian options. None of the catered meals included pork.
+
+Below are the menus for the School-provided meals. Not all options for meeting dietary needs are listed, because the vendors provide them at their discretion. If you have concerns or questions, email us or talk to any of the organizers in person.
+
+### August 8 (Tuesday)
+
+#### Breakfast 
+
+- French Toast and Syrup (vegetarian)
+- Chicken Sausage
+- Fruit Platter (vegan)
+- Vegan option (for 1): Vegan Bagel and Vegan Cream Cheese)
+- Greek Yogurt (vegetarian)
+- offee, Tea and Assorted Juices
+
+
+#### Lunch 
+###### Southwestern Buffet
+
+- Southwest Tortilla Chips with Salsa (vegan)
+- Vegan chorizo Crumble (For vegans and vegetarians only)
+- Spanish Rice (vegan)
+- Beef Barbacoa
+- Chicken Tinga
+- Toppings - Lettuce, Tomatoes, Jalapeños, Shredded (vegan) Cheddar, Sour Cream, Guacamole (vegan), and Tortilla (vegan)
+- Assorted  Beverages/Water/Soda
+
+### August 9 (Wednesday)
+#### Breakfast  
+
+- Seasonal Fresh Cut Fruit Salad (vegan)
+- Bagels (vegan) and Cream Cheese
+- Muffins (for vegan and vegetarians)
+- Turkey Sausage
+- Hash Browns (vegan)
+- Scrambled eggs (vegetarian)
+- Coffee, Tea and Assorted Juices
+
+#### Lunch
+
+- Boxed lunches plus extras — the boxed parts can be taken and eaten elsewhere.
+- Boxed Lunch: Chicken, White Cheddar, Garlic Aioli, Cranberry  Rice Break; plus Apple, Cookie, and Chips
+- Boxed Lunch for  Vegans and Vegetarians Only: Chimichurri Tofu (vegan), Mixed Greens (vegan), Cuban Bread (vegan); plus Apple (Vegan), Cookie (Vegetarian), and  Chips (Vegetarian). +1 Vegan Cookie
+- Veggie Tray (vegan) with Hummus (vegan) and Dill Dip (Vegetarian)
+- Tarragon Potato Salad (Vegan)
+- Bottled Water and Sodas
+
+### July 29 (Friday)
+#### Lunch
+###### Picnic Buffet
+
+- BBQ Grilled Chicken Breasts Sandwiches
+- Beyond Brats (vegan)
+- Macaroni and Cheese (vegetarian)
+- Fruit Salad (vegan)
+- Grilled Vegetable Pasta Salad (vegan)
+- Assorted Cookies (+1  vegan cookie)
+- Mayonnaise,  Ketchup and Mustard’
+- Bottled Water and Soda
+
+
+#### Dinner 
+
+(See the [schedule page](../schedule.md) for other details.)
+
+##### Global Buffet
+
+- Spinach, strawberry, shaved red onion salad (vegan) , sesame poppy seed dressing
+- Vegetables (vegan), dips, spreads, pita chips
+- Sake salmon
+- Jerk tofu (vegan)
+- Basmati rice  (vegan)
+- Stir-fried vegetables (vegan)
+- Naan Bread (vegan)
+
 
 ## Meal Reimbursement Tips
 
