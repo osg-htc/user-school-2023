@@ -649,15 +649,29 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#arguments" class="md-nav__link">
-    Arguments
+  <a href="#setup" class="md-nav__link">
+    Setup
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#header" class="md-nav__link">
-    Header
+  <a href="#add-a-header" class="md-nav__link">
+    Add a Header
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#incorporate-arguments" class="md-nav__link">
+    Incorporate Arguments
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#your-work" class="md-nav__link">
+    Your Work
   </a>
   
 </li>
@@ -681,11 +695,153 @@
 <p><strong>Objective</strong>: Modify an existing script to include arguments and headers. </p>
 <p><strong>Why learn this?</strong>: A little bit of preparation can make it easier to reuse the 
 same script over and over to run many jobs. </p>
-<h2 id="arguments">Arguments<a class="headerlink" href="#arguments" title="Permanent link">&para;</a></h2>
-<h2 id="header">Header<a class="headerlink" href="#header" title="Permanent link">&para;</a></h2>
-<div class="codehilite"><pre><span></span><code>!!! note 
-    The &quot;header&quot; of `#!/bin/bash` will tell the computer that this is a bash shell script and can be run in the same way that  you would run individual commands on the command line.
+<h2 id="setup">Setup<a class="headerlink" href="#setup" title="Permanent link">&para;</a></h2>
+<ol>
+<li>
+<p>Download and unzip a set of Protein Data Bank (PDB) files: </p>
+<div class="codehilite"><pre><span></span><code><span class="gp">$ </span>wget http://proxy.chtc.wisc.edu/SQUID/osg-school-2023/alkanes.tar.gz
+<span class="gp">$ </span>tar -xzf alkanes.tar.gz
 </code></pre></div>
+
+</li>
+<li>
+<p>For these exercises, we are going to run a command that counts the number of 
+atoms in the PDB file . Run it now as an example: </p>
+<div class="codehilite"><pre><span></span><code><span class="gp">$ </span>grep ATOM cubane.pdb <span class="p">|</span> wc -l &gt; atoms_cubane.pdb
+</code></pre></div>
+
+</li>
+</ol>
+<h2 id="add-a-header">Add a Header<a class="headerlink" href="#add-a-header" title="Permanent link">&para;</a></h2>
+<ol>
+<li>
+<p>To create a basic script, you can put the command above into a file 
+called <code>get_atoms.sh</code>. To make it clear what language we expect to use to 
+run the script, we will add the following header on the first line: <code>`#!/bin/bash</code></p>
+<div class="codehilite"><pre><span></span><code>#!/bin/bash
+
+grep ATOM cubane.pdb | wc -l &gt; atoms_cubane.pdb
+</code></pre></div>
+
+<p>The "header" of <code>#!/bin/bash</code> will tell the computer that this is a bash shell script 
+and can be run in the same way that  you would run individual commands on the command line. 
+We use <code>/bin/bash</code> instead of just <code>bash</code> because that is the full path to the <code>bash</code> 
+software file. (Run <code>which bash</code> to check!)</p>
+<div class="admonition note">
+<p class="admonition-title">Other languages</p>
+<p>We can use the same principle for any scripting language. For example, the header for a Python script 
+could be either <code>#!/usr/bin/python3</code> or <code>#!/usr/bin/env python3</code>. Similar logic works 
+for perl, R, julia and other scripting languages. </p>
+</div>
+</li>
+<li>
+<p>Can you now run the script? </p>
+<div class="codehilite"><pre><span></span><code><span class="gp">$ </span>./get_atoms.sh
+</code></pre></div>
+
+</li>
+<li>
+<p>This gives "permission denied." Let's add executable permissions to the script 
+and try again: </p>
+<div class="codehilite"><pre><span></span><code><span class="gp">$ </span>chmod +x get_atoms.sh
+<span class="gp">$ </span>./get_atoms.sh
+</code></pre></div>
+
+</li>
+</ol>
+<h2 id="incorporate-arguments">Incorporate Arguments<a class="headerlink" href="#incorporate-arguments" title="Permanent link">&para;</a></h2>
+<p>Can you imagine trying to run this script on all of our pdb files? It would be tedious
+to edit it for each one, even for only six inputs. Instead, we should add arguments 
+to the script to make it easy to reuse the script. 
+Any information in a script or executable that is going to change or vary across 
+jobs or analyses should likely be turned into an argument that is specified on the command line. </p>
+<ol>
+<li>
+<p>In our example above, which pieces of the script are likely to change or vary? </p>
+</li>
+<li>
+<p>The name of the input file (<code>cubane.pdb</code>) and output file (<code>atoms_cubane.pdb</code>) should 
+be turned into arguments. Can you envision what our script should look like if we ran it 
+with input arguments? </p>
+</li>
+<li>
+<p>Let's say we want to be able to run the following command: </p>
+<div class="codehilite"><pre><span></span><code><span class="gp">$ </span>./get_atoms.sh cubane.pdb atoms_cubane.pdb
+</code></pre></div>
+
+<p>In order to get arguments from the command line into the script, you have 
+to use special variables in the script. In bash, these are <code>$1</code> (for the first 
+argument), <code>$2</code> (for the second argument) and so on. Try to figure out where 
+these should go in our <code>get_atoms.sh</code> script. </p>
+<div class="admonition note">
+<p class="admonition-title">Other Languages</p>
+<p>Each language is going to have its own syntax for reading command line 
+arguments into the script. In Python, <code>sys.argv</code> is a basic method, and more 
+advanced libraries like <code>argparse</code> can be used. In R, the <code>commandArgs()</code> function 
+can do this. Google "command line arguments in ______" to find the right 
+syntax for your language of choice!</p>
+</div>
+</li>
+<li>
+<p>A first pass at adding arguments might look like this: </p>
+<div class="codehilite"><pre><span></span><code>#!/bin/bash
+
+grep ATOM $1 | wc -l &gt; $2
+</code></pre></div>
+
+<p>Try running it as described above. Does it work? </p>
+</li>
+<li>
+<p>While we now have arguments, we have lost some of the readability of our script. The 
+numbers <code>$1</code> and <code>$2</code> are not very meaningful in themselves! Let's rewrite the script to 
+assign the arguments to meaningful variable names: </p>
+<div class="codehilite"><pre><span></span><code>#!/bin/bash
+
+PDB_INPUT=$1
+PDB_ATOM_OUTPUT=$2
+
+grep ATOM ${PDB_INPUT} | wc -l &gt; ${PDB_ATOM_OUTPUT}
+</code></pre></div>
+
+<div class="admonition note">
+<p class="admonition-title">Why curly brackets?</p>
+<p>You'll notice above that we started using curly brackets around our variables. 
+While you technically don't need them (<code>$PDB_INPUT</code> would also be fine), using 
+them makes the name of the variable (compared to other text) completely clear. 
+This is especially useful when combining variables with underscores. </p>
+</div>
+</li>
+<li>
+<p>There is one final place where we could optimize this script. If we want our output 
+files to always have the same naming convention, based on the input file name, then 
+we shouldn't have a separate argument for that -- it's asking for typos. Instead, we 
+should use variables inside the script to construct the output file name, based on the 
+input file. That will look like this: </p>
+<div class="codehilite"><pre><span></span><code>#!/bin/bash
+
+PDB_INPUT=$1
+PDB_ATOM_OUTPUT=atoms_${PDB_INPUT}
+
+grep ATOM ${PDB_INPUT} | wc -l &gt; ${PDB_ATOM_OUTPUT}
+</code></pre></div>
+
+<p>You may want to construct other variables, like paths and filenames in this way. But 
+it depends on how you want to use the script! If we want the flexibility of specifying 
+a custom output file name, then we should undo this last change so it can be 
+treated as a separate argument. </p>
+</li>
+</ol>
+<h2 id="your-work">Your Work<a class="headerlink" href="#your-work" title="Permanent link">&para;</a></h2>
+<ol>
+<li>
+<p>Are you using a scripting language where you could add a header to your main script? 
+If so, what should it be? </p>
+</li>
+<li>
+<p>What items in your main code or commands are changing? Do you need to add arguments 
+to your code? </p>
+</li>
+</ol>
                 
                   
                 
