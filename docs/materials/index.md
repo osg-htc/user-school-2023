@@ -1,12 +1,9 @@
-
 # OSG School Materials
 
 ## School Overview and Intro
 
-<!-- View the slides
-([PDF](files/osgvsp21-overview.pdf),
-[PowerPoint](files/osgvsp21-overview.pptx))
--->
+View the slides:
+[PDF](welcome/files/osgus23-day1-part1-welcome-timc.pdf)
 
 ## Intro to HTC and HTCondor Job Execution
 
