@@ -9,14 +9,14 @@
       
       
       
-        <link rel="canonical" href="https://osg-htc.org/user-school-2023/materials/software/part2-ex1-compiling/">
+        <link rel="canonical" href="https://osg-htc.org/user-school-2023/materials/software/part1-ex1-run-apptainer/">
       
       <link rel="icon" href="../../../assets/OSG_Logo.png">
       <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-7.1.0">
     
     
       
-        <title>Part2 ex1 compiling - OSG School 2023</title>
+        <title>Part1 ex1 run apptainer - OSG School 2023</title>
       
     
     
@@ -65,7 +65,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#software-exercise-21-compile-statically-linked-code" class="md-skip">
+        <a href="#software-exercise-11-run-and-explore-containers" class="md-skip">
           Skip to content
         </a>
       
@@ -94,7 +94,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Part2 ex1 compiling
+              Part1 ex1 run apptainer
             
           </span>
         </div>
@@ -399,6 +399,87 @@
   
 
     
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" >
+      
+      <label class="md-nav__link" for="__nav_5">
+        Materials
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Materials" data-md-level="1">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          Materials
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../" class="md-nav__link">
+        Overview
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_2" type="checkbox" id="__nav_5_2" >
+      
+      <label class="md-nav__link" for="__nav_5_2">
+        HTC Exercises
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="HTC Exercises" data-md-level="2">
+        <label class="md-nav__title" for="__nav_5_2">
+          <span class="md-nav__icon md-icon"></span>
+          HTC Exercises
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../htcondor/part1-ex1-login/" class="md-nav__link">
+        Exercise 1.1
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -424,29 +505,22 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#background" class="md-nav__link">
-    Background
+  <a href="#setup" class="md-nav__link">
+    Setup
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#our-software-example" class="md-nav__link">
-    Our Software Example
+  <a href="#exploring-apptainer-containers" class="md-nav__link">
+    Exploring Apptainer Containers
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#compiling" class="md-nav__link">
-    Compiling
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#submit-the-job" class="md-nav__link">
-    Submit the Job
+  <a href="#exploring-docker-containers" class="md-nav__link">
+    Exploring Docker Containers
   </a>
   
 </li>
@@ -466,103 +540,87 @@
                 
                 <style type="text/css"> pre em { font-style: normal; background-color: yellow; } pre strong { font-style: normal; font-weight: bold; color: \#008; } </style>
 
-<h1 id="software-exercise-21-compile-statically-linked-code">Software Exercise 2.1: Compile Statically Linked Code<a class="headerlink" href="#software-exercise-21-compile-statically-linked-code" title="Permanent link">&para;</a></h1>
-<p>The goal of this exercise is to compile and statically link a piece of code and then submit it as a job. This exercise should take 5-10 minutes.</p>
-<h2 id="background">Background<a class="headerlink" href="#background" title="Permanent link">&para;</a></h2>
-<p>There is a large amount of scientific software that is available as source code. Source code is usually a group of text files (code) meant to be downloaded and then compiled into a <em>binary file</em> which a computer can understand. Sometimes the source code depends on other pieces of code called libraries. If the source code is linked <em>statically</em>, these libraries are bundled into the compilation with the source code, creating a <em>static binary</em> which can be run on any computer with the same operating system.</p>
-<h2 id="our-software-example">Our Software Example<a class="headerlink" href="#our-software-example" title="Permanent link">&para;</a></h2>
-<p>For this compiling example, we will use a script written in C. C code depends on libraries and therefore will benefit from being statically linked.</p>
-<p>Our C code prints 7 rows of Pascal's triangle.</p>
+<h1 id="software-exercise-11-run-and-explore-containers">Software Exercise 1.1: Run and Explore Containers<a class="headerlink" href="#software-exercise-11-run-and-explore-containers" title="Permanent link">&para;</a></h1>
+<p><strong>Objective</strong>: Run a container interactively</p>
+<p><strong>Why learn this?</strong>: Being able to run a container directly allows you to confirm 
+what is installed and whether any additional scripts or code will work in the context 
+of the container. </p>
+<h2 id="setup">Setup<a class="headerlink" href="#setup" title="Permanent link">&para;</a></h2>
+<p>Make sure you are logged into <code>ap40.uw.osg-htc.org</code>.  For this exercise 
+we will be using Apptainer containers maintained by OSG staff or existing 
+containers on Docker Hub. </p>
+<p>We will set two environment variables that will help lighten the load on the 
+Access Point as we work with containers: </p>
+<div class="codehilite"><pre><span></span><code><span class="gp">$ </span>mkdir ~/apptainer_cache
+<span class="gp">$ </span><span class="nb">export</span> <span class="nv">APPTAINER_CACHEDIR</span><span class="o">=</span><span class="nv">$HOME</span>/apptainer_cache
+<span class="gp">$ </span><span class="nb">export</span> <span class="nv">TMPDIR</span><span class="o">=</span><span class="nv">$HOME</span>/apptainer_cache
+</code></pre></div>
+
+<h2 id="exploring-apptainer-containers">Exploring Apptainer Containers<a class="headerlink" href="#exploring-apptainer-containers" title="Permanent link">&para;</a></h2>
+<p>First, let's try to run a container from the <a href="https://portal.osg-htc.org/documentation/htc_workloads/using_software/available-containers-list/">OSG-Supported List</a>. </p>
 <ol>
-<li>Log into the OSG submit node <code>login04.osgconnect.net</code>. Create a directory for this exercise and <code>cd</code> into it.</li>
-<li>Copy and paste the following code into a file named <code>pascal.c</code>.<div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf">&quot;stdio.h&quot;</span><span class="cp"></span>
+<li>
+<p>Find the full path for the <code>ubuntu 20.04</code> container image. </p>
+</li>
+<li>
+<p>To run it, use this command: </p>
+<div class="codehilite"><pre><span></span><code><span class="gp">$ </span>apptainer shell /cvmfs/singularity.opensciencegrid.org/opensciencegrid/osgvo-ubuntu-20.04:latest
+</code></pre></div>
 
-<span class="kt">long</span> <span class="nf">factorial</span><span class="p">(</span><span class="kt">int</span><span class="p">);</span>
+<p>It may take a few minutes to start - don't worry if this happens. </p>
+</li>
+<li>
+<p>Once the container starts, the prompt will change to either <code>Singularity&gt;</code> or 
+  <code>Apptainer&gt;</code>. Run <code>ls</code> and <code>pwd</code>. Where are you? Do you see your files? </p>
+</li>
+<li>
+<p>The <code>apptainer shell</code> command will automatically connect your home directory to 
+the running container so you can use your files. </p>
+</li>
+<li>
+<p>How do we know we're in a different Linux environment? Try printing out the Linux 
+version, or checking the version of common tools like <code>gcc</code> or Python: </p>
+<div class="codehilite"><pre><span></span><code><span class="gp">$ </span>cat /etc/os-release
+<span class="gp">$ </span>gcc --version
+<span class="gp">$ </span>python3 --version
+</code></pre></div>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
-<span class="p">{</span>
-<span class="kt">int</span> <span class="n">i</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">c</span><span class="p">;</span>
-<span class="n">n</span><span class="o">=</span><span class="mi">7</span><span class="p">;</span>
-<span class="k">for</span> <span class="p">(</span><span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">n</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">){</span>
-  <span class="k">for</span> <span class="p">(</span><span class="n">c</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">c</span> <span class="o">&lt;=</span> <span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="n">i</span> <span class="o">-</span> <span class="mi">2</span><span class="p">);</span> <span class="n">c</span><span class="o">++</span><span class="p">)</span>
-  <span class="n">printf</span><span class="p">(</span><span class="s">&quot; &quot;</span><span class="p">);</span>
-      <span class="k">for</span> <span class="p">(</span><span class="n">c</span> <span class="o">=</span> <span class="mi">0</span> <span class="p">;</span> <span class="n">c</span> <span class="o">&lt;=</span> <span class="n">i</span><span class="p">;</span> <span class="n">c</span><span class="o">++</span><span class="p">)</span>
-         <span class="n">printf</span><span class="p">(</span><span class="s">&quot;%ld &quot;</span><span class="p">,</span><span class="n">factorial</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">factorial</span><span class="p">(</span><span class="n">c</span><span class="p">)</span><span class="o">*</span><span class="n">factorial</span><span class="p">(</span><span class="n">i</span><span class="o">-</span><span class="n">c</span><span class="p">)));</span>
-      <span class="n">printf</span><span class="p">(</span><span class="s">&quot;</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
-   <span class="p">}</span>
-   <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
-<span class="p">}</span>
-
-<span class="kt">long</span> <span class="nf">factorial</span><span class="p">(</span><span class="kt">int</span> <span class="n">n</span><span class="p">)</span>
-<span class="p">{</span>
-   <span class="kt">int</span> <span class="n">c</span><span class="p">;</span>
-   <span class="kt">long</span> <span class="n">result</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
-   <span class="k">for</span> <span class="p">(</span><span class="n">c</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="n">c</span> <span class="o">&lt;=</span> <span class="n">n</span><span class="p">;</span> <span class="n">c</span><span class="o">++</span><span class="p">)</span>
-         <span class="n">result</span> <span class="o">=</span> <span class="n">result</span><span class="o">*</span><span class="n">c</span><span class="p">;</span>
-   <span class="k">return</span> <span class="n">result</span><span class="p">;</span>
-<span class="p">}</span>
+</li>
+<li>
+<p>Exit out of the container by typing <code>exit</code>. </p>
+</li>
+<li>
+<p>Type the same commands back on the normal Access Point. Should they give the same 
+results as when typed in the container, or different? </p>
+<div class="codehilite"><pre><span></span><code><span class="gp">$ </span>cat /etc/os-release
+<span class="gp">$ </span>gcc --version
+<span class="gp">$ </span>python3 --version
 </code></pre></div>
 
 </li>
 </ol>
-<h2 id="compiling">Compiling<a class="headerlink" href="#compiling" title="Permanent link">&para;</a></h2>
-<p>In order to use this code in a job, we will first need to statically compile the code. Recall the slide from the lecture - where <em>can</em> we compile and where <em>should</em> we compile? In particular:</p>
-<ul>
-<li>Where is the compiler available?</li>
-<li>How computationally intensive will this compilation be?    </li>
-</ul>
-<!--hiding-->
-
+<h2 id="exploring-docker-containers">Exploring Docker Containers<a class="headerlink" href="#exploring-docker-containers" title="Permanent link">&para;</a></h2>
+<p>The process for interactively running a Docker container will be very 
+similar to an apptainer container. The main difference is a <code>docker://</code> prefix 
+before the container's identifying name. </p>
 <ol>
 <li>
-<p>Think about these questions before moving on. Where do you think we should compile?</p>
+<p>We are going to be using a <a href="https://hub.docker.com/_/python">Python image from Docker Hub</a>. 
+Click on the "Tags" tab to see all the different versions of this container that exists. </p>
 </li>
 <li>
-<p>Most linux servers (including our submit node) have the <code>gcc</code> (GNU compiler collection) installed, so we already have a compiler on the submit node. Furthermore, this is a simple piece of C code, so the compilation will not be computationally intensive. Thus, we should be able to compile directly on the submit node. </p>
-</li>
-<li>
-<p>Compile the code, using the command: </p>
-<div class="codehilite"><pre><span></span><code><span class="gp">username@login $ </span>gcc -static pascal.c -o pascal
-</code></pre></div>
-
-<p>Note that we have added the <code>-static</code> option to make sure that the compiled binary includes the necessary libraries. This will allow the code to run on any Linux machine, no matter where those libraries are located. </p>
-</li>
-<li>
-<p>Verify that the compiled binary was statically linked:</p>
-<div class="codehilite"><pre><span></span><code><span class="gp">username@login $ </span>file pascal
+<p>Let's use version <code>3.10</code>. To run it interactively, use this command: </p>
+<div class="codehilite"><pre><span></span><code><span class="gp">$ </span>apptainer shell docker://python:3.10
 </code></pre></div>
 
 </li>
-</ol>
-<p>The Linux <code>file</code> command provides information about the <em>type</em> or <em>kind</em> of file that is given as an argument. In this case, you should get output like this:</p>
-<div class="codehilite"><pre><span></span><code>username@host $ file pascal
-<span class="hll">pascal: ELF 64-bit LSB executable, x86-64, version 1 (GNU/Linux), statically linked,
-</span><span class="hll">for GNU/Linux 2.6.18, not stripped
-</span></code></pre></div>
-
-<p>The output clearly states that this executable (software) is statically linked. The same command run on a non-statically linked executable file would include the text <code>dynamically linked (uses shared libs)</code> instead. So with this simple verification step, which could even be run on files that you did not compile yourself, you have some further reassurance that it is safe to use on other Linux machines. (Bonus exercise: Try the <code>file</code> command on lots of other files)</p>
-<h2 id="submit-the-job">Submit the Job<a class="headerlink" href="#submit-the-job" title="Permanent link">&para;</a></h2>
-<p>Now that our code is compiled, we can use it to submit a job.</p>
-<ol>
 <li>
-<p>Think about what submit file lines we need to use to run this job:</p>
-<ul>
-<li>Are there input files?</li>
-<li>Are there command line arguments?</li>
-<li>Where is its output written?</li>
-</ul>
+<p>Once the container starts and the prompt changes, try running similar commands 
+as above. What version of Linux is used in this container? Does the version of Python 
+match what you expect, based on the name of the container? </p>
 </li>
 <li>
-<p>Based on what you thought about in 1., find a submit file from earlier that you can modify to run our compiled <code>pascal</code> code.</p>
-</li>
-<li>
-<p>Copy it to the directory with the <code>pascal</code> binary and make those changes. </p>
-</li>
-<li>
-<p>Submit the job using <code>condor_submit</code>. </p>
-</li>
-<li>
-<p>Once the job has run and left the queue, you should be able to see the results (seven rows of Pascal's triangle) in the <code>.out</code> file created by the job.</p>
+<p>Once done, type <code>exit</code> to leave the container. </p>
 </li>
 </ol>
                 

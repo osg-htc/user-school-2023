@@ -9,14 +9,14 @@
       
       
       
-        <link rel="canonical" href="https://osg-htc.org/user-school-2023/materials/software/part2-ex4-matlab/">
+        <link rel="canonical" href="https://osg-htc.org/user-school-2023/materials/software/part5-ex1-prepackaged/">
       
       <link rel="icon" href="../../../assets/OSG_Logo.png">
       <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-7.1.0">
     
     
       
-        <title>Part2 ex4 matlab - OSG School 2023</title>
+        <title>Part5 ex1 prepackaged - OSG School 2023</title>
       
     
     
@@ -65,7 +65,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#software-exercise-24-running-compiled-matlab" class="md-skip">
+        <a href="#software-exercise-51-pre-package-a-research-code" class="md-skip">
           Skip to content
         </a>
       
@@ -94,7 +94,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Part2 ex4 matlab
+              Part5 ex1 prepackaged
             
           </span>
         </div>
@@ -399,6 +399,87 @@
   
 
     
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" >
+      
+      <label class="md-nav__link" for="__nav_5">
+        Materials
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Materials" data-md-level="1">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          Materials
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../" class="md-nav__link">
+        Overview
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_2" type="checkbox" id="__nav_5_2" >
+      
+      <label class="md-nav__link" for="__nav_5_2">
+        HTC Exercises
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="HTC Exercises" data-md-level="2">
+        <label class="md-nav__title" for="__nav_5_2">
+          <span class="md-nav__icon md-icon"></span>
+          HTC Exercises
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../htcondor/part1-ex1-login/" class="md-nav__link">
+        Exercise 1.1
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -424,29 +505,15 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#background" class="md-nav__link">
-    Background
+  <a href="#our-software-example" class="md-nav__link">
+    Our Software Example
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#matlab-code" class="md-nav__link">
-    Matlab Code
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#compiling-matlab-code" class="md-nav__link">
-    Compiling Matlab Code
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#matlab-runtime" class="md-nav__link">
-    Matlab Runtime
+  <a href="#installation" class="md-nav__link">
+    Installation
   </a>
   
 </li>
@@ -459,8 +526,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#submitting-the-job" class="md-nav__link">
-    Submitting the Job
+  <a href="#run-a-hmmer-job" class="md-nav__link">
+    Run a HMMER job
   </a>
   
 </li>
@@ -480,160 +547,146 @@
                 
                 <style type="text/css"> pre em { font-style: normal; background-color: yellow; } pre strong { font-style: normal; font-weight: bold; color: #008; } </style>
 
-<h1 id="software-exercise-24-running-compiled-matlab">Software Exercise 2.4: Running Compiled Matlab<a class="headerlink" href="#software-exercise-24-running-compiled-matlab" title="Permanent link">&para;</a></h1>
-<p>The goal of this exercise is to compile Matlab code and run it. This exercise will draw on the idea of writing a wrapper script to install and run code, first introduced in <a href="../part1-ex2-wrapper">Exercise 1.2</a> and should take 25-30 minutes.</p>
-<h2 id="background">Background<a class="headerlink" href="#background" title="Permanent link">&para;</a></h2>
-<p>Matlab is licensed; however, unlike most licensed software, it has the ability to be compiled and the compiled code can be run without a license. We will be compiling Matlab <code>.m</code> files into a binary file and running that binary using a set of files called the Matlab runtime.</p>
-<h2 id="matlab-code">Matlab Code<a class="headerlink" href="#matlab-code" title="Permanent link">&para;</a></h2>
+<h1 id="software-exercise-51-pre-package-a-research-code">Software Exercise 5.1: Pre-package a Research Code<a class="headerlink" href="#software-exercise-51-pre-package-a-research-code" title="Permanent link">&para;</a></h1>
+<p><strong>Objective</strong>: Install software (HHMER) to a folder and run it in a job using a wrapper script. </p>
+<p><strong>Why learn this?</strong>: If not using a container, this is a template for how to create 
+a portable software installation using your own files, especially if the software 
+is not available already compiled for Linux. </p>
+<h2 id="our-software-example">Our Software Example<a class="headerlink" href="#our-software-example" title="Permanent link">&para;</a></h2>
+<p>For this exercise, we will be using the bioinformatics package HMMER. HMMER is a good example of software that is not compiled to a single executable; it has multiple executables as well as a helper library.</p>
 <ol>
-<li>Log in to the CHTC submit server (<code>learn.chtc.wisc.edu</code>).</li>
-<li>Create a directory for this exercise and <code>cd</code> into it . </li>
-<li>Copy the following code into a file called <code>matrix.m</code> <div class="codehilite"><pre><span></span><code>A = randi(100,4,4)
-b = randi(100,4,1);
-x = A*b
-save results.txt x -ascii
+<li>
+<p>Create a directory for this exercise on the Access Point. </p>
+</li>
+<li>
+<p>Do an internet search to find the HMMER software downloads page and the 
+installation instructions page. On the installation page, there are short instructions for how to install HMMER. There are two options shown for installation -- which should we use?</p>
+</li>
+<li>
+<p>For the purposes of this example, we are going to use the instructions under the heading "...to obtain and compile from source."  Download the HMMER source as shown in 
+these instructions (command should start with <code>wget</code>)</p>
+</li>
+<li>
+<p>Go back to the installation 
+documentation page and look at the steps for compiling from source. This process 
+should be similar to what was described in the lecture! </p>
+</li>
+</ol>
+<h2 id="installation">Installation<a class="headerlink" href="#installation" title="Permanent link">&para;</a></h2>
+<p>Normally, it is better to install software on a dedicated "build" server, but 
+for this example, we are going to compile directly on the Access Point</p>
+<ol>
+<li>
+<p>Before we follow the installation instructions, we should create a directory to hold our installation. You can create this in the current directory. </p>
+<div class="codehilite"><pre><span></span><code><span class="gp">username@host $ </span>mkdir hmmer-build
+</code></pre></div>
+
+</li>
+<li>
+<p>Now run the commands to unpack the source code: </p>
+<div class="codehilite"><pre><span></span><code><span class="gp">username@host $ </span>tar -zxf hmmer.tar.gz
+<span class="gp">username@host $ </span><span class="nb">cd</span> hmmer-3.3.2
+</code></pre></div>
+
+</li>
+<li>
+<p>Now we can follow the second set of installation instructions. For the prefix, we'll use the variable <code>$PWD</code> to capture the name of our current working directory and then a relative path to the <code>hmmer-build</code> directory we created in step 1: </p>
+<div class="codehilite"><pre><span></span><code><span class="gp">username@host $ </span>./configure --prefix<span class="o">=</span><span class="nv">$PWD</span>/../hmmer-build
+<span class="gp">username@host $ </span>make
+<span class="gp">username@host $ </span>make install
+</code></pre></div>
+
+</li>
+<li>
+<p><strong>Go back to the previous working directory</strong>: </p>
+<div class="codehilite"><pre><span></span><code><span class="gp">username@host $ </span><span class="nb">cd</span> ..
+</code></pre></div>
+
+<p>and confirm that our installation procedure created <code>bin</code>,  <code>lib</code>, and <code>share</code> directories in the <code>hmmer-build</code> folder: </p>
+<div class="codehilite"><pre><span></span><code><span class="gp">username@host $ </span>ls hmmer-build
+<span class="go">bin share</span>
+</code></pre></div>
+
+</li>
+<li>
+<p>Now we want to package up our installation, so we can use it in other jobs. We can do this by compressing any necessary directories into a single gzipped tarball. </p>
+<div class="codehilite"><pre><span></span><code><span class="gp">username@host $ </span>tar -czf hmmer-build.tar.gz hmmer-build
 </code></pre></div>
 
 </li>
 </ol>
-<h2 id="compiling-matlab-code">Compiling Matlab Code<a class="headerlink" href="#compiling-matlab-code" title="Permanent link">&para;</a></h2>
-<p>The first step in making Matlab portable is compiling our Matlab script.
-To compile this code, we need to access the machines with the Matlab compiler installed.
-For this exercise, we will use the compilers installed on special CHTC build machines.
-In the CHTC pool, you can't use <code>ssh</code> to directly connect to these machines.
-Instead, you must submit an interactive job (similar to <a href="../part2-ex2-prepackaged">Exercise 2.2</a>) that
-specifically requests these build machines.</p>
-<ol>
-<li>
-<p>Create a file called <code>compile.submit</code> with the lines below: </p>
-<div class="codehilite"><pre><span></span><code>log = compile.log
-
-should_transfer_files = YES
-when_to_transfer_output = ON_EXIT
-transfer_input_files = matrix.m
-
-+IsBuildJob = true
-request_memory = 1GB
-request_disk = 512MB
-
-queue
-</code></pre></div>
-
-</li>
-<li>
-<p>You can initiate the interactive job by using <code>condor_submit</code> 's <code>-i</code> option. Enter the following command: </p>
-<div class="codehilite"><pre><span></span><code><span class="gp">username@learn $ </span>condor_submit -i compile.submit
-</code></pre></div>
-
-<p>Make sure you've submitted this command from <code>learn.chtc.wisc.edu</code>! Once the job starts, continue with the following instructions.</p>
-</li>
-<li>
-<p>Since you are a guest user on our system, you will need to set your <code>HOME</code> directory by running this command: </p>
-<div class="codehilite"><pre><span></span><code><span class="gp">username@build $ </span><span class="nb">export</span> <span class="nv">HOME</span><span class="o">=</span><span class="nv">$PWD</span>
-</code></pre></div>
-
-</li>
-<li>
-<p>The Matlab software on these build servers is accessible via modules, just like the software installed on OSG Connect. Check which modules are available and then load the older version of Matlab. </p>
-<div class="codehilite"><pre><span></span><code><span class="gp">username@build $ </span>module load MATLAB/R2015b
-</code></pre></div>
-
-</li>
-<li>
-<p>Once the module is loaded (you can check by running <code>module list</code>), compile the <code>matrix.m</code> file with this command: </p>
-<div class="codehilite"><pre><span></span><code><span class="gp">username@build $ </span>mcc -m -R -singleCompThread -R -nodisplay -R -nojvm matrix.m
-</code></pre></div>
-
-<p>The extra arguments to the <code>mcc</code> command are very important here. Matlab, by default, will run on as many CPUs as it can find. This can be a big problem  when running on someone else's computers, because your Matlab code might interfere with what the owner wants. The <code>-singleCompThread</code> option  compiles the code to run on a single CPU, avoiding this problem. In addition, the <code>-nodisplay</code> and <code>-nojvm</code> options turn off the display (which won't exist  where the code runs). </p>
-</li>
-<li>
-<p>To exit the interactive session, type <code>exit</code></p>
-</li>
-<li>
-<p>Now that you're back on the submit server, look at the files that were created by the Matlab compiler. Which one is the compiled binary?</p>
-</li>
-</ol>
-<h2 id="matlab-runtime">Matlab Runtime<a class="headerlink" href="#matlab-runtime" title="Permanent link">&para;</a></h2>
-<p>The newly compiled binary will require the 2015b Matlab runtime to run. You can download the runtime from the Mathworks website and build it yourself, but to save time, for this exercise you can use the pre-built runtimes hosted by CHTC.</p>
-<ol>
-<li>Download the 2015b Matlab runtime hosted by CHTC: <div class="codehilite"><pre><span></span><code><span class="gp">username@learn $ </span>wget http://proxy.chtc.wisc.edu/SQUID/r2015b.tar.gz
-</code></pre></div>
-
-</li>
-</ol>
+<p>Note that we now have two tarballs in our directory -- the <em>source</em> tarball (<code>hmmer.tar.gz</code>), which we will no longer need and our newly built installation (<code>hmmer-build.tar.gz</code>) which is what we will actually be using to run jobs.</p>
 <h2 id="wrapper-script">Wrapper Script<a class="headerlink" href="#wrapper-script" title="Permanent link">&para;</a></h2>
-<p>We will need a wrapper script to open the Matlab runtime and then run our compiled Matlab code. Our wrapper script will need to accomplish the following steps:</p>
-<ul>
-<li>Unpack the transferred runtime</li>
-<li>Set the environment variables</li>
-<li>Run our compiled matlab code</li>
-</ul>
-<p>Fortunately, the Matlab compiler has pre-written most of this wrapper script for us!</p>
+<p>Now that we've created our portable installation, we need to write a script that opens and uses the installation, similar to the process we used in a <a href="../part4-ex2-wrapper">previous exercise</a>. These steps should be performed back on the submit server (<code>learn.chtc.wisc.edu</code>).</p>
 <ol>
 <li>
-<p>Take a look at <code>run_matrix.sh</code>. Which of the above steps do we need to add? Once you have an idea, move to the next step.</p>
+<p>Create a script called <code>run_hmmer.sh</code>. </p>
 </li>
 <li>
-<p>We'll need to add commands to unpack the runtime (which will have been transferred with the job). Add this line to the beginning of the <code>run_matrix.sh</code> file, after <code>#!/bin/bash</code> and the comments, but before <code>exe_name=$0</code> : </p>
-<div class="codehilite"><pre><span></span><code>tar -xzf r2015b.tar.gz
+<p>The script will first need to untar our installation, so the script should start out like this:  </p>
+<div class="codehilite"><pre><span></span><code><span class="ch">#!/bin/bash</span>
+
+tar -xzf hmmer-build.tar.gz
 </code></pre></div>
 
 </li>
 <li>
-<p>Look at <code>readme.txt</code> to determine what arguments our wrapper script requires. Once you have an idea, move to the next step.</p>
-</li>
-<li>
-<p>The name of the Matlab runtime directory is a required argument to the wrapper script <code>run_matrix.sh</code>. We'll have to do a little extra work to find out the name of that directory. Run this command</p>
-<div class="codehilite"><pre><span></span><code><span class="go">tar -tf r2015b.tar.gz</span>
+<p>We're going to use the same <code>$PWD</code> trick from the installation in order to tell the computer how to find HMMER. We will do this by setting the <code>PATH</code> environment variable, to include the directory where HMMER is installed: </p>
+<div class="codehilite"><pre><span></span><code><span class="nb">export</span> <span class="nv">PATH</span><span class="o">=</span><span class="nv">$PWD</span>/hmmer-build/bin:<span class="nv">$PATH</span>
 </code></pre></div>
 
 </li>
 <li>
-<p>The output of the previous command is a list of all the files in the tar.gz file. What is the name of the first folder of the path for each file? This is the name of the runtime directory, and the argument you should pass to <code>run_matrix.sh</code>.  </p>
+<p>Finally, the wrapper script needs to not only setup HMMER, but actually run the program. Add the following lines to your <code>run_hmmer.sh</code> wrapper script. </p>
+<div class="codehilite"><pre><span></span><code>hmmbuild globins4.hmm globins4.sto
+hmmsearch -o search-results.txt globins4.hmm globins45.fa
+</code></pre></div>
+
+</li>
+<li>
+<p>Make sure the wrapper script has executable permissions: </p>
+<div class="codehilite"><pre><span></span><code><span class="gp">username@learn $ </span>chmod u+x run_HMMER.sh
+</code></pre></div>
+
 </li>
 </ol>
-<h2 id="submitting-the-job">Submitting the Job<a class="headerlink" href="#submitting-the-job" title="Permanent link">&para;</a></h2>
+<h2 id="run-a-hmmer-job">Run a HMMER job<a class="headerlink" href="#run-a-hmmer-job" title="Permanent link">&para;</a></h2>
+<p>We're almost ready! We need two more pieces to run a HMMER job.</p>
 <ol>
 <li>
-<p>Copy an existing submit file into your current directory. The submit file we used for  <a href="../part2-ex2-prepackaged">Exercise 2.2</a> example would be a good candidate, as that example also used a wrapper script. </p>
-</li>
-<li>
-<p>Modify your submit file for this job. </p>
-</li>
-<li>
-<p>Check your changes against the list below.</p>
-<ul>
-<li>
-<p>The <code>executable</code> for this job is going to be our wrapper script <code>run_matrix.sh</code>. </p>
-<div class="codehilite"><pre><span></span><code>executable = run_matrix.sh
+<p>We're going to use some of the tutorial files provided with the HMMER download to 
+run the job. To access them, we'll unzip the HMMER download in our home directory: </p>
+<div class="codehilite"><pre><span></span><code><span class="gp">username@learn $ </span>tar -xzf hmmer.tar.gz
 </code></pre></div>
 
 </li>
 <li>
-<p>You need to transfer the compiled binary <code>matrix</code>, as well as the runtime <code>.tar.gz</code> file, using <code>transfer_input_files</code>. </p>
-<div class="codehilite"><pre><span></span><code>transfer_input_files = matrix, r2015b.tar.gz
+<p>Our last step is to create a submit file for our HMMER job. Think about which lines this submit file will need. Make a copy of a previous submit file (you could use the blast submit file from a <a href="../part4-ex2-wrapper">previous exercise</a> as a base) and modify it as you think necessary.</p>
+</li>
+<li>
+<p>The two most important lines to modify for this job are listed below; check them against your own submit file: </p>
+<div class="codehilite"><pre><span></span><code>executable = run_hmmer.sh
+transfer_input_files = hmmer-build.tar.gz, hmmer-3.3.2/tutorial/
 </code></pre></div>
 
+<p>A wrapper script will always be a job's <code>executable</code>.
+When using a wrapper script, you must also always remember to transfer the software/source code using
+<code>transfer_input_files</code>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The <code>/</code> in the <code>transfer_input_files</code> line indicates that we are transferring the <em>contents</em> of that directory (which in this case, is what we want), rather than the directory itself.</p>
+</div>
 </li>
 <li>
-<p>The argument for the executable (<code>run_matrix.sh</code>) is "v90", as that is the name of the un-tarred runtime directory. </p>
-<div class="codehilite"><pre><span></span><code>arguments = v90
-</code></pre></div>
-
+<p>Submit the job with <code>condor_submit</code>.</p>
 </li>
 <li>
-<p>We need to request plenty of disk space for the runtime. </p>
-<div class="codehilite"><pre><span></span><code>request_disk = 2GB
-</code></pre></div>
-
-</li>
-</ul>
-</li>
-<li>
-<p>Submit the job using <code>condor_submit</code>.  </p>
-</li>
-<li>
-<p>After it completes, the job should have produced a file called <code>results.txt</code>.  </p>
+<p>Once the job completes, it should produce a <code>search-results.txt</code> file.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>For a very similar compiling example, see this guide on how to 
+compile <code>samtools</code>: <a href="https://support.opensciencegrid.org/support/solutions/articles/12000074984-example-software-compilation">Example Software Compilation</a></p>
+</div>
 </li>
 </ol>
                 

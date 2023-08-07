@@ -9,14 +9,14 @@
       
       
       
-        <link rel="canonical" href="https://osg-htc.org/user-school-2023/materials/software/part1-ex2-wrapper/">
+        <link rel="canonical" href="https://osg-htc.org/user-school-2023/materials/software/part1-ex3-docker-jobs/">
       
       <link rel="icon" href="../../../assets/OSG_Logo.png">
       <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-7.1.0">
     
     
       
-        <title>Part1 ex2 wrapper - OSG School 2023</title>
+        <title>Part1 ex3 docker jobs - OSG School 2023</title>
       
     
     
@@ -65,7 +65,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#software-exercise-12-writing-a-wrapper-script" class="md-skip">
+        <a href="#software-exercise-13-use-docker-containers-in-ospool-jobs" class="md-skip">
           Skip to content
         </a>
       
@@ -94,7 +94,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Part1 ex2 wrapper
+              Part1 ex3 docker jobs
             
           </span>
         </div>
@@ -399,6 +399,87 @@
   
 
     
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" >
+      
+      <label class="md-nav__link" for="__nav_5">
+        Materials
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Materials" data-md-level="1">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          Materials
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../" class="md-nav__link">
+        Overview
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_2" type="checkbox" id="__nav_5_2" >
+      
+      <label class="md-nav__link" for="__nav_5_2">
+        HTC Exercises
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="HTC Exercises" data-md-level="2">
+        <label class="md-nav__title" for="__nav_5_2">
+          <span class="md-nav__icon md-icon"></span>
+          HTC Exercises
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../htcondor/part1-ex1-login/" class="md-nav__link">
+        Exercise 1.1
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -424,29 +505,22 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#background" class="md-nav__link">
-    Background
+  <a href="#create-local-copy-of-docker-container" class="md-nav__link">
+    Create Local Copy of Docker Container
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#wrapper-script-part-1" class="md-nav__link">
-    Wrapper Script, part 1
+  <a href="#submit-file-and-executable" class="md-nav__link">
+    Submit File and Executable
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#submit-file-changes" class="md-nav__link">
-    Submit File Changes
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#wrapper-script-part-2" class="md-nav__link">
-    Wrapper Script, part 2
+  <a href="#finding-docker-containers" class="md-nav__link">
+    Finding Docker Containers
   </a>
   
 </li>
@@ -466,85 +540,59 @@
                 
                 <style type="text/css"> pre em { font-style: normal; background-color: yellow; } pre strong { font-style: normal; font-weight: bold; color: #008; } </style>
 
-<h1 id="software-exercise-12-writing-a-wrapper-script">Software Exercise 1.2: Writing a Wrapper Script<a class="headerlink" href="#software-exercise-12-writing-a-wrapper-script" title="Permanent link">&para;</a></h1>
-<p>In this exercise, you will create a wrapper script to run the same program (<code>blastx</code>) as the <a href="../part1-ex1-download">previous exercise</a>.</p>
-<h2 id="background">Background<a class="headerlink" href="#background" title="Permanent link">&para;</a></h2>
-<p>Wrapper scripts are a useful tool for running software that can't be compiled into one piece, needs to be installed with every job, or just for running extra steps.  A wrapper script can either install the software from the source code, or use an already existing software (as in this exercise). Not only does this portability technique work with almost any kind of software that can be locally installed, it also allows for a great deal of control and flexibility for what happens within your job. Once you can write a script to handle your software (and often your data as well), you can submit a large variety of workflows to a distributed computing system like the Open Science Grid.</p>
-<p>For this exercise, we will write a wrapper script as an alternate way to run the same job as the previous exercise. </p>
-<h2 id="wrapper-script-part-1">Wrapper Script, part 1<a class="headerlink" href="#wrapper-script-part-1" title="Permanent link">&para;</a></h2>
-<p>Our wrapper script will be a bash script that runs several commands.</p>
+<h1 id="software-exercise-13-use-docker-containers-in-ospool-jobs">Software Exercise 1.3: Use Docker Containers in OSPool Jobs<a class="headerlink" href="#software-exercise-13-use-docker-containers-in-ospool-jobs" title="Permanent link">&para;</a></h1>
+<p><strong>Objective</strong>: Create a local copy of a Docker container, use it to submit a job. </p>
+<p><strong>Why learn this?</strong>: Same as the previous exercise; this may also be how you end up 
+submitting your jobs if you can find an existing Docker container with your software.  </p>
+<h2 id="create-local-copy-of-docker-container">Create Local Copy of Docker Container<a class="headerlink" href="#create-local-copy-of-docker-container" title="Permanent link">&para;</a></h2>
+<p>While it is technically possible to use a Docker container directly in a job, 
+there are some good reasons for converting it to a local Apptainer container first. 
+We'll do this with the same <code>python:3.10</code> Docker container we used in the 
+<a href="../part1-ex1-run-apptainer">first exercise</a>. </p>
+<p>To convert the Docker container to a local Apptainer container, run: </p>
+<div class="codehilite"><pre><span></span><code><span class="gp">$ </span>apptainer build local-py310.sif docker://python:3.10
+</code></pre></div>
+
+<p>The first argument after <code>build</code> is the name of the new Apptainer container file, the 
+second argument is what we're building from (in this case, Docker). </p>
+<h2 id="submit-file-and-executable">Submit File and Executable<a class="headerlink" href="#submit-file-and-executable" title="Permanent link">&para;</a></h2>
 <ol>
 <li>
-<p>In the same directory as the last exercise (still logged into <code>login04.osgconnect.net</code>) make a file called <code>run_blast.sh</code>. </p>
+<p>Make a copy of your submit file from the <a href="../part1-ex2-apptainer-jobs">previous container exercise</a> or build from an existing submit file. </p>
 </li>
 <li>
-<p>The first line we'll place in the script is the basic command for running blast. Based on our previous submit file, what command needs to go into the script? </p>
-</li>
-<li>
-<p>Once you have an idea, check against the example below:  </p>
-<div class="codehilite"><pre><span></span><code><span class="ch">#!/bin/bash</span>
-
-ncbi-blast-2.12.0+/bin/blastx -db pdbaa/pdbaa -query mouse.fa -out results.txt
+<p>Add the following lines to the submit file or modify existing lines to match the lines below: </p>
+<div class="codehilite"><pre><span></span><code>universe = container
+container_image = local-py310.sif
 </code></pre></div>
 
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>The "header" of <code>#!/bin/bash</code> will tell the computer that this is a bash shell script and can be run in the same way that  you would run individual commands on the command line.</p>
-</div>
+</li>
+<li>
+<p>Use the same executable as the <a href="../part1-ex2-apptainer-jobs">previous exercise</a>. </p>
+</li>
+<li>
+<p>Once these steps are done, submit the job.</p>
 </li>
 </ol>
-<h2 id="submit-file-changes">Submit File Changes<a class="headerlink" href="#submit-file-changes" title="Permanent link">&para;</a></h2>
-<p>We now need to make some changes to our submit file.</p>
-<ol>
+<h2 id="finding-docker-containers">Finding Docker Containers<a class="headerlink" href="#finding-docker-containers" title="Permanent link">&para;</a></h2>
+<p>There are a lot of Docker containers on Docker Hub, but they are not all 
+created equal. Anyone can create an account on Docker Hub and share container images there, so it’s important to exercise caution when choosing a container image on Docker Hub. These are some indicators that a container image on Docker Hub is consistently maintained, functional and secure:</p>
+<ul>
+<li>The container image is updated regularly.</li>
+<li>The container image is associated with a well established company, community, or other group that is well-known.</li>
+<li>There is a Dockerfile or other listing of what has been installed to the container image.</li>
 <li>
-<p>Make a copy of your previous submit file and open it to edit. </p>
+<p>The container image page has documentation on how to use the container image. [^1]</p>
 </li>
 <li>
-<p>Since we are now using a wrapper script, that will be our job's executable. Replace the original <code>blastx</code> exeuctable with the name of our wrapper script and comment out the arguments line.  </p>
-<div class="codehilite"><pre><span></span><code>executable = run_blast.sh 
-#arguments =
-</code></pre></div>
-
+<p>Can you find a container on <a href="https://hub.docker.com/">Docker Hub</a> that would be 
+useful for running Jupyter notebooks that use tensorflow? </p>
 </li>
 <li>
-<p>Note that since the <code>blastx</code> program is no longer listed as the executable, it will be need to be included in <code>transfer_input_files</code>. Instead of transferring just that program, we will transfer the original downloaded <code>tar.gz</code> file. To achieve efficiency, we'll also transfer the <span style="color:BLUE">pdbaa database</span> as the original <code>tar.gz</code> file instead of as the unzipped folder: </p>
-<div class="codehilite"><pre><span></span><code><span class="go">transfer_input_files = pdbaa.tar.gz, mouse.fa, ncbi-blast-2.12.0+-x64-linux.tar.gz</span>
-</code></pre></div>
-
+<p>Does your chosen image meet at least 2 of the criteria above? </p>
 </li>
-<li>
-<p>If you really want to be on top of things, look at the log file for the last exercise, and update your memory and disk requests to be just slightly above the actual "Usage" values in the log. </p>
-</li>
-</ol>
-<p>Before submitting, make sure to make the below additional changes to the wrapper script!</p>
-<h2 id="wrapper-script-part-2">Wrapper Script, part 2<a class="headerlink" href="#wrapper-script-part-2" title="Permanent link">&para;</a></h2>
-<p>Now that our database and BLAST software are being transferred to the job as <code>tar.gz</code> files, our script needs to accommodate.</p>
-<ol>
-<li>
-<p>Opening your <code>run_blast.sh</code> script, add two commands at the start to un-tar the BLAST and pdbaa <code>tar.gz</code> files. See the <a href="../part1-ex1-download">previous exercise</a> if you're not sure what these commands looks like. </p>
-</li>
-<li>
-<p>In order to distinguish this job from our previous job, change the output file name to something besides <code>results.txt</code>. </p>
-</li>
-<li>
-<p>The completed script <code>run_blast.sh</code> should look like this: </p>
-<div class="codehilite"><pre><span></span><code><span class="ch">#!/bin/bash</span>
-
-tar -xzf ncbi-blast-2.12.0+-x64-linux.tar.gz 
-tar -xzf pdbaa.tar.gz
-
-ncbi-blast-2.12.0+/bin/blastx -db pdbaa/pdbaa -query mouse.fa -out results2.txt
-</code></pre></div>
-
-</li>
-<li>
-<p>While not strictly necessary, it's a good idea to enable executable permissions on the wrapper script, like so: </p>
-<div class="codehilite"><pre><span></span><code><span class="gp">username@login $ </span>chmod u+x run_blast.sh
-</code></pre></div>
-
-</li>
-</ol>
-<p>Your job is now ready to submit. Submit it using <code>condor_submit</code> and monitor using <code>condor_q</code>.</p>
+</ul>
+<p>[^1]: This list and previous text taken from <a href="https://carpentries-incubator.github.io/docker-introduction/">Introduction to Docker</a></p>
                 
                   
                 

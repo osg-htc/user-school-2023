@@ -9,14 +9,14 @@
       
       
       
-        <link rel="canonical" href="https://osg-htc.org/user-school-2023/materials/software/part2-ex2-prepackaged/">
+        <link rel="canonical" href="https://osg-htc.org/user-school-2023/materials/software/part5-ex2-python/">
       
       <link rel="icon" href="../../../assets/OSG_Logo.png">
       <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-7.1.0">
     
     
       
-        <title>Part2 ex2 prepackaged - OSG School 2023</title>
+        <title>Part5 ex2 python - OSG School 2023</title>
       
     
     
@@ -65,7 +65,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#software-exercise-22-pre-package-a-research-code" class="md-skip">
+        <a href="#software-exercise-52-using-python-pre-built" class="md-skip">
           Skip to content
         </a>
       
@@ -94,7 +94,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Part2 ex2 prepackaged
+              Part5 ex2 python
             
           </span>
         </div>
@@ -399,6 +399,87 @@
   
 
     
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" >
+      
+      <label class="md-nav__link" for="__nav_5">
+        Materials
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Materials" data-md-level="1">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          Materials
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../" class="md-nav__link">
+        Overview
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_2" type="checkbox" id="__nav_5_2" >
+      
+      <label class="md-nav__link" for="__nav_5_2">
+        HTC Exercises
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="HTC Exercises" data-md-level="2">
+        <label class="md-nav__title" for="__nav_5_2">
+          <span class="md-nav__icon md-icon"></span>
+          HTC Exercises
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../htcondor/part1-ex1-login/" class="md-nav__link">
+        Exercise 1.1
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -431,29 +512,15 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#our-software-example" class="md-nav__link">
-    Our Software Example
+  <a href="#interactive-job-for-pre-building" class="md-nav__link">
+    Interactive Job for Pre-Building
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#where-to-prepare" class="md-nav__link">
-    Where to Prepare
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#read-through-installation-documentation" class="md-nav__link">
-    Read Through Installation Documentation
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#installation" class="md-nav__link">
-    Installation
+  <a href="#python-script" class="md-nav__link">
+    Python Script
   </a>
   
 </li>
@@ -466,8 +533,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#run-a-hmmer-job" class="md-nav__link">
-    Run a HMMER job
+  <a href="#submit-file" class="md-nav__link">
+    Submit File
   </a>
   
 </li>
@@ -487,192 +554,162 @@
                 
                 <style type="text/css"> pre em { font-style: normal; background-color: yellow; } pre strong { font-style: normal; font-weight: bold; color: #008; } </style>
 
-<h1 id="software-exercise-22-pre-package-a-research-code">Software Exercise 2.2: Pre-package a Research Code<a class="headerlink" href="#software-exercise-22-pre-package-a-research-code" title="Permanent link">&para;</a></h1>
-<p>In this exercise, you will create an installation of a Bayesian inference package (HMMER) and then create a wrapper script to unpack that installation to run jobs. It should take 30-35 minutes.</p>
+<h1 id="software-exercise-52-using-python-pre-built">Software Exercise 5.2: Using Python, Pre-Built<a class="headerlink" href="#software-exercise-52-using-python-pre-built" title="Permanent link">&para;</a></h1>
+<p>In this exercise, you will install Python, package your installation, and then use it to run jobs. It should take about 20 minutes.</p>
 <h2 id="background">Background<a class="headerlink" href="#background" title="Permanent link">&para;</a></h2>
-<p>Some software cannot be compiled into a single executable, whether you compile it yourself (as in <a href="../part2-ex1-compiling">Software Exercise 2.1</a>) or download it already compiled (as in <a href="../part1-ex1-download">Software Exercise 1.1</a>). In this case, it is necessary to download or create a portable copy of the software and then use a wrapper script (as in <a href="../part1-ex2-wrapper">this exercise</a>) to "install" or run the software on a per job basis. This script can either install the software from the source code, or (as in this exercise), unpack a portable software package that you've pre-built yourself.</p>
-<h2 id="our-software-example">Our Software Example<a class="headerlink" href="#our-software-example" title="Permanent link">&para;</a></h2>
-<p>For this exercise, we will be using the bioinformatics package HMMER. HMMER is a good example of software that is not compiled to a single executable; it has multiple executables as well as a helper library.</p>
+<p><strong>Objective</strong>: Install software (Python) to a folder and run it in a job using a wrapper script. </p>
+<p><strong>Why learn this?</strong>: This is very similar to the <a href="../part5-ex1-prepackaged/">previous exercise</a>. </p>
+<h2 id="interactive-job-for-pre-building">Interactive Job for Pre-Building<a class="headerlink" href="#interactive-job-for-pre-building" title="Permanent link">&para;</a></h2>
+<p>The first step in our job process is building a Python installation that we can package up.</p>
 <ol>
+<li>Create a directory for this exercise on the Access Point and <code>cd</code> into it.</li>
 <li>
-<p>Create a directory for this exercise on the CHTC submit server <code>learn.chtc.wisc.edu</code> (<strong>not</strong> <code>login05.osgconnect.net</code>).</p>
-</li>
-<li>
-<p>Do an internet search to find the HMMER software downloads page and the 
-installation instructions page. On the installation page, there are short instructions for how to install HMMER. There are two options shown for installation -- which should we use?</p>
-</li>
-<li>
-<p>For the purposes of this example, we are going to use the instructions under the heading "...to obtain and compile from source."  Download the HMMER source as shown in 
-these instructions (command should start with <code>wget</code>)</p>
-</li>
-</ol>
-<h2 id="where-to-prepare">Where to Prepare<a class="headerlink" href="#where-to-prepare" title="Permanent link">&para;</a></h2>
-<p>Our goal is to pre-build an HMMER installation, and then write a script that will unpack that installation and run a simulation.</p>
-<ol>
-<li>
-<p>Where can we create this pre-built installation? Based on the end of the lecture, what are our options and which would be most appropriate? Make a guess before moving on.</p>
-</li>
-<li>
-<p>Because we're on the CHTC-based submit node (<code>learn.chtc.wisc.edu</code>), we have the option of using an interactive job to build the HMMER installation. This is a good option because the submit server is already busy with lots of users and we don't know how long the HMMER install will take. We'll also target specific build servers with extra tools by adding some special requirements to our interactive job. </p>
-<ol>
-<li>
-<p>Copy the following lines into a file named <code>build.submit</code></p>
-<div class="codehilite"><pre><span></span><code>log = build.log
-
-should_transfer_files = YES
-when_to_transfer_output = ON_EXIT
-transfer_input_files =
-
-+IsBuildJob = true
-requirements = (IsBuildSlot == true)
-
-request_cpus = 1
-request_disk = 2GB
-request_memory = 2GB
-
-queue
+<p>Download the Python source code from <a href="https://www.python.org/">https://www.python.org/</a>. </p>
+<div class="codehilite"><pre><span></span><code><span class="gp">username@learn $ </span>wget https://www.python.org/ftp/python/3.10.5/Python-3.10.5.tgz
 </code></pre></div>
 
 </li>
 <li>
-<p>Note the lack of executable. Condor doesn't need an executable for this job because it will be interactive, meaning <em>you</em> are running the commands instead of Condor.</p>
-</li>
+<p>First, we have to determine how to install Python to a specific location in our working directory.</p>
+<ol>
+<li>Untar the Python source tarball (<code>tar -xzf Python-3.10.5.tgz</code>) and look at the <code>README.rst</code> file in the <code>Python-3.10.5</code> directory (<code>cd Python-3.10.5</code>).  You'll want to look for the "Build Instructions" header.  What will the main installation steps be?  What command is required for the final installation?  Once you've tried to answer these questions, move to the next step.</li>
 <li>
-<p>In order to create the installation, we will need the source code to come with us. The <code>transfer_input_files</code> line is blank - <strong>fill it in with the name of our HMMER source tarball</strong>.</p>
-</li>
-<li>
-<p>To request an interactive job, we will add a <code>-i</code> flag to the <code>condor_submit</code> command. The whole command you enter should look like this: </p>
-<div class="codehilite"><pre><span></span><code><span class="gp">username@learn $ </span>condor_submit -i build.submit
+<p>There are some basic installation instructions near the top of the <code>README</code>. Based on that short introduction, we can see the main steps of installation will be: </p>
+<div class="codehilite"><pre><span></span><code>./configure
+make
+make test
+sudo make install
 </code></pre></div>
 
+<p>This three-stage process (configure, make, make install) is a common  way to install many software packages.   The default installation  location for Python requires <code>sudo</code> (administrative privileges) to install. However, we'd like to install to a specific location in the working directory  so that we can compress that installation directory into a tarball. </p>
+</li>
+<li>
+<p>You can often use an option called <code>-prefix</code> with the <code>configure</code> script to change the default installation directory. Let's see if the Python <code>configure</code> script has this option by using the "help" option (as suggested in the <code>README.rst</code> file): </p>
+<div class="codehilite"><pre><span></span><code><span class="gp">username@host $ </span>./configure --help
+</code></pre></div>
+
+<p>Sure enough, there's a list of all the different options that can be passed to the <code>configure</code> script, which includes <code>--prefix</code>.  (To see the <code>--prefix</code> option, you may need to scroll towards the top of the output.)  Therefore, we can use the  <code>$PWD</code> command in order to set the path correctly to a custom installation directory. </p>
 </li>
 </ol>
 </li>
-</ol>
-<h2 id="read-through-installation-documentation">Read Through Installation Documentation<a class="headerlink" href="#read-through-installation-documentation" title="Permanent link">&para;</a></h2>
-<p>While you're waiting for the interactive job to start, go back to the installation 
-documentation page and look at the steps for compiling from source. This process 
-should be similar to what was described in the lecture! </p>
-<h2 id="installation">Installation<a class="headerlink" href="#installation" title="Permanent link">&para;</a></h2>
-<p>Your interactive job should have started by now and we've learned about installing our program. Let's test it out.</p>
+<li>
+<p>Now let's actually install Python!</p>
 <ol>
 <li>
-<p>Before we follow the installation instructions, we should create a directory to hold our installation. You can create this in the current directory. </p>
-<div class="codehilite"><pre><span></span><code><span class="gp">username@host $ </span>mkdir hmmer-build
+<p><strong>From the original working directory</strong>, create a directory to hold the installation. </p>
+<div class="codehilite"><pre><span></span><code><span class="gp">username@host $ </span><span class="nb">cd</span>  ../
+<span class="gp">username@host $ </span>mkdir python310
 </code></pre></div>
 
 </li>
 <li>
-<p>Now run the commands to unpack the source code: </p>
-<div class="codehilite"><pre><span></span><code><span class="gp">username@host $ </span>tar -zxf hmmer.tar.gz
-<span class="gp">username@host $ </span><span class="nb">cd</span> hmmer-3.3.2
-</code></pre></div>
-
-</li>
-<li>
-<p>Now we can follow the second set of installation instructions. For the prefix, we'll use the variable <code>$PWD</code> to capture the name of our current working directory and then a relative path to the <code>hmmer-build</code> directory we created in step 1: </p>
-<div class="codehilite"><pre><span></span><code><span class="gp">username@host $ </span>./configure --prefix<span class="o">=</span><span class="nv">$PWD</span>/../hmmer-build
+<p>Move into the <code>Python-3.10.5</code> directory and run the installation commands. These may take a few minutes each. </p>
+<div class="codehilite"><pre><span></span><code><span class="gp">username@host $ </span><span class="nb">cd</span> Python-3.10.5
+<span class="gp">username@host $ </span>./configure --prefix<span class="o">=</span><span class="nv">$PWD</span>/../python310
 <span class="gp">username@host $ </span>make
 <span class="gp">username@host $ </span>make install
 </code></pre></div>
 
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The installation instructions in the <code>README.rst</code> file have a <code>make test</code> step 
+between the <code>make</code> and <code>make install</code> steps.  As this step isn't strictly necessary (and takes a long time), it's been omitted above.  </p>
+</div>
 </li>
 <li>
-<p><strong>Go back to the job's main working directory</strong>: </p>
+<p>If I move back to the main job working directory, and look in the <code>python</code> subdirectory, I should see a Python installation. </p>
 <div class="codehilite"><pre><span></span><code><span class="gp">username@host $ </span><span class="nb">cd</span> ..
-</code></pre></div>
-
-<p>and confirm that our installation procedure created <code>bin</code>,  <code>lib</code>, and <code>share</code> directories. </p>
-<div class="codehilite"><pre><span></span><code><span class="gp">username@host $ </span>ls hmmer-build
-<span class="go">bin share</span>
+<span class="gp">username@host $ </span>ls python310/
+<span class="go">bin  include  lib  share</span>
 </code></pre></div>
 
 </li>
 <li>
-<p>Now we want to package up our installation, so we can use it in other jobs. We can do this by compressing any necessary directories into a single gzipped tarball. </p>
-<div class="codehilite"><pre><span></span><code><span class="gp">username@host $ </span>tar -czf hmmer-build.tar.gz hmmer-build
-</code></pre></div>
-
-</li>
-<li>
-<p>Once everything is complete, type <code>exit</code> to leave the interactive job. Make sure that your tarball is in the main working directory - it will be transferred back to the submit server automatically. </p>
-<div class="codehilite"><pre><span></span><code><span class="gp">username@learn $ </span><span class="nb">exit</span>
+<p>I have successfully created a self-contained Python installation. Now it just needs to be tarred up! </p>
+<div class="codehilite"><pre><span></span><code><span class="gp">username@host $ </span>tar -czf prebuilt_python.tar.gz python310/
 </code></pre></div>
 
 </li>
 </ol>
-<p>Note that we now have two tarballs in our directory -- the <em>source</em> tarball (<code>hmmer.tar.gz</code>), which we will no longer need and our newly built installation (<code>hmmer-build.tar.gz</code>) which is what we will actually be using to run jobs.</p>
-<h2 id="wrapper-script">Wrapper Script<a class="headerlink" href="#wrapper-script" title="Permanent link">&para;</a></h2>
-<p>Now that we've created our portable installation, we need to write a script that opens and uses the installation, similar to the process we used in a <a href="../part1-ex2-wrapper">previous exercise</a>. These steps should be performed back on the submit server (<code>learn.chtc.wisc.edu</code>).</p>
-<ol>
-<li>
-<p>Create a script called <code>run_hmmer.sh</code>. </p>
 </li>
 <li>
-<p>The script will first need to untar our installation, so the script should start out like this:  </p>
+<p>We might want to know how we installed Python for later reference.  Enter the following commands to save our history to a file: </p>
+<div class="codehilite"><pre><span></span><code><span class="gp">username@host $ </span><span class="nb">history</span> &gt; python_install.txt
+</code></pre></div>
+
+</li>
+</ol>
+<h2 id="python-script">Python Script<a class="headerlink" href="#python-script" title="Permanent link">&para;</a></h2>
+<ol>
+<li>
+<p>Create a script with the following lines called <code>fib.py</code>. </p>
+<div class="codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">sys</span>
+<span class="kn">import</span> <span class="nn">os</span>
+
+<span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">2</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Usage: </span><span class="si">%s</span><span class="s1"> MAXIMUM&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">basename</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">0</span><span class="p">])))</span>
+    <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">maximum</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+<span class="n">n1</span> <span class="o">=</span> <span class="n">n2</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="k">while</span> <span class="n">n2</span> <span class="o">&lt;=</span> <span class="n">maximum</span><span class="p">:</span>
+    <span class="n">n1</span><span class="p">,</span> <span class="n">n2</span> <span class="o">=</span> <span class="n">n2</span><span class="p">,</span> <span class="n">n1</span> <span class="o">+</span> <span class="n">n2</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;The greatest Fibonacci number up to </span><span class="si">%d</span><span class="s1"> is </span><span class="si">%d</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">maximum</span><span class="p">,</span> <span class="n">n1</span><span class="p">))</span>
+</code></pre></div>
+
+</li>
+<li>
+<p>What command line arguments does this script take? Try running it on the submit server.</p>
+</li>
+</ol>
+<h2 id="wrapper-script">Wrapper Script<a class="headerlink" href="#wrapper-script" title="Permanent link">&para;</a></h2>
+<p>We now have our Python installation and our Python script - we just need to write a wrapper script to run them.</p>
+<ol>
+<li>What steps do you think the wrapper script needs to perform? Create a file called <code>run_fib.sh</code> and write them out in plain English before moving to the next step.</li>
+<li>Our script will need to<ol>
+<li>untar our <code>prebuilt_python.tar.gz</code> file</li>
+<li>access the <code>python</code> command from our installation to run our <code>fib.py</code> script</li>
+</ol>
+</li>
+<li>Try turning your plain English steps into commands that the computer can run.</li>
+<li>
+<p>Your final <code>run_fib.sh</code> script should look something like this: </p>
 <div class="codehilite"><pre><span></span><code><span class="ch">#!/bin/bash</span>
 
-tar -xzf hmmer-build.tar.gz
+tar -xzf prebuilt_python.tar.gz 
+python310/bin/python3 fib.py <span class="m">90</span>
+</code></pre></div>
+
+<p>or</p>
+<div class="codehilite"><pre><span></span><code><span class="ch">#!/bin/bash</span>
+
+tar -xzf prebuilt_python.tar.gz 
+<span class="nb">export</span> <span class="nv">PATH</span><span class="o">=</span><span class="k">$(</span><span class="nb">pwd</span><span class="k">)</span>/python310/bin:<span class="nv">$PATH</span> 
+python3 fib.py <span class="m">90</span>
 </code></pre></div>
 
 </li>
 <li>
-<p>We're going to use the same <code>$PWD</code> trick from the installation in order to tell the computer how to find HMMER. We will do this by setting the <code>PATH</code> environment variable, to include the directory where HMMER is installed: </p>
-<div class="codehilite"><pre><span></span><code><span class="nb">export</span> <span class="nv">PATH</span><span class="o">=</span><span class="nv">$PWD</span>/hmmer-build/bin:<span class="nv">$PATH</span>
-</code></pre></div>
-
-</li>
-<li>
-<p>Finally, the wrapper script needs to not only setup HMMER, but actually run the program. Add the following lines to your <code>run_hmmer.sh</code> wrapper script. </p>
-<div class="codehilite"><pre><span></span><code>hmmbuild globins4.hmm globins4.sto
-hmmsearch -o search-results.txt globins4.hmm globins45.fa
-</code></pre></div>
-
-</li>
-<li>
-<p>Make sure the wrapper script has executable permissions: </p>
-<div class="codehilite"><pre><span></span><code><span class="gp">username@learn $ </span>chmod u+x run_HMMER.sh
-</code></pre></div>
-
+<p>Make sure your <code>run_fib.sh</code> script is executable.</p>
 </li>
 </ol>
-<h2 id="run-a-hmmer-job">Run a HMMER job<a class="headerlink" href="#run-a-hmmer-job" title="Permanent link">&para;</a></h2>
-<p>We're almost ready! We need two more pieces to run a HMMER job.</p>
+<h2 id="submit-file">Submit File<a class="headerlink" href="#submit-file" title="Permanent link">&para;</a></h2>
 <ol>
 <li>
-<p>We're going to use some of the tutorial files provided with the HMMER download to 
-run the job. To access them, we'll unzip the HMMER download in our home directory: </p>
-<div class="codehilite"><pre><span></span><code><span class="gp">username@learn $ </span>tar -xzf hmmer.tar.gz
+<p>Make a copy of a previous submit file in your local directory (the submit file from 
+the <a href="../part4-ex2-wrapper">Use a Wrapper Script exercise</a> might be a good candidate). What changes need to be made to run this Python job? </p>
+</li>
+<li>
+<p>Modify your submit file, then make sure you've included the key lines below: </p>
+<div class="codehilite"><pre><span></span><code>executable = run_fib.sh
+transfer_input_files = fib.py, prebuilt_python.tar.gz
 </code></pre></div>
 
 </li>
 <li>
-<p>Our last step is to create a submit file for our HMMER job. Think about which lines this submit file will need. Make a copy of a previous submit file (you could use the blast submit file from a <a href="../part1-ex1-wrapper">previous exercise</a> as a base) and modify it as you think necessary.</p>
+<p>Submit the job using <code>condor_submit</code>. </p>
 </li>
 <li>
-<p>The two most important lines to modify for this job are listed below; check them against your own submit file: </p>
-<div class="codehilite"><pre><span></span><code>executable = run_hmmer.sh
-transfer_input_files = hmmer-build.tar.gz, hmmer-3.3.2/tutorial/
-</code></pre></div>
-
-<p>A wrapper script will always be a job's <code>executable</code>.
-When using a wrapper script, you must also always remember to transfer the software/source code using
-<code>transfer_input_files</code>.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>The <code>/</code> in the <code>transfer_input_files</code> line indicates that we are transferring the <em>contents</em> of that directory (which in this case, is what we want), rather than the directory itself.</p>
-</div>
-</li>
-<li>
-<p>Submit the job with <code>condor_submit</code>.</p>
-</li>
-<li>
-<p>Once the job completes, it should produce a <code>search-results.txt</code> file.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>For a very similar compiling example, see this guide on how to 
-compile <code>samtools</code>: <a href="https://support.opensciencegrid.org/support/solutions/articles/12000074984-example-software-compilation">Example Software Compilation</a></p>
-</div>
+<p>Check the <code>.out</code> file to see if the job completed.</p>
 </li>
 </ol>
                 

@@ -9,14 +9,14 @@
       
       
       
-        <link rel="canonical" href="https://osg-htc.org/user-school-2023/materials/software/part4-ex2-docker-build/">
+        <link rel="canonical" href="https://osg-htc.org/user-school-2023/materials/software/part5-ex4-compiling/">
       
       <link rel="icon" href="../../../assets/OSG_Logo.png">
       <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-7.1.0">
     
     
       
-        <title>Part4 ex2 docker build - OSG School 2023</title>
+        <title>Part5 ex4 compiling - OSG School 2023</title>
       
     
     
@@ -65,7 +65,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#software-exercise-43-building-your-own-docker-container-beta" class="md-skip">
+        <a href="#software-exercise-54-compile-statically-linked-code" class="md-skip">
           Skip to content
         </a>
       
@@ -94,7 +94,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Part4 ex2 docker build
+              Part5 ex4 compiling
             
           </span>
         </div>
@@ -399,6 +399,87 @@
   
 
     
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" >
+      
+      <label class="md-nav__link" for="__nav_5">
+        Materials
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Materials" data-md-level="1">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          Materials
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../" class="md-nav__link">
+        Overview
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_2" type="checkbox" id="__nav_5_2" >
+      
+      <label class="md-nav__link" for="__nav_5_2">
+        HTC Exercises
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="HTC Exercises" data-md-level="2">
+        <label class="md-nav__title" for="__nav_5_2">
+          <span class="md-nav__icon md-icon"></span>
+          HTC Exercises
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../htcondor/part1-ex1-login/" class="md-nav__link">
+        Exercise 1.1
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -424,29 +505,22 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#sample-script-and-access-point" class="md-nav__link">
-    Sample Script and Access Point
+  <a href="#our-software-example" class="md-nav__link">
+    Our Software Example
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#getting-set-up" class="md-nav__link">
-    Getting Set Up
+  <a href="#compiling" class="md-nav__link">
+    Compiling
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#building-a-container" class="md-nav__link">
-    Building a Container
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#upload-container-and-submit-job" class="md-nav__link">
-    Upload Container and Submit Job
+  <a href="#submit-the-job" class="md-nav__link">
+    Submit the Job
   </a>
   
 </li>
@@ -464,116 +538,100 @@
               
                 
                 
-                <style type="text/css"> pre em { font-style: normal; background-color: yellow; } pre strong { font-style: normal; font-weight: bold; color: #008; } </style>
+                <style type="text/css"> pre em { font-style: normal; background-color: yellow; } pre strong { font-style: normal; font-weight: bold; color: \#008; } </style>
 
-<h1 id="software-exercise-43-building-your-own-docker-container-beta">Software Exercise 4.3: Building Your Own Docker Container (Beta!)<a class="headerlink" href="#software-exercise-43-building-your-own-docker-container-beta" title="Permanent link">&para;</a></h1>
-<p>This exercise will walk you through the steps to build your own Docker container 
-based on Python, with the <code>numpy</code> Python library added on. </p>
-<h2 id="sample-script-and-access-point">Sample Script and Access Point<a class="headerlink" href="#sample-script-and-access-point" title="Permanent link">&para;</a></h2>
-<p>This example uses the same script, <code>rand_array.py</code> as <a href="../part2-ex5-conda">Exercise 2.5</a></p>
-<p>This exercise <strong>must</strong> be run on <code>learn.chtc.wisc.edu</code></p>
-<h2 id="getting-set-up">Getting Set Up<a class="headerlink" href="#getting-set-up" title="Permanent link">&para;</a></h2>
-<p>Before building your own Docker container, you need to go through the following 
-set up steps: </p>
+<h1 id="software-exercise-54-compile-statically-linked-code">Software Exercise 5.4: Compile Statically Linked Code<a class="headerlink" href="#software-exercise-54-compile-statically-linked-code" title="Permanent link">&para;</a></h1>
+<p><strong>Objective</strong>: Compile code using static linking, explain why this can be useful. </p>
+<p><strong>Why learn this?</strong>: When code is compiled, it is usually linked to other pieces 
+of code on the computer. This can cause it to not work when moved to other computers. 
+Static linking means that all the needed references are included in the compiled code, 
+meaning that it can run almost anywhere. </p>
+<h2 id="our-software-example">Our Software Example<a class="headerlink" href="#our-software-example" title="Permanent link">&para;</a></h2>
+<p>For this compiling example, we will use a script written in C. C code depends on libraries and therefore will benefit from being statically linked.</p>
+<p>Our C code prints 7 rows of Pascal's triangle.</p>
+<ol>
+<li>Log into the Access Point. Create a directory for this exercise and <code>cd</code> into it.</li>
+<li>Copy and paste the following code into a file named <code>pascal.c</code>.<div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf">&quot;stdio.h&quot;</span><span class="cp"></span>
+
+<span class="kt">long</span> <span class="nf">factorial</span><span class="p">(</span><span class="kt">int</span><span class="p">);</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+<span class="kt">int</span> <span class="n">i</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">c</span><span class="p">;</span>
+<span class="n">n</span><span class="o">=</span><span class="mi">7</span><span class="p">;</span>
+<span class="k">for</span> <span class="p">(</span><span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">n</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">){</span>
+  <span class="k">for</span> <span class="p">(</span><span class="n">c</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">c</span> <span class="o">&lt;=</span> <span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="n">i</span> <span class="o">-</span> <span class="mi">2</span><span class="p">);</span> <span class="n">c</span><span class="o">++</span><span class="p">)</span>
+  <span class="n">printf</span><span class="p">(</span><span class="s">&quot; &quot;</span><span class="p">);</span>
+      <span class="k">for</span> <span class="p">(</span><span class="n">c</span> <span class="o">=</span> <span class="mi">0</span> <span class="p">;</span> <span class="n">c</span> <span class="o">&lt;=</span> <span class="n">i</span><span class="p">;</span> <span class="n">c</span><span class="o">++</span><span class="p">)</span>
+         <span class="n">printf</span><span class="p">(</span><span class="s">&quot;%ld &quot;</span><span class="p">,</span><span class="n">factorial</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">factorial</span><span class="p">(</span><span class="n">c</span><span class="p">)</span><span class="o">*</span><span class="n">factorial</span><span class="p">(</span><span class="n">i</span><span class="o">-</span><span class="n">c</span><span class="p">)));</span>
+      <span class="n">printf</span><span class="p">(</span><span class="s">&quot;</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+   <span class="p">}</span>
+   <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kt">long</span> <span class="nf">factorial</span><span class="p">(</span><span class="kt">int</span> <span class="n">n</span><span class="p">)</span>
+<span class="p">{</span>
+   <span class="kt">int</span> <span class="n">c</span><span class="p">;</span>
+   <span class="kt">long</span> <span class="n">result</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+   <span class="k">for</span> <span class="p">(</span><span class="n">c</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="n">c</span> <span class="o">&lt;=</span> <span class="n">n</span><span class="p">;</span> <span class="n">c</span><span class="o">++</span><span class="p">)</span>
+         <span class="n">result</span> <span class="o">=</span> <span class="n">result</span><span class="o">*</span><span class="n">c</span><span class="p">;</span>
+   <span class="k">return</span> <span class="n">result</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+
+</li>
+</ol>
+<h2 id="compiling">Compiling<a class="headerlink" href="#compiling" title="Permanent link">&para;</a></h2>
+<p>In order to use this code in a job, we will first need to statically compile the code. </p>
 <ol>
 <li>
-<p>Install Docker Dekstop on your computer. </p>
+<p>Most linux servers (including our Access Point) have the <code>gcc</code> (GNU compiler collection) installed, so we already have a compiler on the Access Point. Furthermore, this is a simple piece of C code, so the compilation will not be computationally intensive. Thus, we should be able to compile directly on the Access Point</p>
+</li>
+<li>
+<p>Compile the code, using the command: </p>
+<div class="codehilite"><pre><span></span><code><span class="gp">username@login $ </span>gcc -static pascal.c -o pascal
+</code></pre></div>
+
+<p>Note that we have added the <code>-static</code> option to make sure that the compiled binary includes the necessary libraries. This will allow the code to run on any Linux machine, no matter where those libraries are located. </p>
+</li>
+<li>
+<p>Verify that the compiled binary was statically linked:</p>
+<div class="codehilite"><pre><span></span><code><span class="gp">username@login $ </span>file pascal
+</code></pre></div>
+
+</li>
+</ol>
+<p>The Linux <code>file</code> command provides information about the <em>type</em> or <em>kind</em> of file that is given as an argument. In this case, you should get output like this:</p>
+<div class="codehilite"><pre><span></span><code>username@host $ file pascal
+<span class="hll">pascal: ELF 64-bit LSB executable, x86-64, version 1 (GNU/Linux), statically linked,
+</span><span class="hll">for GNU/Linux 2.6.18, not stripped
+</span></code></pre></div>
+
+<p>The output clearly states that this executable (software) is statically linked. The same command run on a non-statically linked executable file would include the text <code>dynamically linked (uses shared libs)</code> instead. So with this simple verification step, which could even be run on files that you did not compile yourself, you have some further reassurance that it is safe to use on other Linux machines. (Bonus exercise: Try the <code>file</code> command on lots of other files)</p>
+<h2 id="submit-the-job">Submit the Job<a class="headerlink" href="#submit-the-job" title="Permanent link">&para;</a></h2>
+<p>Now that our code is compiled, we can use it to submit a job.</p>
+<ol>
+<li>
+<p>Think about what submit file lines we need to use to run this job:</p>
 <ul>
-<li><a href="https://www.docker.com/products/docker-desktop">Docker Desktop page</a></li>
+<li>Are there input files?</li>
+<li>Are there command line arguments?</li>
+<li>Where is its output written?</li>
 </ul>
 </li>
 <li>
-<p>You may need to create a Docker Hub user name to download Docker Desktop; if not 
-created at that step, create a user name for <a href="https://hub.docker.com/">Docker Hub</a> now.</p>
+<p>Based on what you thought about in 1., find a submit file from earlier that you can modify to run our compiled <code>pascal</code> code.</p>
 </li>
 <li>
-<p>(Optional): Once Docker is up and running on your computer, you are welcome to take 
-some time to explore the basics of downloading and running a container, as shown in 
-the initial sections of this Docker lesson:</p>
-<ul>
-<li><a href="https://christinalk.github.io/docker-introduction/">Introduction to Docker</a>
-However, this isn't strictly necessary for building your own container. </li>
-</ul>
+<p>Copy it to the directory with the <code>pascal</code> binary and make those changes. </p>
+</li>
+<li>
+<p>Submit the job using <code>condor_submit</code>. </p>
+</li>
+<li>
+<p>Once the job has run and left the queue, you should be able to see the results (seven rows of Pascal's triangle) in the <code>.out</code> file created by the job.</p>
 </li>
 </ol>
-<h2 id="building-a-container">Building a Container<a class="headerlink" href="#building-a-container" title="Permanent link">&para;</a></h2>
-<p>In order to make our container reproducible, we will be using Docker's capability 
-to build a container image from a specification file.  </p>
-<ol>
-<li>
-<p>First, create an empty build directory on <strong>your computer</strong>, not the CHTC or OSG submit 
-servers. </p>
-</li>
-<li>
-<p>In the build directory, create a file called <code>Dockerfile</code> (no file extension!) with 
-the following contents: </p>
-<div class="codehilite"><pre><span></span><code># Start with this image as a &quot;base&quot;.
-# It&#39;s as if all the commands that created that image were inserted here.
-# Always use a specific tag like &quot;4.10.3&quot;, never &quot;latest&quot;!
-# The version referenced by &quot;latest&quot; can change, so the build will be 
-# more stable when building from a specific version tag. 
-FROM continuumio/miniconda3:4.10.3
-
-# Use RUN to execute commands inside the image as it is being built up.
-RUN conda install --yes numpy
-
-# RUN multiple commands together.
-# Try to always &quot;clean up&quot; after yourself to reduce the final size of your image.
-RUN apt-get update \
-&amp;&amp; apt-get --yes install --no-install-recommends graphviz \
-&amp;&amp; apt-get --yes clean \
-&amp;&amp; rm -rf /var/lib/apt/lists/*
-</code></pre></div>
-
-<p>This is our specification file and provides Docker with the information it needs 
-to build our new container. There are other options besides <code>FROM</code> and <code>RUN</code>; see 
-the <a href="https://docs.docker.com/engine/reference/builder/">Docker documentation</a> for more information. </p>
-</li>
-<li>
-<p>Note that our container is starting from an existing container 
-<code>continuumio/miniconda3:4.10.3</code>. This container is produced by the <code>continuumio</code> 
-organization; the number <code>4.10.3</code> indicates the container version. When we create our 
-new container, we will want to use a similar naming scheme of: </p>
-<div class="codehilite"><pre><span></span><code>USERNAME/CONTAINER:VERSIONTAG
-</code></pre></div>
-
-<p>In what follows, you will want to replace <code>USERNAME</code> with your DockerHub user name. 
-The <code>CONTAINER</code> name and <code>VERSIONTAG</code> are your choice; in what follows, we will 
-use <code>py3-numpy</code> as the container name and <code>2021-08</code> as the version tag. </p>
-</li>
-<li>
-<p>To build and name the new container, open a command line window on your computer 
-where you can run Docker commands. Use the <code>cd</code> command to change your working directory 
-to the build directory with the <code>Dockerfile</code> inside. </p>
-<div class="codehilite"><pre><span></span><code><span class="gp">$ </span>docker build -t USERNAME/py3-numpy:2021-08 .
-</code></pre></div>
-
-<p>Note the <code>.</code> at the end of the command! This indicates that we're using the current 
-directory as our build environment, including the <code>Dockerfile</code> inside. </p>
-</li>
-</ol>
-<h2 id="upload-container-and-submit-job">Upload Container and Submit Job<a class="headerlink" href="#upload-container-and-submit-job" title="Permanent link">&para;</a></h2>
-<p>Right now the container image only exists on your computer. To use it in CHTC or 
-elsewhere, it needs to be added to a public registry like Docker Hub. </p>
-<ol>
-<li>
-<p>To put your container image in Docker Hub, use the <code>docker push</code> command on the 
-command line:</p>
-<div class="codehilite"><pre><span></span><code><span class="gp">$ </span>docker push USERNAME/py3-numpy:2021-08
-</code></pre></div>
-
-<p>If the push doesn't work, you may need to run <code>docker login</code> first, enter your 
-Docker Hub username and password and then try the push again. </p>
-</li>
-<li>
-<p>Once your container image is in DockerHub, you can use it in jobs as described 
-in <a href="../part4-ex2-docker">Exercise 4.2</a>. </p>
-</li>
-</ol>
-<blockquote>
-<p>Thanks to <a href="https://github.com/JoshKarpel/osg-school-example-dockerfile">Josh Karpel</a> for 
-providing the original sample <code>Dockerfile</code>!</p>
-</blockquote>
                 
                   
                 

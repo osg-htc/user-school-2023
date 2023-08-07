@@ -9,14 +9,14 @@
       
       
       
-        <link rel="canonical" href="https://osg-htc.org/user-school-2023/materials/software/part2-ex3-python/">
+        <link rel="canonical" href="https://osg-htc.org/user-school-2023/materials/software/part3-ex1-apptainer-recipes/">
       
       <link rel="icon" href="../../../assets/OSG_Logo.png">
       <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-7.1.0">
     
     
       
-        <title>Part2 ex3 python - OSG School 2023</title>
+        <title>Part3 ex1 apptainer recipes - OSG School 2023</title>
       
     
     
@@ -65,7 +65,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#software-exercise-23-using-python-pre-built" class="md-skip">
+        <a href="#software-exercise-31-create-an-apptainer-definition-file" class="md-skip">
           Skip to content
         </a>
       
@@ -94,7 +94,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Part2 ex3 python
+              Part3 ex1 apptainer recipes
             
           </span>
         </div>
@@ -399,6 +399,87 @@
   
 
     
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" >
+      
+      <label class="md-nav__link" for="__nav_5">
+        Materials
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Materials" data-md-level="1">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          Materials
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../" class="md-nav__link">
+        Overview
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_2" type="checkbox" id="__nav_5_2" >
+      
+      <label class="md-nav__link" for="__nav_5_2">
+        HTC Exercises
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="HTC Exercises" data-md-level="2">
+        <label class="md-nav__title" for="__nav_5_2">
+          <span class="md-nav__icon md-icon"></span>
+          HTC Exercises
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../htcondor/part1-ex1-login/" class="md-nav__link">
+        Exercise 1.1
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -424,36 +505,29 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#background" class="md-nav__link">
-    Background
+  <a href="#where-to-start" class="md-nav__link">
+    Where to start
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#interactive-job-for-pre-building" class="md-nav__link">
-    Interactive Job for Pre-Building
+  <a href="#files-needed-for-building-or-running" class="md-nav__link">
+    Files needed for building or running
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#python-script" class="md-nav__link">
-    Python Script
+  <a href="#commands-to-install" class="md-nav__link">
+    Commands to install
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#wrapper-script" class="md-nav__link">
-    Wrapper Script
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#submit-file" class="md-nav__link">
-    Submit File
+  <a href="#environment" class="md-nav__link">
+    Environment
   </a>
   
 </li>
@@ -471,185 +545,91 @@
               
                 
                 
-                <style type="text/css"> pre em { font-style: normal; background-color: yellow; } pre strong { font-style: normal; font-weight: bold; color: #008; } </style>
+                <style type="text/css"> pre em { font-style: normal; background-color: yellow; } pre strong { font-style: normal; font-weight: bold; color: \#008; } </style>
 
-<h1 id="software-exercise-23-using-python-pre-built">Software Exercise 2.3: Using Python, Pre-Built<a class="headerlink" href="#software-exercise-23-using-python-pre-built" title="Permanent link">&para;</a></h1>
-<p>In this exercise, you will install Python, package your installation, and then use it to run jobs. It should take about 20 minutes.</p>
-<h2 id="background">Background<a class="headerlink" href="#background" title="Permanent link">&para;</a></h2>
-<p>We chose Python as the language for this example because: a) it is a common language used for scientific computing and b) it has a straightforward installation process and is fairly portable.</p>
-<p>Running any Python script requires an installation of the Python interpreter. The Python interpreter is what we're using when we type <code>python</code> at the command line. In order to run Python jobs on a distributed system, you will need to install the Python interpreter (what we often refer to as just "installing Python"), within the job, then run your Python script.</p>
-<p>There are two installation approaches. The approach we will cover in this exercise is that of "pre-building" the installation. We will install Python to a specific directory, and then create a tarball of that installation directory. We can then use our tarball within jobs to run Python scripts.</p>
-<h2 id="interactive-job-for-pre-building">Interactive Job for Pre-Building<a class="headerlink" href="#interactive-job-for-pre-building" title="Permanent link">&para;</a></h2>
-<p>The first step in our job process is building a Python installation that we can package up.</p>
-<ol>
-<li>Create a directory for this exercise on <code>learn.chtc.wisc.edu</code> and <code>cd</code> into it.</li>
-<li>
-<p>Download the Python source code from <a href="https://www.python.org/">https://www.python.org/</a>. </p>
-<div class="codehilite"><pre><span></span><code><span class="gp">username@learn $ </span>wget https://www.python.org/ftp/python/3.10.5/Python-3.10.5.tgz
+<h1 id="software-exercise-31-create-an-apptainer-definition-file">Software Exercise 3.1: Create an Apptainer Definition File<a class="headerlink" href="#software-exercise-31-create-an-apptainer-definition-file" title="Permanent link">&para;</a></h1>
+<p><strong>Objective</strong>: Describe each major section of an Apptainer Definition file. </p>
+<p><strong>Why learn this?</strong>: When building your own containers, it is helpful to understand 
+the basic options and syntax of the "build" or definition file. </p>
+<table>
+<thead>
+<tr>
+<th>Section</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#where-to-start">Bootstrap/From</a></td>
+</tr>
+<tr>
+<td><a href="#files-needed-for-building-or-running">%files</a></td>
+</tr>
+<tr>
+<td><a href="#commnds-to-install">%files</a></td>
+</tr>
+<tr>
+<td><a href="#environment">%files</a></td>
+</tr>
+</tbody>
+</table>
+<h2 id="where-to-start">Where to start<a class="headerlink" href="#where-to-start" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span><code>Bootstrap: docker
+From: opensciencegrid/osgvo-ubuntu-20.04:latest
 </code></pre></div>
 
-</li>
-<li>
-<p>Of our options - submit server, interactive job, personal computer - which should we use for this installation/packaging process? Once you have a guess, move to the next step.</p>
-</li>
-<li>
-<p>Due to the number of people on our submit server, we shouldn't use the submit server. Your own computer probably doesn't have the right operating system. The best place to install will be an interactive job. For this job, we can use the same interactive submit file as Exercise 2.2, with one change. What is it?</p>
-</li>
-<li>
-<p>Make a copy of the interactive submit file from <a href="../part2-ex2-prepackaged">Exercise 2.2</a> and change the <code>transfer_input_files</code> line to the Python tarball you just downloaded. Then submit it using the <code>-i</code> flag. </p>
-<div class="codehilite"><pre><span></span><code><span class="gp">username@learn $ </span>condor_submit -i build.submit
+<p>A custom container always is always built on an existing container. It is common 
+to use a container on Docker Hub. These lines tell Apptainer to pull the 
+pre-existing image from Docker Hub, and to use it as the base for the 
+container that will be built using this definition file.</p>
+<p>When choosing a base container, try to find one that has most of what you need - for 
+example, if you want to install R packages, try to find a container that already 
+has R installed. </p>
+<h2 id="files-needed-for-building-or-running">Files needed for building or running<a class="headerlink" href="#files-needed-for-building-or-running" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span><code>%files
+  source_code.tar.gz /opt
+  install.R
 </code></pre></div>
 
-</li>
-<li>
-<p>Once the interactive job begins, we can start our installation process. First, we have to determine how to install Python to a specific location in our working directory.</p>
-<ol>
-<li>Untar the Python source tarball and look at the <code>README.rst</code> file in the <code>Python-3.10.5</code> directory.  You'll want to look for the "Build Instructions" header.  What will the main installation steps be?  What command is required for the final installation?  Once you've tried to answer these questions, move to the next step.</li>
-<li>
-<p>There are some basic installation instructions near the top of the <code>README</code>. Based on that short introduction, we can see the main steps of installation will be: </p>
-<div class="codehilite"><pre><span></span><code>./configure
-make
-make test
-sudo make install
+<p>If you need specific files for the installation (like source code) or 
+for the job to execute (like small data files or scripts), they can be 
+copied into the container under the <code>%files</code> section.  The first item on a line 
+is what to copy (from your computer) and the optional second item is where it 
+should be copied in the container. </p>
+<p>Normally the files being copied are in your local working directory where 
+you run the build command. </p>
+<h2 id="commands-to-install">Commands to install<a class="headerlink" href="#commands-to-install" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span><code>%post
+  apt-get update -y
+  apt-get install -y \
+        build-essential \
+        cmake \
+        g++ \
+        r-base-dev
+  install2.r tidyverse
 </code></pre></div>
 
-<p>This three-stage process (configure, make, make install) is a common  way to install many software packages.   The default installation  location for Python requires <code>sudo</code> (administrative privileges) to install. However, we'd like to install to a specific location in the working directory  so that we can compress that installation directory into a tarball. </p>
-</li>
-<li>
-<p>You can often use an option called <code>-prefix</code> with the <code>configure</code> script to change the default installation directory. Let's see if the Python <code>configure</code> script has this option by using the "help" option (as suggested in the <code>README.rst</code> file): </p>
-<div class="codehilite"><pre><span></span><code><span class="gp">username@host $ </span>./configure --help
+<p>This is where most of the installation happens. You can use any shell command here 
+that will work in the base container to install software. These commands might include: 
+- Linux installation tools like <code>apt</code> or <code>yum</code>
+- Scripting specific installers like <code>pip</code>, <code>conda</code> or <code>install.packages()</code>
+- Shell commands like <code>tar</code>, <code>configure</code>, <code>make</code></p>
+<p>Different distributions of Linux often have distinct sets of tools for installing software. The installers for various common Linux distributions are listed below:
+    Ubuntu: apt or apt-get
+    Debian: deb
+    CentOS: yum </p>
+<p>A web search for “install X on Y Linux” is usually a good start for common software installation tasks. [^1]</p>
+<p>When installing to a custom location, do <em>not</em> install to a <code>home</code> directory. This is 
+likely to get overwritten when the container is run. Instead, <code>/opt</code> is the best 
+directory for custom installations. </p>
+<h2 id="environment">Environment<a class="headerlink" href="#environment" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span><code>%environment
+  PATH=/opt/mycode/bin:$PATH
+  JAVA_HOME=/opt/java-1.8
 </code></pre></div>
 
-<p>Sure enough, there's a list of all the different options that can be passed to the <code>configure</code> script, which includes <code>--prefix</code>.  (To see the <code>--prefix</code> option, you may need to scroll towards the top of the output.)  Therefore, we can use the  <code>$PWD</code> command in order to set the path correctly to a custom installation directory. </p>
-</li>
-</ol>
-</li>
-<li>
-<p>Now let's actually install Python!</p>
-<ol>
-<li>
-<p><strong>From the job's main working directory</strong>, create a directory to hold the installation. </p>
-<div class="codehilite"><pre><span></span><code><span class="gp">username@host $ </span><span class="nb">cd</span> <span class="nv">$_CONDOR_SCRATCH_DIR</span>
-<span class="gp">username@host $ </span>mkdir python
-</code></pre></div>
-
-</li>
-<li>
-<p>Move into the <code>Python-3.10.5</code> directory and run the installation commands. These may take a few minutes each. </p>
-<div class="codehilite"><pre><span></span><code><span class="gp">username@host $ </span><span class="nb">cd</span> Python-3.10.5
-<span class="gp">username@host $ </span>./configure --prefix<span class="o">=</span><span class="nv">$PWD</span>/../python
-<span class="gp">username@host $ </span>make
-<span class="gp">username@host $ </span>make install
-</code></pre></div>
-
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>The installation instructions in the <code>README.rst</code> file have a <code>make test</code> step 
-between the <code>make</code> and <code>make install</code> steps.  As this step isn't strictly necessary (and takes a long time), it's been omitted above.  </p>
-</div>
-</li>
-<li>
-<p>If I move back to the main job working directory, and look in the <code>python</code> subdirectory, I should see a Python installation. </p>
-<div class="codehilite"><pre><span></span><code><span class="gp">username@host $ </span><span class="nb">cd</span> ..
-<span class="gp">username@host $ </span>ls python/
-<span class="go">bin  include  lib  share</span>
-</code></pre></div>
-
-</li>
-<li>
-<p>I have successfully created a self-contained Python installation. Now it just needs to be tarred up! </p>
-<div class="codehilite"><pre><span></span><code><span class="gp">username@host $ </span>tar -czf prebuilt_python.tar.gz python/
-</code></pre></div>
-
-</li>
-</ol>
-</li>
-<li>
-<p>Before exiting, we might want to know how we installed Python for later reference.  Enter the following commands to save our history to a file: </p>
-<div class="codehilite"><pre><span></span><code><span class="gp">username@host $ </span><span class="nb">history</span> &gt; python_install.txt
-</code></pre></div>
-
-</li>
-<li>
-<p>Exit the interactive job. </p>
-<div class="codehilite"><pre><span></span><code><span class="gp">username@host $ </span><span class="nb">exit</span>
-</code></pre></div>
-
-</li>
-</ol>
-<h2 id="python-script">Python Script<a class="headerlink" href="#python-script" title="Permanent link">&para;</a></h2>
-<ol>
-<li>
-<p>Create a script with the following lines called <code>fib.py</code>. </p>
-<div class="codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">sys</span>
-<span class="kn">import</span> <span class="nn">os</span>
-
-<span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">2</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Usage: </span><span class="si">%s</span><span class="s1"> MAXIMUM&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">basename</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">0</span><span class="p">])))</span>
-    <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
-<span class="n">maximum</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
-<span class="n">n1</span> <span class="o">=</span> <span class="n">n2</span> <span class="o">=</span> <span class="mi">1</span>
-<span class="k">while</span> <span class="n">n2</span> <span class="o">&lt;=</span> <span class="n">maximum</span><span class="p">:</span>
-    <span class="n">n1</span><span class="p">,</span> <span class="n">n2</span> <span class="o">=</span> <span class="n">n2</span><span class="p">,</span> <span class="n">n1</span> <span class="o">+</span> <span class="n">n2</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;The greatest Fibonacci number up to </span><span class="si">%d</span><span class="s1"> is </span><span class="si">%d</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">maximum</span><span class="p">,</span> <span class="n">n1</span><span class="p">))</span>
-</code></pre></div>
-
-</li>
-<li>
-<p>What command line arguments does this script take? Try running it on the submit server.</p>
-</li>
-</ol>
-<h2 id="wrapper-script">Wrapper Script<a class="headerlink" href="#wrapper-script" title="Permanent link">&para;</a></h2>
-<p>We now have our Python installation and our Python script - we just need to write a wrapper script to run them.</p>
-<ol>
-<li>What steps do you think the wrapper script needs to perform? Create a file called <code>run_fib.sh</code> and write them out in plain English before moving to the next step.</li>
-<li>Our script will need to<ol>
-<li>untar our <code>prebuilt_python.tar.gz</code> file</li>
-<li>access the <code>python</code> command from our installation to run our <code>fib.py</code> script</li>
-</ol>
-</li>
-<li>Try turning your plain English steps into commands that the computer can run.</li>
-<li>
-<p>Your final <code>run_fib.sh</code> script should look something like this: </p>
-<div class="codehilite"><pre><span></span><code><span class="ch">#!/bin/bash</span>
-
-tar -xzf prebuilt_python.tar.gz 
-python/bin/python3 fib.py <span class="m">90</span>
-</code></pre></div>
-
-<p>or</p>
-<div class="codehilite"><pre><span></span><code><span class="ch">#!/bin/bash</span>
-
-tar -xzf prebuilt_python.tar.gz 
-<span class="nb">export</span> <span class="nv">PATH</span><span class="o">=</span><span class="k">$(</span><span class="nb">pwd</span><span class="k">)</span>/python/bin:<span class="nv">$PATH</span> 
-python3 fib.py <span class="m">90</span>
-</code></pre></div>
-
-</li>
-<li>
-<p>Make sure your <code>run_fib.sh</code> script is executable.</p>
-</li>
-</ol>
-<h2 id="submit-file">Submit File<a class="headerlink" href="#submit-file" title="Permanent link">&para;</a></h2>
-<ol>
-<li>
-<p>Make a copy of a previous submit file in your local directory (the submit file from 
-the <a href="../part1-ex2-wrapper">Use a Wrapper Script exercise</a> might be a good candidate). What changes need to be made to run this Python job? </p>
-</li>
-<li>
-<p>Modify your submit file, then make sure you've included the key lines below: </p>
-<div class="codehilite"><pre><span></span><code>executable = run_fib.sh
-transfer_input_files = fib.py, prebuilt_python.tar.gz
-</code></pre></div>
-
-</li>
-<li>
-<p>Submit the job using <code>condor_submit</code>. </p>
-</li>
-<li>
-<p>Check the <code>.out</code> file to see if the job completed.</p>
-</li>
-</ol>
+<p>To set environment variables (especially useful for software in a custom location), 
+use the <code>%environment</code> section of the definition file. </p>
+<p>[^1]: This text and previous list taken from <a href="https://carpentries-incubator.github.io/docker-introduction/">Introduction to Docker</a></p>
                 
                   
                 

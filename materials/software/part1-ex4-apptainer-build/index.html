@@ -9,14 +9,14 @@
       
       
       
-        <link rel="canonical" href="https://osg-htc.org/user-school-2023/materials/software/part1-ex1-download/">
+        <link rel="canonical" href="https://osg-htc.org/user-school-2023/materials/software/part1-ex4-apptainer-build/">
       
       <link rel="icon" href="../../../assets/OSG_Logo.png">
       <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-7.1.0">
     
     
       
-        <title>Part1 ex1 download - OSG School 2023</title>
+        <title>Part1 ex4 apptainer build - OSG School 2023</title>
       
     
     
@@ -65,7 +65,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#software-exercise-11-using-a-pre-compiled-binary" class="md-skip">
+        <a href="#software-exercise-14-build-test-and-deploy-an-apptainer-container" class="md-skip">
           Skip to content
         </a>
       
@@ -94,7 +94,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Part1 ex1 download
+              Part1 ex4 apptainer build
             
           </span>
         </div>
@@ -399,6 +399,87 @@
   
 
     
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" >
+      
+      <label class="md-nav__link" for="__nav_5">
+        Materials
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Materials" data-md-level="1">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          Materials
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../" class="md-nav__link">
+        Overview
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_2" type="checkbox" id="__nav_5_2" >
+      
+      <label class="md-nav__link" for="__nav_5_2">
+        HTC Exercises
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="HTC Exercises" data-md-level="2">
+        <label class="md-nav__title" for="__nav_5_2">
+          <span class="md-nav__icon md-icon"></span>
+          HTC Exercises
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../htcondor/part1-ex1-login/" class="md-nav__link">
+        Exercise 1.1
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -424,29 +505,36 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#background" class="md-nav__link">
-    Background
+  <a href="#motivating-script" class="md-nav__link">
+    Motivating Script
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#our-software-example" class="md-nav__link">
-    Our Software Example
+  <a href="#preparing-a-definition-file" class="md-nav__link">
+    Preparing a Definition File
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#copy-the-input-files" class="md-nav__link">
-    Copy the Input Files
+  <a href="#build-the-container" class="md-nav__link">
+    Build the Container
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#submitting-the-job" class="md-nav__link">
-    Submitting the Job
+  <a href="#testing-the-image-locally" class="md-nav__link">
+    Testing the Image Locally
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#submit-a-job" class="md-nav__link">
+    Submit a Job
   </a>
   
 </li>
@@ -464,159 +552,131 @@
               
                 
                 
-                <style type="text/css"> pre em { font-style: normal; background-color: yellow; } pre strong { font-style: normal; font-weight: bold; color: \#008; } </style>
+                <style type="text/css">
+  pre em { font-style: normal; background-color: yellow; }
+  pre strong { font-style: normal; font-weight: bold; color: \#008; }
+</style>
 
-<h1 id="software-exercise-11-using-a-pre-compiled-binary">Software Exercise 1.1: Using a Pre-compiled Binary<a class="headerlink" href="#software-exercise-11-using-a-pre-compiled-binary" title="Permanent link">&para;</a></h1>
-<p>In this exercise, we will run a job using a downloaded, pre-compiled
-binary. This exercise should take 10-15 minutes.</p>
-<h2 id="background">Background<a class="headerlink" href="#background" title="Permanent link">&para;</a></h2>
-<p>This is the simplest scenario for using a particular software program on
-the Open Science Grid - downloading a pre-compiled binary and using it
-to run jobs. </p>
-<h2 id="our-software-example">Our Software Example<a class="headerlink" href="#our-software-example" title="Permanent link">&para;</a></h2>
-<p>The software we will be using for this example is a common tool for
-aligning genome and protein sequences against a
-reference database, the BLAST program.</p>
+<h1 id="software-exercise-14-build-test-and-deploy-an-apptainer-container">Software Exercise 1.4: Build, Test, and Deploy an Apptainer Container<a class="headerlink" href="#software-exercise-14-build-test-and-deploy-an-apptainer-container" title="Permanent link">&para;</a></h1>
+<p><strong>Objective</strong>: to practice building and using a custom
+apptainer container</p>
+<p><strong>Why learn this?</strong>: You may need to go through this process if you 
+want to use a container for your jobs and can't find one that has 
+what you need. </p>
+<h2 id="motivating-script">Motivating Script<a class="headerlink" href="#motivating-script" title="Permanent link">&para;</a></h2>
 <ol>
 <li>
-<p>Search the internet for the BLAST software.  Searches might include
-"blast executable or "download blast software".  Hopefully these
-searches will lead you to a BLAST website page that looks like this:</p>
-<p><img alt="BLAST landing page" src="../files/part1-ex1-blast-landing-page.png" /></p>
-</li>
-<li>
-<p>Click on the title that says <a href="../files/part1-ex1-blast-front-page.png">"Download
-BLAST"</a> and then look for the
-link that has the <a href="../files/part1-ex1-blast-dl-page.png">latest installation and source
-code</a>.  </p>
-<p>This will either open a page in a web browser that looks like this: </p>
-<p><img alt="Download page" src="../files/part1-ex1-blast-dl-list.png" /></p>
-<p>Or you will be asked to open the link in your file browser (choose the 
-Connect as Guest option): </p>
-<p><img alt="Download Folder" src="../files/part1-ex1-blast-dl-folder.png" /></p>
-<p>In either case, you should end up on a
-page with a list of each version of BLAST that is available for
-different operating systems.</p>
-</li>
-<li>
-<p>We could download the source and compile it ourselves, but instead,
-we're going to use one of the pre-built binaries.  <strong>Before proceeding,
-look at the list of downloads and try to determine which one you want.</strong></p>
-</li>
-<li>
-<p>Based on our operating system, we want to use the Linux binary,
-which is labelled with the <code>x64-linux</code> suffix. </p>
-<p><img alt="BLAST download page" src="../files/part1-ex1-blast-dl-list-linux.png" /></p>
-<p><img alt="BLAST download folder" src="../files/part1-ex1-blast-dl-folder-linux.png" /></p>
-<p>All the other links are either for source code or other operating
-systems. </p>
-</li>
-<li>
-<p>While logged into <code>login05.osgconnect.net</code>, create a directory for
-this exercise. Then download the appropriate <code>tar.gz</code> file and un-tar/decompress it
-it. If you want to do this all from the command line, the sequence will 
-look like this (using <code>wget</code> as the download command.) </p>
-<div class="codehilite"><pre><span></span><code><span class="gp">user@login $ </span>wget ftp://ftp.ncbi.nlm.nih.gov/blast/executables/blast+/LATEST//ncbi-blast-2.13.0+-x64-linux.tar.gz
-<span class="gp">user@login $ </span>tar -xzf ncbi-blast-2.13.0+-x64-linux.tar.gz
+<p>Create a script called <code>cowsay.py</code>:</p>
+<div class="codehilite"><pre><span></span><code>#!/usr/bin/env python3
+
+import cowsay
+cowsay.cow(&#39;Hello OSG User School&#39;)
 </code></pre></div>
 
 </li>
 <li>
-<p>We're going to be using the <code>blastx</code> binary in our job. Where is it
-in the directory you just decompressed?</p>
+<p>Give it executable permissions: </p>
+<div class="codehilite"><pre><span></span><code><span class="gp">$ </span>chmod +x cowsay.py
+</code></pre></div>
+
+</li>
+<li>
+<p>Try running the script:</p>
+<div class="codehilite"><pre><span></span><code><span class="gp">$ </span>./cowsay.py
+</code></pre></div>
+
+<p>It will likely fail, because the cowsay library isn't installed. This is a 
+scenario where we will want to build our own container that includes a base 
+Python installation and the <code>cowsay</code> Python library. </p>
 </li>
 </ol>
-<h2 id="copy-the-input-files">Copy the Input Files<a class="headerlink" href="#copy-the-input-files" title="Permanent link">&para;</a></h2>
-<p>To run BLAST, we need an input file and reference database. For this
-example, we'll use the "pdbaa" database, which contains sequences for
-the protein structure from the Protein Data Bank. For our input file,
-we'll use an abbreviated fasta file with mouse genome information.</p>
+<h2 id="preparing-a-definition-file">Preparing a Definition File<a class="headerlink" href="#preparing-a-definition-file" title="Permanent link">&para;</a></h2>
+<p>We can describe our desired Apptainer image in a special format called a 
+<strong>definition file</strong>. This has special keywords that will direct Apptainer 
+when it builds the container image. </p>
 <ol>
-<li>
-<p>Download these files to your current directory: </p>
-<div class="codehilite"><pre><span></span><code><span class="gp">username@login $ </span>wget http://proxy.chtc.wisc.edu/SQUID/osgschool21/pdbaa.tar.gz
-<span class="gp">username@login $ </span>wget http://proxy.chtc.wisc.edu/SQUID/osgschool21/mouse.fa
-</code></pre></div>
+<li>Create a file called <code>py-cowsay.def</code> with these contents: <div class="codehilite"><pre><span></span><code>Bootstrap: docker
+From: opensciencegrid/osgvo-ubuntu-20.04:latest
 
-</li>
-<li>
-<p>Untar the <code>pdbaa</code> database: </p>
-<div class="codehilite"><pre><span></span><code><span class="gp">username@login $ </span>tar -xzf pdbaa.tar.gz
+%post
+    apt-get update -y
+    apt-get install -y \
+            python3-pip \
+            python3-numpy
+    python3 -m pip install cowsay
 </code></pre></div>
 
 </li>
 </ol>
-<h2 id="submitting-the-job">Submitting the Job<a class="headerlink" href="#submitting-the-job" title="Permanent link">&para;</a></h2>
-<p>We now have our program (the pre-compiled <code>blastx</code> binary) and our input
-files, so all that remains is to create the submit file. The form of a
-typical <code>blastx</code> command looks something like this:</p>
-<div class="codehilite"><pre><span></span><code>blastx -db &lt;database_dir/prefix&gt; -query &lt;input_file&gt; -out &lt;output_file&gt;
+<p>Note that we are starting with the same <code>ubuntu</code> base we used in previous 
+exercises. The <code>%post</code> statement includes our installation commands, including 
+updating the <code>pip</code> and <code>numpy</code> packages, and then using <code>pip</code> to install <code>cowsay</code>.</p>
+<p>To learn more about definition files, see <a href="../part3-ex1-apptainer-recipes">Exercise 3.1</a></p>
+<h2 id="build-the-container">Build the Container<a class="headerlink" href="#build-the-container" title="Permanent link">&para;</a></h2>
+<p>Once the definition file is complete, we can build the container. </p>
+<ol>
+<li>Run the following command to build the container: <div class="codehilite"><pre><span></span><code><span class="gp">$ </span>apptainer build py-cowsay.sif py-cowsay.def
 </code></pre></div>
 
+</li>
+</ol>
+<p>As with the Docker image in the <a href="../part1-ex3-docker-jobs">previous exercise</a>, 
+the first argument is the name to give to the newly create image file and the 
+second argument is how to build the container image - in this case, the definition file. </p>
+<h2 id="testing-the-image-locally">Testing the Image Locally<a class="headerlink" href="#testing-the-image-locally" title="Permanent link">&para;</a></h2>
 <ol>
 <li>
-<p>Copy a submit file from one of the Day 2 exercises to use for this
-exercise. </p>
+<p>Do you remember how to interactively test an image? Look back 
+at <a href="../part1-ex1-run-apptainer">Exercise 1.1</a> and guess what command would 
+allow us to test our new container. </p>
 </li>
 <li>
-<p>Think about which lines you will need to change or add to your submit
-file in order to submit the job successfully. In particular:    </p>
-<ul>
-<li>What is the executable?</li>
-<li>How can you indicate the entire command line sequence above?</li>
-<li>Which files need to be transferred in addition to the
-executable?</li>
-<li>Does this job require a certain type of operating system?</li>
-<li>Do you have any idea how much memory or disk to request?</li>
-</ul>
-</li>
-<li>
-<p>Try to answer these questions and modify your submit file
-appropriately.</p>
-</li>
-<li>
-<p>Once you have done all you can, check your submit file against the
-lines below, which contain the exact components to run this particular
-job.</p>
-<ul>
-<li>
-<p>The executable is <code>blastx</code>, which is located in the <code>bin</code>
-directory of our downloaded BLAST directory. We need to use the
-<code>arguments</code> line in the submit file to express the rest of the command. </p>
-<div class="codehilite"><pre><span></span><code>executable = ncbi-blast-2.13.0+/bin/blastx
-arguments = -db pdbaa/pdbaa -query mouse.fa -out results.txt
+<p>Try running: </p>
+<div class="codehilite"><pre><span></span><code><span class="gp">$ </span>singularity shell first-image.sif
 </code></pre></div>
 
 </li>
 <li>
-<p>The BLAST program requires our input file and database, so they
-must be transferred with <code>transfer_input_files</code>. </p>
-<div class="codehilite"><pre><span></span><code>transfer_input_files = pdbaa, mouse.fa
+<p>Then try running the <code>cowsay.py</code> script: </p>
+<div class="codehilite"><pre><span></span><code><span class="go">Singularity&lt; ./cowsay.py</span>
 </code></pre></div>
 
 </li>
 <li>
-<p>Let's assume that we've run this program before, and we know that
-1GB of disk and 1GB of memory will be MORE than enough (the 'log' file
-will tell us how accurate we are, after the job runs): </p>
-<div class="codehilite"><pre><span></span><code>request_memory = 1GB
-request_disk = 1GB
+<p>If it produces an output, our container works! We can now exit (by typing <code>exit</code>)
+and submit a job. </p>
+</li>
+</ol>
+<h2 id="submit-a-job">Submit a Job<a class="headerlink" href="#submit-a-job" title="Permanent link">&para;</a></h2>
+<ol>
+<li>
+<p>Make a copy of a submit file from a previous exercise in this section. Can you 
+guess what options need to be used or modified? </p>
+</li>
+<li>
+<p>Make sure you have the following (in addition to <code>log</code>, <code>error</code>, <code>output</code> and 
+CPU and memory requests): </p>
+<div class="codehilite"><pre><span></span><code>universe = container
+container_image = py-cowsay.sif
+
+executable = cowsay.py
 </code></pre></div>
 
 </li>
 <li>
-<p>Because we downloaded a Linux-specific binary, we need to request
-machines that are running Linux. </p>
-<div class="codehilite"><pre><span></span><code>requirements = (OSGVO_OS_STRING == &quot;RHEL 7&quot;)
+<p>Submit the job and verify the output when it completes. </p>
+<div class="codehilite"><pre><span></span><code>  ______________________
+| Hello OSG User School! |
+  ======================
+                      \
+                       \
+                         ^__^
+                         (oo)\_______
+                         (__)\       )\/\
+                             ||----w |
+                             ||     ||
 </code></pre></div>
 
-</li>
-</ul>
-</li>
-<li>
-<p>Submit the blast job using <code>condor_submit</code>. Once the job starts, it
-should run in just a few minutes and produce a file called
-<code>results.txt</code>.</p>
 </li>
 </ol>
                 

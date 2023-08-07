@@ -9,14 +9,14 @@
       
       
       
-        <link rel="canonical" href="https://osg-htc.org/user-school-2023/materials/software/part2-ex5-conda/">
+        <link rel="canonical" href="https://osg-htc.org/user-school-2023/materials/software/part4-ex1-download/">
       
       <link rel="icon" href="../../../assets/OSG_Logo.png">
       <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-7.1.0">
     
     
       
-        <title>Part2 ex5 conda - OSG School 2023</title>
+        <title>Part4 ex1 download - OSG School 2023</title>
       
     
     
@@ -65,7 +65,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#software-exercise-25-using-conda-environments" class="md-skip">
+        <a href="#software-exercise-41-using-a-pre-compiled-binary" class="md-skip">
           Skip to content
         </a>
       
@@ -94,7 +94,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Part2 ex5 conda
+              Part4 ex1 download
             
           </span>
         </div>
@@ -399,6 +399,87 @@
   
 
     
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" >
+      
+      <label class="md-nav__link" for="__nav_5">
+        Materials
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Materials" data-md-level="1">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          Materials
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../" class="md-nav__link">
+        Overview
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_2" type="checkbox" id="__nav_5_2" >
+      
+      <label class="md-nav__link" for="__nav_5_2">
+        HTC Exercises
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="HTC Exercises" data-md-level="2">
+        <label class="md-nav__title" for="__nav_5_2">
+          <span class="md-nav__icon md-icon"></span>
+          HTC Exercises
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../htcondor/part1-ex1-login/" class="md-nav__link">
+        Exercise 1.1
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -424,29 +505,22 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#introduction" class="md-nav__link">
-    Introduction
+  <a href="#our-software-example" class="md-nav__link">
+    Our Software Example
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#sample-script" class="md-nav__link">
-    Sample Script
+  <a href="#copy-the-input-files" class="md-nav__link">
+    Copy the Input Files
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#create-and-pack-a-conda-environment" class="md-nav__link">
-    Create and Pack a Conda Environment
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#submit-a-job" class="md-nav__link">
-    Submit a Job
+  <a href="#submitting-the-job" class="md-nav__link">
+    Submitting the Job
   </a>
   
 </li>
@@ -464,125 +538,149 @@
               
                 
                 
-                <style type="text/css"> pre em { font-style: normal; background-color: yellow; } pre strong { font-style: normal; font-weight: bold; color: #008; } </style>
+                <style type="text/css"> pre em { font-style: normal; background-color: yellow; } pre strong { font-style: normal; font-weight: bold; color: \#008; } </style>
 
-<h1 id="software-exercise-25-using-conda-environments">Software Exercise 2.5: Using Conda Environments<a class="headerlink" href="#software-exercise-25-using-conda-environments" title="Permanent link">&para;</a></h1>
-<p>This exercise covers how to use Python environments managed by miniconda. </p>
-<h2 id="introduction">Introduction<a class="headerlink" href="#introduction" title="Permanent link">&para;</a></h2>
-<p>Many Python users manage their Python installation and environments with either the
-<code>Anaconda</code> or <code>miniconda</code> distributions. These distribution tools are great 
-for creating portable Python installations and can be used on HTC systems with 
-some help from a tool called <code>conda pack</code>. </p>
-<h2 id="sample-script">Sample Script<a class="headerlink" href="#sample-script" title="Permanent link">&para;</a></h2>
+<h1 id="software-exercise-41-using-a-pre-compiled-binary">Software Exercise 4.1: Using a Pre-compiled Binary<a class="headerlink" href="#software-exercise-41-using-a-pre-compiled-binary" title="Permanent link">&para;</a></h1>
+<p><strong>Objective</strong>: Identify software that can be downloaded; download it and use it to run a job. </p>
+<p><strong>Why learn this?</strong>: Some software doesn't require much "installation" - you can just 
+download it and run. Recognizing when this is possible can save you time. </p>
+<h2 id="our-software-example">Our Software Example<a class="headerlink" href="#our-software-example" title="Permanent link">&para;</a></h2>
+<p>The software we will be using for this example is a common tool for
+aligning genome and protein sequences against a
+reference database, the BLAST program.</p>
 <ol>
-<li>For this example, create a script called <code>rand_array.py</code> on <code>learn.chtc.wisc.edu</code> or
-<code>login04.osgconnect.net</code>:<div class="codehilite"><pre><span></span><code>import numpy as np
+<li>
+<p>Search the internet for the BLAST software.  Searches might include
+"blast executable or "download blast software".  Hopefully these
+searches will lead you to a BLAST website page that looks like this:</p>
+<p><img alt="BLAST landing page" src="../files/part1-ex1-blast-landing-page.png" /></p>
+</li>
+<li>
+<p>Click on the title that says <a href="../files/part1-ex1-blast-front-page.png">"Download
+BLAST"</a> and then look for the
+link that has the <a href="../files/part1-ex1-blast-dl-page.png">latest installation and source
+code</a>.  </p>
+<p>This will either open a page in a web browser that looks like this: </p>
+<p><img alt="Download page" src="../files/part1-ex1-blast-dl-list.png" /></p>
+<p>Or you will be asked to open the link in your file browser (choose the 
+Connect as Guest option): </p>
+<p><img alt="Download Folder" src="../files/part1-ex1-blast-dl-folder.png" /></p>
+<p>In either case, you should end up on a
+page with a list of each version of BLAST that is available for
+different operating systems.</p>
+</li>
+<li>
+<p>We could download the source and compile it ourselves, but instead,
+we're going to use one of the pre-built binaries.  <strong>Before proceeding,
+look at the list of downloads and try to determine which one you want.</strong></p>
+</li>
+<li>
+<p>Based on our operating system, we want to use the Linux binary,
+which is labelled with the <code>x64-linux</code> suffix. </p>
+<p><img alt="BLAST download page" src="../files/part1-ex1-blast-dl-list-linux.png" /></p>
+<p><img alt="BLAST download folder" src="../files/part1-ex1-blast-dl-folder-linux.png" /></p>
+<p>All the other links are either for source code or other operating
+systems. </p>
+</li>
+<li>
+<p>On the Access Point, create a directory for
+this exercise. Then download the appropriate <code>tar.gz</code> file and un-tar/decompress it
+it. If you want to do this all from the command line, the sequence will 
+look like this (using <code>wget</code> as the download command.) </p>
+<div class="codehilite"><pre><span></span><code><span class="gp">user@login $ </span>wget https://ftp.ncbi.nlm.nih.gov/blast/executables/blast+/LATEST/ncbi-blast-2.14.0+-x64-linux.tar.gz
+<span class="gp">user@login $ </span>tar -xzf ncbi-blast-2.14.0+-x64-linux.tar.gz
+</code></pre></div>
 
-#numpy array with random values
-a = np.random.rand(4,2,3)
+</li>
+<li>
+<p>We're going to be using the <code>blastx</code> binary in our job. Where is it
+in the directory you just decompressed?</p>
+</li>
+</ol>
+<h2 id="copy-the-input-files">Copy the Input Files<a class="headerlink" href="#copy-the-input-files" title="Permanent link">&para;</a></h2>
+<p>To run BLAST, we need an input file and reference database. For this
+example, we'll use the "pdbaa" database, which contains sequences for
+the protein structure from the Protein Data Bank. For our input file,
+we'll use an abbreviated fasta file with mouse genome information.</p>
+<ol>
+<li>
+<p>Download these files to your current directory: </p>
+<div class="codehilite"><pre><span></span><code><span class="gp">username@login $ </span>wget http://proxy.chtc.wisc.edu/SQUID/osg-school-2023/pdbaa.tar.gz
+<span class="gp">username@login $ </span>wget http://proxy.chtc.wisc.edu/SQUID/osg-school-2023/mouse.fa
+</code></pre></div>
 
-print(a)
+</li>
+<li>
+<p>Untar the <code>pdbaa</code> database: </p>
+<div class="codehilite"><pre><span></span><code><span class="gp">username@login $ </span>tar -xzf pdbaa.tar.gz
 </code></pre></div>
 
 </li>
 </ol>
-<p>To run this script, we will need a copy of Python with the <code>numpy</code> library. </p>
-<h2 id="create-and-pack-a-conda-environment">Create and Pack a Conda Environment<a class="headerlink" href="#create-and-pack-a-conda-environment" title="Permanent link">&para;</a></h2>
-<p>(For a generic version of these instructions, see the <a href="http://chtc.cs.wisc.edu/conda-installation">CHTC User Guide</a>)</p>
+<h2 id="submitting-the-job">Submitting the Job<a class="headerlink" href="#submitting-the-job" title="Permanent link">&para;</a></h2>
+<p>We now have our program (the pre-compiled <code>blastx</code> binary) and our input
+files, so all that remains is to create the submit file. The form of a
+typical <code>blastx</code> command looks something like this:</p>
+<div class="codehilite"><pre><span></span><code>blastx -db &lt;database_dir/prefix&gt; -query &lt;input_file&gt; -out &lt;output_file&gt;
+</code></pre></div>
+
 <ol>
 <li>
-<p>Our first step is to create a miniconda installation on the submit server. </p>
-<ol>
-<li>You should be logged into whichever server you made the <code>rand_array.py</code> script on. </li>
-<li>
-<p>Download the latest Linux <a href="https://docs.conda.io/en/latest/miniconda.html">miniconda installer</a></p>
-<div class="codehilite"><pre><span></span><code><span class="gp">user@login $ </span>wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
-</code></pre></div>
-
+<p>Copy a submit file from one of the Day 1 exercises or previous 
+software exercises to use for this exercise. </p>
 </li>
 <li>
-<p>Run the installer to install miniconda; you'll need to accept the license terms and 
-you can use the default installation location: </p>
-<div class="codehilite"><pre><span></span><code><span class="gp">[user@login]$ </span>sh Miniconda3-latest-Linux-x86_64.sh
-</code></pre></div>
-
-</li>
-<li>
-<p>At the end, you can choose whether or 
-not to "initialize Miniconda3 by running conda init?" The default is no; you would 
-then run the <code>eval</code> command listed by the installer to "activate" Miniconda. If you
-choose "no" you'll want to save this command so that you can reactivate the 
-Miniconda installation when needed in the future.</p>
-</li>
-</ol>
-</li>
-<li>
-<p>Next we'll create our conda "environment" with <code>numpy</code> (we've called the environment "py3-numpy"): </p>
-<div class="codehilite"><pre><span></span><code><span class="gp gp-VirtualEnv">(base)</span><span class="gp">[user@login]$ </span>conda create -n py3-numpy
-<span class="gp gp-VirtualEnv">(base)</span><span class="gp">[user@login]$ </span>conda activate py3-numpy
-<span class="gp gp-VirtualEnv">(py3-numpy)</span><span class="gp">[user@login]$ </span>conda install numpy
-</code></pre></div>
-
-</li>
-<li>
-<p>Once everything is installed, deactivate the environment to go back to the 
-Miniconda "base" environment.</p>
-<div class="codehilite"><pre><span></span><code><span class="gp gp-VirtualEnv">(py3-numpy)</span><span class="gp">[user@login]$ </span>conda deactivate
-</code></pre></div>
-
-</li>
-<li>
-<p>We'll now install a tool that will pack up the just created conda environment 
-so we can run it elsewhere. Make sure that your job's Miniconda environment is created, but deactivated, so 
-that you're in the "base" Miniconda environment, then run: </p>
-<div class="codehilite"><pre><span></span><code><span class="gp gp-VirtualEnv">(base)</span><span class="gp">[user@login]$ </span>conda install -c conda-forge conda-pack
-</code></pre></div>
-
-<p>Enter <code>y</code> when it asks you to install. </p>
-</li>
-<li>
-<p>Finally, we will run the <code>conda pack</code> command, which will automatically create a 
-tar.gz file with our environment: </p>
-<div class="codehilite"><pre><span></span><code><span class="gp gp-VirtualEnv">(base)</span><span class="gp">[user@login]$ </span>conda pack -n py3-numpy
-</code></pre></div>
-
-</li>
-</ol>
-<h2 id="submit-a-job">Submit a Job<a class="headerlink" href="#submit-a-job" title="Permanent link">&para;</a></h2>
-<ol>
-<li>
-<p>The executable for this job will need to be a wrapper script. What steps do you 
-think need to be included? Write down a rough draft, then compare with the following script. </p>
-</li>
-<li>
-<p>Create a wrapper script like the following: </p>
-<div class="codehilite"><pre><span></span><code>#!/bin/bash
-
-set -e
-
-export PATH
-mkdir py3-numpy
-tar -xzf py3-numpy.tar.gz -C py3-numpy
-. py3-numpy/bin/activate
-
-python3 rand_array.py
-</code></pre></div>
-
-</li>
-<li>
-<p>What needs to be included in your submit file for the job to run successfully? Try 
-yourself and then check the suggestions in the next point. </p>
-</li>
-<li>
-<p>In your submit file, make sure to have the following: </p>
+<p>Think about which lines you will need to change or add to your submit
+file in order to submit the job successfully. In particular:    </p>
 <ul>
-<li>Your executable should be the the bash script you created in the previous step. </li>
-<li>Remember to transfer your Python script and the environment <code>tar.gz</code> file via
- <code>transfer_input_files</code>. </li>
+<li>What is the executable?</li>
+<li>How can you indicate the entire command line sequence above?</li>
+<li>Which files need to be transferred in addition to the
+executable?</li>
+<li>Does this job require a certain type of operating system?</li>
+<li>Do you have any idea how much memory or disk to request?</li>
 </ul>
 </li>
 <li>
-<p>Submit the job and see what happens!</p>
+<p>Try to answer these questions and modify your submit file
+appropriately.</p>
+</li>
+<li>
+<p>Once you have done all you can, check your submit file against the
+lines below, which contain the exact components to run this particular
+job.</p>
+<ul>
+<li>
+<p>The executable is <code>blastx</code>, which is located in the <code>bin</code>
+directory of our downloaded BLAST directory. We need to use the
+<code>arguments</code> line in the submit file to express the rest of the command. </p>
+<div class="codehilite"><pre><span></span><code>executable = ncbi-blast-2.13.0+/bin/blastx
+arguments = -db pdbaa/pdbaa -query mouse.fa -out results.txt
+</code></pre></div>
+
+</li>
+<li>
+<p>The BLAST program requires our input file and database, so they
+must be transferred with <code>transfer_input_files</code>. </p>
+<div class="codehilite"><pre><span></span><code>transfer_input_files = pdbaa, mouse.fa
+</code></pre></div>
+
+</li>
+<li>
+<p>Let's assume that we've run this program before, and we know that
+1GB of disk and 1GB of memory will be MORE than enough (the 'log' file
+will tell us how accurate we are, after the job runs): </p>
+<div class="codehilite"><pre><span></span><code>request_memory = 1GB
+request_disk = 1GB
+</code></pre></div>
+
+</li>
+</ul>
+</li>
+<li>
+<p>Submit the blast job using <code>condor_submit</code>. Once the job starts, it
+should run in just a few minutes and produce a file called
+<code>results.txt</code>.</p>
 </li>
 </ol>
                 
