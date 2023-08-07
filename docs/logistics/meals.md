@@ -57,22 +57,22 @@ Below are the menus for the School-provided meals. Not all options for meeting d
 #### Breakfast 
 
 - French Toast and Syrup (vegetarian)
+- Vegan option: Vegan Bagel and Vegan Cream Cheese)
 - Chicken Sausage
 - Fruit Platter (vegan)
-- Vegan option (for 1): Vegan Bagel and Vegan Cream Cheese)
 - Greek Yogurt (vegetarian)
-- offee, Tea and Assorted Juices
+- Coffee, Tea and Assorted Juices
 
 
 #### Lunch 
 ###### Southwestern Buffet
 
 - Southwest Tortilla Chips with Salsa (vegan)
-- Vegan chorizo Crumble (For vegans and vegetarians only)
+- Vegan chorizo Crumble (for vegans and vegetarians only)
 - Spanish Rice (vegan)
 - Beef Barbacoa
 - Chicken Tinga
-- Toppings - Lettuce, Tomatoes, Jalapeños, Shredded (vegan) Cheddar, Sour Cream, Guacamole (vegan), and Tortilla (vegan)
+- Toppings - Lettuce, Tomatoes, Jalapeños, Shredded (vegan) Cheddar (vegetarian), Sour Cream (vegetarian), Guacamole (vegan), and Tortilla (vegan)
 - Assorted  Beverages/Water/Soda
 
 ### August 9 (Wednesday)
@@ -87,12 +87,13 @@ Below are the menus for the School-provided meals. Not all options for meeting d
 - Coffee, Tea and Assorted Juices
 
 #### Lunch
+###### Bagged Lunch Plus Extras
 
-- Boxed lunches plus extras — the boxed parts can be taken and eaten elsewhere.
-- Boxed Lunch: Chicken, White Cheddar, Garlic Aioli, Cranberry  Rice Break; plus Apple, Cookie, and Chips
-- Boxed Lunch for  Vegans and Vegetarians Only: Chimichurri Tofu (vegan), Mixed Greens (vegan), Cuban Bread (vegan); plus Apple (Vegan), Cookie (Vegetarian), and  Chips (Vegetarian). +1 Vegan Cookie
-- Veggie Tray (vegan) with Hummus (vegan) and Dill Dip (Vegetarian)
-- Tarragon Potato Salad (Vegan)
+Bagged lunches plus extras — the boxed parts can be taken and eaten elsewhere.
+- Bagged Lunch: Chicken, White Cheddar, Garlic Aioli, Cranberry  Rice Break; plus Apple, Cookie, and Chips
+- Boxed Lunch for  Vegans and Vegetarians Only: Chimichurri Tofu (vegan), Mixed Greens (vegan), Cuban Bread (vegan); plus Apple (vegan), Cookie (vegetarian), and  Chips (Vegan). + Vegan Cookie
+- Veggie Tray (vegan) with Hummus (vegan) and Dill Dip (vegetarian)
+- Tarragon Potato Salad (vegan)
 - Bottled Water and Sodas
 
 ### July 29 (Friday)
@@ -104,8 +105,8 @@ Below are the menus for the School-provided meals. Not all options for meeting d
 - Macaroni and Cheese (vegetarian)
 - Fruit Salad (vegan)
 - Grilled Vegetable Pasta Salad (vegan)
-- Assorted Cookies (+1  vegan cookie)
-- Mayonnaise,  Ketchup and Mustard’
+- Assorted Cookies (vegetarian) (+ vegan cookie)
+- Mayonnaise,  Ketchup and Mustard (vegan)
 - Bottled Water and Soda
 
 
@@ -115,8 +116,8 @@ Below are the menus for the School-provided meals. Not all options for meeting d
 
 ##### Global Buffet
 
-- Spinach, strawberry, shaved red onion salad (vegan) , sesame poppy seed dressing
-- Vegetables (vegan), dips, spreads, pita chips
+- Spinach, strawberry, shaved red onion salad (vegan), sesame poppy seed dressing
+- Vegetables (vegan), dips, spreads, pita chips (some vegan - will be marked)
 - Sake salmon
 - Jerk tofu (vegan)
 - Basmati rice  (vegan)
