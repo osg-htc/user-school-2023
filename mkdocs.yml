@@ -46,7 +46,7 @@ nav:
     - Meal information:             logistics/meals.md
     - Dining options:               logistics/dining.md
     - Fun activities:               logistics/fun.md
-  - Materials: 
-    - Overview: 		    materials/index.md
-    - HTC Exercises: 		    
-      - Exercise 1.1		    materials/htcondor/part1-ex1-login.md 
+  - Materials:
+    - Overview:                     materials/index.md
+    - HTC Exercises:
+      - Exercise 1.1:               materials/htcondor/part1-ex1-login.md 
