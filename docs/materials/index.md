@@ -17,9 +17,9 @@ Worksheet: [PDF](htcondor/files/osgus23-htc-worksheet.pdf)
 
 ### Intro to HTCondor Slides
 
-<!--
 View the slides
-([PDF](htcondor/files/osgus23-htc-htcondor.pdf),
+([PDF](htcondor/files/osgus23-htc-htcondor.pdf)
+<!--
 [PowerPoint](htcondor/files/osgus22-htc-htcondor.pptx))
 -->
 
