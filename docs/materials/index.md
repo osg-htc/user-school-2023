@@ -1,5 +1,5 @@
 
-# OSG Virtual School Materials
+# User School Materials
 
 ## School Overview and Intro
 
