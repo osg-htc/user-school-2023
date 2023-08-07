@@ -33,13 +33,16 @@ First, let's run a job without a container to see what the typical job environme
 	This will print out the version of Linux on the computer, the version 
 	of `gcc`, a common software compiler, and the version of Python 3. 
 
-1. Make the script executable: 
+1. Make the script executable:
+
 		:::console
 		$ chmod +x script.sh
 
-1. Run the script on the Access Point. 
+1. Run the script on the Access Point.
+
 		:::console
 		$ ./script.sh
+
 	What results did you get? 
 
 1. Copy a submit file from a previous OSPool job and edit it so that the 
