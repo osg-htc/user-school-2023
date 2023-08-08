@@ -75,7 +75,7 @@ Note that we now have two tarballs in our directory -- the *source* tarball (`hm
 Wrapper Script
 --------------
 
-Now that we've created our portable installation, we need to write a script that opens and uses the installation, similar to the process we used in a [previous exercise](../part4-ex2-wrapper). These steps should be performed back on the submit server (`learn.chtc.wisc.edu`).
+Now that we've created our portable installation, we need to write a script that opens and uses the installation, similar to the process we used in a [previous exercise](../part4-ex2-wrapper). These steps should be performed back on the submit server (`ap1.facility.path-cc.io`).
 
 1. Create a script called `run_hmmer.sh`. 
 
@@ -100,7 +100,7 @@ Now that we've created our portable installation, we need to write a script that
 1.  Make sure the wrapper script has executable permissions: 
 
 		:::console
-		username@learn $ chmod u+x run_HMMER.sh
+		username@ap1 $ chmod u+x run_HMMER.sh
 
 
 Run a HMMER job
@@ -109,10 +109,14 @@ Run a HMMER job
 We're almost ready! We need two more pieces to run a HMMER job.
 
 1.  We're going to use some of the tutorial files provided with the HMMER download to 
-run the job. To access them, we'll unzip the HMMER download in our home directory: 
+run the job. You already have these files back in the directory where you unpacked the source code:
 
 		:::console
-		username@learn $ tar -xzf hmmer.tar.gz
+		username@ap1 $ ls hmmer-3.3.2/tutorial
+		7LESS_DROME    fn3.hmm  globins45.fa  globins4.sto  MADE1.hmm  Pkinase.hmm
+		dna_target.fa  fn3.sto  globins4.hmm  HBB_HUMAN     MADE1.sto  Pkinase.sto
+
+If you don't see these files, you may want to redownload the `hmmer.tar.gz` file and untar it here.
 
 1.  Our last step is to create a submit file for our HMMER job. Think about which lines this submit file will need. Make a copy of a previous submit file (you could use the blast submit file from a [previous exercise](../part4-ex2-wrapper) as a base) and modify it as you think necessary.
 
