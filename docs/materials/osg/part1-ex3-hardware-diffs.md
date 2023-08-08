@@ -133,3 +133,4 @@ the demand for higher memory jobs there may have resulted in a temporary increas
 That being said, high-memory are a high-demand, low-availability resource in the OSPool
 so your 64&nbsp;GB jobs may have taken longer to run or complete.
 On the other hand, PATh has a fair number of 64&nbsp;GB (and greater) slots
+so all your jobs have a high chance of running.
