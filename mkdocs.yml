@@ -68,3 +68,21 @@ nav:
       - Exercise 1.3:               materials/osg/part1-ex3-submit-osg.md
       - Exercise 1.4:               materials/osg/part1-ex4-hardware-diffs.md
       - Exercise 1.5:               materials/osg/part1-ex5-software-diffs.md
+    - Software Exercises: 
+      - Exercise 1.1:               materials/software/part1-ex1-run-apptainer.md
+      - Exercise 1.2:               materials/software/part1-ex2-apptainer-jobs.md
+      - Exercise 1.3:               materials/software/part1-ex3-docker-jobs.md
+      - Exercise 1.4:               materials/software/part1-ex4-apptainer-build.md
+      - Exercise 1.5:               materials/software/part1-ex5-pick-an-option.md
+      - Exercise 2.1:               materials/software/part2-ex1-build-executable.md
+    - Choose Your Own Software Exercises: 
+      - Exercise 3.1:               materials/software/part3-ex1-apptainer-recipes.md
+      - Exercise 3.2:               materials/software/part3-ex2-docker-build.md
+      - Exercise 4.1:               materials/software/part4-ex1-download.md
+      - Exercise 4.2:               materials/software/part4-ex2-wrapper.md
+      - Exercise 4.3:               materials/software/part4-ex3-arguments.md
+      - Exercise 5.1:               materials/software/part5-ex1-prepackaged.md
+      - Exercise 5.2:               materials/software/part5-ex2-python.md
+      - Exercise 5.3:               materials/software/part5-ex3-conda.md
+      - Exercise 5.4:               materials/software/part5-ex4-compiling.md
+
