@@ -4,7 +4,7 @@ status: testing
 
 # OSG Exercise 1.4: Software Differences in OSPool
 
-The goal of this exercise is to see some differences in the availability of software in the OSG.
+The goal of this exercise is to see some differences in the availability of software in the OSPool.
 At your local cluster, you may be used to having certain versions of software.
 But in the OSPool,
 it is likely that the software you need will not be available at all.
