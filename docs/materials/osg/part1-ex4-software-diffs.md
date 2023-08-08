@@ -47,7 +47,7 @@ Your command line should look something like this:
 $ condor_status -autoformat OpSysAndVer | sort | uniq -c
 ```
 
-How would you describe the difference between the PATh Facility and OSPools?
+How would you describe the difference between the PATh Facility and OSPool?
 
 ## Submitting probe jobs
 
