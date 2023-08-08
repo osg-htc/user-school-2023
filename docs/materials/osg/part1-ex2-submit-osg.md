@@ -62,7 +62,7 @@ $ cat location-*.out | sort | uniq
 
 ## Mapping your results
 
-To visualize the locations of the servers that your jobs ran on,
+To visualize the locations of the Execution Points that your jobs ran on,
 you will be using <http://www.mapcustomizer.com/>.
 Copy and paste the collated results into the text box that pops up
 when clicking on the 'Bulk Entry' button on the right-hand side.
