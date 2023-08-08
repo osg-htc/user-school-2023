@@ -24,7 +24,7 @@ Now, let’s try to remember some basic HTCondor ideas from the HTC exercises:
 
         :::console
         $ wget http://proxy.chtc.wisc.edu/SQUID/osgschool21/location-wrapper.sh \
-                         http://proxy.chtc.wisc.edu/SQUID/osgschool21/wn-geoip.tar.gz
+               http://proxy.chtc.wisc.edu/SQUID/osgschool21/wn-geoip.tar.gz
 
     You will be using `location-wrapper.sh` as your executable and `wn-geoip.tar.gz` as an input file.
 
