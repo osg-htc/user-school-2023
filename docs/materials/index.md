@@ -78,7 +78,7 @@ View the slides
 
 ## Software
 
-Slides will be posted here
+Slides: [PDF](software/files/osgus23-software.pdf)
 
 ### Software Exercises 1: Exploring Containers
 
@@ -91,23 +91,23 @@ Slides will be posted here
 ### Software Exercises 2: Preparing Scripts
 - [Exercise 2.1: Build an HTC-Friendly Executable](software/part2-ex1-build-executable.md)
 
-### Software Exercises 3: Container Examples
+### Software Exercises 3: Container Examples (Optional)
 
-- [Exercise 3.1: Create an Apptainer Definition File (Optional)](software/part3-ex1-apptainer-recipes.md)
-- [Exercise 3.2: Build Your Own Docker Container (Optional)](software/part3-ex2-docker-build.md)
+- [Exercise 3.1: Create an Apptainer Definition Files](software/part3-ex1-apptainer-recipes.md)
+- [Exercise 3.2: Build Your Own Docker Container](software/part3-ex2-docker-build.md)
 
-### Software Exercises 4: Exploring Compiled Software
+### Software Exercises 4: Exploring Compiled Software (Optional)
 
-- [Exercise 3.1: Download and Use Compiled Software](software/part4-ex1-download.md)
-- [Exercise 3.2: Use a Wrapper Script To Run Software](software/part4-ex2-wrapper.md)
-- [Exercise 1.3: Using Arguments With Wrapper Scripts](software/part4-ex3-arguments.md)
+- [Exercise 4.1: Download and Use Compiled Software](software/part4-ex1-download.md)
+- [Exercise 4.2: Use a Wrapper Script To Run Software](software/part4-ex2-wrapper.md)
+- [Exercise 4.3: Using Arguments With Wrapper Scripts](software/part4-ex3-arguments.md)
 
-### Software Exercises 5: Compiled Software Examples 
+### Software Exercises 5: Compiled Software Examples (Optional)
 
-- [Exercise 4.1: Compiling a Research Software](software/part5-ex1-prepackaged.md)
-- [Exercise 4.2: Compiling Python and Running Jobs](software/part5-ex2-python.md)
-- [Exercise 4.3: Using Conda Environments](software/part5-ex3-conda.md)
-- [Exercise 4.4: Compiling and Running a Simple Code](software/part5-ex4-compiling.md)
+- [Exercise 5.1: Compiling a Research Software](software/part5-ex1-prepackaged.md)
+- [Exercise 5.2: Compiling Python and Running Jobs](software/part5-ex2-python.md)
+- [Exercise 5.3: Using Conda Environments](software/part5-ex3-conda.md)
+- [Exercise 5.4: Compiling and Running a Simple Code](software/part5-ex4-compiling.md)
 
 
 ## Data

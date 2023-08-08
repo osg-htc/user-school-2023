@@ -20,7 +20,7 @@ what you need.
 Motivating Script
 -----------------
 
-1. Create a script called `cowsay.py`:
+1. Create a script called `hello-cow.py`:
 
 		:::file
 		#!/usr/bin/env python3
@@ -31,12 +31,12 @@ Motivating Script
 1. Give it executable permissions: 
 
 		:::console
-		$ chmod +x cowsay.py
+		$ chmod +x hello-cow.py
 
 1. Try running the script:
 
 		:::console
-		$ ./cowsay.py
+		$ ./hello-cow.py
 
 	It will likely fail, because the cowsay library isn't installed. This is a 
 	scenario where we will want to build our own container that includes a base 
@@ -95,10 +95,10 @@ allow us to test our new container.
 		:::console
 		$ singularity shell first-image.sif
 
-1. Then try running the `cowsay.py` script: 
+1. Then try running the `hello-cow.py` script: 
 
 		:::console
-		Singularity< ./cowsay.py
+		Singularity< ./hello-cow.py
 
 1. If it produces an output, our container works! We can now exit (by typing `exit`)
 and submit a job. 
@@ -116,7 +116,7 @@ CPU and memory requests):
 		universe = container
 		container_image = py-cowsay.sif
 		
-		executable = cowsay.py
+		executable = hello-cow.py
 
 1. Submit the job and verify the output when it completes. 
 
