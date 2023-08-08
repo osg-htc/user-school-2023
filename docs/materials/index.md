@@ -60,11 +60,10 @@ View the slides
 
 ### OSG Exercises: Comparing PATh and OSG (Strongly Recommended)
 
-- [Exercise 1.1: Refresher – submitting multiple jobs](osg/part1-ex1-submit-refresher.md)
-- [Exercise 1.2: Log in to the OSPool Access Point](osg/part1-ex2-login-scp.md)
-- [Exercise 1.3: Running jobs in the OSPool](osg/part1-ex3-submit-osg.md)
-- [Exercise 1.4: Hardware differences between PATh and OSG](osg/part1-ex4-hardware-diffs.md)
-- [Exercise 1.5: Software differences in OSPool](osg/part1-ex5-software-diffs.md)
+- [Exercise 1.1: Log in to the OSPool Access Point](osg/part1-ex1-login-scp.md)
+- [Exercise 1.2: Running jobs in the OSPool](osg/part1-ex2-submit-osg.md)
+- [Exercise 1.3: Hardware differences between PATh and OSG](osg/part1-ex3-hardware-diffs.md)
+- [Exercise 1.4: Software differences in OSPool](osg/part1-ex4-software-diffs.md)
 
 ## Troubleshooting
 
