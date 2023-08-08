@@ -49,10 +49,12 @@ Choose a Strategy
 
 1. Is there a simple download or easy compilation process? If so, can you 
  download the software and use it via a wrapper script? See the exercises from 
- Part 4 ([Download Software Files](../part4-ex1-download.md), 
- [Use a Wrapper Script](../part4-ex2-wrapper.md), 
- [Wrapper Script Arguments](../part4-ex3-arguments.md)). To learn more about using 
- this approach for specific softwares, see the examples in [Part 5](/docs/materials/index.html#-software-exercises-5-compiled-software-examples)
+ Part 4 ([Download Software Files](../part4-ex1-download), 
+ [Use a Wrapper Script](../part4-ex2-wrapper), 
+ [Wrapper Script Arguments](../part4-ex3-arguments)). To learn more about using 
+ this approach for specific softwares, see the examples in [Part 5](../../index.html#-software-exercises-5-compiled-software-examples). 
+
+1. Are you using conda? See the specific example in [Exercise 5.3](../part5-ex3-conda)
 
 1. If neither of the above options works (which may be true for more software!), you 
   may want to build your own container. 
@@ -71,5 +73,5 @@ Create an Executable
 ---------------------
 
 Regardless of which approach you use, check out 
-the [Build an HTC-Friendly Executable](../part2-ex1-build-executable.md) exercise
+the [Build an HTC-Friendly Executable](../part2-ex1-build-executable) exercise
 for some tips on how to make your script more robust and easy to use with multiple jobs. 
