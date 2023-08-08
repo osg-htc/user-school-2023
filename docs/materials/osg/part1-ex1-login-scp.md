@@ -5,7 +5,7 @@ status: testing
 # OSG Exercise 1.1: Log In to the OSPool Access Point
 
 The main goal of this exercise is to log in to an Open Science Pool Access Point
-so that you can start submitting jobs into the OSPool instead of the &ldquo;local&rdquo; cluster at UW–Madison.
+so that you can start submitting jobs into the OSPool.
 But before doing that, you will first prepare a file on Monday&lsquo;s Access Point to copy to the OSPool Access Point.
 Then you will learn how to efficiently copy files between the Access Points.
 
@@ -72,7 +72,7 @@ which submits jobs into the OSPool.
 
 To log in to the OSPool Access Point,
 use the same username (and SSH key, if you did that) as on `ap1`.
-If you have any issues logging in to `ap40`,
+If you have any issues logging in to `ap40.uw.osg-htc.org`,
 please ask for help right away!
 
 So please `ssh` in to the server and take a look around:
