@@ -6,28 +6,28 @@ status: testing
 
 The goal of this exercise is to see some differences in the availability of software in the OSG.
 At your local cluster, you may be used to having certain versions of software.
-But in the OS Pool,
-it is possible&nbsp;— even likely&nbsp;— that the software you need will not be available at all.
+But in the OSPool,
+it is likely that the software you need will not be available at all.
 
 ## Comparing operating systems
 
-To really see differences between slots in the local cluster vs the OSG,
-you will want to compare the slot ClassAds between the two pools.
-Rather than inspecting the very long ClassAd for each slot,
+To really see differences between Execution Points in the PATh Facility versus the OSPool,
+you will want to compare the &ldquo;machine&rdquo; ClassAds between the two pools.
+Rather than inspecting the very long ClassAd for each Execution Point,
 you will look at a specific attribute called `OpSysAndVer`,
-which tells us the operating system version of the server where a slot resides.
-An easy way to show this attribute for all slots is by using `condor_status`
+which tells us the operating system version of the Execution Point.
+An easy way to show this attribute for all Execution Points is by using `condor_status`
 in conjunction with the `-autoformat` (or `-af`, for short) option.
 The `-autoformat` option is like the `-format` option you learned about earlier,
 and outputs the attributes you choose for each slot;
 but as you may have guessed, it does some automatic formatting for you.
 
-So, let’s examine the operating system and (major) version of slots on the PATh Facility and the OS Pool.
+So, let’s examine the operating system and (major) version of slots on the PATh Facility and the OSPool.
 
 1.  Log in or switch to `ap1.facility.path-cc.io` and run the following command:
 
         :::console
-        user@server $ condor_status -autoformat OpSysAndVer
+        $ condor_status -autoformat OpSysAndVer
 
 1.  Log in or switch to `ap40.uw.osg-htc.org` (parallel windows are handy!)
     and run the same command
@@ -44,14 +44,14 @@ to get counts of each unique operating system and version string.
 Your command line should look something like this:
 
 ``` console
-user@learn $ condor_status -autoformat OpSysAndVer | sort | uniq -c
+$ condor_status -autoformat OpSysAndVer | sort | uniq -c
 ```
 
-How would you describe the difference between the PATh Facility and OS Pools?
+How would you describe the difference between the PATh Facility and OSPools?
 
 ## Submitting probe jobs
 
-Now you have some idea of the diversity of operating systems on the OS Pool.
+Now you have some idea of the diversity of operating systems on the OSPool.
 This is a step in the right direction to knowing what software is available in general.
 But what you really want to know is whether your specific software tool (and version) is available.
 
@@ -110,4 +110,4 @@ For this part of the exercise, try creating a submit file without referring to p
 
 Will you be able to do your research on the OSG with what's available?
 Do not worry if it does not seem like you can:
-Tomorrow, you will learn how to make your jobs portable enough so that they can run anywhere!
+Later today, you will learn how to make your jobs portable enough so that they can run anywhere!
