@@ -2,19 +2,19 @@
 status: testing
 ---
 
-# OSG Exercise 1.2: Log In to the OS Pool Access Point
+# OSG Exercise 1.1: Log In to the OSPool Access Point
 
 The main goal of this exercise is to log in to an Open Science Pool Access Point
-so that you can start submitting jobs into the OS Pool instead of the local cluster at UW–Madison.
-But before doing that, you will first prepare a file on `ap1` to copy to the OS Pool Access Point.
-Then you will learn how to efficiently copy files between the PATH Facility and OS Pool Access Points.
+so that you can start submitting jobs into the OSPool instead of the &ldquo;local&rdquo; cluster at UW–Madison.
+But before doing that, you will first prepare a file on Monday&lsquo;s Access Point to copy to the OSPool Access Point.
+Then you will learn how to efficiently copy files between the Access Points.
 
-If you have trouble getting `ssh` access to the OS Pool Access Point, ask the instructors right away!
+If you have trouble getting `ssh` access to the OSPool Access Point, ask the instructors right away!
 Gaining access is critical for all remaining exercises.
 
-## Part 1: On the PATh Facility Access Point
+## Part 1: On the PATh Access Point
 
-The first few sections below are to be completed on `ap1.facility.path-cc.io`, the PATh Facility Access Point.
+The first few sections below are to be completed on `ap1.facility.path-cc.io`, the PATh Access Point.
 This is still the same Access Point you have been using since yesterday.
 
 ## Preparing files for transfer
@@ -26,7 +26,8 @@ restarting the transfer is less painful than it would be if you were transferrin
 Archiving tools (WinZip, 7zip, Archive Utility, etc.) can compress the size of your files
 and place them into a single, smaller archive file.
 The Unix `tar` command is a one-stop shop for creating, extracting, and viewing the contents of `tar` archives
-(called *tarballs*).  Its usage is as follows:
+(called *tarballs*).
+Its usage is as follows:
 
 -   To **create** a tarball named `<archive filename>` containing `<archive contents>`, use the following command:
 
@@ -65,18 +66,18 @@ Which files were compressed the least?  Why?
 
 ## Part 2: On the Open Science Pool Access Point
 
-For many of the remaining exercises, you will be using an OSG Connect Access Point,
-which submits jobs into the Open Science Pool.
-For the School, the default server is named `ap40.uw.osg-htc.org`.
+For many of the remaining exercises, you will be using an OSPool Access Point,
+`ap40.uw.osg-htc.org`,
+which submits jobs into the OSPool.
 
-To log in to the OSG Connect Access Point,
-use the username and SSH key that you made when you set up OSG Connect.
+To log in to the OSPool Access Point,
+use the same username (and SSH key, if you did that) as on `ap1`.
 If you have any issues logging in to `ap40`,
 please ask for help right away!
 
 So please `ssh` in to the server and take a look around:
 
-1.  Log in using `ssh ap40.uw.osg-htc.org`
+1.  Log in using `ssh USERNAME@ap40.uw.osg-htc.org` (substitute your own username)
 1.  Try some Linux and HTCondor commands; for example:
     *   Linux commands: `hostname`, `pwd`, `ls`, and so on
     *   What is the operating system? `uname` and (in this case) `cat /etc/redhat-release`
@@ -108,15 +109,16 @@ and if your usernames are the same on both servers,
 the command would look like this:
 
 ```console
-user@ap40 $ scp foo ap1.facility.path-cc.io:
+$ scp foo ap1.facility.path-cc.io:
 ```
 
 Additionally, you could *pull* files from `ap1.facility.path-cc.io` to `ap40.uw.osg-htc.org`.
 The following command copies `bar` from your home directory on `ap1.facility.path-cc.io`
-to your current directory on `ap40.uw.osg-htc.org`:
+to your current directory on `ap40.uw.osg-htc.org`;
+and in this case, the username for `ap1` is specified:
 
 ``` console
-user@login04 $ scp ap1.facility.path-cc.io:bar .
+$ scp USERNAME@ap1.facility.path-cc.io:bar .
 ```
 
 Also, you can copy folders between servers using the `-r` option.
@@ -124,7 +126,7 @@ If you kept all your files from the HTCondor exercise 1.3 in a folder named `htc
 you could use the following command to copy them to your home directory on `ap40.uw.osg-htc.org`:
 
 ``` console
-user@ap40 $ scp -r ap1.facility.path-cc.io:htc-1.3 .
+$ scp -r USERNAME@ap1.facility.path-cc.io:htc-1.3 .
 ```
 
 ### Secure copy to your laptop
