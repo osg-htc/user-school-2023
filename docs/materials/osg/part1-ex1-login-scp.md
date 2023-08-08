@@ -32,7 +32,7 @@ Its usage is as follows:
 -   To **create** a tarball named `<archive filename>` containing `<archive contents>`, use the following command:
 
         :::console
-        user@ap1 $ tar -czvf <archive filename> <archive contents>
+        $ tar -czvf <archive filename> <archive contents>
 
     Where `<archive filename>` should end in `.tar.gz` and `<archive contents>` can be a list of any number of files
     and/or folders, separated by spaces.
@@ -40,12 +40,12 @@ Its usage is as follows:
 -   To **extract** the files from a tarball into the current directory:
 
         :::console
-        user@ap1 $ tar -xzvf <archive filename>
+        $ tar -xzvf <archive filename>
 
 -   To **list** the files within a tarball:
 
         :::console
-        user@learn $ tar -tzvf <archive filename>
+        $ tar -tzvf <archive filename>
 
 ### Comparing compressed sizes
 
