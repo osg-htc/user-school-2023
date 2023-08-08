@@ -4,7 +4,7 @@ status: testing
 
 # OSG Exercise 1.2: Running Jobs in OSG
 
-The goal of this exercise is to map the physical locations of some worker servers in the OS Pool.
+The goal of this exercise is to map the physical locations of some Execution Points in the OSPool.
 We will provide the executable and associated data,
 so your job will be to write a submit file that queues multiple jobs.
 Once complete, you will manually collate the results.
@@ -14,7 +14,7 @@ Once complete, you will manually collate the results.
 To find the physical location of the computers your jobs our running on, you will use a method called *geolocation*.
 Geolocation uses a registry to match a computer’s network address to an approximate latitude and longitude.
 
-### Geolocating several servers
+### Geolocating several Execution Points
 
 Now, let’s try to remember some basic HTCondor ideas from the HTC exercises:
 
@@ -23,7 +23,7 @@ Now, let’s try to remember some basic HTCondor ideas from the HTC exercises:
 1.  Download the geolocation code:
 
         :::console
-        user@ap40 $ wget http://proxy.chtc.wisc.edu/SQUID/osgschool21/location-wrapper.sh \
+        $ wget http://proxy.chtc.wisc.edu/SQUID/osgschool21/location-wrapper.sh \
                          http://proxy.chtc.wisc.edu/SQUID/osgschool21/wn-geoip.tar.gz
 
     You will be using `location-wrapper.sh` as your executable and `wn-geoip.tar.gz` as an input file.
@@ -49,7 +49,7 @@ If all of your output files have the format `location-#.out` (e.g., `location-10
 your command will look something like this:
 
 ``` console
-user@ap40 $ cat location-*.out
+$ cat location-*.out
 ```
 
 The `*` is a wildcard so the above cat command runs on all files that start with `location-` and end in `.out`.
@@ -57,7 +57,7 @@ Additionally, you can use `cat` in combination with the `sort` and `uniq` comman
 to print only the unique results:
 
 ``` console
-user@ap40 $ cat location-*.out | sort | uniq
+$ cat location-*.out | sort | uniq
 ```
 
 ## Mapping your results
