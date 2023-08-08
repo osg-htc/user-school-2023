@@ -58,16 +58,13 @@ View the slides
 [PowerPoint](osg/files/osgvs21-day3-osg.pptx))
 -->
 
-<!--
-### OSG Exercises: Comparing CHTC and OSG (Strongly Recommended)
+### OSG Exercises: Comparing PATh and OSG (Strongly Recommended)
 
 - [Exercise 1.1: Refresher – submitting multiple jobs](osg/part1-ex1-submit-refresher.md)
-- [Exercise 1.2: Log in to the OS Pool Access Point](osg/part1-ex2-login-scp.md)
-- [Exercise 1.3: Running jobs in OSG](osg/part1-ex3-submit-osg.md)
-- [Exercise 1.4: Hardware differences between CHTC and OSG](osg/part1-ex4-hardware-diffs.md)
-- [Exercise 1.5: Software differences in OSG](osg/part1-ex5-software-diffs.md)
-
--->
+- [Exercise 1.2: Log in to the OSPool Access Point](osg/part1-ex2-login-scp.md)
+- [Exercise 1.3: Running jobs in the OSPool](osg/part1-ex3-submit-osg.md)
+- [Exercise 1.4: Hardware differences between PATh and OSG](osg/part1-ex4-hardware-diffs.md)
+- [Exercise 1.5: Software differences in OSPool](osg/part1-ex5-software-diffs.md)
 
 ## Troubleshooting
 
