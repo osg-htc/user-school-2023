@@ -2,9 +2,10 @@
 status: testing
 ---
 
-# OSG Exercise 1.3: Hardware Differences Between CHTC and OSG
+# OSG Exercise 1.3: Hardware Differences Between PATh and OSG
 
-The goal of this exercise is to compare hardware differences between the PATh Facility and the Open Science Pool.
+The goal of this exercise is to compare hardware differences between the Monday cluster
+(the PATh Facility) and the Open Science Pool.
 Specifically, we will look at how easy it is to get access to resources
 in terms of the amount of memory that is requested.
 This will not be a very careful study,
@@ -14,13 +15,13 @@ In the first two parts of the exercise,
 you will submit batches of jobs that differ only in how much memory each one requests.
 This is called this a *parameter sweep*, in that we are testing many possible values of a parameter.
 We will request memory from 8–64 GB, doubling the memory each time.
-One set of jobs will be submitted to CHTC, and the other, identical set of jobs will be submitted to the OS Pool.
+One set of jobs will be submitted to the PATh Facility, and the other, identical set of jobs will be submitted to the OSPool.
 You will check the queue periodically to see how many jobs have completed and how many are still waiting to run.
 
-## Checking PATh Facility memory availability
+## Checking PATh memory availability
 
-In this first part, you will create the submit file that will be used for both the PATh Facility and OSG jobs,
-then submit the PATh Facility set.
+In this first part, you will create the submit file that will be used for both the PATh and OSPool jobs,
+then submit the PATh set.
 
 ### Yet another queue syntax
 
@@ -64,7 +65,7 @@ To create our parameter sweep,
 we will create a **new** submit file with the queue…in syntax
 and change the value of our parameter (`request_memory`) for each batch of jobs.
 
-1.  Log in or switch back to `ap1.facility.path-cc.io` (yes, back to the PATh Facility!)
+1.  Log in or switch back to `ap1.facility.path-cc.io` (yes, back to PATh!)
 1.  Create and change into a new subdirectory called `osg-ex14`
 1.  Create a submit file named `sleep.sub` that executes the command `/bin/sleep 300`.
 
@@ -83,9 +84,8 @@ Every few minutes, run `condor_q` and see how your sleep jobs are doing.
 To display the number of jobs remaining for each `request_memory` parameter specified, 
 run the following command:
 
-
 ``` console
-user@ap1 $ condor_q <Cluster ID> -af RequestMemory | sort -n | uniq -c
+$ condor_q <Cluster ID> -af RequestMemory | sort -n | uniq -c
 ```
 
 The numbers in the left column are the number of jobs left of that type
@@ -100,11 +100,11 @@ Consider making a little table like the one below to track progress.
 | 64 GB  | 10            | 9             |               |
 
 In the meantime, between checking on your local jobs, start the next section –
-but take a break every few minutes to switch back to `ap1` and record progress on your PATh Facility jobs.
+but take a break every few minutes to switch back to `ap1` and record progress on your PATh jobs.
 
-## Checking OS Pool memory availability
+## Checking OSPool memory availability
 
-Now you will do essentially the same thing on the OS Pool.
+Now you will do essentially the same thing on the OSPool.
 
 1.  Log in or switch to `ap40.uw.osg-htc.org`
 
@@ -113,7 +113,7 @@ Now you will do essentially the same thing on the OS Pool.
 
     If you get stuck during the copying process, refer to [OSG exercise 1.1](part1-ex1-login-scp.md).
 
-1.  Submit the jobs to the OS Pool
+1.  Submit the jobs to the OSPool
 
 ### Monitoring the remote jobs
 
@@ -124,13 +124,12 @@ come back to this exercise and analyze the results.
 
 ## Analyzing the results
 
-Have all of your jobs from this exercise completed on both the PATh Facility and the OS Pool?
-How many jobs have completed thus far on the PATh Facility?
-How many have completed thus far on the OS Pool?
+Have all of your jobs from this exercise completed on both PATh and the OSPool?
+How many jobs have completed thus far on PATh?
+How many have completed thus far on the OSPool?
 
-Due to the dynamic nature of the OS Pool,
+Due to the dynamic nature of the OSPool,
 the demand for higher memory jobs there may have resulted in a temporary increase in high-memory slots there.
-That being said, 64&nbsp;GB (and greater) slots are a high-demand, low-availability resource in the OS Pool
-so it's unlikely that all of your 64&nbsp;GB jobs matched and ran to completion, if any.
-On the other hand, the PATh Facility has a fair number of 64&nbsp;GB (and greater) slots
-so all your jobs have a high chance of running.
+That being said, high-memory are a high-demand, low-availability resource in the OSPool
+so your 64&nbsp;GB jobs may have taken longer to run or complete.
+On the other hand, PATh has a fair number of 64&nbsp;GB (and greater) slots
