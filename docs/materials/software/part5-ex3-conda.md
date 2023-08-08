@@ -64,7 +64,7 @@ Create and Pack a Conda Environment
 		:::console
 		(base)[user@login]$ conda create -n py3-numpy
 		(base)[user@login]$ conda activate py3-numpy
-		(py3-numpy)[user@login]$ conda install numpy
+		(py3-numpy)[user@login]$ conda install -c conda-forge numpy
 
 3. Once everything is installed, deactivate the environment to go back to the 
 Miniconda "base" environment.
