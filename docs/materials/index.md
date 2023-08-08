@@ -68,8 +68,8 @@ View the slides
 
 ## Troubleshooting
 
-([PDF](troubleshooting/files/osgus22-htc-troubleshooting.pdf),
-[PowerPoint](troubleshooting/files/osgus22-htc-troubleshooting.pptx))
+Slides: ([PDF](troubleshooting/files/OSGUS2023_troubleshooting.pdf),
+[PowerPoint](troubleshooting/files/OSGUS2023_troubleshooting.pptx))
 
 ### Troubleshooting Exercises: 
 
