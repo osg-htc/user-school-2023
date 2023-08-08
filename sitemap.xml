@@ -131,5 +131,65 @@
      <loc>https://osg-htc.org/user-school-2023/materials/osg/part1-ex5-software-diffs/</loc>
      <lastmod>2023-08-08</lastmod>
      <changefreq>daily</changefreq>
+    </url><url>
+     <loc>https://osg-htc.org/user-school-2023/materials/software/part1-ex1-run-apptainer/</loc>
+     <lastmod>2023-08-08</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
+     <loc>https://osg-htc.org/user-school-2023/materials/software/part1-ex2-apptainer-jobs/</loc>
+     <lastmod>2023-08-08</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
+     <loc>https://osg-htc.org/user-school-2023/materials/software/part1-ex3-docker-jobs/</loc>
+     <lastmod>2023-08-08</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
+     <loc>https://osg-htc.org/user-school-2023/materials/software/part1-ex4-apptainer-build/</loc>
+     <lastmod>2023-08-08</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
+     <loc>https://osg-htc.org/user-school-2023/materials/software/part1-ex5-pick-an-option/</loc>
+     <lastmod>2023-08-08</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
+     <loc>https://osg-htc.org/user-school-2023/materials/software/part2-ex1-build-executable/</loc>
+     <lastmod>2023-08-08</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
+     <loc>https://osg-htc.org/user-school-2023/materials/software/part3-ex1-apptainer-recipes/</loc>
+     <lastmod>2023-08-08</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
+     <loc>https://osg-htc.org/user-school-2023/materials/software/part3-ex2-docker-build/</loc>
+     <lastmod>2023-08-08</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
+     <loc>https://osg-htc.org/user-school-2023/materials/software/part4-ex1-download/</loc>
+     <lastmod>2023-08-08</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
+     <loc>https://osg-htc.org/user-school-2023/materials/software/part4-ex2-wrapper/</loc>
+     <lastmod>2023-08-08</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
+     <loc>https://osg-htc.org/user-school-2023/materials/software/part4-ex3-arguments/</loc>
+     <lastmod>2023-08-08</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
+     <loc>https://osg-htc.org/user-school-2023/materials/software/part5-ex1-prepackaged/</loc>
+     <lastmod>2023-08-08</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
+     <loc>https://osg-htc.org/user-school-2023/materials/software/part5-ex2-python/</loc>
+     <lastmod>2023-08-08</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
+     <loc>https://osg-htc.org/user-school-2023/materials/software/part5-ex3-conda/</loc>
+     <lastmod>2023-08-08</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
+     <loc>https://osg-htc.org/user-school-2023/materials/software/part5-ex4-compiling/</loc>
+     <lastmod>2023-08-08</lastmod>
+     <changefreq>daily</changefreq>
     </url>
 </urlset>
