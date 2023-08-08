@@ -2,7 +2,7 @@
 status: testing
 ---
 
-# OSG Exercise 1.2: Running Jobs in OSG
+# OSG Exercise 1.2: Running Jobs in OSPool
 
 The goal of this exercise is to map the physical locations of some Execution Points in the OSPool.
 We will provide the executable and associated data,
