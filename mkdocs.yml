@@ -68,6 +68,9 @@ nav:
       - Exercise 1.3:               materials/osg/part1-ex3-submit-osg.md
       - Exercise 1.4:               materials/osg/part1-ex4-hardware-diffs.md
       - Exercise 1.5:               materials/osg/part1-ex5-software-diffs.md
+    - Troubleshooting Exercises:
+      - Exercise 1.1:              materials/troubleshooting/part1-ex1-troubleshooting.md
+      - Exercise 1.2:              materials/troubleshooting/part1-ex2-job-retry.md
     - Software Exercises: 
       - Exercise 1.1:               materials/software/part1-ex1-run-apptainer.md
       - Exercise 1.2:               materials/software/part1-ex2-apptainer-jobs.md
