@@ -2,7 +2,7 @@
 status: testing
 ---
 
-# OSG Exercise 1.2: Log In to the OSPool Access Point
+# OSG Exercise 1.1: Log In to the OSPool Access Point
 
 The main goal of this exercise is to log in to an Open Science Pool Access Point
 so that you can start submitting jobs into the OSPool instead of the &ldquo;local&rdquo; cluster at UWâ€“Madison.
@@ -47,10 +47,6 @@ Its usage is as follows:
         :::console
         $ tar -tzvf <archive filename>
 
-Using the guidance above, log into `ap1.facility.path-cc.io`,
-create a tarball that contains the OSG exercise 1.1 directory,
-and verify that it contains all the proper files.
-
 ### Comparing compressed sizes
 
 You can adjust the level of compression of `tar` by prepending your command with `GZIP=--<COMPRESSION>`, where
@@ -59,7 +55,7 @@ compression is between `best` and `fast`).
 
 While still logged in to `ap1.facility.path-cc.io`:
 
-1.  Create and change into a new folder for this exercise, for example `osg-ex12`
+1.  Create and change into a new folder for this exercise, for example `osg-ex11`
 1.  Use `wget` to download the following files from our web server:
     1.  Text file: <http://proxy.chtc.wisc.edu/SQUID/osgschool21/random_text>
     1.  Archive: <http://proxy.chtc.wisc.edu/SQUID/osgschool21/pdbaa.tar.gz>
@@ -133,11 +129,6 @@ you could use the following command to copy them to your home directory on `ap40
 $ scp -r USERNAME@ap1.facility.path-cc.io:htc-1.3 .
 ```
 
-Using this information, try this:
-From `ap40.uw.osg-htc.org`,
-try copying the tarball you created earlier in this exercise on `ap1.facility.path-cc.io`
-to `ap40.uw.osg-htc.org`.
-
 ### Secure copy to your laptop
 
 During your research, you may need to transfer output files
@@ -148,56 +139,11 @@ To use `scp` on your laptop, follow the instructions relevant to your computerâ€
 #### Mac and Linux users
 
 `scp` should be included by default and available via the terminal on both Mac and Linux operating systems.
-Open a terminal window on your laptop and
-try copying the tarball containing the OSG exercise 1.1 from `ap40.uw.osg-htc.org` to your laptop.
 
 #### Windows users
 
-WinSCP is an `scp` client for Windows operating systems.
-
-1.  Install WinSCP from <https://winscp.net/eng/index.php>
-1.  Start WinSCP and enter your SSH credentials for `ap40.uw.osg-htc.org`
-1.  Copy the tarball containing OSG exercise 1.1 to your laptop
-
-### Extra challenge: Using rsync
-
-(This last section is about a more advanced tool; you may skip this section if you want.)
-
-`scp` is a common and useful tool for file transfers between computers,
-but there are better tools if you find yourself transferring the same set of files to the same location repeatedly.
-Another common tool available on many Linux servers is `rsync`,
-which has more features than `scp` and is correspondingly more complex.
-The invocation is similar to `scp`:
-You can transfer files and/or folders,
-but the options are different
-and, when transferring folders, pay close attention to a trailing slash (`/`),
-because it means different things to include or omit that single character!
-
-Here is the general format of an `rsync` command:
-
-``` console
-rsync -Pavz <source 1> <source 2>...<source N> [username@]<remote server>:<remote path>
-```
-
-`rsync` has many benefits over `scp`,
-but two of its biggest features are built-in compression (so you don't have to create a tarball)
-and the ability to only transfer files that have changed.
-Both of these features are helpful when you have network issues
-so that you do not need to restart the transfer from scratch every time your connection fails.
-
-1.  Log in to `ap40.uw.osg-htc.org`
-1.  Use `rsync` to transfer the folder containing OSG exercise 1.1 on `ap1.facility.path-cc.io` to `ap40.uw.osg-htc.org`
-1.  In a separate terminal window, log in to `ap1.facility.path-cc.io`
-1.  Create a new file in your OSG exercise 1.1 folder on `ap1.facility.path-cc.io` with the `touch` command:
-
-        :::console
-        $ touch <filename>
-
-1.  From `ap40.uw.osg-htc.org`,
-    use the same `rsync` command to transfer the folder with the new file you just created.
-    How many files were transferred the first time?
-    How many files were transferred if you run the same rsync command again?
+WinSCP is an `scp` client for Windows operating systems. Install WinSCP from <https://winscp.net/eng/index.php>
 
 # Next exercise
 
-Once completed, move onto the next exercise: [Running jobs in the OSPool](part1-ex3-submit-osg.md)
+Once completed, move onto the next exercise: [Running jobs in the OSG](part1-ex2-submit-osg.md)

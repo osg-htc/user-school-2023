@@ -2,7 +2,7 @@
 status: testing
 ---
 
-# OSG Exercise 1.5: Software Differences in OSPool
+# OSG Exercise 1.4: Software Differences in OSPool
 
 The goal of this exercise is to see some differences in the availability of software in the OSPool.
 At your local cluster, you may be used to having certain versions of software.
@@ -100,7 +100,7 @@ get_version 'nslookup'
 For this part of the exercise, try creating a submit file without referring to previous exercises!
 
 1.  Log in or switch to `ap40.uw.osg-htc.org`
-1.  Create and change into a new folder for this exercise, e.g. `osg-ex15`
+1.  Create and change into a new folder for this exercise, e.g. `osg-ex14`
 1.  Save the above script as a file named `sw_probe.sh`
 1.  Make sure the script can be run: `chmod a+x sw_probe.sh`
 1.  Try running the script in place to make sure it works: `./sw_probe.sh`

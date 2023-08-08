@@ -2,7 +2,7 @@
 status: testing
 ---
 
-# OSG Exercise 1.4: Hardware Differences Between PATh and OSG
+# OSG Exercise 1.3: Hardware Differences Between PATh and OSG
 
 The goal of this exercise is to compare hardware differences between the Monday cluster
 (the PATh Facility) and the Open Science Pool.
@@ -111,7 +111,7 @@ Now you will do essentially the same thing on the OSPool.
 1.  Copy the `osg-ex14` directory from the [section above](#checking-chtc-memory-availability)
     from `ap1.facility.path-cc.io` to `ap40.uw.osg-htc.org`
 
-    If you get stuck during the copying process, refer to [OSG exercise 1.2](part1-ex2-login-scp.md).
+    If you get stuck during the copying process, refer to [OSG exercise 1.1](part1-ex1-login-scp.md).
 
 1.  Submit the jobs to the OSPool
 
@@ -119,7 +119,7 @@ Now you will do essentially the same thing on the OSPool.
 
 As you did in the first part, use `condor_q` to track how your sleep jobs are doing.
 It is fine to move on to the next exercise, but keep tracking the status of both sets of these jobs.
-After you are done with the [next exercise](part1-ex5-software-diffs.md),
+After you are done with the [next exercise](part1-ex4-software-diffs.md),
 come back to this exercise and analyze the results.
 
 ## Analyzing the results
