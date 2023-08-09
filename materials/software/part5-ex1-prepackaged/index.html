@@ -1220,16 +1220,16 @@ hmmsearch -o search-results.txt globins4.hmm globins45.fa
 <h2 id="run-a-hmmer-job">Run a HMMER job<a class="headerlink" href="#run-a-hmmer-job" title="Permanent link">&para;</a></h2>
 <p>We're almost ready! We need two more pieces to run a HMMER job.</p>
 <ol>
-<li>We're going to use some of the tutorial files provided with the HMMER download to 
-run the job. You already have these files back in the directory where you unpacked the source code:<div class="codehilite"><pre><span></span><code><span class="gp">username@ap1 $ </span>ls hmmer-3.3.2/tutorial
+<li>
+<p>We're going to use some of the tutorial files provided with the HMMER download to 
+run the job. You already have these files back in the directory where you unpacked the source code:</p>
+<div class="codehilite"><pre><span></span><code><span class="gp">username@ap1 $ </span>ls hmmer-3.3.2/tutorial
 <span class="go">7LESS_DROME    fn3.hmm  globins45.fa  globins4.sto  MADE1.hmm  Pkinase.hmm</span>
 <span class="go">dna_target.fa  fn3.sto  globins4.hmm  HBB_HUMAN     MADE1.sto  Pkinase.sto</span>
 </code></pre></div>
 
-</li>
-</ol>
 <p>If you don't see these files, you may want to redownload the <code>hmmer.tar.gz</code> file and untar it here.</p>
-<ol>
+</li>
 <li>
 <p>Our last step is to create a submit file for our HMMER job. Think about which lines this submit file will need. Make a copy of a previous submit file (you could use the blast submit file from a <a href="../part4-ex2-wrapper">previous exercise</a> as a base) and modify it as you think necessary.</p>
 </li>
