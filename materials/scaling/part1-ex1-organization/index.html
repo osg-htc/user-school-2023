@@ -1096,6 +1096,13 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#log-into-an-ospool-access-point" class="md-nav__link">
+    Log into an OSPool Access Point
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#get-files" class="md-nav__link">
     Get Files
   </a>
@@ -1151,17 +1158,18 @@
                 
                 
                 <h1 id="organizing-htc-workloads">Organizing HTC Workloads<a class="headerlink" href="#organizing-htc-workloads" title="Permanent link">&para;</a></h1>
-<p>(This exercise is derived from <a href="https://github.com/OSGConnect/tutorial-organizing">an OSG Connect tutorial</a>.)</p>
 <p>Imagine you have a collection of books,
 and you want to analyze how word usage varies from book to book or author to author. </p>
-<p>This exercise is similar to <a href="../htcondor/part2-ex3-queue-from/">HTCondor exercise 2.4</a>,
+<p>This exercise is similar to HTCondor exercise 2.4,
 in that it is about counting word frequencies in multiple files.
 But the focus here is on organizing the files more effectively on the Access Point,
 with an eye to scaling up to a larger HTC workload in the future.</p>
+<h2 id="log-into-an-ospool-access-point">Log into an OSPool Access Point<a class="headerlink" href="#log-into-an-ospool-access-point" title="Permanent link">&para;</a></h2>
+<p>Make sure you are logged into <code>ap40.uw.osg-htc.org</code>. </p>
 <h2 id="get-files">Get Files<a class="headerlink" href="#get-files" title="Permanent link">&para;</a></h2>
 <p>To get the files for this exercise:</p>
 <ol>
-<li><a href="../files/osgus22-day4-ex11-organizing-files.tar.gz">Click this link</a> to download the tarball.</li>
+<li>Type <code>wget https://github.com/osg-htc/user-school-2023/blob/main/docs/materials/scaling/files/osgus23-day4-ex11-organizing-files.tar.gz</code> to download the tarball.</li>
 <li>As you learned earlier, expand this tarball file; it will create a <code>organizing-files</code> directory.</li>
 <li>Change to that directory, or create a separate one for this exercise and copy the files in.</li>
 </ol>
