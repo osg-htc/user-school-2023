@@ -302,9 +302,9 @@ to those who can make it.
       <td>
         <span class="before-dot text-orange">Evening work session (optional)</span> 
         <br>
-        <span class="tabbed-in">TBD</span>
+        <span class="tabbed-in">Memorial Union &ndash; Park View room (4th Floor)</span>
       </td>
-      <td>TBD</td>
+      <td>Christina, Showmic</td>
     </tr>
   </tbody>
 </table>
@@ -415,9 +415,9 @@ to those who can make it.
       <td>
         <span class="before-dot text-orange">Evening work session (optional)</span> 
         <br>
-        <span class="tabbed-in">TBD</span>
-        </td>
-        <td>TBD</td>
+        <span class="tabbed-in">Memorial Union &ndash; Beefeaters room (3rd Floor East)</span>
+      </td>
+      <td>Mats (or Tim C.?), Andrew</td>
     </tr>
   </tbody>
 </table>
@@ -499,7 +499,7 @@ to those who can make it.
           &#9654; <span style="color: rgb(173, 81, 12);">Grant Nickles</span>; UW–Madison, Cellular and Molecular Biology<br>
           <div style="margin-left: 2ex;">“Unearthing nature's hidden arsenal: Mining fungal genomes for a new class of medicine and beyond”</div>
           &#9654; <span style="color: rgb(173, 81, 12);">Jimena Gonzalez</span>; UW–Madison, Physics<br>
-          <div style="margin-left: 2ex;">“Searching for gravitational lenses in the dark energy survey”</div>
+          <div style="margin-left: 2ex;">“Searching for gravitational lenses in the Dark Energy Survey”</div>
         </td>
     </tr>
     <tr>
@@ -522,14 +522,14 @@ to those who can make it.
     </tr>
     <tr>
       <td>16:00</td>
-      <td>16:30</td>
-      <td><span class="before-dot text-light-blue">Lecture: The End &hellip; and the Beginning</span></td>
-      <td>Tim C.</td>
+      <td>16:45</td>
+      <td><span class="before-dot text-light-blue">Lecture: OSG Philosophy of High Throughput Computing</span></td>
+      <td>Greg Thain</td>
     </tr>
     <tr>
-      <td>18:00</td>
-      <td>20:00</td>
-      <td>Dinner<br>Union South: Industry and Outdoor Pavilion (3rd Floor)</td>
+      <td>16:45</td>
+      <td>17:15</td>
+      <td><span class="before-dot text-light-blue">Lecture: Forward</span></td>
       <td>Tim C.</td>
     </tr>
   </tbody>
