@@ -27,6 +27,85 @@ will be served in the Education Building,
 Room L177, near upper doors of the lecture hall (L196).
 There is seating nearby both inside and outside.
 
+## Menus
+
+All catered, group meals that the School provides will include vegan and vegetarian options. None of the catered meals included pork.
+
+Below are the menus for the School-provided meals. Not all options for meeting dietary needs are listed, because the vendors provide them at their discretion. If you have concerns or questions, email us or talk to any of the organizers in person.
+
+### August 8 (Tuesday)
+
+#### Breakfast 
+
+- French Toast and Syrup (vegetarian)
+- Vegan option: Vegan Bagel and Vegan Cream Cheese)
+- Chicken Sausage
+- Fruit Platter (vegan)
+- Greek Yogurt (vegetarian)
+- Coffee, Tea and Assorted Juices
+
+
+#### Lunch 
+###### Southwestern Buffet
+
+- Southwest Tortilla Chips with Salsa (vegan)
+- Vegan chorizo Crumble (for vegans and vegetarians only)
+- Spanish Rice (vegan)
+- Beef Barbacoa
+- Chicken Tinga
+- Toppings - Lettuce, Tomatoes, Jalapeños, Shredded (vegan) Cheddar (vegetarian), Sour Cream (vegetarian), Guacamole (vegan), and Tortilla (vegan)
+- Assorted  Beverages/Water/Soda
+
+### August 9 (Wednesday)
+#### Breakfast  
+
+- Seasonal Fresh Cut Fruit Salad (vegan)
+- Bagels (vegan) and Cream Cheese
+- Muffins (for vegan and vegetarians)
+- Turkey Sausage
+- Hash Browns (vegan)
+- Scrambled eggs (vegetarian)
+- Coffee, Tea and Assorted Juices
+
+#### Lunch
+###### Bagged Lunch Plus Extras
+
+Bagged lunches plus extras — the boxed parts can be taken and eaten elsewhere.
+- Bagged Lunch: Chicken, White Cheddar, Garlic Aioli, Cranberry  Rice Break; plus Apple, Cookie, and Chips
+- Boxed Lunch for  Vegans and Vegetarians Only: Chimichurri Tofu (vegan), Mixed Greens (vegan), Cuban Bread (vegan); plus Apple (vegan), Cookie (vegetarian), and  Chips (Vegan). + Vegan Cookie
+- Veggie Tray (vegan) with Hummus (vegan) and Dill Dip (vegetarian)
+- Tarragon Potato Salad (vegan)
+- Bottled Water and Sodas
+
+### July 29 (Friday)
+#### Lunch
+###### Picnic Buffet
+
+- BBQ Grilled Chicken Breasts Sandwiches
+- Beyond Brats (vegan)
+- Macaroni and Cheese (vegetarian)
+- Fruit Salad (vegan)
+- Grilled Vegetable Pasta Salad (vegan)
+- Assorted Cookies (vegetarian) (+ vegan cookie)
+- Mayonnaise,  Ketchup and Mustard (vegan)
+- Bottled Water and Soda
+
+
+#### Dinner 
+
+(See the [schedule page](../schedule.md) for other details.)
+
+##### Global Buffet
+
+- Spinach, strawberry, shaved red onion salad (vegan), sesame poppy seed dressing
+- Vegetables (vegan), dips, spreads, pita chips (some vegan - will be marked)
+- Sake salmon
+- Jerk tofu (vegan)
+- Basmati rice  (vegan)
+- Stir-fried vegetables (vegan)
+- Naan Bread (vegan)
+
+
 ## Meal Reimbursement Tips
 
 Again, if you are **not** part of the UW&ndash;Madison community,
