@@ -1,20 +1,22 @@
 # Organizing HTC Workloads
 
-(This exercise is derived from [an OSG Connect tutorial](https://github.com/OSGConnect/tutorial-organizing).)
-
 Imagine you have a collection of books,
 and you want to analyze how word usage varies from book to book or author to author. 
 
-This exercise is similar to [HTCondor exercise 2.4](../htcondor/part2-ex3-queue-from/),
+This exercise is similar to HTCondor exercise 2.4,
 in that it is about counting word frequencies in multiple files.
 But the focus here is on organizing the files more effectively on the Access Point,
 with an eye to scaling up to a larger HTC workload in the future.
+
+## Log into an OSPool Access Point
+
+Make sure you are logged into `ap40.uw.osg-htc.org`. 
 
 ## Get Files
 
 To get the files for this exercise:
 
-1.  [Click this link](files/osgus22-day4-ex11-organizing-files.tar.gz) to download the tarball.
+1.  Type `wget https://github.com/osg-htc/user-school-2023/blob/main/docs/materials/scaling/files/osgus23-day4-ex11-organizing-files.tar.gz` to download the tarball.
 1.  As you learned earlier, expand this tarball file; it will create a `organizing-files` directory.
 1.  Change to that directory, or create a separate one for this exercise and copy the files in.
 
