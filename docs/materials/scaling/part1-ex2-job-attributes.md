@@ -1,6 +1,6 @@
 # Exercise 1.2: Investigating Job Attributes
 
-The objective of this exercise is to your awareness of job class ad attributes,
+The objective of this exercise is to your awareness of job "class ad attributes",
 especially ones that may help you look for issues with your jobs in the OSPool.
 
 Recall that a job class ad contains attributes and their values that describe what HTCondor knows about the job.
@@ -12,8 +12,7 @@ and want to see if jobs are running as expected or are maybe doing surprising th
 
 ## Preparing exercise files
 
-Because this exercise focuses on OSPool job attributes, please use your OSG Connect account
-on `login04.osgconnect.net` or `login05.osgconnect.net`.
+Because this exercise focuses on OSPool job attributes, please use your OSPool account on `ap40.uw.osg-htc.org`. 
 
 1.  Create a shell script for testing called `simple.sh`:
 
@@ -88,7 +87,7 @@ Let&rsquo;s explore these attributes on real jobs.
         :::console
         $ condor_q -l <JobId>
 
-    where `<JobId>` is your job's ID.
+    where `<JobId>` is your job's ID, and `-l` stands for `-long`
 
     This command lists all of the job&rsquo;s class ad attributes.
     Details of some of the attributes are in the
@@ -101,7 +100,7 @@ Let&rsquo;s explore these attributes on real jobs.
         :::console
         $ condor_q -af NumJobStarts <ClusterID>
 
-    where `<ClusterID>` is the HTCondor cluster ID noted above.
+    where `<ClusterID>` is the HTCondor cluster ID noted above, and `-af` stands for `-autoformat`.
 
     What does the output tell you?
 
