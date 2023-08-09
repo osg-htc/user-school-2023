@@ -10,11 +10,11 @@ status: testing
 Getting Job Information from Log Files
 ======================================
 
-HTCondor job log files contain useful information about submitted, running, and/or completed jobs, but the format of that information may not always be useful *to you*. During the lecture, we showed a few examples of how to use some powerful Unix commands (`grep`, `sort`, `uniq`) to pull information out of these job log files. Now it's time for you to try these on your own jobs!
+HTCondor job log files contain useful information about submitted, running, and/or completed jobs, but the format of that information may not always be useful *to you*. Here, we have a few examples of how to use some powerful Unix commands (`grep`, `sort`, `uniq`) to pull information out of these job log files. It is now time for you to try these on your own jobs!
 
 Before starting this exercise, copy a couple of your job log files from previous exercises (for example, HTC Exercise 1.5 and/or OSG Exercise 1.1) in to a new directory for this exercise. Use these log files in place of `my-job.log` in the examples below.
 
-The `grep` command displays lines from a file matching a given pattern, where the pattern is the first argument provided to `grep`. For example `grep '@' address_book.txt` would print out all lines containing the `@` character in the file named `address_book.txt`. While working through this exercise, consider keeping one of your job log files open in a separate window to see if you can figure out how we came up with the patterns presented in this exercise.
+The `grep` command displays lines from a file matching a given pattern, where the pattern is the first argument provided to `grep`. For example `grep 'alice' address_book.txt` would print out all lines containing the characters `alice` in the file named `address_book.txt`. While working through this exercise, consider keeping one of your job log files open in a separate window to see if you can figure out how we came up with the patterns presented in this exercise.
 
 Job terminations
 ----------------
@@ -114,10 +114,10 @@ In this example, the memory usage for the jobs ranged from 692 to 714 MB, and th
 Other job information
 ---------------------
 
-Without looking at the lecture materials, see if you can come up with `grep` commands to gather the number of bytes sent and received by jobs (i.e. how much data was transferred to/from the access point). Here is some example output for comparison:
+See if you can come up with `grep` commands to gather the number of bytes sent and received by jobs (i.e. how much data was transferred to/from the access point). Here is some example output for comparison:
 
 ``` console
-[username@learn]$ grep '<PATTERN REMOVED>' my-job.log
+[username@ap40]$ grep '<PATTERN REMOVED>' my-job.log
 760393  -  Total Bytes Sent By Job
 760395  -  Total Bytes Sent By Job
 760397  -  Total Bytes Sent By Job
@@ -127,7 +127,7 @@ Without looking at the lecture materials, see if you can come up with `grep` com
 760397  -  Total Bytes Sent By Job
 760395  -  Total Bytes Sent By Job
 
-[username@learn]$ grep '<PATTERN REMOVED>' my-job.log
+[username@ap40]$ grep '<PATTERN REMOVED>' my-job.log
 19240  -  Total Bytes Received By Job
 19240  -  Total Bytes Received By Job
 19240  -  Total Bytes Received By Job
