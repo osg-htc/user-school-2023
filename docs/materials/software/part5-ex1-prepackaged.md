@@ -116,7 +116,7 @@ run the job. You already have these files back in the directory where you unpack
 		7LESS_DROME    fn3.hmm  globins45.fa  globins4.sto  MADE1.hmm  Pkinase.hmm
 		dna_target.fa  fn3.sto  globins4.hmm  HBB_HUMAN     MADE1.sto  Pkinase.sto
 
-If you don't see these files, you may want to redownload the `hmmer.tar.gz` file and untar it here.
+	If you don't see these files, you may want to redownload the `hmmer.tar.gz` file and untar it here.
 
 1.  Our last step is to create a submit file for our HMMER job. Think about which lines this submit file will need. Make a copy of a previous submit file (you could use the blast submit file from a [previous exercise](../part4-ex2-wrapper) as a base) and modify it as you think necessary.
 
