@@ -1135,9 +1135,9 @@
 </style>
 
 <h1 id="getting-job-information-from-log-files">Getting Job Information from Log Files<a class="headerlink" href="#getting-job-information-from-log-files" title="Permanent link">&para;</a></h1>
-<p>HTCondor job log files contain useful information about submitted, running, and/or completed jobs, but the format of that information may not always be useful <em>to you</em>. During the lecture, we showed a few examples of how to use some powerful Unix commands (<code>grep</code>, <code>sort</code>, <code>uniq</code>) to pull information out of these job log files. Now it's time for you to try these on your own jobs!</p>
+<p>HTCondor job log files contain useful information about submitted, running, and/or completed jobs, but the format of that information may not always be useful <em>to you</em>. Here, we have a few examples of how to use some powerful Unix commands (<code>grep</code>, <code>sort</code>, <code>uniq</code>) to pull information out of these job log files. It is now time for you to try these on your own jobs!</p>
 <p>Before starting this exercise, copy a couple of your job log files from previous exercises (for example, HTC Exercise 1.5 and/or OSG Exercise 1.1) in to a new directory for this exercise. Use these log files in place of <code>my-job.log</code> in the examples below.</p>
-<p>The <code>grep</code> command displays lines from a file matching a given pattern, where the pattern is the first argument provided to <code>grep</code>. For example <code>grep '@' address_book.txt</code> would print out all lines containing the <code>@</code> character in the file named <code>address_book.txt</code>. While working through this exercise, consider keeping one of your job log files open in a separate window to see if you can figure out how we came up with the patterns presented in this exercise.</p>
+<p>The <code>grep</code> command displays lines from a file matching a given pattern, where the pattern is the first argument provided to <code>grep</code>. For example <code>grep 'alice' address_book.txt</code> would print out all lines containing the characters <code>alice</code> in the file named <code>address_book.txt</code>. While working through this exercise, consider keeping one of your job log files open in a separate window to see if you can figure out how we came up with the patterns presented in this exercise.</p>
 <h2 id="job-terminations">Job terminations<a class="headerlink" href="#job-terminations" title="Permanent link">&para;</a></h2>
 <p>Lines for job termination events in the job log always start with <code>005</code> and contain the timestamp of when the job(s) ended. Use the following <code>grep</code> command to get a list of when jobs ended in your log files:</p>
 <div class="codehilite"><pre><span></span><code><span class="gp">$ </span>grep <span class="s1">&#39;^005&#39;</span> my-job.log
@@ -1210,8 +1210,8 @@
 <p>In this example, the memory usage for the jobs ranged from 692 to 714 MB, and they all requested (and were allocated) 1 GB of memory.</p>
 <p><strong>Challenge</strong>: Put your memory and/or disk information from your jobs into a spreadsheet and calculate the average resource usage of your jobs.</p>
 <h2 id="other-job-information">Other job information<a class="headerlink" href="#other-job-information" title="Permanent link">&para;</a></h2>
-<p>Without looking at the lecture materials, see if you can come up with <code>grep</code> commands to gather the number of bytes sent and received by jobs (i.e. how much data was transferred to/from the access point). Here is some example output for comparison:</p>
-<div class="codehilite"><pre><span></span><code><span class="gp">[username@learn]$ </span>grep <span class="s1">&#39;&lt;PATTERN REMOVED&gt;&#39;</span> my-job.log
+<p>See if you can come up with <code>grep</code> commands to gather the number of bytes sent and received by jobs (i.e. how much data was transferred to/from the access point). Here is some example output for comparison:</p>
+<div class="codehilite"><pre><span></span><code><span class="gp">[username@ap40]$ </span>grep <span class="s1">&#39;&lt;PATTERN REMOVED&gt;&#39;</span> my-job.log
 <span class="go">760393  -  Total Bytes Sent By Job</span>
 <span class="go">760395  -  Total Bytes Sent By Job</span>
 <span class="go">760397  -  Total Bytes Sent By Job</span>
@@ -1221,7 +1221,7 @@
 <span class="go">760397  -  Total Bytes Sent By Job</span>
 <span class="go">760395  -  Total Bytes Sent By Job</span>
 
-<span class="gp">[username@learn]$ </span>grep <span class="s1">&#39;&lt;PATTERN REMOVED&gt;&#39;</span> my-job.log
+<span class="gp">[username@ap40]$ </span>grep <span class="s1">&#39;&lt;PATTERN REMOVED&gt;&#39;</span> my-job.log
 <span class="go">19240  -  Total Bytes Received By Job</span>
 <span class="go">19240  -  Total Bytes Received By Job</span>
 <span class="go">19240  -  Total Bytes Received By Job</span>
