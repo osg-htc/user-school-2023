@@ -1123,7 +1123,7 @@
                 
                 
                 <h1 id="exercise-12-investigating-job-attributes">Exercise 1.2: Investigating Job Attributes<a class="headerlink" href="#exercise-12-investigating-job-attributes" title="Permanent link">&para;</a></h1>
-<p>The objective of this exercise is to your awareness of job class ad attributes,
+<p>The objective of this exercise is to your awareness of job "class ad attributes",
 especially ones that may help you look for issues with your jobs in the OSPool.</p>
 <p>Recall that a job class ad contains attributes and their values that describe what HTCondor knows about the job.
 OSPool jobs contain extra attributes that are specific to that pool.
@@ -1131,8 +1131,7 @@ Thus, an OSPool job class ad may have well over 150 attributes.</p>
 <p>Some OSPool job attributes are especially helpful when you are scaling up jobs
 and want to see if jobs are running as expected or are maybe doing surprising things that are worth extra attention.</p>
 <h2 id="preparing-exercise-files">Preparing exercise files<a class="headerlink" href="#preparing-exercise-files" title="Permanent link">&para;</a></h2>
-<p>Because this exercise focuses on OSPool job attributes, please use your OSG Connect account
-on <code>login04.osgconnect.net</code> or <code>login05.osgconnect.net</code>.</p>
+<p>Because this exercise focuses on OSPool job attributes, please use your OSPool account on <code>ap40.uw.osg-htc.org</code>. </p>
 <ol>
 <li>
 <p>Create a shell script for testing called <code>simple.sh</code>:</p>
@@ -1209,7 +1208,7 @@ then examine their job class ad attributes.</p>
 <div class="codehilite"><pre><span></span><code><span class="gp">$ </span>condor_q -l &lt;JobId&gt;
 </code></pre></div>
 
-<p>where <code>&lt;JobId&gt;</code> is your job's ID.</p>
+<p>where <code>&lt;JobId&gt;</code> is your job's ID, and <code>-l</code> stands for <code>-long</code></p>
 <p>This command lists all of the job&rsquo;s class ad attributes.
 Details of some of the attributes are in the
 <a href="https://htcondor.readthedocs.io/en/latest/classad-attributes/job-classad-attributes.html">HTcondor Manual</a>.
@@ -1221,7 +1220,7 @@ Can you find any of the attributes listed above?</p>
 <div class="codehilite"><pre><span></span><code><span class="gp">$ </span>condor_q -af NumJobStarts &lt;ClusterID&gt;
 </code></pre></div>
 
-<p>where <code>&lt;ClusterID&gt;</code> is the HTCondor cluster ID noted above.</p>
+<p>where <code>&lt;ClusterID&gt;</code> is the HTCondor cluster ID noted above, and <code>-af</code> stands for <code>-autoformat</code>.</p>
 <p>What does the output tell you?</p>
 </li>
 <li>
