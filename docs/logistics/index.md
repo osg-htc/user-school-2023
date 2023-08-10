@@ -35,6 +35,11 @@ and there will be optional work sessions on Monday, Tuesday, Wednesday, and Thur
 
 [The tentative schedule](../schedule.md) is available now and will not change much before the event.
 
+## Accessing the OSPool After the School
+
+See the [project creation instructions](projects.md) to continue using the OSPool 
+after the school. 
+
 ## Contact Information
 
 If you have questions, do not wait to contact us!
