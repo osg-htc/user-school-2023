@@ -168,9 +168,9 @@ END EXTRA TOPICS THAT ARE NOT READY YET -->
 ### Self-checkpointing for long-running jobs
 
 View the slides
-([PDF](checkpoint/files/OSGUS2023_checkpointing.pdf),[PowerPoint](checkpoint/files/OSGUS2023_checkpointing.ppt))
+([PDF](checkpoint/files/OSGUS2023_checkpointing.pdf),[PPT](checkpoint/files/OSGUS2023_checkpointing.pptx))
 
--   [Exercise 1.1: **DRAFT**: Trying out self-checkpointing](checkpoint/part1-ex1-checkpointing.md)
+-   [Exercise 1.1: Trying out self-checkpointing](checkpoint/part1-ex1-checkpointing.md)
 
 <!-- BEGIN EXTRA TOPICS THAT ARE NOT READY YET
 
