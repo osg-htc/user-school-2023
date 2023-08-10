@@ -115,11 +115,8 @@ Now, you are ready to submit the whole workload.
     Do this by using the shell `ls` command and redirecting its output to a file:
 
         :::console
-        $ cd input
-        $ ls > booklist.txt
+        $ ls input > booklist.txt
         $ cat booklist.txt
-        $ mv booklist.txt ..
-        $ cd ..
 
 1.  Modify the submit file to reference the file of inputs and replace the fixed value (`Alice_in_Wonderland.txt`) with a variable (`$(book)`):
 
