@@ -66,7 +66,7 @@ and a directory for your output files.
         README.md    books.submit input        output       wordcount.py
 
         ./input:
-        Alice_in_Wonderland.txt Huckleberry_Finn.txt    Ulysses.txt
+        Alice_in_Wonderland.txt Huckleberry_Finn.txt
         Dracula.txt             Pride_and_Prejudice.txt
 
         ./output:
