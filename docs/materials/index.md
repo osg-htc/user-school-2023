@@ -137,8 +137,8 @@ View the slides
 ## Workflows with DAGMan
 
 View the slides
-([PDF](data/files/osgus23-dagman.pdf),
-[PowerPoint](data/files/osgus23-dagman.pptx))
+([PDF](workflows/files/osgus23-dagman.pdf),
+[PowerPoint](workflows/files/osgus23-dagman.pptx))
 
 ### DAGMan Exercises 1
 
