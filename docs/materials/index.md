@@ -121,6 +121,19 @@ View the slides
 - [Exercise 2.1: OSDF for inputs](data/part2-ex1-osdf-inputs.md)
 - [Exercise 2.2: OSDF for outputs](data/part2-ex2-osdf-outputs.md)
 
+
+## Scaling Up
+
+View the slides
+([PDF](scaling/files/osgus23-scaling-out.pdf))
+
+### Scaling Up Exercises
+
+-   [Exercise 1.1: Organizing HTC workloads](scaling/part1-ex1-organization.md)
+-   [Exercise 1.2: Investigating Job Attributes](scaling/part1-ex2-job-attributes.md)
+-   [Exercise 1.3: Getting Job Information from Log Files](scaling/part1-ex3-log-files.md)
+
+
 ## Workflows with DAGMan
 
 View the slides
