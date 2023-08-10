@@ -537,4 +537,10 @@ to those who can make it.
 
 **Closing Dinner**
 
-Details TBD.
+*   **Location:** Union South (next to Computer Sciences), indoors/outdoors
+*   **Time:** 6:00&ndash;8:00 p.m., or until people leave
+
+We have scheduled a buffet dinner to wrap up the School.
+The buffet itself, and some tables, are inside.
+But if the weather is good, we will have easy access to outdoor space, too and
+we encourage everyone to head outside with their food. 
