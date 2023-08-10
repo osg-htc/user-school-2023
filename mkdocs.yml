@@ -35,7 +35,7 @@ nav:
   - Health Guidelines:              health.md
   - Logistics:
     - General information:          logistics/index.md
-    - Access OSPool long-term       logistics/projects.md
+    - Access OSPool long-term:      logistics/projects.md
     - Travel:
       - Travel planning:            logistics/travel-planning.md
       - Travel Inc form tips:       logistics/travel-form.md
