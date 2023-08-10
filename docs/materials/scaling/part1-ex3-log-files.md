@@ -42,7 +42,7 @@ $ grep termination my-job.log | sort | uniq -c
 Here's an example of the output from the previous commands when run on a log file written to from eight jobs. Six jobs exited with exit code `0`, while two exited `1`:
 
 ``` console
-[username@learn]$ grep '^005' my-job.log
+[username@ap40]$ grep '^005' my-job.log
 005 (236881.000.000) 2022-07-27 15:07:38 Job terminated.
 005 (236883.000.000) 2022-07-27 15:07:42 Job terminated.
 005 (236882.000.000) 2022-07-27 15:08:01 Job terminated.
@@ -52,7 +52,7 @@ Here's an example of the output from the previous commands when run on a log fil
 005 (236892.000.000) 2022-07-27 15:13:58 Job terminated.
 005 (236890.000.000) 2022-07-27 15:13:59 Job terminated.
 
-[username@learn]$ grep 'termination' my-job.log
+[username@ap40]$ grep 'termination' my-job.log
 (1) Normal termination (return value 0)
 (1) Normal termination (return value 1)
 (1) Normal termination (return value 0)
@@ -62,7 +62,7 @@ Here's an example of the output from the previous commands when run on a log fil
 (1) Normal termination (return value 0)
 (1) Normal termination (return value 0)
 
-[username@learn]$ grep 'termination' my-job.log | sort | uniq -c
+[username@ap40]$ grep 'termination' my-job.log | sort | uniq -c
 6   (1) Normal termination (return value 0)
 2   (1) Normal termination (return value 1)
 ```
@@ -96,7 +96,7 @@ $ grep 'Disk (KB) *:' my-job.log
 Here's some example output from running the memory `grep` command on the same eight-job log file:
 
 ``` console
-[username@learn]$ grep 'Memory (MB) *:' my-job.log
+[username@ap40]$ grep 'Memory (MB) *:' my-job.log
 Memory (MB)          :      692     1024      1024 
 Memory (MB)          :      714     1024      1024 
 Memory (MB)          :      703     1024      1024 
@@ -109,7 +109,6 @@ Memory (MB)          :      697     1024      1024
 
 In this example, the memory usage for the jobs ranged from 692 to 714 MB, and they all requested (and were allocated) 1 GB of memory.
 
-**Challenge**: Put your memory and/or disk information from your jobs into a spreadsheet and calculate the average resource usage of your jobs.
 
 Other job information
 ---------------------
