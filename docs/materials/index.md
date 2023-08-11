@@ -183,11 +183,8 @@ View the slides
 
 - [Exercise 1.1: GPUs](special/part1-ex1-gpus.md)
 
-<!-- BEGIN EXTRA TOPICS THAT ARE NOT READY YET
-
 ### Introduction to Research Computing Facilitation
 
-Slides will be posted here.
+View the slides: [PDF](facilitation/files/osgus23-facilitation-campuses.pdf)
 
-END EXTRA TOPICS THAT ARE NOT READY YET -->
 
