@@ -172,6 +172,17 @@ View the slides
 
 -   [Exercise 1.1: Trying out self-checkpointing](checkpoint/part1-ex1-checkpointing.md)
 
+
+### Special Environments
+
+View the slides
+([PDF](special/files/osgus23-special.pdf),
+[PowerPoint](special/files/osgus23-special.pptx))
+
+### Special Environments Exercises 1
+
+- [Exercise 1.1: GPUs](special/part1-ex1-gpus.md)
+
 <!-- BEGIN EXTRA TOPICS THAT ARE NOT READY YET
 
 ### Introduction to Research Computing Facilitation

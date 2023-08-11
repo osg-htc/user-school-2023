@@ -102,3 +102,6 @@ nav:
       - Exercise 1.5:               materials/workflows/part1-ex5-challenges.md
     - Self-checkpointing:
       - Exercise 1.1:               materials/checkpoint/part1-ex1-checkpointing.md
+    - Special Environments:
+      - Exercise 1.1:               materials/special/part1-ex1-gpus.md
+
