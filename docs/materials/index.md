@@ -187,4 +187,7 @@ View the slides
 
 View the slides: [PDF](facilitation/files/osgus23-facilitation-campuses.pdf)
 
+## Final Talks
 
+*   Philosophy: (slides coming soon)
+*   Final thoughts: [PDF](final/files/osgus23-day5-part6-forward-timc.pdf)
