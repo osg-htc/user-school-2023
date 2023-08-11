@@ -10,8 +10,9 @@ to the OSPool.
 	
 	[Project Creation Form](https://topology.opensciencegrid.org/generate_project_yaml)
 
-
-1. Copy the text in the grey box. Send that text in an email to support@osg-htc.org, 
+1. **Ignore the instructions under the gray text (where it says "To complete this process 
+you must:")!!** Instead, copy the text in the 
+grey box and send it to us in an email. Email us at support@osg-htc.org, 
 **cc'ing the PI of your research group**, asking them to confirm your membership 
 in their group. If you are the PI, that should be indicated in 
 the email. 
